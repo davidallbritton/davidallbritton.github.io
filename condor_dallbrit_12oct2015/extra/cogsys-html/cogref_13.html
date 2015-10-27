@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Network installation</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Network installation">
+<META NAME="keywords" CONTENT="Cogsys: Network installation">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC21"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_12.html#SEC20"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_14.html#SEC22"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_3.html#SEC11"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_11.html#SEC19"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_16.html#SEC24"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 1.3.2 Network installation </H3>
+<!--docid::SEC21::-->
+<P>
+
+Here at Northwestern, Cogsys is run in a networked environment. This
+allows a clean separation between the <EM>data host</EM> and the Cogsys
+<EM>client system</EM>. The data host is the computer that is used to store
+both the teslists and outfile, and that is probably used to both create
+those teslists and analyze the data files. Such a machine is probably a
+workstation running some variant of the Unix operating system.  By
+contrast, the Cogsys client system need only be a very low end DOS box
+which is probably used for nothing other than running testlists.
+</P><P>
+
+The idea behind a networked installation is to have several 
+(here, we have 9) client machines that are all connected to one
+data host. A control program runs on the client system. The control
+program asks for testlist and outfile names; it then retrieves the
+testlist from the data host, runs Cogsys, and then uploads the outfile
+to the data host, and starts over. 
+</P><P>
+
+There are some important things to remember when using a networked
+installation:
+</P><P>
+
+<UL>
+<LI>
+Cogsys does does not, and should not, know about the control program.
+Cogsys will simply run whatever file <EM>it</EM> was told to run.
+When a networked installation has a problem, the first thing to determine
+is whether the fault is with Cogsys or the control program.
+<LI>
+Similarly, Cogsys writes its data to the output file that was
+specified. It is the control program's responsibility to properly
+archive or upload the contents of this file. Particularly if Cogsys
+is run in succession without explicit outfile specifications, it will
+simply overwrite the old data.
+<LI>
+If possible, all of the client systems should be identical. This
+greatly reduces problems that are caused by oddball hardware
+(say, a strange video card or BIOS).
+</UL>
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_14.html#SEC22">1.3.2.1 Serial Connection</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_15.html#SEC23">1.3.2.2 Ethernet Connection</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_12.html#SEC20"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_14.html#SEC22"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_3.html#SEC11"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_11.html#SEC19"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_16.html#SEC24"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

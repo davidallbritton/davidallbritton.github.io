@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <!-- a template for strict XHTML 1.0 documents -->
+  <!-- (strict documents are supposed to follow XHTML 1.0 specifications) -->
+  <!-- by David Allbritton -->
+
+  <head>
+    <meta name="generator" content=
+    "HTML Tidy for Linux/x86 (vers 1st March 2002), see www.w3.org" />
+
+    <title>More hints for #6 on assignment 1</title>
+  </head>
+
+  <body>
+    <h2>More hints for #6 on assignment 1</h2>
+
+    <h3>Start by pseudo-coding it:</h3>
+
+    <p>Write out in words what you need to do to solve the problem.
+    What is the goal state? (an ordered list of the words listing
+    how many times each occurs, or the top of that list) What is
+    the starting point or problem state? (the original file). How
+    could you get there?</p>
+
+    <h3>You may need to work backwards:</h3>
+
+    <ul>
+      <li>Need list of words and how many times each occurs: uniq
+      can do that.</li>
+
+      <li>need all the words on one line each, with all the
+      occurrences of each word together to give to uniq. sort can
+      put all the occurrences on adjacent lines.</li>
+
+      <li>Need to get one word on each line first. How could I do
+      that? If I could change everything that is not a letter (a-z
+      or A-Z) to a line break, each word would be on a separate
+      line.</li>
+    </ul>
+
+    <h3>So:</h3>
+
+    <ol>
+      <li>change all non-alphabetic characters to newline
+      characters (using tr)<br />
+      (this: '\n' is how you can specify a newline character)<br />
+      (Here is a way to change non-alphabetic characters to
+      newlines: tr -sc '[:alpha:]' '\n'<br />
+      In speaking to some of you I incorrectly said this would do
+      it: tr -s '[^a-zA-Z]' '\n'<br />
+      I forgot that the tr command uses -c to mean "everything
+      except these" rather than the ^ as some other commands do.
+      Oops.)</li>
+
+      <li>sort the resulting list of words</li>
+
+      <li>count how many times each word occurs (using uniq)</li>
+
+      <li>sort the resulting list to find the one that occurred the
+      most</li>
+    </ol>
+
+    <p>There are probably several ways to accomplish each of these
+    steps, and step 1 could be accomplished in one command or by
+    stringing 2 or more commands together.</p>
+  </body>
+</html>
+

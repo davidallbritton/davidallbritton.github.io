@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml" >
+
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+
+    <title>javascript10.html</title>
+		
+<script type = "text/javascript">
+<!--
+document.writeln("<h1>Randomizing an Array</h1>");
+
+  // create an array of numbers:
+var numsArray = [1,2,3,4,5,6,7,8,9,10]; 
+
+// print out the array before randomizing:   
+document.writeln("<p>The array before it is randomized:");
+document.writeln("<br />");
+document.write("numsArray = ");
+document.writeln(numsArray + "</p>");
+
+// define a function for comparing two numbers to use in the sort.
+// this function will return a random value, thus randomizing the order
+// when it is used as the basis for sorting
+function randSort (value1, value2)
+{
+   return Math.random() - Math.random();
+}             // end of function definition
+
+// sort the array randomly:
+numsArray.sort(randSort);
+
+
+// print out the array after randomizing:   
+document.writeln("<p>The array after it is randomized:");
+document.writeln("<br />");
+document.write("numsArray = ");
+document.writeln(numsArray + "</p>");
+
+// -->
+</script>
+		
+  </head>
+
+  <body></body>
+	
+</html>
+

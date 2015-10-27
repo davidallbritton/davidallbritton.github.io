@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<html xmlns="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      Embedded Style Sheets in XHTML
+    </title>
+    <!-- The following is an embedded style sheet                        -->
+    <!-- There are three rules defined: one for all paragraphs,          -->
+    <!-- one for paragraphs that have the class attribute "special"      -->
+    <!-- and one for all elements of any type that have the class        -->
+    <!-- attribute of "veryspecial"                                      -->
+<style type="text/css">
+     p            {color: blue}
+     p.special    {color: purple}
+     .veryspecial {color: orange; font-style: bold}
+  
+</style>
+  </head>
+  <body>
+    <h1>
+      Embedded Style Sheets
+    </h1>
+    <p>
+      An embedded style sheet is declared within the &lt;head&gt;
+      element of an XHTML document. It applies to the whole
+      document, rather than just one element. Each style
+      declaration (or <em>CSS rule</em>) gets applied to
+      everything in the document that matches that rule. Each
+      rule has 2 parts: the element the rule applies to and the
+      rule itself within curly braces {}. Look at the source of
+      this page for more details.
+    </p>
+    <p>
+      This document has an embedded style sheet rule for all
+      paragraph elements that defines the font-color as blue. It
+      also has the same in-line style declarations that were
+      included in the file <em>style1-inline.html</em>
+    </p>
+    <p style="color: #007F00; font-style: italic">
+      This paragraph has an inline style declaration in its
+      opening &lt;p&gt; tag that causes the paragraph to be
+      printed in green and in italics.
+    </p>
+    <p>
+      This paragraph has no inline style delclaration in its
+      opening &lt;p&gt; tag.
+    </p>
+    <p style="color: #B20000">
+      To apply a style to just <span style="color: green">part of
+      a paragraph</span> rather than the whole paragraph, the
+      &lt;span&gt; tag is often used. The &lt;span&gt; tag is
+      just used for grouping (like parentheses in a mathematical
+      formula) and carries no meaning. Putting &lt;span&gt; tags
+      around part of a paragraph allows you to apply an inline
+      style to just that section of text between the &lt;span&gt;
+      and &lt;/span&gt; tags.
+    </p>
+    <p>
+      Look at the source code of this page (styles1-inline.html)
+      and answer the following questions:
+    </p>
+    <p style=
+    "font-family: arial, sans-serif; background-color: yellow">
+      2. What happens when styles from in-line styles conflict
+      with those from embedded style sheets?
+    </p>
+    <p class="special">
+      A style can also be declared for only a certain
+      <em>class</em> of instances of an element. For example,
+      this paragraph is tagged as being a paragraph of the class
+      <em>special</em>. A rule in the embedded style sheet for
+      this document applies only to paragraphs of class
+      <em>special</em> - it says to display them in a purple font
+      color.
+    </p>
+    <p style=
+    "font-family: arial, sans-serif; background-color: yellow">
+      3. Which style won out in determining how the previous
+      paragraph was displayed? The style declared for all
+      paragraphs, or the style for "special" paragraphs?
+    </p>
+    <p style=
+    "font-family: arial, sans-serif; background-color: yellow">
+      4. How are <em>classes</em> identified in an embedded style
+      sheet? How is a class identified within a markup tag within
+      the body of the document?
+    </p>
+    <hr />
+    <p class="special">
+      This is a "special" paragraph, with a <em class=
+      "veryspecial">very special phrase</em> within it.
+    </p>
+    <hr />
+    <div class="veryspecial">
+      <h4>
+        This level 4 heading and the following paragraph are both
+        within a &lt;div&gt; element that has the class attribute
+        of "veryspecial." The &lt;div&gt; tag is like the
+        &lt;span&gt; tag, except it can be used to group large
+        sections that contain multiple paragraph elements, etc.
+      </h4>
+      <p class="special">
+        This is a "special" paragraph, with a <em class=
+        "veryspecial">very special phrase</em> within it.
+      </p>
+    </div>
+    <p style=
+    "font-family: arial, sans-serif; background-color: yellow">
+      5. Does the order in which the styles are declared in the
+      <em>head</em> of the document affect which one gets applied
+      when they conflict? Copy this page (styles2-embedded.html)
+      to you public_html directory and change the order of the
+      styles to determine the answer.
+    </p>
+    <p style=
+    "font-family: arial, sans-serif; background-color: yellow">
+      6. The CSS (Cascading Style Sheet) specification says that
+      when two or more conflicting styles are applied to the same
+      element, the style with the greatest <em>specificity</em>
+      is the one that wins out. From the examples on this page,
+      what would you conclude about how "specificity" is
+      determined? In other words, can you draw any conclusions
+      about what styles have greater specificity than others?
+    </p>
+  </body>
+</html>
+

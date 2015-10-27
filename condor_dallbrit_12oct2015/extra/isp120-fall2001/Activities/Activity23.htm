@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>ISP 120: Electoral Vote vs. Popular Vote</title>
+</head>
+
+<body>
+<div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="15%"><p align="left"><strong>Quantitative Reasoning</strong></td>
+    <td width="70%"><p align="center"><strong>Activity 23: The Electoral Vote vs. The Popular
+    Vote</strong></td>
+    <td width="15%"></td>
+  </tr>
+</table>
+</center></div><div align="center"><center>
+
+<table border="0" cellpadding="0">
+  <tr>
+    <td><img border="0" src="http://qrc.depaul.edu/djabon/images/harrison.gif" width="171" height="270"></td>
+    <td><p align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td><img border="0" src="http://qrc.depaul.edu/djabon/images/cleveland.gif" width="168" height="270"></td>
+  </tr>
+  <tr>
+    <td><p align="center">Benjamin Harrison<br>
+    1833-1901</td>
+    <td></td>
+    <td><p align="center">Grover Cleveland<br>
+    1837-1908</td>
+  </tr>
+</table>
+</center></div>
+
+<p>The purpose of this activity is to analyze election data.&nbsp; In particular, we will
+look at the election of 1888, the last time that one candidate (Benjamin Harrison) won the
+electoral vote, and another candidate (Grover Cleveland) won the popular vote.&nbsp; It
+occurred only one other time (the election of Rutherford B. Hayes in 1876), and such a
+scenario is possible in the 2000 elections: Al Gore may well win the electoral vote, but
+George W. Bush may win the popular vote. &nbsp; In the process, we will learn about the IF
+command in Excel, something we haven't yet looked at in Quantitative Reasoning.</p>
+
+<p><b>Activity</b></p>
+
+<p>1. Open the file <a href="http://qrc.depaul.edu/Excel_Files/1888election.xls">1888Election.xls</a>.
+&nbsp; It contains the popular vote by state in the 1888 election, whose main presidential
+candidates were Benjamin Harrison, the Republican candidate, and Grover Cleveland, the
+Democratic candidate.&nbsp; It also contains the number of electoral votes for each state
+at that time. The number of electoral votes a state has is equal to the sum of the number
+of its representatives and the number of its senators, that is, 2 more than the number of
+representatives.&nbsp; The number of representatives is roughly proportional to the
+population of the state, so it follows that the number of electoral votes is roughly
+proportional to the population of the state. &nbsp; There are 538 total electoral votes,
+so 270 are needed to win the election. If a presidential candidate wins the popular vote
+in a given state, he receives <b>all</b> the electoral votes of that state.&nbsp; This
+method raises the possibility that one candidate can have more votes than the other
+candidate overall yet lose the election.&nbsp; The&nbsp; scenario occurred in 1888.&nbsp;
+We will explore how it came about.</p>
+
+<p>Include in your Word document your answer to each question.</p>
+
+<p>a.&nbsp; How many percent of the popular vote did Harrison receive? How many percent
+did Cleveland? (You will need to sum columns. You can use the sum button <img
+alt="wpe1.jpg (729 bytes)" src="../btaylor/images/SumButton.jpg" width="16" height="16"> or use the SUM( ) command.)</p>
+
+<p>b. Now we wish to calculate the electoral votes each candidate received.&nbsp; The rule
+is simple: if Cleveland's vote in a state is higher than Harrison's vote, then Cleveland
+gets all the electoral votes of that state.&nbsp; In order to do this easily in Excel
+(without doing each state manually), one need a conditional statement, an&nbsp; IF
+statement.&nbsp; The IF statement is Excel has the following syntax:</p>
+
+<p align="center">=IF(logical condition, what happens when condition is true, what happens
+when condition is false)</p>
+
+<p align="left">For example =IF(B2&gt;0, C2*2, D2+1) will produce C2 multiplied by 2 if B2
+is greater than zero, and otherwise, if&nbsp; B2 is less than or equal to zero, it will
+produce D2+1.</p>
+
+<p align="left">Using the IF command, add two columns to the table, one with the electoral
+vote for Harrison, the other with the electoral vote for Cleveland. Finally, add up the
+electoral votes for Harrison and and for Cleveland.&nbsp; Write them in your Word
+document.&nbsp; Harrison won, so Harrison's electoral votes better be greater than
+Cleveland's!</p>
+
+<p align="left">c. Using an IF command, add column that contains a &quot;1&quot; if
+Harrison won the state and contains a &quot;0&quot; if Cleveland won. Now make a map of
+this new column and paste it into your Word document. This map shows which states Harrison
+won and which Cleveland won. Describe the geographic patterns in a well-written paragraph
+noting any outliers. (For a check plus, format this map nicely: for example make the
+legend indicate that dark represents a Harrison state, light a Cleveland state, etc.)</p>
+
+<p align="left">d. We would like to understand how this unusual situation (winning the
+popular vote but losing the election) came about. The key is the margin of victory in the
+states, especially the large states.&nbsp; Add a few more columns to your table: one
+containing the percentage of the popular vote received by Harrison in each state, another
+with the percentage of the vote received by Cleveland. Finally subtract these two columns
+to produce a column which we can entitle &quot;Harrison's margin of victory&quot;. &nbsp;
+Note it is negative if Cleveland won.&nbsp; Finish off by making a scatterplot (not
+connected) with electoral votes on the x-axis and margin of victory on the y-axis. Your
+graph should look something like (without labels and comments).&nbsp;&nbsp;</p>
+
+<p align="center"><img src="http://qrc.depaul.edu/djabon/images/1888.gif"
+alt="1888.gif (36659 bytes)" width="582" height="420"></p>
+
+<p align="left">&nbsp;</p>
+
+<p>e. Notice that in the four most populous states (the ones with the most electoral
+votes), Harrison had a very slim margin of victory.&nbsp; In a well-written paragraph,
+explain why this fact makes it quite likely that Cleveland received many popular votes.</p>
+
+<p>f. In a well written paragraph, explain how it came about that Harrison won the
+election but Cleveland won the popular vote.</p>
+
+<p>2. Open the file <a
+href="http://qrc.depaul.edu/Excel_Files/2000ElectionProjections.xls">2000ElectionProjection.xls</a>,
+which contains very recent projections for the 2000 election, as well as a map of these
+current projections. </p>
+
+<p>a. Determine how many electoral votes are inclined toward Bush, how many are inclined
+to Gore, and how many are tossups, and write your answer in your Word document.. (The
+easiest way is to do this is probably to sort on column C and then sum the portions.
+&nbsp; Who has the edge in these projections?</p>
+
+<p>b. Study the map. In light of what you learned above and using the data here, describe
+a potential scenario where Bush will win the popular vote yet Gore will win the election.
+(To make this precise we would need to get projections of the popular vote along with
+estimates of the margin of victory in each state.&nbsp;In this activity we don't want to
+go into such detail. However, the 1888 election and distribution of states that support
+Gore or are tossups suggests how it can come about.)</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: TXTEXT Implementation</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: TXTEXT Implementation">
+<META NAME="keywords" CONTENT="Cogsys: TXTEXT Implementation">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC116"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_107.html#SEC115"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_109.html#SEC117"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_96.html#SEC104"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_103.html#SEC111"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_109.html#SEC117"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> <CODE>TXTEXT</CODE> Implementation </H4>
+<!--docid::SEC116::-->
+<P>
+
+The <CODE>TXTEXT</CODE> performs that same housekeeping tasks (determining
+size, saving data segment, clearing playground) that all other
+extensions do.
+</P><P>
+
+The <CODE>TXTEXT</CODE> also draws heavily from many of the techniques
+outlined in <A HREF="cogref_102.html#SEC110"><CODE>RANDEXT</CODE> Implementation</A>. See that section for
+discussion on the <CODE>getrandom()</CODE> macro, the structure of <CODE>for</CODE>
+loops that plot pixels, how to randomly select white or black pixels,
+and how to use the argument buffer for temporary storage between calls.
+</P><P>
+
+Features specific to the <CODE>TXTEXT</CODE> extension are really only those
+operations that actually draw text. Cogsys uses the third party library
+BGI Font Toolkit from Ryle Design to plot text. While the BGI Font
+Toolkit was designed to be used with the Borland Graphics Interface,
+Cogsys instead uses it with a homegrown graphics library called
+GUBS<A NAME="DOCF3" HREF="cogref_fot.html#FOOT3">(3)</A>
+The GUBS library lets the user specify a <EM>slate</EM> to draw to, which
+may be the actual video buffer, or, as is the case in the <CODE>TXTEXT</CODE>, a
+virtual buffer that is copied to video memory later. Consider these
+lines of code from <TT>`txtext.c'</TT>:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>asm mov ds, oldseg;
+SetGubs(GUBS_SLATE3, A);
+resetbounds();
+</pre></td></tr></table></P><P>
+
+which restore the original data segment and switch the slate to the
+current playground, <SAMP>`A'</SAMP>. Note also the <CODE>resetbounds()</CODE>
+function, which explicity resets the text bounds before new text is
+drawn.
+</P><P>
+
+Text itself is drawn with the Ryle Design replacements for the classic
+BGI text functions:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>/* gx and gy are specified by user to be the CENTER of the character */
+/* but bgi_outtextxy wants the top left corner. we adjust here */
+gx -= bgi_textwidth(arg+22)/2;
+gy -= bgi_textheight(arg+22)/2;
+bgi_outtextxy(gx, gy, arg+22); 
+</pre></td></tr></table></P><P>
+
+Finally, the bounds (which are available as external variables) are
+saved locally, the slate is reset to the video buffer, and the data
+segment is brought back to the extension scope:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>minx = bound_minx;
+maxx = bound_maxx;
+miny = bound_miny;
+maxy = bound_maxy;
+SetGubs(GUBS_SLATE2, NULL);
+asm mov ds, myseg;
+</pre></td></tr></table></P><P>
+
+On a final note, in subfunction 4, the "flipping" is neatly
+accomplished by using the C exclusive-or operator, <SAMP>`^'</SAMP>:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>for (i=minx; i&#60;=maxx; i++)
+  for (j=miny; j&#60;=maxy; j++)
+    {
+      getrandom();
+      if (r &#60; q)
+        A[j*320 + i] ^= WHITE;
+    }
+</pre></td></tr></table></P><P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_107.html#SEC115"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_109.html#SEC117"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_96.html#SEC104"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_103.html#SEC111"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_109.html#SEC117"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Refresh Rate</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Refresh Rate">
+<META NAME="keywords" CONTENT="Cogsys: Refresh Rate">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC49"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_40.html#SEC48"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_39.html#SEC47"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.3.2 Refresh Rate (<CODE>#F</CODE>) </H4>
+<!--docid::SEC49::-->
+<P>
+
+The Refresh Rate command gives the user the ability to change the refresh rate
+of the CRT. This allows stimuli to be presented for much shorter durations than
+would be otherwise possible. The Refresh Rate takes a single argument which specifies
+the <EM>approximate</EM> time in milliseconds per frame.
+</P><P>
+
+<STRONG>Warning:</STRONG> This command reprograms the video adapter to overdrive
+your monitor.  It will only work on a fixed frequency monitor; a
+multisynchronous monitor will either display noise, report that video
+input is invalid, or start to make high pitched whine and subsequently
+explode. Even on a compatible fixed frequency monitor, prolonged display
+at high refresh rates will damage the CRT. It is therefore recommended
+this command be used with some caution.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Refresh Rate
+<DT>Class:
+<DD>Video Control
+<DT>Code:
+<DD><CODE>#F</CODE>
+<DT>Syntax:
+<DD><CODE>#F<VAR>rate</VAR></CODE>
+<BR><VAR>rate</VAR> must be an integer from 2 through 10.
+<DT>System:
+<DD>Switches display frequency to <EM>approximately</EM> <VAR>rate</VAR> milliseconds per frame.
+<DT>Requires:
+<DD>This command only works on fixed frequency monitors.
+<P>
+
+<DT>History:
+<DD>In Cogsys 2.x, a <SAMP>`#F'</SAMP> was used to set fast refresh graphics mode,
+and the now-defunct <SAMP>`%E'</SAMP> was required for text modes. The Cogsys 3.x
+<CODE>#F</CODE> correctly works in any mode.
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`REFR_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>#F5hi from fast refresh mode#W3000#F0</CODE>
+<DT>cogsys
+<DD>Switches into fast refresh mode, screen updates every 5 ms, 200 Hz. The
+text <SAMP>`hi from fast refresh mode'</SAMP> is displayed for 3 seconds, then video is returned to normal
+refresh rate (usually, 60 Hz).
+</DL>
+<P>
+
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

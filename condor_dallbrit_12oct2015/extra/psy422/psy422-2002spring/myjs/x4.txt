@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE> Duke Waving II </TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+ var dukeImages = new Array("T2.gif","T4.gif","T6.gif","T8.gif","T10.gif")
+ var thisDuke=0
+
+ function previousDuke() {
+
+   if (document.images && thisDuke > 0) {
+
+       thisDuke--
+       document.seqDuke.src = dukeImages[thisDuke]
+
+  }
+
+ }
+
+ function nextDuke() {
+
+   if (document.images && thisDuke < 5) {
+
+       thisDuke++
+       document.seqDuke.src = dukeImages[thisDuke]
+
+  }
+
+ }
+
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="white">
+  <CENTER>
+   <IMG SRC="T1.gif" BORDER="0" NAME="seqDuke"><P>
+   <A HREF=javascript:previousDuke()> Previous </A> &nbsp;
+   <A HREF=javascript:nextDuke()> Next </A> 
+  </CENTER>
+<P>
+<A HREF="x4.txt"> The Code </A>
+</BODY>
+</HTML>

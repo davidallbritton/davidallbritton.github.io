@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml" >
+
+  <head>
+    <meta name="generator" content=
+    "HTML Tidy for Linux/x86 (vers 1st March 2002), see www.w3.org" />
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+
+    <title>javascript7.html</title>
+		
+<script type = "text/javascript">
+<!--
+document.writeln("<h1>While loops for user input;" +
+   "<br>Increment and decrement operators</h1>");
+
+document.writeln ("<p>Counting backwards</p>");
+ 
+// Declaring  variables:
+var i, startnum, num;
+
+// This while loop tries to make sure the user input is valid   
+do {
+   startnum = window.prompt("What number shall we count " +
+      "backwards from?\n\(must be 10 or less\)",
+      "10");
+   startNum = parseInt (startnum);
+} while ( isNaN(startNum) || (startNum > 10) );
+
+
+
+// Each of these loops prints the numbers 1-startNum in reverse order
+
+document.writeln("<p>Using a <em>while</em> loop:<br />");
+i = 1;  // must initialize the index variable
+// while structure:
+while (i <= startNum) {
+   num = 11 - i;
+   document.write(num);
+   if (i < 10) document.write (", ");
+   i += 1;
+}  // end of while structure
+document.writeln ("</p>");
+
+
+document.writeln("<p>Using a <em>do/while</em> loop:<br />");
+i = 1;  // must initialize the index variable
+// do/while structure:
+do {
+   num = startNum - (i-1);
+   document.write(num);
+   if (i < 10) document.write (", ");
+   i ++;
+} while (i <= startNum);     // end of do/while structure
+document.writeln ("</p>");
+
+document.writeln("<p>Using a <em>for</em> loop:<br />");
+// no need to initialize the index variable in a for loop
+// for structure:
+for (num = startNum; num >= 1; num--) {
+   document.write(num);
+   if (num > 1) document.write (", ");
+}  // end of for structure
+document.writeln ("</p>");
+
+// -->
+</script>
+		
+  </head>
+
+  <body></body>
+	
+</html>
+

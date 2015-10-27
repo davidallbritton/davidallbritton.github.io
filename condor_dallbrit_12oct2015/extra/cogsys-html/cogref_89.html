@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Data Segments</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Data Segments">
+<META NAME="keywords" CONTENT="Cogsys: Data Segments">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC97"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_88.html#SEC96"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_85.html#SEC93"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_86.html#SEC94"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 3.2.2.3 Data Segments </H4>
+<!--docid::SEC97::-->
+<P>
+
+Cogsys runs in MS-DOS, and MS-DOS is a <EM>real mode</EM> environment. This
+unfortunate fact is the key to the system's real time capabilities but is also
+the chief source of the developer's headaches. Intel (and compatible)
+processors run in one of two states: real or protected. Real mode does not
+support multitasking and is therefore almost never used by modern
+operating systems; it survives only for backwards compatablity and
+system boot. Protected mode fully exploits the processor's capabilities,
+and allows for much smoother and faster execution. Protected mode
+operating systems are always multitasking, however, and so by nature are
+poor candidates for real time systems. 
+</P><P>
+
+This section documents a very ugly real mode issue that must be
+understood for writing working extensions. <STRONG>Your extension will not work
+unless you incorporate the changes this section describes.</STRONG>
+</P><P>
+
+The biggest drawback of real mode is the <EM>segmented memory model</EM>
+that comes with it. Unlike modern operating systems, which have a
+<EM>flat memory model</EM>, real mode requires the programmer to access
+memory with <EM>two</EM> addresses: a 16-bit <EM>segment</EM> followed by a
+16-bit <EM>offset</EM>. A real mode address is usually written as two two-byte quantities
+separated by a colon, for example: <CODE>162E:023A</CODE>. Most unfortunately, the
+highest memory address is not a 32-bit quantity (4 GB, the protected,
+flat model limit) but rather a 20-bit one, 1 MB. This means that the
+segments <EM>overlap</EM>, which in turn implies that there are more than one
+(in fact, there are 4,096) different ways to talk about the same address: 
+<CODE>1001:0000</CODE> and <CODE>1000:0010</CODE> are the same location. To help improve speed,
+real mode makes two requirements. First a function must fit entirely in one
+segement (64 kilobytes). Then, once inside a function, an internal processor
+register, called the <EM>data segment register</EM> (abbreviated <CODE>DS</CODE> in
+assembly language) is set to the current function's <EM>data segment</EM>. The data
+segment is a segment of memory where some of this function's data, including
+certain constants, local array structures and many other variables
+specific to the function, resides. The value of the data segment register 
+is used whenver the function needs a value from its data segment.
+</P><P>
+
+So what does this all this data segment assembly language garbage have to do with
+writing extensions? Unfortunately, because the block of memory that the
+extension routine runs in is allocated dynamically at run time and is so by
+definition in a completely different segment than everything else, it is
+the awful responsibility of the extension writer to modify the data
+segment register <EM>manually</EM>, or code in the extension will not be able to
+access its data properly.
+</P><P>
+
+Fortunately, this is not as hard as it sounds. Borland Turbo C/C++ 3.0
+has an <CODE>asm</CODE> keyword which allows the C programmer to directly
+insert a line of assembly language. What's more, this line can directly
+reference C code identifiers. In assembly language, the <CODE>mov</CODE>
+directive means move (copy) data from one memory location to another. 
+So changing the value of the data segment register is as simple as this:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>  asm mov ds, <VAR>new-data-segment-value</VAR>;
+</pre></td></tr></table></P><P>
+
+Because we are in real mode, the processor registers are all 16-bit
+quantities. We use variables of type <CODE>unsigned short</CODE> to store 
+register values. So here's a bit of code that saves the current value of the
+data segment register, changes it, and then restores it.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>  unsigned short oldseg, newseg;
+  <small>...</small>
+  asm mov oldseg, des;
+  asm mov ds, newseg;
+  <small>...</small>
+  asm mov ds, oldseg;
+</pre></td></tr></table></P><P>
+
+So now that we know why and how the data segment register should
+be changed, the only questions remaining are when it must be reset
+and what it must be reset to.
+</P><P>
+
+The "what" question is easy: as far as the extension writer is
+concerned, the data segment register should either have it's original
+value (that is, the value it had when the function was entered), or it
+should be set to the data segment of the block of memory where the
+extension was loaded.  These are refered to below as the <EM>original
+segment value</EM> and the <EM>extension segment value</EM>.
+</P><P>
+
+You get the original segment by saving the contents of the data segment
+register as soon as your extension is called. The second value, the
+extension segment, is passed to your extension as the first two bytes of
+the <CODE>arg</CODE> buffer.
+</P><P>
+
+So the following lines need to be added to the top of the <CODE>extension</CODE>
+routine in our <TT>`shape.c'</TT> file:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>  unsigned short oldseg, myseg;
+  <small>...</small>
+  myseg = *((unsigned short *) arg); /* get extension segment value */
+  asm mov oldseg,ds  ;               /* save current value of ds */
+  asm mov ds,myseg;                  /* reset to ds to our location */
+</pre></td></tr></table></P><P>
+
+At the end of the function, restore the data segment register to the original value:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>  asm mov ds,oldseg ;
+</pre></td></tr></table></P><P>
+
+The final twist is that the answer to the "when" question is not so
+simple as "change to extension segment at beginning, restore to
+original segment at end". Many main program objects that are referenced
+from the extension (for instance, <CODE>gVars[]</CODE> or <CODE>sin()</CODE> from
+the examples above) need to have the data segment restored to the
+original segment before they are called.  The word "many" is used
+because, exasperatingly, <EM>not all</EM> main program objects need to
+have the data segment register set. And no, you can't just always change the
+data segment before all main object references; depending on how your
+statement makes use of local variables, that may not work either.
+</P><P>
+
+So what to do? First, don't panic. In <EM>all</EM> cases where extensions
+were not behaving properly, the solution was either to set or reset the
+value of the data segment register before a single line of C code, and
+then undo that setting after it. So in the very worst possible case, a little
+bit of trial and error will solve your problem (surprisingly, this has
+become a very effective tactic). 
+</P><P>
+
+Secondly, you can make use of the following rules:
+<UL>
+<LI>
+A reference to an extension local variable will always work regardless
+of the setting of the data segment register.
+<LI>
+External data objects, like the main Cogsys program's <CODE>gVar[]</CODE>
+array, must have the data segment set to the original segment value.
+<LI>
+External function objects which themselves have static data (which
+includes but is not limited to <CODE>sin()</CODE>, <CODE>cos()</CODE>, and
+<CODE>rand()</CODE>), must have the data segment set to the original segment value.
+<LI>
+External function objects which definitely do not have data segments
+(which includes things like <CODE>memset()</CODE> and <CODE>memcpy()</CODE>) will
+work best if DS is set to the extension segment value.
+<LI>
+Everything else works best with the DS set to the extension segment value.
+</UL>
+<P>
+
+So, in a nutshell, here's the answer to the "when" question:
+</P><P>
+
+<OL>
+<LI>
+If you need to access <CODE>gVar[]</CODE> or any other main program data
+object, copy what you need to local variables right at the beginning.
+<LI>
+Now, save and reset the data segment register.
+<LI>
+If you need to use <CODE>sin()</CODE>, <CODE>cos()</CODE>, <CODE>rand()</CODE>, do this:
+<UL>
+<LI>
+Make sure the arguments to the function is just a simple local variable,
+ie, your actual call should be nothing more complicated than <CODE>sin(x)</CODE>.
+<LI>
+Switch data segment register to original segment value.
+<LI>
+Call <CODE>y = sin(x);</CODE>
+<LI>
+Switch data segment register back to extension segment.
+</UL>
+This can encapsulated nicely in a C macro. For example: 
+<TABLE><tr><td>&nbsp;</td><td><pre>#define getrandom() asm mov ds, oldseg; r= rand(); asm mov ds, myseg
+</pre></td></tr></table>lets you call <CODE>getrandom();</CODE> by itself. Subsequently, the local
+variable <CODE>r</CODE> will be set to a new random number.
+<LI>
+Restore the data segment register to original value.
+</OL>
+<P>
+
+It is presently unclear if all this could be avoided with a smarter
+dynamic loader in Cogsys--because the dependence on data segments is
+hard to re-create after compilation, attempts to solve the problem from
+that approach have not been reliable. As with the limitations on types
+of external objects called, it is most probable that the correct
+solution to the Data Segment Register headache is to move Cogsys to a
+platform which natively supports dynamically linked libraries
+(see section <A HREF="cogref_112.html#SEC120">New Directions</A>). It is also worth nothing that while
+these modifications are hideously inelegant and can be terribly
+confusing, in practice, it is little more than an minor irriation.
+</P><P>
+
+Here is the revised code for the shape extension. This one will build
+cleanly following the instructions at the begining of this chapter, and
+the resulting <TT>`SHAPE.CXR'</TT> is a real, live extension that can used
+in the field.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre></pre></td></tr></table></P><P>
+
+The next section is the Extension Reference, which fully describes, for
+all including extensions, every option to the user and every line of
+source for the developer. By following the rules detailed here and using
+examples from the reference section, the fearless user will be able to
+create some very powerful extensions. 
+</P><P>
+
+Be sure to send me screenshots. <CODE>:)</CODE>
+</P><P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_88.html#SEC96"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_85.html#SEC93"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_86.html#SEC94"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

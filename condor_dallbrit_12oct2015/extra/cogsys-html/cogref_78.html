@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: What is CXR</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: What is CXR">
+<META NAME="keywords" CONTENT="Cogsys: What is CXR">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC86"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_77.html#SEC85"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_79.html#SEC87"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_76.html#SEC84"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_77.html#SEC85"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.1.1 What is a Cogsys Extension Routine (CXR) ? </H3>
+<!--docid::SEC86::-->
+<P>
+
+A Cogsys <EM>extension</EM> is a file that Cogsys loads and executes at run
+time which provides additional capabilities.  You can think of an
+extension as part of the main Cogsys program that only gets used when it
+needs to be. Its mechanism is similar to plug-ins for Netscape Navigator.
+</P><P>
+
+Technically, an extension is a kind of <EM>dynamically linked library</EM>.
+Dynamically linked libraries are present in most operating systems: on
+Windows these files usually named with the <TT>`.DLL'</TT> extension; on
+Unix, they are called <TT>`lib<VAR>name</VAR>.so'</TT>. Cogsys runs in DOS,
+however, which does not provide a standard means of using dynamically
+linked libraries. Cogsys extensions therefore have their own
+implementation and extension (<TT>`*.CXR'</TT>). Also, CXRs provide certain
+capabilities that traditional DLL's can not <A HREF="cogref_83.html#SEC91">Cogsys Extensions</A>.
+</P><P>
+
+What can an extension do? In theory, anything the real Cogsys does.  In
+practice, the only extensions that have been created which the main
+program knows how to call are used for dynamically creating pictures.
+An extension routine that creates such images is called a <EM>picture
+generator</EM>.
+</P><P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

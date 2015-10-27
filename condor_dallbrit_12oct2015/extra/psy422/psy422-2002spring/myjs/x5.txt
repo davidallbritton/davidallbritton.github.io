@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE> Duke Waves at Random Position </TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+ var dukeImages = new Array("T1.gif","T3.gif","T5.gif","T7.gif","T9.gif", 
+                            "T2.gif","T4.gif","T6.gif","T8.gif")
+ function waveDuke() {
+
+   if (document.images) {
+
+       rndNbr = 1 + Math.floor((Math.random()*10)) % 8
+       document.seqDuke.src = dukeImages[rndNbr]
+
+  }
+
+ }
+
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="white" onload="waveDuke()">
+  <CENTER>
+   <IMG SRC="T10.gif" BORDER="0" NAME="seqDuke"><P>
+  </CENTER>
+</BODY>
+<P>
+<A HREF="x5.txt"> The Code </A>
+</HTML>

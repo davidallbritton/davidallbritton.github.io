@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Multiframe Picture Display</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Multiframe Picture Display">
+<META NAME="keywords" CONTENT="Cogsys: Multiframe Picture Display">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC69"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_60.html#SEC68"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_62.html#SEC70"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.5.6 Multiframe Picture Display (<CODE>%J</CODE>) </H4>
+<!--docid::SEC69::-->
+<P>
+
+The Multiframe Picture Display command allows the user to show a series
+of loaded pictures in succession. The pictures can come from any of
+the Cogsys picture loading/creating commands: Load Picture List, Load
+Referenced Pictures, or Create Pictures by CXR.
+</P><P>
+
+Multiframe Picture Display takes a sequence of triplets to specify
+the start picture, end picture and frames per picture that each image
+is to be displayed for.
+</P><P>
+
+Multiframe displays are synchronized to the monitor's raster beam, which
+ensures that an image is displayed for exactly the number of frames
+that the user specifies.
+</P><P>
+
+If a testlist uses any of the multiframe picture commands (Multiframe
+Picture Display <CODE>%J</CODE>, Response Multiframe Cycling Picture Display
+<CODE>%K</CODE>, or Response Multiframe Picture Display <CODE>%L</CODE>), Cogsys
+empirically measures the frame rate and appends lines to the output
+explicitly stating the refresh rate and frame speed for this experiment.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Multiframe Picture Display
+<DT>Class:
+<DD>Picture
+<DT>Code:
+<DD><CODE>%J</CODE>
+<DT>Syntax:
+<DD><CODE>%J[<VAR>start</VAR>,<VAR>end</VAR>,<VAR>frames</VAR></CODE> [<CODE>, <VAR>start2</VAR>, <VAR>end2</VAR>, <VAR>frames2</VAR></CODE>] <CODE><small>...</small> ]</CODE>
+<BR><VAR>start</VAR> and <VAR>end</VAR> are integers from 1 to one less than <CODE>MAX_UNIQUE_PICS</CODE> (by default, 
+<BR><VAR>frames</VAR> is an integer from 1 to <CODE>MAX_FRAMES</CODE> (
+No more than  (<CODE>MAX_PICSETS</CODE>) triplets can be specified
+<DT>System:
+<DD>Displays the pictures from <VAR>start</VAR> to <VAR>end</VAR> for <VAR>frame</VAR> pictures each.
+<P>
+
+<DT>Requires:
+<DD>Cogsys must be in a graphics mode, and the referenced pictures must be loaded.
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`MFPD_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>%J[1,25,1,26,26,5,27,36,2]</CODE>
+<DT>cogsys
+<DD>Displays pictures 1 through 25 for 1 frame each, then picture 26 for 5
+frames, finaly pictures 27 through 36 for 2 frames each.
+<DT>output
+<DD></DL>
+<P>
+
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

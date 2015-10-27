@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Arithmetic</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Arithmetic">
+<META NAME="keywords" CONTENT="Cogsys: Arithmetic">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC37"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_28.html#SEC36"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_30.html#SEC38"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_23.html#SEC31"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.1.5 Arithmetic (<CODE>$M</CODE>) </H4>
+<!--docid::SEC37::-->
+<P>
+
+The Arithmetic command allows simple arithmetic between Cogsys variables.
+</P><P>
+
+This command is used to perform simple integer arithmetic on two
+numbers (either variables or constants) and then store the result in a
+Cogsys variable. The operators allowed in the $M command are: 
+</P><P>
+
+<DL COMPACT>
+<DT><CODE>+</CODE>
+<DD>addition
+<DT><CODE>-</CODE>
+<DD>subtraction
+<DT><CODE>*</CODE>
+<DD>multiplication
+<DT><CODE>/</CODE>
+<DD>division
+<DT><CODE>\</CODE>
+<DD>modulus (remainder)
+</DL>
+<P>
+
+Note that Cogsys variables are stored as long integers; an operation
+with a result that exceeds 2,147,483,647 will yield an invalid
+negative number as a result, and similarly for underflow.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Arithmetic
+<DT>Class:
+<DD>Control
+<DT>Code:
+<DD><CODE>$M</CODE>
+<DT>Syntax:
+<DD><CODE>$M<VAR>vdest</VAR>=<VAR>val1</VAR><VAR>op</VAR><VAR>val2</VAR></CODE>
+<BR><VAR>vdest</VAR> is a variable reference
+<BR><VAR>val1</VAR> and <VAR>val2</VAR> are numbers
+<BR><VAR>op</VAR> is a character, must be one of <SAMP>`+'</SAMP>, <SAMP>`-'</SAMP>, <SAMP>`*'</SAMP>, <SAMP>`/'</SAMP>, <SAMP>`\'</SAMP>
+<DT>System:
+<DD>Cogsys performs the requested operation on the two numbers and stores the result in
+the variable <VAR>vdest</VAR>.
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`MATH_T01.IN'</TT>
+<DD>tests basic operation, including overflow example
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>$MV12=12*4</CODE>
+<DT>cogsys
+<DD>Assigns 48 (12 * 4) to variable <CODE>V12</CODE>
+</DL>
+<P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>$MV12=V12+1</CODE>
+<DT>cogsys
+<DD>Increments the value of variable <CODE>V12</CODE> by one
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

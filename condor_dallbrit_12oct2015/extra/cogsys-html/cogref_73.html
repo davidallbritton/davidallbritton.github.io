@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Timed Button J1B1 Response</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Timed Button J1B1 Response">
+<META NAME="keywords" CONTENT="Cogsys: Timed Button J1B1 Response">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC81"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_72.html#SEC80"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_74.html#SEC82"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_69.html#SEC77"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_75.html#SEC83"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.7.4 Timed Button J1B1 (+/- J2B1) Response (<CODE>#M</CODE>) </H4>
+<!--docid::SEC81::-->
+<P>
+
+The Timed Button J1B1 (+/- J2B1) Response command pauses Cogsys execution until
+gameport button J1B1 is pressed (alone or with J2B1). If J1B1 is pressed, the
+key <KBD>A</KBD> is written to output with the response time. If J1B1 is not pressed
+within the specified time limit, <CODE></CODE> is written to 
+output with the time limit.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Timed Button J1B1 Response
+<DT>Class:
+<DD>Gameport
+<DT>Code:
+<DD><CODE>#M</CODE>
+<DT>Syntax:
+<DD><CODE>#M<VAR>timelimit</VAR></CODE>
+<DT>System:
+<DD>Waits up to <VAR>timelimit</VAR> milliseconds for J1B1 (+/- J2B1) to be
+pressed.  Then writes response to output. Cogsys variable
+ (<CODE>COGVAR_KEY</CODE>) is updated with the key pressed.
+Cogsys variable  (<CODE>COGVAR_TIME</CODE>) is updated
+with the reaction time.
+<DT>Output:
+<DD>The character <SAMP>`A'</SAMP> with the response time is written to output.  If
+the timelimit <VAR>limit</VAR> is reached before J1B1 is pressed,
+<SAMP>`'</SAMP> (<CODE>TIMEUP_RESP_CHAR</CODE>) is written as
+the key pressed, and <VAR>timelimit</VAR> as the time.
+<P>
+
+<DT>Breakout:
+<DD>NO
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`RJB1_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>#M500</CODE>
+<DT>subject
+<DD>Presses button 1 on joystick 1 after 100 milliseconds.
+<DT>output
+<DD><CODE>A100</CODE>
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,350 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>ISP 120 Activity 19: Loans</title>
+</head>
+
+<body>
+<div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="15%"><p align="left"><strong>ISP 120</strong></td>
+    <td width="70%"><p align="center"><strong>Activity 19&nbsp;&nbsp; Loans</strong></td>
+    <td width="15%"></td>
+  </tr>
+</table>
+</center></div>
+
+<p>All group activities must include a statement signed by all members of your group that
+each group member fully participated in the activity. Save it to the desktop and save
+frequently during the hour.</p>
+
+<p><strong>Learning Goals for this Activity</strong> 
+
+<ol>
+  <li>You will be able to calculate loan payments using the PMT function in Excel.</li>
+  <li>You will be able to calculate the total amount paid, the total interest paid and the
+    total principal paid on the loan.</li>
+</ol>
+
+<p><b>Instructions on how to use the PMT function&nbsp; </b>Click in an empty cell.&nbsp;
+Click the paste function button 
+<img border="0"
+src="http://qrc.depaul.edu/djabon/images/PasteFunction.gif" width="16" height="16">.&nbsp;&nbsp; A dialogue box
+will open giving hundreds of built in functions.&nbsp; Choose Financial in the left column
+and PMT in the right column:</p>
+
+<p align="center">
+<img border="0" src="http://qrc.depaul.edu/djabon/images/PMT1.gif" width="387" height="295"></p>
+
+<p align="left">Click OK, and a new dialogue will appear:</p>
+
+<p align="center"><img border="0" src="http://qrc.depaul.edu/djabon/images/PMT.gif" width="470" height="251"></p>
+
+<blockquote>
+  <p><b>Rate</b> is the loan interest rate. (<b>Note: this is the monthly rate.&nbsp; In
+  practice, it should almost always be a quantity divided by 12.</b>)<br>
+  <b>Nper</b> is the total number of payments to be made.&nbsp; (This quantity is almost
+  always a multiple of 12; for example, for a 30 year loan, it is 30*12 or 360.)<br>
+  <b>Pv</b> is the amount of the loan.<br>
+  <b>Fv</b> is the future value of the loan and usually is not filled in. Leave blank or
+  enter 0.<br>
+  <b>Type</b> is indicating whether the payment is made at the beginning or the end of the
+  month. Almost all loans have payments at the end of the month.&nbsp; Therefore in almost
+  every case, leave this blank.</p>
+</blockquote>
+
+<p>Excel, in contrast to other spreadsheets, has the payment function return negative
+values.&nbsp; Excel is technically correct, but in practice this behavior is a bit of a
+nuisance. To get positive payment values, you can enter the negative of the loan amount in
+Pv or put a negative in front of PMT in the cell.</p>
+
+<p><b>Questions</b></p>
+
+<p>1.&nbsp; Determine (i) your monthly payments; (ii) the total amount paid over the term
+of the loan (interest and principal); and (iii) how much you will pay in interest over the
+loan term.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a.&nbsp; You borrow $20,000 over a period of 5-1/2
+years at an annual percentage rate of 8.5%. <font color="#FF0000">(Payment is $380.42, 
+total amount is $25,107.42, interest paid is $5,107.42)</font></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b.&nbsp; You borrow $100,000 over a period
+of 15 years at an annual percentage rate of 7%. <font color="#FF0000">(Payment 
+is $898.83, total amount is $161,789.40, interest is $61,789.40)</font></p>
+
+<p>2.&nbsp; Suppose that you have a student loan of $25,000 with an annual percentage rate
+of 8% for 12 years.</p>
+
+<p>&nbsp;&nbsp;&nbsp; a.&nbsp; What are your required monthly payments? <font
+color="#FF0000">($270.61)</font></p>
+
+<p>&nbsp;&nbsp;&nbsp; b.&nbsp; Set up an Excel spreadsheet with an amortization table for
+this loan.&nbsp; An amortization table shows the amount of the loan paid for each month of
+the loan for the history of the loan.&nbsp; It might look like:</p>
+
+<table border="1" height="116">
+  <tr height="51" style="mso-height-source:userset;height:38.25pt">
+    <font size="3"><td height="57" width="64" style="width: 48pt">Month</font></td>
+    <td class="xl24" width="132" style="width: 99pt" height="57">Loan balance at beginning of
+    month</td>
+    <td class="xl24" width="128" style="width: 96pt" height="57">Payment at end of month</td>
+    <td width="83" style="width: 62pt" height="57">Interest for month</td>
+    <td class="xl24" width="133" style="width: 100pt" height="57">Loan balance at end of month</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="24" align="right" x:num>0</td>
+    <td class="xl22" x:num="2500" height="24">&nbsp;</td>
+    <td class="xl22" x:str=" =MAX(B2*0.02,25)" height="24">&nbsp;</td>
+    <td class="xl23" x:str=" =B2*0.21/12" height="24">&nbsp;</td>
+    <td class="xl23" x:str=" =B2-C2+D2" height="24">$25,000</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <font size="3"><td height="24" align="right" x:num>1</font></td>
+    <td class="xl22" x:num="2500" height="24"><span style="mso-spacerun: yes">
+    =E2</span></td>
+    <td class="xl22" x:str=" =MAX(B2*0.02,25)" height="24"><span style="mso-spacerun: yes">Monthly
+    payment</span></td>
+    <td class="xl23" x:str=" =B2*0.21/12" height="24">=B3*0.08/12</td>
+    <td class="xl23" x:str=" =B2-C2+D2" height="24">=B3-C3+D3</td>
+  </tr>
+  <tr height="17" style="height:12.75pt">
+    <td height="17" align="right" x:num><font size="3"><span style="mso-spacerun: yes">2</span></font></td>
+    <td class="xl22" x:num="2500" height="17"><font size="3"><span style="mso-spacerun: yes">
+    =E3</span></font></td>
+    <td class="xl22" x:str=" =MAX(B2*0.02,25)" height="17"><span style="mso-spacerun: yes"><font
+    size="3">Monthly payment</font></span></td>
+    <td class="xl23" x:str=" =B2*0.21/12" height="17"><font size="3">=B4*0.08/12</font></td>
+    <td class="xl23" x:str=" =B2-C2+D2" height="17"><font size="3">=B4-C4+D4</font></td>
+  </tr>
+</table>
+
+<p>Verify that the loan will paid off in 12 years, and paste the top ten rows of the table
+into your Word document.</p>
+<div align="center"><center>
+
+<table x:str border="0" cellpadding="0" cellspacing="0" width="340"
+style="border-collapse: collapse; width: 256pt" height="116">
+<colgroup>
+<col width="64" style="width: 48pt">
+<col width="73" style="width: 55pt">
+<col width="65" span="2" style="width: 49pt">
+<col width="73" style="width: 55pt">
+</colgroup>
+  <tr height="88" style="height: 66.0pt">
+    <td height="88" width="64"
+    style="height: 66.0pt; width: 48pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"><font
+    color="#FF0000">Month</font></td>
+    <td width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: .5pt solid black; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"><font
+    color="#FF0000">Loan balance at beginning of month</font></td>
+    <td width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: .5pt solid black; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"><font
+    color="#FF0000">Payment at end of month</font></td>
+    <td width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: .5pt solid black; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"><font
+    color="#FF0000">Interest for month</font></td>
+    <td width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: .5pt solid black; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"><font
+    color="#FF0000">Loan balance at end of month</font></td>
+  </tr>
+  <tr height="18" style="height: 13.2pt">
+    <td height="18" align="right" width="64"
+    style="height: 13.2pt; width: 48pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num u1:num><font color="#FF0000">1</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="25000" u1:num="2500"><font color="#FF0000">$25,000.00</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="270.61" u1:str=" =MAX(B2*0.02,25)"><font color="#FF0000">$270.61</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="166.66666666666666" x:fmla="=B2*0.08/12" u1:str=" =B2*0.21/12"><font
+    color="#FF0000">$166.67</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24896.056666666667" x:fmla="=B2-C2+D2"><font color="#FF0000">$24,896.06</font></td>
+  </tr>
+  <tr height="18" style="height: 13.2pt">
+    <td height="18" align="right" width="64"
+    style="height: 13.2pt; width: 48pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num u1:num><font color="#FF0000">2</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24896.056666666667" x:fmla="=E2"><font color="#FF0000">$24,896.06</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="270.61"><font color="#FF0000">$270.61</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="165.9737111111111" x:fmla="=B3*0.08/12"><font color="#FF0000">$165.97</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24791.420377777777" x:fmla="=B3-C3+D3"><font color="#FF0000">$24,791.42</font></td>
+  </tr>
+  <tr height="18" style="height: 13.2pt">
+    <td height="18" align="right" width="64"
+    style="height: 13.2pt; width: 48pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num><font color="#FF0000">3</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24791.420377777777" x:fmla="=E3"><font color="#FF0000">$24,791.42</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="270.61"><font color="#FF0000">$270.61</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="165.27613585185185" x:fmla="=B4*0.08/12"><font color="#FF0000">$165.28</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24686.086513629627" x:fmla="=B4-C4+D4"><font color="#FF0000">$24,686.09</font></td>
+  </tr>
+  <tr height="18" style="height: 13.2pt">
+    <td height="18" align="right" width="64"
+    style="height: 13.2pt; width: 48pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num><font color="#FF0000">4</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24686.086513629627" x:fmla="=E4"><font color="#FF0000">$24,686.09</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="270.61"><font color="#FF0000">$270.61</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="164.57391009086419" x:fmla="=B5*0.08/12"><font color="#FF0000">$164.57</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24580.050423720491" x:fmla="=B5-C5+D5"><font color="#FF0000">$24,580.05</font></td>
+  </tr>
+  <tr height="18" style="height: 13.2pt">
+    <td height="18" align="right" width="64"
+    style="height: 13.2pt; width: 48pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num><font color="#FF0000">5</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24580.050423720491" x:fmla="=E5"><font color="#FF0000">$24,580.05</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="270.61"><font color="#FF0000">$270.61</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="163.86700282480328" x:fmla="=B6*0.08/12"><font color="#FF0000">$163.87</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24473.307426545292" x:fmla="=B6-C6+D6"><font color="#FF0000">$24,473.31</font></td>
+  </tr>
+  <tr height="18" style="height: 13.2pt">
+    <td height="18" align="right" width="64"
+    style="height: 13.2pt; width: 48pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num><font color="#FF0000">6</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24473.307426545292" x:fmla="=E6"><font color="#FF0000">$24,473.31</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="270.61"><font color="#FF0000">$270.61</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="163.15538284363529" x:fmla="=B7*0.08/12"><font color="#FF0000">$163.16</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24365.852809388925" x:fmla="=B7-C7+D7"><font color="#FF0000">$24,365.85</font></td>
+  </tr>
+  <tr height="18" style="height: 13.2pt">
+    <td height="18" align="right" width="64"
+    style="height: 13.2pt; width: 48pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num><font color="#FF0000">7</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24365.852809388925" x:fmla="=E7"><font color="#FF0000">$24,365.85</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="270.61"><font color="#FF0000">$270.61</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="162.43901872925952" x:fmla="=B8*0.08/12"><font color="#FF0000">$162.44</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24257.681828118184" x:fmla="=B8-C8+D8"><font color="#FF0000">$24,257.68</font></td>
+  </tr>
+  <tr height="18" style="height: 13.2pt">
+    <td height="18" align="right" width="64"
+    style="height: 13.2pt; width: 48pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num><font color="#FF0000">8</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24257.681828118184" x:fmla="=E8"><font color="#FF0000">$24,257.68</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="270.61"><font color="#FF0000">$270.61</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="161.71787885412124" x:fmla="=B9*0.08/12"><font color="#FF0000">$161.72</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24148.789706972304" x:fmla="=B9-C9+D9"><font color="#FF0000">$24,148.79</font></td>
+  </tr>
+  <tr height="18" style="height: 13.2pt">
+    <td height="18" align="right" width="64"
+    style="height: 13.2pt; width: 48pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num><font color="#FF0000">9</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24148.789706972304" x:fmla="=E9"><font color="#FF0000">$24,148.79</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="270.61"><font color="#FF0000">$270.61</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="160.99193137981536" x:fmla="=B10*0.08/12"><font color="#FF0000">$160.99</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24039.17163835212" x:fmla="=B10-C10+D10"><font color="#FF0000">$24,039.17</font></td>
+  </tr>
+  <tr height="18" style="height: 13.2pt">
+    <td height="18" align="right" width="64"
+    style="height: 13.2pt; width: 48pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num><font color="#FF0000">10</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="24039.17163835212" x:fmla="=E10"><font color="#FF0000">$24,039.17</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="270.61"><font color="#FF0000">$270.61</font></td>
+    <td align="right" width="65"
+    style="width: 49pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="160.26114425568082" x:fmla="=B11*0.08/12"><font color="#FF0000">$160.26</font></td>
+    <td align="right" width="73"
+    style="width: 55pt; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; font-family: Arial; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px"
+    x:num="23928.8227826078" x:fmla="=B11-C11+D11"><font color="#FF0000">$23,928.82</font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>&nbsp;</p>
+
+<p>c. Suppose that you would like pay the loan off in&nbsp;7 years instead of 12.&nbsp;
+What monthly payments will you need to make assuming the same interest rate?&nbsp; <font
+color="#FF0000">($389.66)</font></p>
+
+<p>d.&nbsp; Compare that total amounts you'll pay over the loan term if you pay the loan
+off in 12 years versus 7 years.&nbsp; How much do you save? <font color="#FF0000">($6236.40)</font></p>
+
+<p>3.&nbsp; Conventional loans&nbsp; typically require that your interest payment should
+be no more than 28% of your total income. (FHA loans require 29% and VA loans 41%.)
+Suppose you make $32,000 a year and you have a small savings of $15,000.&nbsp; If interest
+rates for 30 year loans are 7.5% annually and assuming you have no other debt, what is the
+most expensive home you can buy with a 30 year loan? (After you calculate how much the
+maximum monthly payment is, use a guess and check method with the PMT function to find the
+loan amount that will give that payment.&nbsp; You could also use the Goal Seek function
+in Excel. To use Goal Seek, in B1, type = - PMT(.075/12, 360, A1).&nbsp; Then choose
+Tools-&gt;Goal Seek.&nbsp; Set the &quot;To value&quot; to the maximum payment and
+&quot;By changing cell&quot;&nbsp; value to A1, and click OK.) <font color="#FF0000">&nbsp;($106,786+$15,000=$121,786
+or about $120,000.)</font></p>
+</body>
+</html>

@@ -1,0 +1,1363 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 9">
+<link id=Main-File rel=Main-File href="../psy360-lec4-perception.htm">
+<link rel=Preview href=preview.wmf>
+<meta name=Robots content=NoIndex>
+<script src=script.js></script><script><!--
+
+if( !(IsWin("PPTOtl")||IsWin("PPTNav")||IsWin("PPTOtlNav")) )
+{
+	obj = document.all.item("Main-File")
+	parent.location.href=obj.href
+}
+
+var gOtlHiliteClr="#FFFFFF",gOtlNormalClr="#000000",gOtlActiveClr="#FFFF00",gSelected="",gTxtState=false,gChildEntryTable=new Array()
+
+function Load()
+{
+	if( IsWin("PPTOtl" ) ){ LoadOtl(); parent.gOtlLoaded=true; return }
+	if( IsWin("PPTNav" ) ){ LoadNav("NavObj",UpdNav); parent.gNavLoaded=true; return }
+	if( IsWin("PPTOtlNav" ) ){ LoadNav("OtlNavObj",UpdOtlNav); parent.gOtlNavLoaded=true; return }
+}
+function Upd(){ if( IsWin("PPTNav") ) LoadNav("NavObj",UpdNav) }
+function LoadNav( oId,UpdFunc )
+{
+	document.ondragstart=CancelDrag
+	document.onselectstart=CancelDrag
+	document.body.style.margin=2
+	UpdFunc()
+	obj=document.all.item(oId)
+	obj.style.display="block"
+	obj.style.visibility="visible"
+	document.bgColor="threedface"
+}
+function LoadOtl()
+{
+	document.ondragstart=CancelDrag
+	document.onselectstart=CancelDrag
+	OtlObj.style.display="block"
+	OtlObj.style.visibility="visible"
+	if( gOtlActiveClr == "" ) gOtlActiveClr=document.linkColor
+	if( gOtlHiliteClr == "" ) gOtlHiliteClr=document.fgColor
+	if( gOtlNormalClr == "" )
+		gOtlNormalClr=document.bgColor
+	else
+		document.bgColor=gOtlNormalClr  
+
+	InitArray()
+
+	if( ObjExists( parent.gCurSld ) ) {
+		ChangeState( parent.gCurSld,gOtlNormalClr,gOtlHiliteClr )
+		gSelected=parent.gCurSld
+	}
+	else gSelected = -1
+
+	UpdOtl()
+}
+function UpdOtl(){ UpdIdx(parent.gCurSld) }
+function UpdIdx( idx )
+{
+	if( gSelected != idx ) {
+		if( gSelected > 0 )
+			ChangeState( gSelected,gOtlHiliteClr,gOtlNormalClr )
+
+		if( ObjExists( idx ) ) {
+			gSelected = idx
+			ChangeState( gSelected,gOtlNormalClr,gOtlHiliteClr )
+		}
+		else gSelected = -1
+	}
+
+	if( gTxtState != parent.gOtlTxtExp ) {
+		state = "block"
+		if( !parent.gOtlTxtExp )
+			state="none"
+
+		for(ii=0; ii<gChildEntryTable.length; ii++) {
+			obj=gChildEntryTable[ii];
+			if( obj.id == null ) continue;
+
+			if( obj.id.indexOf("PPTC") >= 0 )
+				obj.style.display=state;
+		} 
+		gTxtState=parent.gOtlTxtExp
+		if( ObjExists( gSelected ) )
+			ChangeState( gSelected,gOtlNormalClr,gOtlHiliteClr )
+	}
+}
+function InitArray()
+{
+	count=0
+	for(ii=0; ii<document.all.tags("DIV").length; ii++) {
+		obj=document.all.tags("DIV").item(ii)
+		if( obj.id == null ) continue
+
+		if( obj.id.indexOf("PPTC") >= 0 ) {   
+			gChildEntryTable[count++]=obj
+			obj.children.tags("TABLE").item(0).style.borderColor=gOtlNormalClr
+		}
+	}
+}
+function ChangeState( idx,fgColor,bgColor )
+{
+	obj=document.all.item("PPTL"+idx)
+	obj.style.color=fgColor
+
+	obj=document.all.item("PPTP"+idx)
+	obj.style.backgroundColor=bgColor
+
+	obj=document.all.item("PPTB"+idx)
+	if( obj )
+		obj.style.borderLeftColor=obj.style.borderBottomColor=bgColor
+}
+function ChgClr( o,clr ){ if( o.id != "PPTL"+gSelected ) o.style.color=clr }
+function Over( obj ){ ChgClr(obj,gOtlActiveClr) }
+function Out( obj ){ ChgClr(obj,gOtlHiliteClr) }
+function ObjExists( ii ) { obj=document.all("PPTP"+ii ); return( obj ) }
+function GoToSld( href ){ UpdIdx(parent.GetSldNum(href)); parent.GoToSld( href ) }
+function CancelDrag(){ window.event.cancelBubble=true;window.event.returnValue=false}
+
+function UpdNav()
+{
+	txt = "<center>";
+	if( parent.GetHrefObj( parent.gCurSld ).mOrigVis == 1 )
+		txt += "Slide " + parent.GetCurSldNum() + " of " + parent.GetNumSlds()
+	else
+		txt += "Hidden Slide"
+	txt += "</center>";
+	nav_text.innerHTML = txt;
+
+	if( !parent.HasPrevSld() )
+		gBtnArr["nb_prev"].Enabled(0)
+	else
+		gBtnArr["nb_prev"].Enabled(1)
+
+	if( !parent.HasNextSld() )
+		gBtnArr["nb_next"].Enabled(0)
+	else
+		gBtnArr["nb_next"].Enabled(1)
+	gBtnArr["nb_nts"].SetEnabled()
+	gBtnArr["nb_nts"].SetFlag( parent.gHasNts )
+
+	gBtnArr["nb_sldshw"].Enabled(1)
+	gBtnArr["nb_voice"].Enabled(1)
+}
+
+function UpdOtlNav()
+{
+	gBtnArr["nb_otl"].SetEnabled();
+
+	if( parent.gOtlOpen )
+		gBtnArr["nb_otlTxt"].Enabled( true );
+	else
+		document.all.item("nb_otlTxtBorder").style.visibility = "hidden";
+}
+
+
+
+//-->
+</script>
+<style>
+<!--.PTxt
+	{position:relative;
+	width:100%;
+	margin-top:5px;
+	padding-left:5px;
+	font-weight:bold;}
+.CTxt
+	{position:relative;
+	width:100%;
+	padding-left:10px;}
+.CBorder
+	{position:relative;
+	width:100%;
+	border-style:solid;
+	border-width:1px;
+	border-color:black;
+	padding-bottom:5px;}
+a
+	{color:white;
+	text-decoration:none;}
+.button
+	{position:absolute;
+	width:32px;
+	height:20px;
+	border-style:solid;
+	border-width:1px;
+	border-color:threedface;}
+-->
+</style>
+</head>
+
+<body onload="Load()">
+
+<div id=NavObj onload="Load()" onmouseover="BtnOnOver()"
+onmousedown="BtnOnDown()" onmouseout="BtnOnOut()" onmouseup="BtnOnUp()"
+onkeypress="_KPH()" style='display:none;visibility:hidden'>
+
+<table style='position:absolute;width:70px;visibility:hidden' align=left
+ cellpadding=0 cellspacing=0>
+ <td nowrap>
+ <div id="nb_ntsElem" align=center style='position:relative;padding:3px;
+ font-family:Arial;color:buttontext;font-size:9pt'><img src="notes_flag.gif"
+ border=0 id="notes_flag" style='display:none'><span style="mso-spacerun:
+ yes">  </span>Notes</div>
+ <div title="Show/Hide Notes" id="nb_nts" style='position:absolute;top:0%;
+ left:0%;width:100%;height:100%'></div>
+ </td>
+</table>
+
+<table style='position:relative' align=right cellpadding=0 cellspacing=0>
+ <td>
+ <div id="nb_sldshwBorder" style='position:absolute;left:-20px;width:20px;
+ height:20px'>
+ <div style='position:absolute;clip:rect(0px, 18px, 18px, 0px)'><img
+ src=buttons.gif id="nb_sldshw" title="Full Screen Slide Show"
+ style='position:relative;left:-254px'></div>
+ </div>
+ </td>
+ <td>
+ <div id="nb_voiceBorder" style='display:none;position:absolute;left:-40px;
+ width:20px;height:20px'>
+ <div style='position:absolute;clip:rect(0px, 18px, 18px, 0px)'><img
+ src=buttons.gif id="nb_voice" title="Pause/Play Narration" style='position:
+ relative;left:-290px'></div>
+ </div>
+ </td>
+</table>
+
+<table style='position:relative' align=center cellpadding=0 cellspacing=0>
+ <td nowrap>
+ <div id="nb_prevBorder" class=button style='left:-30px'>
+ <div style='position:absolute;clip:rect(0px, 30px, 18px, 0px)'><img
+ src=buttons.gif id="nb_prev" title="Previous Slide" style='position:relative;
+ left:0px'></div>
+ </div>
+ <span id="nav_text" style='position:relative;top:3px;width:100px;font-family:
+ Arial;color:buttontext;font-size:9pt'></span>
+ <div id="nb_nextBorder" class=button>
+ <div style='position:absolute;clip:rect(0px, 30px, 18px, 0px)'><img
+ src=buttons.gif id="nb_next" title="Next Slide" style='position:relative;
+ left:-90px'></div>
+ </div>
+ </td>
+</table>
+
+</div>
+
+<div id=OtlNavObj onload="Load()" onmouseover="BtnOnOver()"
+onmousedown="BtnOnDown()" onmouseout="BtnOnOut()" onmouseup="BtnOnUp()"
+onkeypress="_KPH()" style='display:none;visibility:hidden'>
+
+<table style='position:relative;width:70px' align=left cellpadding=0
+ cellspacing=0>
+ <td nowrap>
+ <div id="nb_otlElem" align=center style='position:relative;padding:3px;
+ font-family:Arial;color:buttontext;font-size:9pt'>Outline</div>
+ <div title="Show/Hide Outline" id="nb_otl" style='position:absolute;
+ top:0%;left:0%;width:100%;height:100%'></div>
+ </td>
+</table>
+
+<table style='position:relative' align=center cellpadding=0 cellspacing=0>
+ <td>
+ <div style='position:absolute;left:-18px;width:24px;height:20px;border-style:
+ solid;border-width:1px;border-color:threedface' id="nb_otlTxtBorder">
+ <div style='position:absolute;clip:rect(0px, 22px, 18px, 0px)'><img
+ src=buttons.gif id="nb_otlTxt" title="Expand/Collapse Outline"
+ style='position:relative;left:-157px'></div>
+ </div>
+ </td>
+</table>
+
+</div>
+
+<div id=OtlObj style='display:none;visibility:hidden'>
+
+<table width="100%" style='font-family:Arial;font-size:9pt'>
+ <tr>
+  <td>
+  <div id=PPTP1 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0001.htm');" onmouseover="Over(this)"
+  id=PPTL1 onmouseout="Out(this)">Perception</a></font></div>
+  <div id=PPTC1 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB1 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Putting it together</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP2 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0002.htm');" onmouseover="Over(this)"
+  id=PPTL2 onmouseout="Out(this)">Sensation vs. Perception</a></font></div>
+  <div id=PPTC2 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB2 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>A somewhat artificial distinction</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Sensation:<span style="mso-spacerun: yes"> 
+    </span>Analysis</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Extraction of basic perceptual features</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Perception:<span style="mso-spacerun: yes"> 
+    </span>Synthesis</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Identifying meaningful units</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Early vs. Late stages in the processing of
+    perceptual information</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP3 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0004.htm');" onmouseover="Over(this)"
+  id=PPTL3 onmouseout="Out(this)">The parts without the Whole</a></font></div>
+  <div id=PPTC3 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB3 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>When sensation seems to happen without
+    perception:<span style="mso-spacerun: yes">  </span>Agnosia</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Agnosia = “without knowledge”</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Seeing the parts but not the whole object</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Prosopagnosia: The man who mistook his wife for
+    a hat</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP4 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0005.htm');" onmouseover="Over(this)"
+  id=PPTL4 onmouseout="Out(this)">Perceiving Objects:<span style="mso-spacerun:
+  yes">  </span><br>
+  Pattern Recognition</a></font></div>
+  <div id=PPTC4 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB4 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Four “Information Processing” approaches:</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Template matching</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Feature matching</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Prototype matching</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Structural descriptions</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP5 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0006.htm');" onmouseover="Over(this)"
+  id=PPTL5 onmouseout="Out(this)">Template Matching</a></font></div>
+  <div id=PPTC5 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB5 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Objects represented as 2-D arrays of pixels</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Retinal image matched to the template</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Viewer-centered</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Problems:</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Orientation-dependent</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Inefficient?</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>2 Stages:<span style="mso-spacerun: yes"> 
+    </span>Alignment, then Matching</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP6 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0007.htm');" onmouseover="Over(this)"
+  id=PPTL6 onmouseout="Out(this)">Feature Analysis</a></font></div>
+  <div id=PPTC6 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB6 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Objects represented as sets of features</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Retinal image used to extract features</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Object-centered</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Example:<span style="mso-spacerun: yes"> 
+    </span>Pandemonium (Selfridge, 1959)</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Model of word recognition</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Features -&gt; Letters -&gt; words</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Heirarchical and bottom-up</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Neurological “feature detectors”</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP7 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0008.htm');" onmouseover="Over(this)"
+  id=PPTL7 onmouseout="Out(this)">Hubel &amp; Wiesel (1959, 1963)</a></font></div>
+  <div id=PPTC7 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB7 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Specific cells in cat and monkey visual cortex
+    responded to specific features</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Simple cells</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Complex cells</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Hyper-complex cells</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP8 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0009.htm');" onmouseover="Over(this)"
+  id=PPTL8 onmouseout="Out(this)">Feature Analysis: Advantages</a></font></div>
+  <div id=PPTC8 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB8 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Some correspondence to neurology (at early
+    levels)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Economical:<span style="mso-spacerun: yes"> 
+    </span>only 1 representation stored for each object</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP9 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0010.htm');" onmouseover="Over(this)"
+  id=PPTL9 onmouseout="Out(this)">Feature Analysis: Disadvantages</a></font></div>
+  <div id=PPTC9 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB9 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Not every instance of the pattern has all the
+    features (see prototype theories)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Does not take into account how the features are
+    put together (see structural description theories)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Some features may be obscured from different
+    points of view (see structural description theories again)</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP10 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0011.htm');" onmouseover="Over(this)"
+  id=PPTL10 onmouseout="Out(this)">Prototype Matching Theories</a></font></div>
+  <div id=PPTC10 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB10 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Prototype = a typical, abstract example</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Objects represented as prototypes</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Retinal image used to extract features</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Object recognition is a function of similarity
+    to the prototype</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP11 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0012.htm');" onmouseover="Over(this)"
+  id=PPTL11 onmouseout="Out(this)">Prototypes: Advantages</a></font></div>
+  <div id=PPTC11 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB11 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Accounts for the intuition that some features
+    matter more than others</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Is more flexible – recognition can proceed even
+    if some features are obscured</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Accounts for “prototype effects” – objects more
+    similar to the prototype are easier to recognize</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP12 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0013.htm');" onmouseover="Over(this)"
+  id=PPTL12 onmouseout="Out(this)">Example of Prototype Effects</a></font></div>
+  <div id=PPTC12 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB12 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Solso &amp; McCarthy (1981)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Identikit faces</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Study faces similar to a “prototype”</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP13 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0016.htm');" onmouseover="Over(this)"
+  id=PPTL13 onmouseout="Out(this)">Studied Faces</a></font></div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP14 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0017.htm');" onmouseover="Over(this)"
+  id=PPTL14 onmouseout="Out(this)">Solso &amp; McCarthy Results</a></font></div>
+  <div id=PPTC14 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB14 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Recognition test</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Recognition confidence was a function of number
+    of features shared with prototype</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Prototype face was most confidently “recognized”
+    even though it was not studied</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP15 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0015.htm');" onmouseover="Over(this)"
+  id=PPTL15 onmouseout="Out(this)">Solso &amp; McCarthy Results</a></font></div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP16 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0019.htm');" onmouseover="Over(this)"
+  id=PPTL16 onmouseout="Out(this)">Slide 16</a></font></div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP17 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0018.htm');" onmouseover="Over(this)"
+  id=PPTL17 onmouseout="Out(this)">Structural Description Theories</a></font></div>
+  <div id=PPTC17 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB17 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Objects represented as configurations of parts
+    (features plus relations among features)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Retinal image used to extract parts</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Object-centered</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Example:<span style="mso-spacerun: yes"> 
+    </span>Biederman’s Structural Description Theory</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP18 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0020.htm');" onmouseover="Over(this)"
+  id=PPTL18 onmouseout="Out(this)">Structural Description Theory<br>
+  (Biederman)</a></font></div>
+  <div id=PPTC18 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB18 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Objects are represented as arrangements of parts</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>The parts are basic geometrical shapes or
+    “Geons”</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Object-centered</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Evidence:<span style="mso-spacerun: yes"> 
+    </span>degraded line drawings</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP19 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0021.htm');" onmouseover="Over(this)"
+  id=PPTL19 onmouseout="Out(this)">Structural Description Theory</a></font></div>
+  <div id=PPTC19 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB19 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Advantages</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Recognizes the importance of the arrangement of
+    the parts</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Parsimonious: Small set of primitive shapes</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Disadvantages</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Structure is not always key to recognition:
+    Peach vs. Nectarine</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Which geons?<span style="mso-spacerun: yes"> 
+    </span>(simplicity vs. explanatory adequacy)</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP20 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0022.htm');" onmouseover="Over(this)"
+  id=PPTL20 onmouseout="Out(this)">Another Problem…</a></font></div>
+  <div id=PPTC20 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB20 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>All of these theories are basically “bottom-up”</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>None can account very well for context effects
+    (top-down)</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP21 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0023.htm');" onmouseover="Over(this)"
+  id=PPTL21 onmouseout="Out(this)">Top-down and Bottom-up Processing</a></font></div>
+  <div id=PPTC21 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB21 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Bottom-up:<span style="mso-spacerun: yes"> 
+    </span>Stimulus driven; the default</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Top-down:<span style="mso-spacerun: yes"> 
+    </span>Context-driven or expectation-driven.<span style="mso-spacerun:
+    yes">  </span>Examples:</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Word superiority effect (see Coglab)</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>McGurk Effect (http://www.media.uio.no/personer/arntm/McGurk_english.html)</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP22 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0024.htm');" onmouseover="Over(this)"
+  id=PPTL22 onmouseout="Out(this)">The Interactive Activation Model</a></font></div>
+  <div id=PPTC22 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB22 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>A connectionist model of word recognition</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Incorporates both top-down processing (forward
+    connections) and bottom-up processing (backward connections)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>The nodes sum activation</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Connections can be excitatory or inhibitory</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Run the Model:<span style="mso-spacerun: yes"> 
+    </span>http://www.socsci.kun.nl/~heuven/jiam/</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP23 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0025.htm');" onmouseover="Over(this)"
+  id=PPTL23 onmouseout="Out(this)">Gibson’s Ecological Optics: <br>
+  an alternative view</a></font></div>
+  <div id=PPTC23 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB23 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Constructivist models vs. direct perception</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Constructivist models</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Stimulus information underdetermines perceptual
+    experience (e.g., depth perception)</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Rules (unconscious inferences) must be applied
+    to the stimulus information to achieve perception</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Top-down processes compensate for the poverty of
+    the stimulus</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP24 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0026.htm');" onmouseover="Over(this)"
+  id=PPTL24 onmouseout="Out(this)">Direct Perception</a></font></div>
+  <div id=PPTC24 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB24 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>All the information is in the stimulus</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Most stimuli are not ambiguous</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Motion provides information</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Invariants – properties of the stimulus that are
+    invariant across changes in viewpoints and can be directly perceived</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Entirely stimulus-driven (bottom-up)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP25 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0027.htm');" onmouseover="Over(this)"
+  id=PPTL25 onmouseout="Out(this)">Invariants</a></font></div>
+  <div id=PPTC25 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB25 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Center of expansion – always is the point you
+    are moving towards</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Texture gradients – always become less course as
+    distance increases</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP26 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0028.htm');" onmouseover="Over(this)"
+  id=PPTL26 onmouseout="Out(this)">Evidence that Motion is Important:</a></font></div>
+  <div id=PPTC26 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB26 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Center of expansion can induce perception of
+    motion (starfield screen-savers)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Human figures can be recognized from moving
+    points of light</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP27 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0029.htm');" onmouseover="Over(this)"
+  id=PPTL27 onmouseout="Out(this)">Problems for Direct Perception</a></font></div>
+  <div id=PPTC27 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB27 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>There are top-down effects on perception</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Depth perception is possible even when
+    motionless</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Depth can even be extracted from “random dot”
+    stereograms without motion</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Stereogram of the week: http://www.magiceye.com/3dfun/stwkdisp.shtml</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP28 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0003.htm');" onmouseover="Over(this)"
+  id=PPTL28 onmouseout="Out(this)">Integrating Visual Perception<br>
+  Across Space and Time</a></font></div>
+  <div id=PPTC28 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB28 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>How do we integrate visual information across
+    space and time?</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Not as well as you might think</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Across Space:<span style="mso-spacerun: yes"> 
+    </span>Impossible figures</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Across Time:<span style="mso-spacerun: yes"> 
+    </span>Change blindness</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP29 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0030.htm');" onmouseover="Over(this)"
+  id=PPTL29 onmouseout="Out(this)">Impossible Figures</a></font></div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP30 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0031.htm');" onmouseover="Over(this)"
+  id=PPTL30 onmouseout="Out(this)">M.C. Escher’s<br>
+  Impossible Waterfall</a></font></div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP31 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0032.htm');" onmouseover="Over(this)"
+  id=PPTL31 onmouseout="Out(this)">Change Blindness</a></font></div>
+  <div id=PPTC31 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB31 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Integrating across time:<span
+    style="mso-spacerun: yes">  </span>saccades</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Change blindness</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>http://www.usd.edu/psyc301/ChangeBlindness.htm</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Why did our visual system evolve this way?</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP32 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0033.htm');" onmouseover="Over(this)"
+  id=PPTL32 onmouseout="Out(this)">Perceptual Illusions</a></font></div>
+  <div id=PPTC32 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB32 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Systematic distortions of reality caused by the
+    way our perceptual system works</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Questions to ask as you view them:</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>What does this phenomenon tell me about the
+    mechanisms at work in perception?</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Does this illusion result from top-down or
+    bottom-up processes?</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP33 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0034.htm');" onmouseover="Over(this)"
+  id=PPTL33 onmouseout="Out(this)">Perceptual Illusions: web sites</a></font></div>
+  <div id=PPTC33 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB33 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>http://www.rci.rutgers.edu/~cfs/305_html/Gestalt/Illusions.html</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>http://www.cfar.umd.edu/users/pless/illusions.html</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>http://www.psych.utoronto.ca/~reingold/courses/resources/cogillusion.html</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<div style='display:none'><a href="v3_document.htm"></a><a href=preview.wmf></a><a
+href="v3_next_active.gif"></a><a href="v3_next_disabled.gif"></a><a
+href="v3_prev_active.gif"></a><a href="v3_prev_disabled.gif"></a><a
+href="v3_outline_collapse.gif"></a><a href="v3_outline_expand.gif"></a><a
+href="v3_space.gif"></a><a href="v3_endshow.htm"></a><a
+href="v3_navigation_bar.htm"></a><a href="v3_outline_navigation_bar.htm"></a><a
+href="v3_outline_collapsed.htm"></a><a href="v3_outline_expanded.htm"></a><a
+href="v3_blank_notes.htm"></a><a href=master03.htm></a><a href=master03.xml></a><a
+href=pres.xml></a><a href="v3_slide0001.htm"></a><a href="v3_slide0002.htm"></a><a
+href="v3_slide0004.htm"></a><a href="v3_slide0005.htm"></a><a
+href="v3_slide0006.htm"></a><a href="v3_slide0007.htm"></a><a
+href="v3_slide0008.htm"></a><a href="v3_slide0009.htm"></a><a
+href="v3_slide0010.htm"></a><a href="v3_slide0011.htm"></a><a
+href="v3_slide0012.htm"></a><a href="v3_slide0013.htm"></a><a
+href="v3_slide0016.htm"></a><a href="v3_slide0016_image001.gif"></a><a
+href="v3_slide0016_image002.gif"></a><a href="v3_slide0016_image003.gif"></a><a
+href="v3_slide0016_image004.gif"></a><a href="v3_slide0017.htm"></a><a
+href="v3_slide0015.htm"></a><a href="v3_slide0015_image005.gif"></a><a
+href="v3_slide0019.htm"></a><a href="v3_slide0019_image006.gif"></a><a
+href="v3_slide0019_image007.gif"></a><a href="v3_slide0019_image008.gif"></a><a
+href="v3_slide0019_image009.gif"></a><a href="v3_slide0019_image010.gif"></a><a
+href="v3_slide0018.htm"></a><a href="v3_slide0020.htm"></a><a
+href="v3_slide0021.htm"></a><a href="v3_slide0022.htm"></a><a
+href="v3_slide0022_background.gif"></a><a href="v3_slide0022_image011.gif"></a><a
+href="v3_slide0022_image012.gif"></a><a href="v3_slide0023.htm"></a><a
+href="v3_slide0024.htm"></a><a href="v3_slide0025.htm"></a><a
+href="v3_slide0026.htm"></a><a href="v3_slide0027.htm"></a><a
+href="v3_slide0028.htm"></a><a href="v3_slide0029.htm"></a><a
+href="v3_slide0003.htm"></a><a href="v3_slide0030.htm"></a><a
+href="v3_slide0030_image013.gif"></a><a href="v3_slide0030_image014.gif"></a><a
+href="v3_slide0031.htm"></a><a href="v3_slide0031_image015.gif"></a><a
+href="v3_slide0032.htm"></a><a href="v3_slide0033.htm"></a><a
+href="v3_slide0034.htm"></a><a href=slide0001.htm></a><a href=slide0002.htm></a><a
+href=slide0004.htm></a><a href=slide0005.htm></a><a href=slide0006.htm></a><a
+href=slide0007.htm></a><a href=slide0008.htm></a><a href=slide0009.htm></a><a
+href=slide0010.htm></a><a href=slide0011.htm></a><a href=slide0012.htm></a><a
+href=slide0013.htm></a><a href=slide0016.htm></a><a
+href="slide0016_image016.gif"></a><a href="slide0016_image017.gif"></a><a
+href="slide0016_image018.gif"></a><a href=slide0017.htm></a><a
+href=slide0015.htm></a><a href="slide0015_image019.emz"></a><a
+href=oledata.mso></a><a href="slide0015_image020.gif"></a><a
+href=slide0019.htm></a><a href="slide0019_image021.gif"></a><a
+href="slide0019_image022.gif"></a><a href="slide0019_image023.gif"></a><a
+href="slide0019_image024.gif"></a><a href=slide0018.htm></a><a
+href=slide0020.htm></a><a href=slide0021.htm></a><a href=slide0022.htm></a><a
+href="slide0022_image025.gif"></a><a href="slide0022_image026.gif"></a><a
+href="slide0022_image027.gif"></a><a href="slide0022_image028.gif"></a><a
+href="slide0022_image029.gif"></a><a href="slide0022_image030.gif"></a><a
+href="slide0022_image031.gif"></a><a href="slide0022_image032.gif"></a><a
+href="slide0022_image033.gif"></a><a href="slide0022_image034.gif"></a><a
+href=slide0023.htm></a><a href=slide0024.htm></a><a href=slide0025.htm></a><a
+href=slide0026.htm></a><a href=slide0027.htm></a><a href=slide0028.htm></a><a
+href=slide0029.htm></a><a href=slide0003.htm></a><a href=slide0030.htm></a><a
+href=slide0031.htm></a><a href=slide0032.htm></a><a href=slide0033.htm></a><a
+href=slide0034.htm></a><a href="master03_stylesheet.css"></a><a href=script.js></a><a
+href="../psy360-lec4-perception.htm"></a><a href=error.htm></a><a
+href=fullscreen.htm></a><a href=buttons.gif></a><a href=frame.htm></a><a
+href=outline.htm></a></div>
+
+</body>
+
+</html>

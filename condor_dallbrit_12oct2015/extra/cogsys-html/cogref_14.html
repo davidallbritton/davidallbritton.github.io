@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Serial Connection</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Serial Connection">
+<META NAME="keywords" CONTENT="Cogsys: Serial Connection">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC22"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_13.html#SEC21"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_15.html#SEC23"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_12.html#SEC20"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_13.html#SEC21"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_16.html#SEC24"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 1.3.2.1 Serial Connection </H4>
+<!--docid::SEC22::-->
+<P>
+
+Serial connections are troublesome, slow, tedious, and weird. However,
+they are cheap and (comparatively) uncomplicated. The data host needs to
+have a multiport serial board installed and configured correctly.  In
+addition, for security purposes, a restricted shell should be created
+solely for the use of Cogsys client systems.
+</P><P>
+
+The client machines must then run software which can provide at least
+three things:
+<OL>
+<LI>
+Terminal emulation
+<LI>
+File transfer (XMODEM/YMODEM/ZMODEM/Kermit, etc)
+<LI>
+A script language
+</OL>
+<P>
+
+We have found that Pibterm Professional 5.0, written by Phil Burns
+(coincidentally!) at Northwestern University, nicely meets all of these
+requirements. You can get Pibterm here: <A HREF="ftp://ftp.simtel.net">ftp://ftp.simtel.net</A>.
+</P><P>
+
+All that is then required are a set of scripts which provide the
+ability to ask the user for testlist/outfile names and are able to
+transfer those files to and from the data host. Finally, a DOS
+batch file is used to control the whole system. Examples of such
+scripts are at the Cogsys home page here:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><FONT SIZE=-1><pre><A HREF="http://wally.psych.nwu.edu/computing/software/inhouse/cogsys/cogsys.html">http://wally.psych.nwu.edu/computing/software/inhouse/cogsys/cogsys.html</A>
+</FONT></pre></td></tr></table></P><P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

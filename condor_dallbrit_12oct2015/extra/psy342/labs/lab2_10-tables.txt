@@ -1,0 +1,57 @@
+Use the data below to create the figures in your MEL workbook
+for this lab.
+
+
+     01-17-02     10:07:01
+
+Percent of Words Correctly Recognized and Recalled
+
+Table of CORRECTP conditional on TESTTYPE
+
+Cell values are:
+   MEAN       
+
+
+TESTTYPE
+1=recognition, 2=recall
+
+1          2          ALL
+
+60.53      41.47      51.00      
+
+
+
+
+
+     01-17-02     10:07:09
+
+Percent of Words Correctly Recognized and Recalled, each subject
+
+Table of CORRECTP conditional on TESTTYPE, SUBJECT
+
+Cell values are:
+   MEAN       
+
+
+SUBJECT  \ TESTTYPE
+testype: 1=recognition  2=recall
+
+    \      1          2          ALL
+
+
+2          67.00      46.00      56.50      
+3          75.00      71.00      73.00      
+4          62.00      62.00      62.00      
+5          66.67      0.00       33.33      
+7          71.00      88.00      79.50      
+8          50.00      50.00      50.00      
+10         50.00      0.00       25.00      
+12         47.00      29.25      38.13      
+13         96.00      96.00      96.00      
+14         83.00      75.00      79.00      
+15         50.00      33.00      41.50      
+16         46.00      42.00      44.00      
+100        62.00      58.00      60.00      
+
+ALL        60.53      41.47      51.00      
+

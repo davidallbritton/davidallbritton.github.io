@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml" >
+
+
+  <head>
+    <meta name="generator" content=
+    "HTML Tidy for Linux/x86 (vers 1st March 2002), see www.w3.org" />
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+
+    <title>javascript4.html</title>
+		
+<script type = "text/javascript">
+<!--
+document.writeln("<h1>Nested if/else structures in JavaScript</h1>");
+
+// Declaring  variables:
+var firstNumber, secondNumber;
+
+// Assigning values to the variables used in the nested if/else blocks
+firstNumber = 10;  // line 25
+secondNumber = 5;  // line 26
+
+document.writeln ("<p>firstNumber = " + firstNumber + "; secondNumber = " +
+  secondNumber + "</p>")
+
+// This is an example of a nested if/else block.
+// The values of firstNumber and secondNumber are set earlier in the script
+if (firstNumber > 10)      // line 33
+   document.writeln ("<p>(Statement 1) The first number is greater than 10</p>");
+else                       // line 35
+   if (secondNumber <= 10) {         // line 36
+	    document.write ("<p>(Statement 2) Both the first and second number are ");
+			document.writeln ("less than or equal to 10</p>");
+   }
+	 else                             // line 40
+	    document.writeln("<p>(Statement 3) The first number is "
+			   + "less than or equal to 10" +
+			   " but the second number is greater than 10");
+
+document.writeln ("</p><hr />");
+document.writeln ("<p>Change the values in the script and try it again.</p>");
+// -->
+</script>
+		
+  </head>
+
+  <body></body>
+	
+</html>
+

@@ -1,0 +1,25 @@
+#
+#  formats data files for encode, mel lab 2.5
+unset noclobber
+
+dos2unix icon-data.txt
+
+echo 'subj ord1 ord2 ord3 ord4 any1 any2 any3 any4'|\
+   formatcols 6  > lab1_2-data.txt
+
+cat   icon-data.txt |\
+ spaceout | grep . |\
+ gawk '\
+    /^COND/ {strict++};\
+    {print strict, $0}' |\
+ grep -v '[^0-9\. ]' |\
+ getcol 3 1 2 4 |\
+ sort -n |\
+ tee tempdata |\
+ means-by-cell | stripcounts |\
+ repeated 2 |\
+ formatcols 6|\
+ cat >> lab1_2-data.txt    ; exit
+
+
+

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Psy 422 - Week 8 (Perl)</title>
+  <link rel="stylesheet" type="text/css" href="psy422-styles.css" />
+</head>
+
+<body>
+<h1 style="text-align: center">Psy 422 Week 8 <br />
+   Saving form data in a database using Perl</h1>
+
+<p>This week we will look at an example of using Perl CGI programs
+   to conduct a simple
+   experiment on the web.  The "experiment" consists of 2 questions, presented
+   in one of two versions.  </p>
+   
+<p>The first Perl script, 
+   <a href = "/cgi-bin/experiment1.pl">experiment1.pl</a>,
+   accesses the <strong>expdata1</strong> table in the <em>orval</em> Mysql
+   database on the course server to determine the condition (1 or 2) for 
+   the current participant.  It then accesses the <strong>experiment1_stimuli
+   </strong> table to get the stimuli to present.  It presents the stimuli
+   in an XHTML form.  The "action" for the form sends the responses to a
+   second Perl script.</p>
+   
+<p>The second Perl script
+   <a href = "/cgi-bin/experiment1-storeData.pl">experiment1-storeData.pl</a>
+   then stores the data to the <strong>expdata1</strong> table in the 
+   database, and displays its contents in an XHTML table.</p>
+
+<hr />
+  
+<p>First <a href = "/cgi-bin/experiment1.pl">run the experiment</a> 
+   a couple of times and observe the results as 
+   recorded in the table.  Be sure to reload the page before submitting
+   data a second time.</p>
+   
+<p class = "question">1.  Copy the two Perl scripts used to run the experient
+   to your  
+   <em>cgi-bin</em> directory.  
+   Create a table in your database on the
+   course server to store the data in (or use the one you created last
+   week if you wish).  Also create a second table and 
+   place your experimental stimuli in it (or use last week's).  
+   Then edit the Perl scripts to 
+   run your experiment and save the data in your database.
+   Place a link to your experiment on your home page on the course server.</p>
+
+
+
+<!--Indicates this page validated as XHTML 1.0  -->
+
+<p><a href="http://validator.w3.org/check/referer"><img
+src="/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width="88"
+/></a></p>
+</body>
+</html>

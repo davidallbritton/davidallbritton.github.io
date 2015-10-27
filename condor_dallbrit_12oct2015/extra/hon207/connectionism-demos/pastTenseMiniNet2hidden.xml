@@ -1,0 +1,221 @@
+<?xml version="1.0" ?>
+<MLDBIF>
+<DB>
+
+<!-- Neural Network Definition -->
+<NETWORK>
+
+	<!-- Node Definitions -->
+
+	<NODE>
+		<NAME>input 0: _i_</NAME>
+		<WEIGHT>0.0</WEIGHT>
+		<XPOS>7781.9834</XPOS>
+		<YPOS>5042.484</YPOS>
+		<INDEX>0</INDEX>
+		<FUNCTION>sigmoid</FUNCTION>
+	</NODE>
+	<NODE>
+		<NAME>input 1: _u_</NAME>
+		<WEIGHT>0.0</WEIGHT>
+		<XPOS>7942.9995</XPOS>
+		<YPOS>5042.484</YPOS>
+		<INDEX>1</INDEX>
+		<FUNCTION>sigmoid</FUNCTION>
+	</NODE>
+	<NODE>
+		<NAME>input 2: __t</NAME>
+		<WEIGHT>0.0</WEIGHT>
+		<XPOS>8104.016</XPOS>
+		<YPOS>5042.484</YPOS>
+		<INDEX>2</INDEX>
+		<FUNCTION>sigmoid</FUNCTION>
+	</NODE>
+	<NODE>
+		<NAME>Hidden 1</NAME>
+		<WEIGHT>0.0</WEIGHT>
+		<XPOS>7781.9834</XPOS>
+		<YPOS>5203.5005</YPOS>
+		<INDEX>3</INDEX>
+		<FUNCTION>sigmoid</FUNCTION>
+	</NODE>
+	<NODE>
+		<NAME>Hidden 2</NAME>
+		<WEIGHT>0.0</WEIGHT>
+		<XPOS>7942.9995</XPOS>
+		<YPOS>5203.5005</YPOS>
+		<INDEX>4</INDEX>
+		<FUNCTION>sigmoid</FUNCTION>
+	</NODE>
+	<NODE>
+		<NAME>output 5: -ed</NAME>
+		<WEIGHT>0.0</WEIGHT>
+		<XPOS>7781.9834</XPOS>
+		<YPOS>5364.5166</YPOS>
+		<INDEX>5</INDEX>
+		<FUNCTION>sigmoid</FUNCTION>
+	</NODE>
+	<NODE>
+		<NAME>output 6: -a-</NAME>
+		<WEIGHT>0.0</WEIGHT>
+		<XPOS>7942.9995</XPOS>
+		<YPOS>5364.5166</YPOS>
+		<INDEX>6</INDEX>
+		<FUNCTION>sigmoid</FUNCTION>
+	</NODE>
+	<NODE>
+		<NAME>output 7: -u-</NAME>
+		<WEIGHT>0.0</WEIGHT>
+		<XPOS>8104.016</XPOS>
+		<YPOS>5364.5166</YPOS>
+		<INDEX>7</INDEX>
+		<FUNCTION>sigmoid</FUNCTION>
+	</NODE>
+
+	<!-- Edge Definitions -->
+
+	<EDGE>
+		<STARTINDEX>0</STARTINDEX>
+		<ENDINDEX>3</ENDINDEX>
+		<WEIGHT>0.0</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>1</STARTINDEX>
+		<ENDINDEX>3</ENDINDEX>
+		<WEIGHT>0.0</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>2</STARTINDEX>
+		<ENDINDEX>3</ENDINDEX>
+		<WEIGHT>0.0</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>0</STARTINDEX>
+		<ENDINDEX>4</ENDINDEX>
+		<WEIGHT>0.0</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>1</STARTINDEX>
+		<ENDINDEX>4</ENDINDEX>
+		<WEIGHT>0.0</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>2</STARTINDEX>
+		<ENDINDEX>4</ENDINDEX>
+		<WEIGHT>0.0</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>3</STARTINDEX>
+		<ENDINDEX>5</ENDINDEX>
+		<WEIGHT>0.0</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>4</STARTINDEX>
+		<ENDINDEX>5</ENDINDEX>
+		<WEIGHT>0.0</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>3</STARTINDEX>
+		<ENDINDEX>6</ENDINDEX>
+		<WEIGHT>0.0</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>4</STARTINDEX>
+		<ENDINDEX>6</ENDINDEX>
+		<WEIGHT>0.0</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>3</STARTINDEX>
+		<ENDINDEX>7</ENDINDEX>
+		<WEIGHT>0.0</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>4</STARTINDEX>
+		<ENDINDEX>7</ENDINDEX>
+		<WEIGHT>0.0</WEIGHT>
+	</EDGE>
+
+</NETWORK>
+
+<!-- Example Database -->
+<EXAMPLES>
+
+	<!-- Parameter Definition -->
+	<PARAMETER type=input>input 0: _i_</PARAMETER>
+	<PARAMETER type=input>input 1: _u_</PARAMETER>
+	<PARAMETER type=input>input 2: __t</PARAMETER>
+	<PARAMETER type=output>output 5: -ed</PARAMETER>
+	<PARAMETER type=output>output 6: -a-</PARAMETER>
+	<PARAMETER type=output>output 7: -u-</PARAMETER>
+
+	<!-- Examples -->
+	<EXAMPLE type=training>
+		<VALUE parameter="input 0: _i_">0.0</VALUE>
+		<VALUE parameter="input 1: _u_">0.0</VALUE>
+		<VALUE parameter="input 2: __t">1.0</VALUE>
+		<VALUE parameter="output 5: -ed">0.0</VALUE>
+		<VALUE parameter="output 6: -a-">0.0</VALUE>
+		<VALUE parameter="output 7: -u-">0.0</VALUE>
+	</EXAMPLE>
+	<EXAMPLE type=training>
+		<VALUE parameter="input 0: _i_">0.0</VALUE>
+		<VALUE parameter="input 1: _u_">0.0</VALUE>
+		<VALUE parameter="input 2: __t">1.0</VALUE>
+		<VALUE parameter="output 5: -ed">1.0</VALUE>
+		<VALUE parameter="output 6: -a-">1.0</VALUE>
+		<VALUE parameter="output 7: -u-">0.0</VALUE>
+	</EXAMPLE>
+	<EXAMPLE type=training>
+		<VALUE parameter="input 0: _i_">0.0</VALUE>
+		<VALUE parameter="input 1: _u_">1.0</VALUE>
+		<VALUE parameter="input 2: __t">0.0</VALUE>
+		<VALUE parameter="output 5: -ed">1.0</VALUE>
+		<VALUE parameter="output 6: -a-">0.0</VALUE>
+		<VALUE parameter="output 7: -u-">1.0</VALUE>
+	</EXAMPLE>
+	<EXAMPLE type=training>
+		<VALUE parameter="input 0: _i_">0.0</VALUE>
+		<VALUE parameter="input 1: _u_">1.0</VALUE>
+		<VALUE parameter="input 2: __t">0.0</VALUE>
+		<VALUE parameter="output 5: -ed">1.0</VALUE>
+		<VALUE parameter="output 6: -a-">0.0</VALUE>
+		<VALUE parameter="output 7: -u-">1.0</VALUE>
+	</EXAMPLE>
+	<EXAMPLE type=training>
+		<VALUE parameter="input 0: _i_">1.0</VALUE>
+		<VALUE parameter="input 1: _u_">0.0</VALUE>
+		<VALUE parameter="input 2: __t">1.0</VALUE>
+		<VALUE parameter="output 5: -ed">0.0</VALUE>
+		<VALUE parameter="output 6: -a-">1.0</VALUE>
+		<VALUE parameter="output 7: -u-">0.0</VALUE>
+	</EXAMPLE>
+	<EXAMPLE type=training>
+		<VALUE parameter="input 0: _i_">1.0</VALUE>
+		<VALUE parameter="input 1: _u_">0.0</VALUE>
+		<VALUE parameter="input 2: __t">1.0</VALUE>
+		<VALUE parameter="output 5: -ed">1.0</VALUE>
+		<VALUE parameter="output 6: -a-">0.0</VALUE>
+		<VALUE parameter="output 7: -u-">0.0</VALUE>
+	</EXAMPLE>
+	<EXAMPLE type=training>
+		<VALUE parameter="input 0: _i_">0.0</VALUE>
+		<VALUE parameter="input 1: _u_">1.0</VALUE>
+		<VALUE parameter="input 2: __t">0.0</VALUE>
+		<VALUE parameter="output 5: -ed">0.0</VALUE>
+		<VALUE parameter="output 6: -a-">1.0</VALUE>
+		<VALUE parameter="output 7: -u-">0.0</VALUE>
+	</EXAMPLE>
+	<EXAMPLE type=training>
+		<VALUE parameter="input 0: _i_">0.0</VALUE>
+		<VALUE parameter="input 1: _u_">1.0</VALUE>
+		<VALUE parameter="input 2: __t">0.0</VALUE>
+		<VALUE parameter="output 5: -ed">1.0</VALUE>
+		<VALUE parameter="output 6: -a-">0.0</VALUE>
+		<VALUE parameter="output 7: -u-">1.0</VALUE>
+	</EXAMPLE>
+</EXAMPLES>
+
+</DB>
+</MLDBIF>
+
+

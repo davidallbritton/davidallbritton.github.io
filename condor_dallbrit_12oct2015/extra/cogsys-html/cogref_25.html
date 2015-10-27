@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Wait</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Wait">
+<META NAME="keywords" CONTENT="Cogsys: Wait">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC33"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_26.html#SEC34"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_23.html#SEC31"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.1.1 Wait (<CODE>#W</CODE>) </H4>
+<!--docid::SEC33::-->
+<P>
+
+The Wait command takes one argument that specifies the number of
+milliseconds to wait. 
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Wait
+<DT>Class:
+<DD>Control
+<DT>Code:
+<DD><CODE>#W</CODE>
+<DT>Syntax:
+<DD><CODE>#W<VAR>waittime</VAR></CODE>
+<BR><VAR>waittime</VAR> is a timelimit
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`WAIT_T01.IN'</TT>
+<DD>tests basic operation
+<DT><TT>`WAIT_B01.IN'</TT>
+<DD>times the <CODE>#R</CODE>-<CODE>#W</CODE>-Display loop overhead
+</DL>
+<DT>Examples:
+<DD><DL COMPACT>
+<DT>input
+<DD><CODE>#W100</CODE>
+<DT>cogsys
+<DD>waits 100 milliseconds
+</DL>
+<DL COMPACT>
+<DT>input
+<DD><CODE>#WV1</CODE>
+<DT>cogsys
+<DD>waits for the number milliseconds specified in the variable <CODE>V1</CODE>
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

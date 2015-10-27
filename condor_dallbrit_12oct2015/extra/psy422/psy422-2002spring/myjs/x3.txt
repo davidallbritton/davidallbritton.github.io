@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE> Duke Waving </TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+ var dukeImages = new Array("T1.gif","T3.gif","T5.gif","T7.gif","T9.gif")
+ var thisDuke=0
+ var imgCount=5
+
+ function loopDuke() {
+
+  if (document.images) {
+
+      thisDuke++
+
+      if (thisDuke == imgCount) {
+         thisDuke = 0
+      }
+
+      document.seqDuke.src = dukeImages[thisDuke]
+      setTimeout("loopDuke()", 3*100)
+
+  }
+ }
+
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="white"  onload="loopDuke()">
+  <CENTER>
+   <IMG SRC="T1.gif" BORDER="0" NAME="seqDuke">
+  </CENTER>
+<P>
+<A HREF="x3.txt"> The code </A>
+</BODY>
+</HTML>

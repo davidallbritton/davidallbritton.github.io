@@ -1,0 +1,56 @@
+#
+#  formats data files for reading, mel lab 2.14
+unset noclobber
+
+dos2unix reading-data.txt
+
+cat   reading-data.txt |\
+ grep '[0-9]' |\
+ sed -e 's/([^)]*)//g' |\
+ gawk 'BEGIN {getline a; getline; print a, $0};{print}' |\
+ tr -d ';' |\
+ tee tempdata |\
+ head -1 | oneperline | gawk '{x++; print x, $1}' |\
+ cat > reading-variables
+
+# get only non-practice trials, only critical sentences
+# note that the error data for the end-of-passage question is also included
+# in the data for each sentence, and therefore is here in the selected data
+cat tempdata |\
+ gawk '($12 == 0 && $20 == 1) || $1 == "SUBJECT"' |\
+  tee tempdata2 |\
+  getcol 1 13 14 15 24 |\
+ cat >> reading-data
+
+
+ echo "ANOVA on reading times" > reading-anova.txt
+ cat reading-data | grep -v S | getcol 1 2 3 5 | anova >> reading-anova.txt
+ echo "" >> reading-anova.txt
+ echo "A = verbtype; 1=direct 2=indirect" >> reading-anova.txt
+ echo "B = lag" >> reading-anova.txt
+
+ echo "" >> reading-anova.txt
+ echo "" >> reading-anova.txt
+ echo "ANOVA on proportion correct in contradiction detection judgments" >> reading-anova.txt
+ cat reading-data | grep -v S | getcol 1 2 3 4 | anova >> reading-anova.txt
+ echo "" >> reading-anova.txt
+ echo "A = verbtype; 1=direct 2=indirect" >> reading-anova.txt
+ echo "B = lag" >> reading-anova.txt
+
+
+# make file for spss analysis
+cat reading-data | grep -v S | getcol 1 2 3 5 | means-by-cell | stripcounts |\
+  gawk '{subj = $1; r1 = $4; getline; r2 = $4; getline; r3 = $4; getline;\
+          r4 = $4; print subj, r1, r2, r3, r4}' |\
+  cat > temp1
+
+cat reading-data | grep -v S | getcol 1 2 3 4 | means-by-cell | stripcounts |\
+  gawk '{subj = $1; r1 = $4; getline; r2 = $4; getline; r3 = $4; getline;\
+          r4 = $4; print subj, r1, r2, r3, r4}' |\
+  cat > temp2
+
+echo "subject rt1 rt2 rt3 rt4 ac1 ac2 ac3 ac4" > reading.dat
+paste temp1 temp2 | getcol 1 2 3 4 5 7 8 9 10 >> reading.dat
+
+cp reading.dat lab2_14-data.txt
+unix2dos lab2_14-data.txt   

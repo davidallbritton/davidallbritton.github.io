@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>David Allbritton's Posters and Papers</title>
+	
+		<link rel="stylesheet" type="text/css" 
+		 href="http://condor.depaul.edu/~dallbrit/allbritton.css" />
+		 
+</head>
+
+<body>
+  <h2>David Allbritton's Selected Posters and Papers</h2>
+
+<ul>
+
+	<li>Allbritton, D. W. (in press, 2007).  Making Connections with Metaphors: Does Conventionality Matter? 
+	<em>Chinese Journal of Psychology</em>.
+	<ul><li>	<a href="../papers/CJP070622AbstractChinese2007.pdf">Abstract</a>
+		</li>
+</li>
+
+<li>Allbritton, D. W. (2004).  Strategic production of predictive inferences during 
+  comprehension.  <em>Discourse Processes, 38</em>(3), 309-322.  
+  <ul><li><a href="../papers/allbritton-2004-abstract.pdf">Abstract</a></li></ul>
+	<br />
+</li>
+
+<li> Allbritton, D. W., Wiemer-Hastings, P., Arnott, E., &amp; Efron, J.
+      (November 2003).  
+      <a href="rmt-scip-proposal-2003.doc">
+       Strategies for Research Methods Tutoring using Latent Semantic Analysis</a>.  
+       Paper presented by David Allbritton at the 33rd Annual Meeting 
+       of the Society for Computers in Psychology, Vancouver, BC.
+      <ul>
+       <li><a href="rmt-scip-2003.ppt">
+       Presentation</a>
+       </li>
+       <li><a href="http://reed.cs.depaul.edu/peterwh/RMT">RMT Web Page</a></li>
+      </ul>
+      <br />
+  </li> 
+	
+  <li>Arnott, E., Allbritton, D., &amp; Borders, S.  (November 2003).
+      <a href="Flashbulb-Memories-Psychnomics-2003.ppt">
+      Flashbulb Memories?  Memories for Events Surrounding September 11th</a>.
+      Poster presented by Elizabeth Arnott at the 43rd 
+      annual meeting of the Psychonomic Society, Vancouver, BC.
+      <br /> 
+      <br />
+  </li>
+
+  
+  <li>Wiemer-Hastings, P., Allbritton, D., Efron, J., &amp; Arnott, E.  (2003).  
+  <a href="../papers/wiemer-hastings-efron-allbritton-arnott-2003-research-methods-tutoring-in-the-classroom.pdf">
+  Research Methods Tutoring in the Classroom</a>.  In 
+  <em>
+  <a href="http://www.cs.usyd.edu.au/~aied/Supp_procs.html">
+  AIED2003 Supplementary Proceedings</a>, Volume VI: 
+  Workshop on Tutorial Dialogue Systems: With a View Toward the Classroom. 
+  </em>
+       <br /> 
+      <br />
+  </li>     
+      
+  <li> Allbritton, D. W.  (November 2002).  
+      <a href="allbritton-2002-scip.ppt">
+       Using open-source solutions to teach computing skills to 
+       psychology students</a>.  
+       Paper presented by David Allbritton at the 32nd Annual Meeting 
+       of the Society for Computers in Psychology, Kansas City, MO.
+      <ul>
+       <li><a href="http://sheu-hp.psy.depaul.edu">Course web server</a>
+       </li>
+       <li>See also:  <br />
+       Allbritton, D. W.  (2003).  
+       Using open-source solutions to teach computing skills for student research.  
+       <em>Behavior Research Methods, Instruments, &amp; Computers, 35</em>(2), 251-254.
+       </li>
+      </ul>
+      <br />
+  </li>
+  <li> Arnott, E. & Allbritton, D. W.  (November 2002).  
+      <a href="arnott-allbritton-2002-SCiP_Presentation.ppt">
+       A web-based tool for gathering ordinal rankings</a>.  
+       Paper presented by Elizabeth Arnott at the the 32nd Annual Meeting 
+       of the Society for Computers in Psychology, Kansas City, MO.
+      <ul>
+       <li> <a href="http://sheu-hp.psy.depaul.edu/~david/example2-files/">
+         Example</a>.  </li>
+       <li>Perl source code available upon request.
+       </li>
+      </ul>
+      <br>
+  </li>
+  <li>Allbritton, D. W.  (2002).  
+      <a href="../papers/allbritton-2002-unpublished-linux-lab.pdf">
+      Setting up a Psychology Research Lab with Linux</a>.
+      Unpublished manuscript.  This is a bit out of date now, but perhaps someone 
+			will find it useful nonetheless.
+      <br>
+  </li>
+</ul>
+
+</body>

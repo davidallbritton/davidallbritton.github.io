@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Mode</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Mode">
+<META NAME="keywords" CONTENT="Cogsys: Mode">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC48"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_39.html#SEC47"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_41.html#SEC49"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_39.html#SEC47"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.3.1 Mode (<CODE>%M</CODE>) </H4>
+<!--docid::SEC48::-->
+<P>
+
+The Mode command is the primary means of setting the (S)VGA mode.  The single
+argument specifies which Cogsys mode to switch into. This is the relationship
+between Cogsys modes and VGA modes:
+</P><P>
+
+<TABLE>
+<TR><TD>Cogsys Mode </TD><TD> (S)VGA mode (hex) </TD><TD> Description</TD>
+</TR>
+<TR><TD><CODE>0</CODE></TD>
+</TD><TD> 3 (0x0003)
+</TD><TD> VGA Text, 80x25, 16 colors
+</TR>
+<TR><TD><CODE>1</CODE></TD>
+</TD><TD> 17 (0x0011)
+</TD><TD> VGA Graphics, 640x480, 2 colors
+</TR>
+<TR><TD><CODE>2</CODE></TD>
+</TD><TD> 257 (0x0101)
+</TD><TD> SVGA Graphics, 640x480, 256 colors
+</TR></TABLE>
+<P>
+
+If a testlist uses mode 2, the video adapter on the run time system
+must be VESA BIOS Extensions (VBE) 2.0 compliant (<A HREF="cogref_4.html#SEC12">1.2.1 Requirements</A>). Testlists
+that do not need Cogsys mode 2 need only any VGA compatible system.
+</P><P>
+
+Cogsys will always start and stop in mode 0.
+</P><P>
+
+The <EM>text</EM> modes are those which can only display a certain set of
+characters at fixed locations on the screen. Currently, the only Cogsys
+text mode is 0. The <EM>graphics</EM> modes can access every pixel on this
+display (they are also called all points addressable (APA) modes).
+Currently, the Cogsys graphics modes are 1 and 2.
+</P><P>
+
+Switching into a graphics mode automatically loads the default fonts
+(<A HREF="cogref_51.html#SEC59">2.3.4.9 Graphics-Mode Text Attributes (<CODE>%A</CODE>)</A>) and initializes the graphics environment. Switching
+back to text mode automatically unloads the fonts.
+</P><P>
+
+If a testlist is going to switch modes, it is good practice to explicitly
+put a Mode command at the top of the testlist. This immediately identifies
+those lists which need graphics capabilities.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Mode
+<DT>Class:
+<DD>Video Control
+<DT>Code:
+<DD><CODE>%M</CODE>
+<DT>Syntax:
+<DD><CODE>%M<VAR>modenum</VAR></CODE>
+<BR><CODE>%M[<VAR>modenum</VAR>,<VAR>fontpath</VAR>]</CODE>
+<BR><VAR>modenum</VAR> is a integer from 0-2 representing the Cogsys mode 
+<BR><VAR>fontpath</VAR> is the path where fonts should be loaded from
+<DT>System:
+<DD>Switches into Cogsys mode <VAR>modenum</VAR>.
+<DT>History:
+<DD>The Cogsys 3 Mode command is completely redesigned.
+<P>
+
+In Cogsys 2.x, <CODE>%M</CODE> took an argument which explicitly set the VGA
+mode.  This required the user to be familiar with the full list of VGA
+modes, even though only two (VGA Mode 3 and VGA Mode 17) were actually
+useful. Testlists which have <SAMP>`%M3'</SAMP> and <SAMP>`%M17'</SAMP> should be
+changed to <CODE>%M0</CODE> and <CODE>%M2</CODE>, respectively.
+</P><P>
+
+Later versions of Cogsys 2.x used VGA Mode 16 (Graphics, 640x350, 16
+color) in conjunction with the now-defunct <SAMP>`$B'</SAMP> command for
+multiframe displays on slower systems. Multiframe displays are now done
+with the new Multiframe Display Picture commands (see section <A HREF="cogref_61.html#SEC69">Multiframe Picture Display</A>)
+which do not use video page switching and rely on processor/adapter
+speed, instead (see section <A HREF="cogref_4.html#SEC12">Requirements</A>. Old
+testlists which use <SAMP>`%M16'</SAMP> must be rewritten with the Multiframe
+Display.
+</P><P>
+
+Finally, Cogsys 2.x (confusingly) used hexadecimal to set SVGA mode 257
+(in hex, 0x0101). In addition, "color support" needed to be activated
+with a <SAMP>`$C'</SAMP> command--this cryptic requirement is no longer
+necessary. References to <SAMP>`$C%M101'</SAMP> should become <CODE>%M2</CODE>.
+</P><P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`MODE_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>%M2#G[hello from graphics mode!]#W5000%M0</CODE>
+<DT>cogsys
+<DD>Switches to Cogsys mode 2 (640x480x256 colors), displays the string,
+waits 5 seconds, and returns to text mode. The string is displayed in
+the default font, size, color and justification at the location 0,0 (top
+left of the screen).
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_39.html#SEC47"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_41.html#SEC49"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_39.html#SEC47"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,670 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./unix-tutorial-for-lab_files/filelist.xml">
+<title>ax14642p.aw</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>david</o:Author>
+  <o:Description>Created by ApplixWare Release 4.30 (build 807.65.0.22) #17  RTF Export Filter</o:Description>
+  <o:LastAuthor>David Allbritton</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>405</o:TotalTime>
+  <o:Created>2001-09-09T00:19:00Z</o:Created>
+  <o:LastSaved>2001-09-09T00:19:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>1330</o:Words>
+  <o:Characters>7582</o:Characters>
+  <o:Company>DePaul University</o:Company>
+  <o:Version>9.4402</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DoNotHyphenateCaps/>
+  <w:PunctuationKerning/>
+  <w:DrawingGridHorizontalSpacing>6 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>6 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>3</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:DoNotShadeFormData/>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Times;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-alt:"Times New Roman";
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:Times;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:Times;
+	color:black;
+	mso-font-kerning:0pt;}
+p.Cell, li.Cell, div.Cell
+	{mso-style-name:Cell;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:Times;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.Footnote, li.Footnote, div.Footnote
+	{mso-style-name:Footnote;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:Times;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.HdrFtr, li.HdrFtr, div.HdrFtr
+	{mso-style-name:HdrFtr;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	tab-stops:center 3.5in right 7.0in 9.5in;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:Times;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.htmlhyperlinktext, li.htmlhyperlinktext, div.htmlhyperlinktext
+	{mso-style-name:html_hyperlink_text;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:Times;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+ /* Page Definitions */
+@page
+	{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in .75in 1.0in .75in;
+	mso-header-margin:.25in;
+	mso-footer-margin:.25in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:.5in;text-justify-trim:punctuation'>
+
+<div class=Section1>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b><span
+style='font-size:18.0pt'>Basic unix commands and concepts:</span><o:p></o:p></b></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'>Note that all unix
+commands and filenames are case sensitive:<span style="mso-spacerun: yes"> 
+</span><b>File1</b><span style="mso-spacerun: yes">  </span>and <b>file1</b>
+are *not* the same file to unix.<span style="mso-spacerun: yes">  </span>And if
+you type <b>LS</b> rather than <b>ls</b>, nothing will happen.<span
+style="mso-spacerun: yes">  </span>Same goes for user names and passwords.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b><span
+style='font-size:16.0pt'>Unix concepts:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>Piping</b> – A
+plumbing analogy:<span style="mso-spacerun: yes">  </span>In unix you can take
+the output of almost any command or </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>program and “pipe” it into another command or program
+using the pipe symbol | </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>(a vertical line).<span style="mso-spacerun: yes"> 
+</span>For example <b>ls -l<span style="mso-spacerun: yes">  </span>|<span
+style="mso-spacerun: yes">  </span>sort –n +4</b> will pipe the output of the <b>ls
+-l</b></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>command into the sort command, producing a list of files
+sorted by size.</p>
+
+<h1><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h1>
+
+<h1 style='mso-pagination:none'>File input and output redirection</h1>
+
+<p class=MsoNormal style='margin-left:.5in'>Just as you can pipe stuff to and
+from a command or program, you can also send stuff to and from a file using the
+redirect symbols <b>&lt;</b> and <b>&gt;</b>.<span style="mso-spacerun: yes"> 
+</span>For example, <b>ls &gt; listfile</b> redirects the output of the <b>ls</b>
+command to the file <b>listfile</b>.<span style="mso-spacerun: yes">  </span><b>ls
+&gt;&gt; listfile</b> does the same thing, but appends to the end of the file
+rather than overwriting it.<span style="mso-spacerun: yes">  </span>Another
+example: <b>sort &lt; listfile</b> will pipe the contents of the file <b>listfile</b>
+into the sort command.<span style="mso-spacerun: yes">  </span>I usually prefer
+to say <b>cat listfile | sort</b> instead, because I find it easier to think
+about if I keep the flow of input and output always going from left to right.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1>Standard input, standard output, and standard error</h1>
+
+<p class=MsoNormal style='margin-left:.5in;mso-pagination:widow-orphan'>Input
+from the keyboard is called “standard input.”<span style="mso-spacerun: yes"> 
+</span>Input through a pipe is also standard input. Most commands and programs
+can receive input from either a file or from standard input.<span
+style="mso-spacerun: yes">  </span>So for example <b>cat listfile | sort</b>
+and <b>sort listfile</b> both produce the same output.<span
+style="mso-spacerun: yes">  </span>Standard output is printed to the screen or
+can be redirected to a pipe or a file.<span style="mso-spacerun: yes"> 
+</span>Standard error is also printed to the screen, but on a different
+“channel”.<span style="mso-spacerun: yes">  </span>Standard error is usually
+used for error messages and the like, and does not get redirected by <b>&gt;</b>
+or piped by <b>|</b>.<span style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal style='margin-left:.5in;mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><b>Arguments</b> – things (such as file names) that are given
+after a command name. <span style="mso-spacerun: yes"> </span>For example <b>ls
+/home</b> has one argument (<b>/home</b>) that is passed to the command
+ls.<span style="mso-spacerun: yes">  </span>This produces a list of the files
+in the /home directory.</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><b>The backspace key</b> – depending on the terminal type, any of
+the following may act as the backspace key:<span style="mso-spacerun: yes">  
+</span><b>backspace</b>, <b>delete</b>, <b>control-h</b>, <b>control-?</b>, <b>control-backspace</b>,
+<b>control-delete</b>.</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><b>Other things you may need to learn about:</b> file
+permissions, file ownership, file creation mask (in cshrc file), mounting
+filesystems (including cdroms and floppies), environment variables, terminal
+types (when in doubt, try vt100), regular expressions and pattern matching,
+shell expansion and how to “protect” special characters (such as * . $) from
+the shell when passing them in arguments (using single quotes or \ usually),
+shell scripts.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b><span
+style='font-size:16.0pt'>Unix commands:<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>telnet</b>
+condor.depaul.edu<span style="mso-spacerun: yes">      </span>---- if you want
+to check your email, etc on condor; you can</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>also set up a web page by placing files in the
+public_html directory of your condor </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>account.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>ssh</b> – a secure version
+of telnet.<span style="mso-spacerun: yes">  </span>Telnet is disabled on the
+lab machines and only ssh can be </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>used.<span style="mso-spacerun: yes">  </span>(If you
+type <b>telnet</b> it will use ssh instead because I have “aliased” telnet to </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>refer to ssh.<span style="mso-spacerun: yes">  </span>See
+“.cshrc” below.)</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>ftp</b> – for
+transferring files from one machine to another.<span style="mso-spacerun:
+yes">  </span>Example:<span style="mso-spacerun: yes">  </span>ftp
+condor.depaul.edu</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>(You can ftp out from the lab machines, but not into them
+from other computers.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>I have disabled incoming ftp connections because they are
+insecure.<span style="mso-spacerun: yes">  </span>I use rsync </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>instead.<span style="mso-spacerun: yes">  </span>Another
+option is to ftp the files you want to condor, then log into the lab machine</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>ftp the files down from condor.)</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>rsync</b> – syncs a
+local directory with another directory (possibly on a different computer).<span
+style="mso-spacerun: yes">  </span>Not</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>really a “basic” command, but what I use to securely
+transfer files and run backups.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>Example: <b><span style="mso-spacerun: yes"> </span>rsync
+–e ‘ssh –l dallbrit’ –az /dos-cogsys/output condor.depaul.edu:private</b></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>This command will back up the output directory
+(containing data produced by </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>cogsys) to my private directory on condor.<span
+style="mso-spacerun: yes">  </span>If you want to know more, look at the </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>man page for rsync or ask me.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>exit</b><span
+style="mso-spacerun: yes">  </span>-----<span style="mso-spacerun: yes"> 
+</span>logs you out of the current shell</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>ls</b><span
+style="mso-spacerun: yes">  </span>--- list the files in the directory</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><b>cat</b> – concatenate; prints the contents of its arguments to
+standard output.<span style="mso-spacerun: yes">  </span>Useful for starting a
+series of piped commands with input from a file.</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><b>control-d – </b>the unix end of file marker (like control-z in
+DOS).<span style="mso-spacerun: yes">  </span>Typed on a line by itself, it
+signals the end of a stream of keyboard input you are piping into a command.</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><b>more</b> – presents standard output a screen at a time, going
+to the next screenful each time you press the spacebar.<span
+style="mso-spacerun: yes">  </span>A good thing to pipe the output of a command
+into.<span style="mso-spacerun: yes">  </span>Also try <b>less</b>, which is a
+fancier version of <b>more.</b> (Less can scroll up or down; more can only
+scroll down.)</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>cd</b><span
+style="mso-spacerun: yes">  </span>-- change directory (also see <b>pushd</b>
+which remembers where you came from)</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>rm</b><span
+style="mso-spacerun: yes">  </span>--- removes a file or files</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>cp</b><span
+style="mso-spacerun: yes">  </span>-- copy a file</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>man</b> {command} --
+see the manual entry for a command; example:<span style="mso-spacerun: yes"> 
+</span><b>man vi</b></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>sort</b> – a very
+useful utility for sorting files or the output of other commands</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>.cshrc – </b>a file
+(not a command) that sets options for your login session.<span
+style="mso-spacerun: yes">  </span>You can</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>change the command prompt, set up aliases (so that if you
+type “dir” it executes “ls”</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>for example) and so forth.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><b>csh</b> – the ”shell” that runs in your account.<span
+style="mso-spacerun: yes">  </span>The shell reads in your commands from the
+command line and executes them.<span style="mso-spacerun: yes">  </span>Your
+account uses csh, or the “C-shell” by default.<span style="mso-spacerun: yes"> 
+</span>It is called that because its syntax is similar to the C programming
+language.<span style="mso-spacerun: yes">  </span>The cshell has some handy
+features for command and filename completion (tab key), repeating a command (up
+arrow, !), and reviewing previous commands (history).<span style="mso-spacerun:
+yes">  </span></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>bash</b> – another
+widely used shell, preferred by most programmers.<span style="mso-spacerun:
+yes">  </span>If you type “bash” on the </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>command line and hit enter, you will then be using a bash
+shell rather than csh.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>ps</b> – list
+processes that are running.<span style="mso-spacerun: yes">  </span>Useful for
+finding and killing programs that have run </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>amok.<span style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>kill [process number]
+</b>– terminates a process </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>control-c</b> –
+interrupts the process currently running in that terminal window.<span
+style="mso-spacerun: yes">  </span>You will use this a lot.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>df</b> – lists all
+the currently mounted filesystems and tells how much free space they have.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>chmod</b> – change
+the permissions of a file.<span style="mso-spacerun: yes">  </span>In unix, you
+can control whether a file or </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>directory is viewable by other users by changing its
+permissions.<span style="mso-spacerun: yes">  </span>Also use </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>chmod to make a file executable (for programs or scripts)</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>find</b> – a powerful
+utility for finding files by name or type. </p>
+
+<p class=MsoNormal style='text-indent:.5in;mso-pagination:widow-orphan'>Here is
+an example that lists all the word documents in </p>
+
+<p class=MsoNormal style='text-indent:.5in;mso-pagination:widow-orphan'>the
+windows partition of the computer:</p>
+
+<p class=MsoNormal style='text-indent:.5in;mso-pagination:widow-orphan'><b>find
+/win<span style="mso-spacerun: yes">  </span>-iname ‘*.doc’<span
+style="mso-spacerun: yes">  </span>-print</b></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>grep</b> – extracts
+lines from a file (or standard input) that match a given pattern</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>xargs</b> – it’s a
+little complicated, but a very useful utility.<span style="mso-spacerun: yes"> 
+</span></p>
+
+<p class=MsoNormal style='text-indent:.5in;mso-pagination:widow-orphan'>Example:
+<b>find /dos-cogsys -name ‘art*’ -print | xargs grep ‘testlist’</b></p>
+
+<p class=MsoNormal style='text-indent:.5in;mso-pagination:widow-orphan'>This
+first finds all the files in the /dos-cogsys directory whose names start</p>
+
+<p class=MsoNormal style='text-indent:.5in;mso-pagination:widow-orphan'>with
+“art”.<span style="mso-spacerun: yes">  </span>It then takes those file names
+and for each of them executes the</p>
+
+<p class=MsoNormal style='text-indent:.5in;mso-pagination:widow-orphan'>command
+“grep ‘testlist’”, which prints each line in the file that contains the </p>
+
+<p class=MsoNormal style='text-indent:.5in;mso-pagination:widow-orphan'>string
+“testlist”.<span style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>awk</b><span
+style='mso-tab-count:1'>     </span>- a handy text manipulation utility.<span
+style="mso-spacerun: yes">  </span>Most of my scripts make extensive use of awk</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>sed</b> <span
+style='mso-tab-count:1'>     </span>- stream editor.<span style="mso-spacerun:
+yes">  </span>Used to search for patterns and change text that matches them.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><b>perl</b> <span
+style='mso-tab-count:1'>     </span>- practical extraction and report
+language.<span style="mso-spacerun: yes">  </span>Take bits and pieces of C,
+sed, awk, c-shell, </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>and a few other things, put them together in a way that
+lets you do almost anything</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>several different ways and you have perl.<span
+style="mso-spacerun: yes">  </span>Perl is great for any kind of text
+manipulation</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>and formatting.<span style="mso-spacerun: yes">  </span>I
+use it to generate cogsys tests lists and to put the cogsys output files</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>into a useable form for analysis.<span
+style="mso-spacerun: yes">  </span>Learn to use perl – it will be a very useful
+skill.<span style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>Most web cgi programs are written in perl, and it is a
+favorite of system administrators.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><b>Other commands you might use often: </b><span
+style="mso-spacerun: yes"> </span>wc, who, history, du, quota –v (on condor),
+locate, tr, uniq, head, tail, control-z (to suspend a running process), bg (to
+put a suspended process in the background), fg (to bring a process to the
+foreground), top, ping.<b><o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><b><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.5in;mso-pagination:
+widow-orphan'><b>vi</b><span style="mso-spacerun: yes">       </span>- visual
+editor, for text editing.<span style="mso-spacerun: yes">  </span>Necessary for
+editing files on condor.<span style="mso-spacerun: yes">  </span>To edit files
+that are on the lab machines, you can usually just use the built-in text GUI
+text editor instead, but vi is really handy to know.<span style="mso-spacerun:
+yes">  </span>You could also use <b>emacs</b> instead of vi; it is a<span
+style="mso-spacerun: yes">  </span>more powerful text editor favored by
+programmers.</p>
+
+<p class=MsoNormal style='margin-left:45.0pt;mso-pagination:widow-orphan'>Example:
+<b>vi filename</b><span style="mso-spacerun: yes">    </span>--- to start
+editing a file (from the unix command prompt)</p>
+
+<p class=MsoNormal style='margin-left:45.0pt;mso-pagination:widow-orphan'>example:<span
+style="mso-spacerun: yes">  </span><b>vi<span style="mso-spacerun: yes"> 
+</span>id1s001</b></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='font-size:
+18.0pt'>vi commands:<span style="mso-spacerun: yes">   </span>--- what to do
+within vi to edit a file</span></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span>Note:<span style="mso-spacerun: yes">  </span>vi starts
+out in &quot;edit mode&quot;, with certain keys doing certain functions.<span
+style="mso-spacerun: yes">  </span>To type in new</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span><span style='mso-tab-count:1'>            </span>text,
+you first have to get into &quot;insert mode&quot; before typing in the text.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span><b>h j k l </b>-- cursor movement; arrow keys also work
+for this</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span><b>i</b> -- start inserting text before the current
+cursor position.<span style="mso-spacerun: yes">  </span>This takes you out of
+edit mode </p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span><span style='mso-tab-count:1'>            </span>and into
+insert mode.<span style="mso-spacerun: yes">  </span>Now you can type in
+text.<span style="mso-spacerun: yes">  </span>To get back to edit mode, hit <b>escape</b>.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span><b>:w</b><span style="mso-spacerun: yes">  </span>--
+write the file to the hard drive.<span style="mso-spacerun: yes">  </span>this
+is how you save your work.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span><b>:q</b><span style="mso-spacerun: yes">  </span>-- quit
+vi.<span style="mso-spacerun: yes">  </span>after saving your work, give this
+command to exit vi.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span><b>dd</b> -- delete the current line</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span><b>dw</b> -- delete the word following the cursor</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><span style='mso-tab-count:
+1'>            </span><b>x</b> - delete one character following the cursor (backspace
+doesnt work in edit mode)</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'>Note that all these
+commands only work in &quot;edit mode&quot;, not in &quot;insert
+mode&quot;.<span style="mso-spacerun: yes">  </span>Insert mode is just for
+typing in new text.</p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><i>David Allbritton<o:p></o:p></i></p>
+
+<p class=MsoNormal style='mso-pagination:widow-orphan'><i>Last Updated:
+September 8, 2001<o:p></o:p></i></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>Random Number Generator </TITLE>
+<H1>Random Number Generator</H1>
+
+<script language="JavaScript">
+function randOut(nbr) {
+
+  var number = eval(nbr.elements[0].value)
+  var ran = new Array()
+  for (var i=0; i <  number; i++) {
+//Displays a random number between 0 and 9
+   ran[i] = Math.ceil(Math.random()*10)-1
+ }
+ alert(ran)
+}
+
+</script>
+</HEAD>
+<BODY BGCOLOR=WHITE>
+<H2>
+<FORM>
+How many do you want:
+</H2>
+<INPUT TYPE="text" VALUE="number" onChange="randOut(this.form)">
+</FORM>
+</BODY>
+</HTML>

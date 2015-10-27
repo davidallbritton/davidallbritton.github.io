@@ -1,0 +1,472 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./242-ANOVA_files/filelist.xml">
+<title>Psy 242 </title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>David Allbritton</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>David Allbritton</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>2</o:TotalTime>
+  <o:Created>2001-04-19T21:44:00Z</o:Created>
+  <o:LastSaved>2001-04-19T21:44:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>976</o:Words>
+  <o:Characters>5564</o:Characters>
+  <o:Lines>46</o:Lines>
+  <o:Paragraphs>11</o:Paragraphs>
+  <o:CharactersWithSpaces>6832</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:53622874;
+	mso-list-type:hybrid;
+	mso-list-template-ids:401357122 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:338897609;
+	mso-list-type:hybrid;
+	mso-list-template-ids:407911824 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:358119127;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-658369950 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3
+	{mso-list-id:367729301;
+	mso-list-type:hybrid;
+	mso-list-template-ids:365956308 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:972978875;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1411291984 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:1005741362;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-656361318 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:1070810926;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-247959430 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7
+	{mso-list-id:1273633562;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-182805546 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:2117362455;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2077713748 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><b>Psy 242 <o:p></o:p></b></p>
+
+<p class=MsoNormal><b>Handout for ANOVA and post-hoc tests<o:p></o:p></b></p>
+
+<p class=MsoNormal><b><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></p>
+
+<p class=MsoNormal><b>Statistical Inference:<o:p></o:p></b></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l7 level1 lfo1;tab-stops:list .5in'>Is
+     what we observed likely to have happened by chance?</li>
+ <li class=MsoNormal style='mso-list:l7 level1 lfo1;tab-stops:list .5in'>How
+     often would this happen by chance?</li>
+ <li class=MsoNormal style='mso-list:l7 level1 lfo1;tab-stops:list .5in'>If it
+     is very unlikely to happen by chance (&lt; 5% of the time) we will
+     conclude that it did not happen by chance – that our finding reflects
+     something “real” about the whole population.</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>“Just by chance” means just due to sampling error, when no
+real difference or real relationship exists in the population.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Statistical tests of significance are used to answer the
+question “<b>How often would I get this result just by chance</b>”?</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><b>Chi-square</b>:<span
+     style="mso-spacerun: yes">  </span>How often would percentages differ this
+     much just by chance?</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><b>Correlation</b>:<span
+     style="mso-spacerun: yes">  </span>How often would two variables be this
+     strongly related just by chance? <span style='font-size:9.0pt;mso-bidi-font-size:
+     12.0pt'>(A kind of t-test is used to test how often we would get a
+     correlation of a certain size just by chance, if the real correlation in
+     the population were zero)</span>.</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><b><u>t</u>-test</b>:<span
+     style="mso-spacerun: yes">  </span>How often would two means differ by
+     this much just by chance?</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><b>ANOVA</b>
+     (<u>F</u> test): How often would the differences among the means be this
+     great just by chance?</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><b>How do all these statistical tests work?<span
+style="mso-spacerun: yes">  </span><o:p></o:p></b></p>
+
+<p class=MsoNormal><b><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></p>
+
+<p class=MsoNormal>Basically, each of them calculates a ratio based on your
+sample data.<span style="mso-spacerun: yes">  </span>The ratios are different
+for the various test statistics, but in general you can think of them as being:<br>
+<b>effect / error.</b></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'>“<u>Effect</u>”
+     is a measure of what we are testing for, such as the difference between
+     two means (the difference between the means for the control and
+     experimental groups for instance).</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'>“<u>Error</u>”
+     is a measure of chance variation, such as the variability within each
+     group.</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>If the null hypothesis is true (Null Hypothesis = “There is
+no real effect”), then statistical theory can tell us exactly how probable a
+certain value of our test statistic is.<span style="mso-spacerun: yes"> 
+</span>If the value of our test statistic that we calculate from our sample is
+very unlikely to happen when the null hypothesis is true, then we reject the
+null hypothesis.<span style="mso-spacerun: yes">  </span>In other words, we
+conclude that “It is not true that there is no real effect.”<span
+style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>How do we know what the probability of getting a certain
+value of a test statistic is?<span style="mso-spacerun: yes">  </span>We have
+to refer to the <u>sampling distribution</u> of that statistic.<span
+style="mso-spacerun: yes">  </span>Take the <u>t</u> statistic for
+example.<span style="mso-spacerun: yes">  </span>We know (from statistical
+theory) that if the null hypothesis is true, then the sampling distribution of <u>t</u>
+will have a mean of zero.<span style="mso-spacerun: yes">  </span>Values of <u>t</u>
+that are close to zero are very likely to happen when the null hypothesis is
+true.<span style="mso-spacerun: yes">  </span>Values far from zero are very
+unlikely.<span style="mso-spacerun: yes">  </span>You can use a table in a
+statistics book, or use a computer stats package to calculate exactly how often
+a given value of <u>t</u> occurs when the null hypothesis is true.<span
+style="mso-spacerun: yes">  </span>The probability of getting a value of <u>t</u>
+that far from zero is called <u>p.</u><span style="mso-spacerun: yes"> 
+</span>When <u>p</u> is less than .05, we say that this value of <u>t</u> is so
+unlikely to happen when the null hypothesis is true, that we conclude that the
+null hypothesis must be false.<span style="mso-spacerun: yes">  </span>Then we
+say that the difference between the two means is <u>statistically significant</u>.<span
+style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">   </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>A general rule of thumb for how all of these tests of
+significance work is:</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyText>The larger this ratio is, the less likely it is that what
+we observed happened just by chance.<span style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Comparing two means:<span style="mso-spacerun: yes"> 
+</span><u>t</u> tests</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo4;tab-stops:list .5in'>effect:<span
+     style="mso-spacerun: yes">  </span>the difference between the sample means</li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo4;tab-stops:list .5in'>error:<span
+     style='mso-tab-count:1'>    </span>the standard error of the difference
+     between two means</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Comparing more than two means: ANOVA (<u>F</u> test)</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo5;tab-stops:list .5in'>effect:<span
+     style='mso-tab-count:1'>   </span>the variance of the sample means
+     (between-groups variance)</li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo5;tab-stops:list .5in'>error:<span
+     style='mso-tab-count:1'>    </span>the variance within (within-groups
+     variance)</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The <u>F</u> test is a generalization of the <u>t</u> test
+that can compare more than two means at once.<span style="mso-spacerun: yes"> 
+</span>When you are comparing just two means, either the <u>F</u> test (also
+called ANOVA) or a <u>t</u> test can be used.<span style="mso-spacerun: yes"> 
+</span>In fact, if you square the value of <u>t</u> it will be exactly the
+value of <u>F</u> for the same data; <u>F</u> = <u>t</u><sup>2</sup></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>With ANOVA, not only can you compare more than two means at
+once, you can also test for the effects of more than one independent variable
+at once.<span style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>You can also test for the <b>interaction</b> of two or more
+variables.<span style="mso-spacerun: yes">  </span>An interaction is when the
+effect of one variable changes depending on the level of a second
+variable.<span style="mso-spacerun: yes">  </span>If, for example, a study found
+that married men live longer than single men, but unmarried women live longer
+than married women, there would be an interaction of the effects of marriage
+and gender on the dependent variable longevity.<span style="mso-spacerun:
+yes">  </span>Being married increases longevity for men, but decreases it for
+women.<span style="mso-spacerun: yes">  </span>An ANOVA can be used to test
+whether an interaction is statistically significant.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>So what statistical tests do we usually use to analyze the
+results of an experiment?</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo7;tab-stops:list .5in'>Experiments
+     with only 2 levels of a single IV:<span style="mso-spacerun: yes"> 
+     </span><span style='mso-tab-count:1'>   </span>either a <u>t</u> test or
+     ANOVA</li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo7;tab-stops:list .5in'>Experiments
+     with more than 2 levels of a single IV:<span style='mso-tab-count:1'>        </span>ANOVA</li>
+ <li class=MsoNormal style='mso-list:l8 level1 lfo7;tab-stops:list .5in'>Experiments
+     with more than one IV:<span style='mso-tab-count:3'>                              </span>ANOVA</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1>ANOVA for comparing more than 2 conditions of a single IV</h1>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyText>SPSS HOWTO - Between-Subjects Design:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo8;tab-stops:list .5in'>Analyze
+     -&gt; compare means -&gt; One-way ANOVA</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo8;tab-stops:list .5in'>Move dependent
+     variable to “dependent list”</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo8;tab-stops:list .5in'>Move
+     independent variable to “factor” box</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo8;tab-stops:list .5in'>“Post-hoc”
+     – select one or more (such as Tukey, Bonferroni, Scheffe), then click
+     “continue”</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo8;tab-stops:list .5in'>click
+     “OK”</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyText>SPSS HOWTO - Within-Subjects Design:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo9;tab-stops:list .5in'>Analyze
+     -&gt; General Linear Model -&gt; Repeated Measures</li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo9;tab-stops:list .5in'>“Within-subject
+     factor name” – type in a name for your IV; it will not be one of the
+     variable names in your data file, since each “variable” in the SPSS data
+     corresponds to just one <u>level</u> of your IV.</li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo9;tab-stops:list .5in'>“Number
+     of levels” – type in the number of conditions</li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo9;tab-stops:list .5in'>Click
+     “Add”</li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo9;tab-stops:list .5in'>Click
+     “Define”</li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo9;tab-stops:list .5in'>In the
+     left panel, highlight the names of the conditions using the mouse</li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo9;tab-stops:list .5in'>Click
+     on the arrow button to move them into the “Within subjects variables” box</li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo9;tab-stops:list .5in'>You
+     can then use the up/down arrow buttons to re-arrange the order of the
+     conditions if you need to.</li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo9;tab-stops:list .5in'>Click
+     “contrasts” and select “Polynomial” if it is not already selected</li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo9;tab-stops:list .5in'>Click
+     “continue”</li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo9;tab-stops:list .5in'>Click
+     “OK”</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>What are post-hoc tests and why are they necessary?</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>An ANOVA can only tell us that there is some significant difference
+among the means somewhere – it can not tell us <b>which</b> pairs of means are
+significantly different.<span style="mso-spacerun: yes">  </span>For that, we
+must use some sort of post-hoc (“after the fact”) test to compare the
+individual pairs of means we are interested in.<span style="mso-spacerun:
+yes">  </span>We could simply use separate t-tests for each pair of means we
+want to compare.<span style="mso-spacerun: yes">  </span>Why not use
+t-tests?<span style="mso-spacerun: yes">  </span>Because running more than one
+statistical test of significance on the same set of data increases the chance
+that we will reject the null hypothesis when we should not.<span
+style="mso-spacerun: yes">  </span>The post-hoc tests in SPSS for
+between-subjects designs correct for this.<span style="mso-spacerun: yes"> 
+</span>Unfortunately, SPSS does not do post-hoc adjustments for within-subjects
+designs.<span style="mso-spacerun: yes">  </span>A good rule of thumb is to
+specify <b>ahead of time</b> which paired comparisons or contrasts you plan to do.<span
+style="mso-spacerun: yes">  </span>Then the comparisons are planned rather than
+post-hoc, and therefore less problematic.</p>
+
+</div>
+
+</body>
+
+</html>

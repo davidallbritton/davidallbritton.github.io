@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml" >
+
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+
+    <title>javascript9.html</title>
+		
+<script type = "text/javascript">
+<!--
+document.writeln("<h1>Sorting Arrays</h1>");
+
+  // create an array of unordered numbers:
+var originalArray = [2, 3, 8, 1, 4, 7, 5]; 
+copyOfArray = new Array();
+orderedArray = new Array();
+
+// copy the original array to another array that we will sort:
+orderedArray = originalArray;
+
+// copy the values in the original array to the copyOfArray elements:
+for (i in originalArray) 
+   copyOfArray[i] = originalArray[i];
+
+// print out the three arrays before sorting:
+document.writeln("<p>The arrays before <em>orderedArray</em> is sorted:</p><ul>");
+document.writeln("<li>originalArray = " + originalArray + "</li>");
+document.writeln("<li>copyOfArray = " + copyOfArray + "</li>");
+document.writeln("<li>orderedArray = " + orderedArray + "</li>");
+document.writeln("</ul>");
+
+// define a function for comparing two numbers to use in the sort
+function compareNumbers (value1, value2)
+{
+   return parseFloat(value1) - parseFloat(value2);
+}
+
+// sort the "sorted" array by numeric value:
+orderedArray.sort (compareNumbers);
+
+// print out the three arrays after sorting:
+document.writeln("<p>The arrays after <em>orderedArray</em> is sorted:</p><ul>");
+document.writeln("<li>originalArray = " + originalArray + "</li>");
+document.writeln("<li>copyOfArray = " + copyOfArray + "</li>");
+document.writeln("<li>orderedArray = " + orderedArray + "</li>");
+document.writeln("</ul>");
+
+// -->
+</script>
+		
+  </head>
+
+  <body></body>
+	
+</html>
+

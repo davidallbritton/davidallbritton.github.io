@@ -1,0 +1,59 @@
+#
+#  formats data files for symbdist, mel lab 2.5
+unset noclobber
+
+dos2unix symbdist-data.txt
+
+cat   symbdist-data.txt |\
+ grep '[0-9]' |\
+ sed -e 's/([^)]*)//g' |\
+ gawk 'BEGIN {getline a; getline; print a, $0};{print}' |\
+ tr -d ';' |\
+ tee tempdata |\
+ gawk '$12 == 0 && $15 == 1' |\
+ cat > tempdata1 
+
+# tempdata still has the fillers, and begins with variable names
+# tempdata1  has no variable names and only correct responses to non-fillers
+
+cat tempdata |\
+ head -1 |\
+ tee tempvariables |\
+ oneperline | gawk '{x++; print x, $1}' |\
+ cat > lab2_5-symbdist-variables
+
+# run anova for question by condition:
+# getcols: SUBJECT LARGERSM CONDITIO DISTANCE RESPRT
+cat tempdata1 |\
+ getcol 1 13 21 22 17  > tempdata1.1
+cat tempvariables tempdata1 |\
+ getcol 1 13 21 22 17 |\
+ tee tempdata1.5 |\
+ gawk 'BEGIN {getline; nvars = NF; for (x=1;x < nvars;x++) vname[x] = $x }; \
+   { for (x=1;x<nvars;x++) $x = $x vname[x]; print }' |\
+ tolower |\
+ tee tempdata2 |\
+ getcol 1 2 3 5 | tee tempdata6 | anova > lab2_5-symbdist-anova-question-by-condition
+
+# create data file for students to analyze
+cat tempdata1.1 | \
+ getcol 1 2 3 5 | means-by-cell | stripcounts > temp9
+(cat tempvariables | getcol 1 2 3 5; cat temp9) | repeated NAMES 2 |\
+  cat > lab2_5-symbdist-question-condition.dat
+
+# get data file for students to use for regression analysis:
+cat tempdata1 | getcol 1 22 17 | grep '[0-9]' | anova > lab2_5-symbdist-anova-distance
+(head -1 tempdata ; cat tempdata1) | getcol 1 22 17 > lab2_5-symbdist-distance-for-regression.dat
+
+# run the regression:
+cat lab2_5-symbdist-distance-for-regression.dat | grep -v S | getcol 3 2 |\
+   regress > lab2_5-symbdist-regression-distance
+
+# get data file for students to use for distance anova
+cat tempdata1 | getcol 1 22 17 |\
+  means-by-cell | stripcounts | fill-cells |\
+  gawk '{$2 += 100; print}' | sort -n  > tempdata3
+(head -1 tempdata| getcol 1 22 17; cat tempdata3) |\
+  repeated NAMES 1 > lab2_5-symbdist-distance-for-anova.dat
+
+

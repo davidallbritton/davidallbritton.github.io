@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<MLDBIF>
+<DB>
+
+<!-- Neural Network Definition -->
+<NETWORK>
+
+	<!-- Node Definitions -->
+
+	<NODE>
+		<NAME>A</NAME>
+		<WEIGHT>1.0</WEIGHT>
+		<XPOS>7779.091</XPOS>
+		<YPOS>5028.091</YPOS>
+		<INDEX>0</INDEX>
+		<FUNCTION>sigmoid</FUNCTION>
+	</NODE>
+	<NODE>
+		<NAME>B</NAME>
+		<WEIGHT>1.0</WEIGHT>
+		<XPOS>8101.909</XPOS>
+		<YPOS>5028.091</YPOS>
+		<INDEX>1</INDEX>
+		<FUNCTION>sigmoid</FUNCTION>
+	</NODE>
+	<NODE>
+		<NAME>A or B: true</NAME>
+		<WEIGHT>-0.020177589518166422</WEIGHT>
+		<XPOS>7779.091</XPOS>
+		<YPOS>5350.909</YPOS>
+		<INDEX>2</INDEX>
+		<FUNCTION>sigmoid</FUNCTION>
+	</NODE>
+	<NODE>
+		<NAME>A or B: false</NAME>
+		<WEIGHT>-0.019526568664698485</WEIGHT>
+		<XPOS>8101.909</XPOS>
+		<YPOS>5350.909</YPOS>
+		<INDEX>3</INDEX>
+		<FUNCTION>sigmoid</FUNCTION>
+	</NODE>
+
+	<!-- Edge Definitions -->
+
+	<EDGE>
+		<STARTINDEX>0</STARTINDEX>
+		<ENDINDEX>2</ENDINDEX>
+		<WEIGHT>0.017369082446141493</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>1</STARTINDEX>
+		<ENDINDEX>2</ENDINDEX>
+		<WEIGHT>0.01678485525987483</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>0</STARTINDEX>
+		<ENDINDEX>3</ENDINDEX>
+		<WEIGHT>0.01728814241522951</WEIGHT>
+	</EDGE>
+	<EDGE>
+		<STARTINDEX>1</STARTINDEX>
+		<ENDINDEX>3</ENDINDEX>
+		<WEIGHT>0.015516202767577925</WEIGHT>
+	</EDGE>
+
+</NETWORK>
+
+<!-- Example Database -->
+<EXAMPLES>
+
+	<!-- Parameter Definition -->
+	<PARAMETER type=input>A</PARAMETER>
+	<PARAMETER type=input>B</PARAMETER>
+	<PARAMETER type=output>A or B: true</PARAMETER>
+	<PARAMETER type=output>A or B: false</PARAMETER>
+
+	<!-- Examples -->
+	<EXAMPLE type=training>
+		<VALUE parameter="A">1.0</VALUE>
+		<VALUE parameter="B">0.0</VALUE>
+		<VALUE parameter="A or B: true">1.0</VALUE>
+		<VALUE parameter="A or B: false">0.0</VALUE>
+	</EXAMPLE>
+	<EXAMPLE type=training>
+		<VALUE parameter="A">0.0</VALUE>
+		<VALUE parameter="B">1.0</VALUE>
+		<VALUE parameter="A or B: true">1.0</VALUE>
+		<VALUE parameter="A or B: false">0.0</VALUE>
+	</EXAMPLE>
+	<EXAMPLE type=training>
+		<VALUE parameter="A">0.0</VALUE>
+		<VALUE parameter="B">0.0</VALUE>
+		<VALUE parameter="A or B: true">0.0</VALUE>
+		<VALUE parameter="A or B: false">1.0</VALUE>
+	</EXAMPLE>
+	<EXAMPLE type=training>
+		<VALUE parameter="A">1.0</VALUE>
+		<VALUE parameter="B">1.0</VALUE>
+		<VALUE parameter="A or B: true">0.0</VALUE>
+		<VALUE parameter="A or B: false">1.0</VALUE>
+	</EXAMPLE>
+</EXAMPLES>
+
+</DB>
+</MLDBIF>
+
+

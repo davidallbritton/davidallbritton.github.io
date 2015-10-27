@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml" >
+
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+
+    <title>javascript8.html</title>
+		
+<script type = "text/javascript">
+<!--
+document.writeln("<h1>Arrays in JavaScript</h1>");
+
+
+
+// Several ways to create an array:
+
+  // using an initializer list to declare, allocate, and initialize an array:
+var array1 = ["a", "b", "c", "d"]; 
+  // using "new Array" to allocate the array as it is declared:
+var array2 = new Array( "a", "b", "c", "d");  
+  // declaring, allocating, and initializing in separate steps:
+var array3;                  // declaring the array
+array3 = new Array(4);       // allocating the array (with 4 elements)
+array3[0] = "a";             // initializing the value of the first element
+array3[1] = "b";             // initializing the value of the second element
+array3[2] = "c";             // initializing the value of the third element
+array3[3] = "d";             // initializing the value of the fourth element
+
+// The results of all 3 methods are the same: an array with four elements
+// containing the letters a-d.  Note that the subscripts start at 0 and 
+// end at 1 less than the number of elements.
+
+document.writeln ("<p>Printing the second element of each array:</p><ul>");
+document.writeln ("<li>array1[1] = " + array1[1] + "</li>");
+document.writeln ("<li>array2[1] = " + array2[1] + "</li>");
+document.writeln ("<li>array3[1] = " + array3[1] + "</li>");
+document.writeln ("</ul>");
+
+// HOMEWORK QUESTIONS
+// Here is where to make the changes for the questions in your homework.
+// Add another element to array3 here:
+// make the new element "e", and give it the next available subscript:
+
+// After looking at how that changes the web page, 
+// add another element "h" and give it a subscript of 8:
+
+// Next change the for/in loop to a for loop iterating over index values
+// from 0 to 8.  Observe what is displayed in the table.
+// END of homework questions
+
+// The next section uses a for/in loop to generate part of a table
+// listing the elements of array3
+document.writeln ("<hr />");
+document.writeln ("<p>Using a for/in loop to print all elements of an array:</p>");
+document.writeln ("<table border = \"1\">");        // starting the table
+document.writeln ("<caption>array3</caption>");
+document.writeln ("<thead>");                       // starting the header row
+document.writeln ("<tr>");
+document.writeln ("<th>subscript</th><th>value</th>");
+document.writeln ("</tr>");
+document.writeln ("</thead>");                      // end the header row
+document.writeln ("<tbody>");                       // start the table body
+
+// here is the for/in loop that iterates across all the elements of array3:
+for (indexnum in array3) {                        // beginning of for/in loop
+   document.writeln ("<tr>");
+   document.writeln ("<td>" + indexnum + "</td>");         // write the index number
+   document.writeln ("<td>" + array3[indexnum] + "</td>"); // write the element's value
+   document.writeln ("</tr>");
+}                                                // end of for/in loop
+
+document.writeln ("</tbody>");                      // end the table body
+document.writeln ("</table>");                      // end table
+
+
+
+
+// -->
+</script>
+		
+  </head>
+
+  <body></body>
+	
+</html>
+

@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Define Macro</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Define Macro">
+<META NAME="keywords" CONTENT="Cogsys: Define Macro">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC39"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_30.html#SEC38"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_32.html#SEC40"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_23.html#SEC31"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.1.7 Define Macro (<CODE>$$<VAR>x</VAR></CODE>) </H4>
+<!--docid::SEC39::-->
+<P>
+
+Traditionally, a <EM>macro</EM> is a piece of code that looks like a
+function call but which is actually replaced by the code it represents
+before the program is processed. A Cogsys macro is not replaced in-line;
+rather it is a true function that is actually called with a return value
+pushed onto a call stack. However, the name "macro" was used in
+earlier versions, and it has stuck.
+</P><P>
+
+This command defines a Cogsys macro. A macro definition associates a
+sequence of Cogsys commands with a <EM>macro identifier</EM>. The macro
+identifier is a single character which can then be called by the Run
+Macro command. Cogsys then executes the code for that macro. This
+provides an easy mechanism for encapsulating commonly used code in a
+testlist.
+</P><P>
+
+Starting with Cogsys version 3.0.9, macros may take arguments.
+Arguments name are listed in square brackets immediately following the
+identifier, and are then embedded in the body in any order at any
+location. When the macro is called with arguments, Cogsys replaces the
+ocurrence of the argument name in the body with the text actually
+passed. Up to <CODE>MACRO_ARG_NUM</CODE> macros may be specified, of
+<CODE>MACRO_ARG_LEN</CODE> characters each.
+</P><P>
+
+For example:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>$$a[arg]The value is arg.$$
+<small>...</small>
+$a[5]
+</pre></td></tr></table></P><P>
+
+Here, Cogsys will replace the string <SAMP>`arg'</SAMP> in the body definition
+with the passed argument, <SAMP>`5'</SAMP>. The resulting output will be:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>The value is 5.
+</pre></td></tr></table></P><P>
+
+Note that for an argument to be replaced in the body text, it
+must occur as a separate word, bounded by non-letters. For example:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>$$a[arg]The value of the argument is arg.$$
+<small>...</small>
+$a[5]
+</pre></td></tr></table></P><P>
+
+Here, the string <SAMP>`arg'</SAMP> actually appears twice, first in the word
+<SAMP>`argument'</SAMP>, and then at the end of the sentence. However, the
+macro definition only replaces the second occurence:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>The value of the argument is 5.
+</pre></td></tr></table></P><P>
+
+Normally, this is exactly the desired behavior. It is important to
+understand, however, that this makes it impossible to define macros
+where the argument is embedded as part of a word. To work around such
+cases, use a second macro, or just pass more text in the argument
+itself.
+</P><P>
+
+For example, this macro definition:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>$$a[x]I go to Northxern University.$$
+<small>...</small>
+$$a[west]
+</pre></td></tr></table></P><P>
+
+does not work as expected, and yields this:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>I go to Northxern University.
+</pre></td></tr></table></P><P>
+
+A second macro solves the problem:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>$$east$$Northeastern$$
+$$west$$Northwestern$$
+$$a[x]I go to $x University.$$
+<small>...</small>
+$$a[west]
+</pre></td></tr></table></P><P>
+
+Or, you could just pass the full text in the argument:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>$$a[x]I go to $x University.$$
+<small>...</small>
+$$a[Northwestern]
+</pre></td></tr></table></P><P>
+
+Macros may be redefined at any time. They may be nested up to
+<CODE>MACRO_NEST</CODE> levels deep. Each individual macro can not exceed
+<CODE>MACRO_SIZE</CODE> characters. See <A HREF="cogref_32.html#SEC40">Run Macro</A>,
+for details.
+</P><P>
+
+A macro body definition must be under <CODE>MACRO_CORE</CODE> characters long.
+Cogsys reserves an extra buffer, slightly larger than <CODE>MACRO_CORE</CODE>,
+for the expanded macro (<CODE>MACRO_EXPANDS</CODE>. If these bounds are exceeded,
+a run time error results.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Define Macro
+<DT>Class:
+<DD>Control
+<DT>Code:
+<DD><CODE>$$</CODE>
+<DT>Syntax:
+<DD><CODE>$$<VAR>macro-id</VAR><VAR>macro-body</VAR>$$</CODE>
+<BR><CODE>$$<VAR>macro-id</VAR>[<VAR>arg1</VAR>,<VAR>arg2</VAR>,<small>...</small>]<VAR>macro-body<small>...</small><VAR>arg1</VAR><small>...</small><VAR>arg2</VAR></VAR>$$</CODE>
+<BR><VAR>macro-id</VAR> is a single character from the set <SAMP>`0'</SAMP> -- <SAMP>`9'</SAMP> , <SAMP>`a'</SAMP> -- <SAMP>`j'</SAMP>.
+<BR><VAR>macro-body</VAR> is any sequence of Cogsys commands
+<BR><VAR>arg1</VAR>, <VAR><small>...</small></VAR> are macro arguments 
+<DT>System:
+<DD>Defines the macro <VAR>macro-id</VAR> to be <VAR>macro-body</VAR>.
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`MCDF_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><TABLE><tr><td>&nbsp;</td><td><pre>$$aPress &#60;return&#62; to continue: #R$$
+<small>...</small>
+$a
+</pre></td></tr></table><DT>cogsys
+<DD>Defines the macro <CODE>a</CODE>. At the <CODE>$a</CODE> macro call, Cogsys prints
+<SAMP>`Press &#60;return&#62; to continue:'</SAMP> and waits for keypress.
+</DL>
+<P>
+
+<DL COMPACT>
+<DT>input
+<DD><P>
+
+<TABLE><tr><td>&nbsp;</td><td><FONT SIZE=-1><pre>$$1assigned$$
+$$2given$$
+$$a[name,num,mac]hello, name! You have been $mac number num.$$
+<small>...</small>
+$a[usman,3,2]#R
+</FONT></pre></td></tr></table><DT>cogsys
+<DD>Defines three maros, <CODE>1</CODE>, <CODE>2</CODE>, and <CODE>a</CODE>. The macro
+<CODE>A</CODE> takes three arguments, <SAMP>`name'</SAMP>, <SAMP>`num'</SAMP>, and <SAMP>`mac'</SAMP>.
+The <SAMP>`$a'</SAMP> call invokes the macro with the values <SAMP>`usman'</SAMP>, <SAMP>`3'</SAMP>
+and <SAMP>`2'</SAMP>, respectively. The expanded <CODE>$a</CODE> macro is:
+<TABLE><tr><td>&nbsp;</td><td><pre>hello, usman! You have been $2 number 3.
+</pre></td></tr></table>When Cogsys reaches the <SAMP>`$2'</SAMP>, it will expand that into the
+the body of the <CODE>$2</CODE> macro, <SAMP>`given'</SAMP>. Thus, the final
+output of Cogsys:
+<TABLE><tr><td>&nbsp;</td><td><pre>hello, usman! You have been given number 3.
+</pre></td></tr></table>This illustrates how parametric macros and nesting are a powerful
+combination that let you describe complex strings with only
+a few characters.
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_30.html#SEC38"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_32.html#SEC40"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_23.html#SEC31"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

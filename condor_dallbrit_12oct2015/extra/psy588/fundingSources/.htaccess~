@@ -1,0 +1,9 @@
+AuthType        Basic
+AuthName        psy105
+AuthUserFile    /extra/dallbrit/psy588/fundingSources/validusers
+AuthGroupFile   /dev/null
+
+<Limit GET POST>
+  require valid-user
+</Limit>
+

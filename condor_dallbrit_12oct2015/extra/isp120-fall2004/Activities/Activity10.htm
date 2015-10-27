@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>ISP 120 Activity 10: Fitting Data With Linear Models</title>
+</head>
+
+<body>
+<div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="15%"><p align="left"><strong>ISP 120</strong></td>
+    <td width="70%"><p align="center"><strong>Group Activity 10: Trendlines</strong></td>
+    <td width="15%"><p align="right"></td>
+  </tr>
+</table>
+</center></div>
+
+<p>All group activities must include a statement signed by all members of your group that
+each group member fully participated in the activity. To start you should open a new Word
+document entitled something like &quot;Group Activity 10&quot; and put the names of your
+group members at the top. Save it to the desktop and save frequently during the hour.</p>
+
+<p><strong>Learning Goals for this Activity</strong> 
+
+<ol>
+  <li>You will learn how to add a trendline to a data series in Excel and use it to make
+    predictions.</li>
+  <li>You will become aware of the limitations of mathematical models, especially the
+    limitation of extrapolation.</li>
+</ol>
+
+<ol>
+  <li><p align="left">Open the file <a
+    href="http://qrc.depaul.edu/Excel_Files/Cars_By_Year.xls">Cars_By_Year.xls</a> containing
+    the following data from the 1993 Statistical Abstract of the US.</p>
+  </li>
+</ol>
+
+<p align="center"><strong>Passenger Cars in the US by Year</strong></p>
+<div align="center"><center>
+
+<table border="2" cellpadding="2" cellspacing="0" width="136">
+  <tr>
+    <td width="50%" height="17"><p align="left"><font color="#000000" size="2" face="Arial">Year</font></td>
+    <td width="50%" height="17"><p align="left"><font color="#000000" size="2" face="Arial">Number
+    (millions)</font></td>
+  </tr>
+  <tr>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">1940</font></td>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">27.5</font></td>
+  </tr>
+  <tr>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">1950</font></td>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">40.3</font></td>
+  </tr>
+  <tr>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">1960</font></td>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">61.7</font></td>
+  </tr>
+  <tr>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">1970</font></td>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">89.3</font></td>
+  </tr>
+  <tr>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">1980</font></td>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">121.6</font></td>
+  </tr>
+  <tr>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">1986</font></td>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">135.4</font></td>
+  </tr>
+  <tr>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">1991</font></td>
+    <td width="50%" height="17"><p align="right"><font color="#000000" size="2" face="Arial">143.0</font></td>
+  </tr>
+</table>
+</center></div>
+
+<blockquote>
+  <p align="left">a. Make an X-Y scatter plot of the data. Include it in your Word document.</p>
+  <p align="left">b. Add a trendline to your chart in a. Include the equation for the
+  trendline and the R-squared value. Include this chart too in your Word document.</p>
+  <p align="left">c. Use the linear<strong> equation</strong> to predict how many cars there
+  will be in the US in the year 2000.&nbsp; Make sure you use the equation; while you can
+  visually get an approximation by extending the trendline graph, there are many times when
+  one needs to use the equation to make a more precise prediction.</p>
+  <p align="left">d. Use the linear<strong> </strong>equation to predict when there were no
+  cars in the US. How accurate is the model in this prediction?</p>
+  <p align="left">e. Use the linear equation to predict the number of cars in US in 2050. Do
+  you think it is a good estimate? Why?</p>
+</blockquote>
+
+<p>2. Open the file <a href="http://qrc.depaul.edu/Excel_Files/Coal_Consumption.xls">Coal_Consumption.xls</a>
+containing more data from the 1993 Statistical Abstract of the US.&nbsp; The unit of
+measure here is quads, a standard measure standing for quadrillion BTU's. (A British
+Thermal<strong> </strong>Unit is a unit of energy, the amount of energy needed to raise 1
+pound of water 1 degree Fahrenheit when the water is about 39.2 degrees Fahrenheit.)</p>
+
+<blockquote>
+  <div align="center"><center><table border="1" cellpadding="2" cellspacing="0">
+    <tr>
+      <td align="center">Year</td>
+      <td align="center">Coal Consumption (quads)</td>
+    </tr>
+    <tr>
+      <td align="center">1970</td>
+      <td align="center">12.28</td>
+    </tr>
+    <tr>
+      <td align="center">1975</td>
+      <td align="center">12.67</td>
+    </tr>
+    <tr>
+      <td align="center">1980</td>
+      <td align="center">15.43</td>
+    </tr>
+    <tr>
+      <td align="center">1985</td>
+      <td align="center">17.46</td>
+    </tr>
+    <tr>
+      <td align="center">1990</td>
+      <td align="center">19.11</td>
+    </tr>
+  </table>
+  </center></div><p>a. Make an X-Y scatterplot of the data. Add a trendline, including the
+  equation of the line and the R-squared value. Paste this chart into your Word document.</p>
+  <p>b. Use your model to predict coal consumption in the year 2000.</p>
+  <p>c. According to your model, when will the coal consumption be 25 quads?</p>
+  <p>d. In a short well-written paragraph, discuss social, political, or physical changes
+  which might affect the accuracy of predictions using this model.</p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,1238 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 9">
+<link id=Main-File rel=Main-File href="../psy404-lec2-learning.htm">
+<link rel=Preview href=preview.wmf>
+<meta name=Robots content=NoIndex>
+<script src=script.js></script><script><!--
+
+if( !(IsWin("PPTOtl")||IsWin("PPTNav")||IsWin("PPTOtlNav")) )
+{
+	obj = document.all.item("Main-File")
+	parent.location.href=obj.href
+}
+
+var gOtlHiliteClr="#FFFFFF",gOtlNormalClr="#000000",gOtlActiveClr="#FFFF00",gSelected="",gTxtState=false,gChildEntryTable=new Array()
+
+function Load()
+{
+	if( IsWin("PPTOtl" ) ){ LoadOtl(); parent.gOtlLoaded=true; return }
+	if( IsWin("PPTNav" ) ){ LoadNav("NavObj",UpdNav); parent.gNavLoaded=true; return }
+	if( IsWin("PPTOtlNav" ) ){ LoadNav("OtlNavObj",UpdOtlNav); parent.gOtlNavLoaded=true; return }
+}
+function Upd(){ if( IsWin("PPTNav") ) LoadNav("NavObj",UpdNav) }
+function LoadNav( oId,UpdFunc )
+{
+	document.ondragstart=CancelDrag
+	document.onselectstart=CancelDrag
+	document.body.style.margin=2
+	UpdFunc()
+	obj=document.all.item(oId)
+	obj.style.display="block"
+	obj.style.visibility="visible"
+	document.bgColor="threedface"
+}
+function LoadOtl()
+{
+	document.ondragstart=CancelDrag
+	document.onselectstart=CancelDrag
+	OtlObj.style.display="block"
+	OtlObj.style.visibility="visible"
+	if( gOtlActiveClr == "" ) gOtlActiveClr=document.linkColor
+	if( gOtlHiliteClr == "" ) gOtlHiliteClr=document.fgColor
+	if( gOtlNormalClr == "" )
+		gOtlNormalClr=document.bgColor
+	else
+		document.bgColor=gOtlNormalClr  
+
+	InitArray()
+
+	if( ObjExists( parent.gCurSld ) ) {
+		ChangeState( parent.gCurSld,gOtlNormalClr,gOtlHiliteClr )
+		gSelected=parent.gCurSld
+	}
+	else gSelected = -1
+
+	UpdOtl()
+}
+function UpdOtl(){ UpdIdx(parent.gCurSld) }
+function UpdIdx( idx )
+{
+	if( gSelected != idx ) {
+		if( gSelected > 0 )
+			ChangeState( gSelected,gOtlHiliteClr,gOtlNormalClr )
+
+		if( ObjExists( idx ) ) {
+			gSelected = idx
+			ChangeState( gSelected,gOtlNormalClr,gOtlHiliteClr )
+		}
+		else gSelected = -1
+	}
+
+	if( gTxtState != parent.gOtlTxtExp ) {
+		state = "block"
+		if( !parent.gOtlTxtExp )
+			state="none"
+
+		for(ii=0; ii<gChildEntryTable.length; ii++) {
+			obj=gChildEntryTable[ii];
+			if( obj.id == null ) continue;
+
+			if( obj.id.indexOf("PPTC") >= 0 )
+				obj.style.display=state;
+		} 
+		gTxtState=parent.gOtlTxtExp
+		if( ObjExists( gSelected ) )
+			ChangeState( gSelected,gOtlNormalClr,gOtlHiliteClr )
+	}
+}
+function InitArray()
+{
+	count=0
+	for(ii=0; ii<document.all.tags("DIV").length; ii++) {
+		obj=document.all.tags("DIV").item(ii)
+		if( obj.id == null ) continue
+
+		if( obj.id.indexOf("PPTC") >= 0 ) {   
+			gChildEntryTable[count++]=obj
+			obj.children.tags("TABLE").item(0).style.borderColor=gOtlNormalClr
+		}
+	}
+}
+function ChangeState( idx,fgColor,bgColor )
+{
+	obj=document.all.item("PPTL"+idx)
+	obj.style.color=fgColor
+
+	obj=document.all.item("PPTP"+idx)
+	obj.style.backgroundColor=bgColor
+
+	obj=document.all.item("PPTB"+idx)
+	if( obj )
+		obj.style.borderLeftColor=obj.style.borderBottomColor=bgColor
+}
+function ChgClr( o,clr ){ if( o.id != "PPTL"+gSelected ) o.style.color=clr }
+function Over( obj ){ ChgClr(obj,gOtlActiveClr) }
+function Out( obj ){ ChgClr(obj,gOtlHiliteClr) }
+function ObjExists( ii ) { obj=document.all("PPTP"+ii ); return( obj ) }
+function GoToSld( href ){ UpdIdx(parent.GetSldNum(href)); parent.GoToSld( href ) }
+function CancelDrag(){ window.event.cancelBubble=true;window.event.returnValue=false}
+
+function UpdNav()
+{
+	txt = "<center>";
+	if( parent.GetHrefObj( parent.gCurSld ).mOrigVis == 1 )
+		txt += "Slide " + parent.GetCurSldNum() + " of " + parent.GetNumSlds()
+	else
+		txt += "Hidden Slide"
+	txt += "</center>";
+	nav_text.innerHTML = txt;
+
+	if( !parent.HasPrevSld() )
+		gBtnArr["nb_prev"].Enabled(0)
+	else
+		gBtnArr["nb_prev"].Enabled(1)
+
+	if( !parent.HasNextSld() )
+		gBtnArr["nb_next"].Enabled(0)
+	else
+		gBtnArr["nb_next"].Enabled(1)
+	gBtnArr["nb_nts"].SetEnabled()
+	gBtnArr["nb_nts"].SetFlag( parent.gHasNts )
+
+	gBtnArr["nb_sldshw"].Enabled(1)
+	gBtnArr["nb_voice"].Enabled(1)
+}
+
+function UpdOtlNav()
+{
+	gBtnArr["nb_otl"].SetEnabled();
+
+	if( parent.gOtlOpen )
+		gBtnArr["nb_otlTxt"].Enabled( true );
+	else
+		document.all.item("nb_otlTxtBorder").style.visibility = "hidden";
+}
+
+
+
+//-->
+</script>
+<style>
+<!--.PTxt
+	{position:relative;
+	width:100%;
+	margin-top:5px;
+	padding-left:5px;
+	font-weight:bold;}
+.CTxt
+	{position:relative;
+	width:100%;
+	padding-left:10px;}
+.CBorder
+	{position:relative;
+	width:100%;
+	border-style:solid;
+	border-width:1px;
+	border-color:black;
+	padding-bottom:5px;}
+a
+	{color:white;
+	text-decoration:none;}
+.button
+	{position:absolute;
+	width:32px;
+	height:20px;
+	border-style:solid;
+	border-width:1px;
+	border-color:threedface;}
+-->
+</style>
+</head>
+
+<body onload="Load()">
+
+<div id=NavObj onload="Load()" onmouseover="BtnOnOver()"
+onmousedown="BtnOnDown()" onmouseout="BtnOnOut()" onmouseup="BtnOnUp()"
+onkeypress="_KPH()" style='display:none;visibility:hidden'>
+
+<table style='position:absolute;width:70px;visibility:hidden' align=left
+ cellpadding=0 cellspacing=0>
+ <td nowrap>
+ <div id="nb_ntsElem" align=center style='position:relative;padding:3px;
+ font-family:Arial;color:buttontext;font-size:9pt'><img src="notes_flag.gif"
+ border=0 id="notes_flag" style='display:none'><span style="mso-spacerun:
+ yes">  </span>Notes</div>
+ <div title="Show/Hide Notes" id="nb_nts" style='position:absolute;top:0%;
+ left:0%;width:100%;height:100%'></div>
+ </td>
+</table>
+
+<table style='position:relative' align=right cellpadding=0 cellspacing=0>
+ <td>
+ <div id="nb_sldshwBorder" style='position:absolute;left:-20px;width:20px;
+ height:20px'>
+ <div style='position:absolute;clip:rect(0px, 18px, 18px, 0px)'><img
+ src=buttons.gif id="nb_sldshw" title="Full Screen Slide Show"
+ style='position:relative;left:-254px'></div>
+ </div>
+ </td>
+ <td>
+ <div id="nb_voiceBorder" style='display:none;position:absolute;left:-40px;
+ width:20px;height:20px'>
+ <div style='position:absolute;clip:rect(0px, 18px, 18px, 0px)'><img
+ src=buttons.gif id="nb_voice" title="Pause/Play Narration" style='position:
+ relative;left:-290px'></div>
+ </div>
+ </td>
+</table>
+
+<table style='position:relative' align=center cellpadding=0 cellspacing=0>
+ <td nowrap>
+ <div id="nb_prevBorder" class=button style='left:-30px'>
+ <div style='position:absolute;clip:rect(0px, 30px, 18px, 0px)'><img
+ src=buttons.gif id="nb_prev" title="Previous Slide" style='position:relative;
+ left:0px'></div>
+ </div>
+ <span id="nav_text" style='position:relative;top:3px;width:100px;font-family:
+ Arial;color:buttontext;font-size:9pt'></span>
+ <div id="nb_nextBorder" class=button>
+ <div style='position:absolute;clip:rect(0px, 30px, 18px, 0px)'><img
+ src=buttons.gif id="nb_next" title="Next Slide" style='position:relative;
+ left:-90px'></div>
+ </div>
+ </td>
+</table>
+
+</div>
+
+<div id=OtlNavObj onload="Load()" onmouseover="BtnOnOver()"
+onmousedown="BtnOnDown()" onmouseout="BtnOnOut()" onmouseup="BtnOnUp()"
+onkeypress="_KPH()" style='display:none;visibility:hidden'>
+
+<table style='position:relative;width:70px' align=left cellpadding=0
+ cellspacing=0>
+ <td nowrap>
+ <div id="nb_otlElem" align=center style='position:relative;padding:3px;
+ font-family:Arial;color:buttontext;font-size:9pt'>Outline</div>
+ <div title="Show/Hide Outline" id="nb_otl" style='position:absolute;
+ top:0%;left:0%;width:100%;height:100%'></div>
+ </td>
+</table>
+
+<table style='position:relative' align=center cellpadding=0 cellspacing=0>
+ <td>
+ <div style='position:absolute;left:-18px;width:24px;height:20px;border-style:
+ solid;border-width:1px;border-color:threedface' id="nb_otlTxtBorder">
+ <div style='position:absolute;clip:rect(0px, 22px, 18px, 0px)'><img
+ src=buttons.gif id="nb_otlTxt" title="Expand/Collapse Outline"
+ style='position:relative;left:-157px'></div>
+ </div>
+ </td>
+</table>
+
+</div>
+
+<div id=OtlObj style='display:none;visibility:hidden'>
+
+<table width="100%" style='font-family:Arial;font-size:9pt'>
+ <tr>
+  <td>
+  <div id=PPTP1 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0002.htm');" onmouseover="Over(this)"
+  id=PPTL1 onmouseout="Out(this)">Learning</a></font></div>
+  <div id=PPTC1 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB1 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>What is Learning?</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Relatively permanent change in behavior that
+    results from experience (behaviorist tradition)</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Can there be learning that does not result in a
+    change in behavior?</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Types of Learning</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Associative Learning (simple, passive, external)</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Cognitive Learning (complex, strategic,
+    internal)</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP2 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0001.htm');" onmouseover="Over(this)"
+  id=PPTL2 onmouseout="Out(this)">Associative Learning</a></font></div>
+  <div id=PPTC2 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB2 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Classical Conditioning – associating two stimuli</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Operant Conditioning – associating a behavior
+    and its consequences</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP3 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0006.htm');" onmouseover="Over(this)"
+  id=PPTL3 onmouseout="Out(this)">Slide 3</a></font></div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP4 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0005.htm');" onmouseover="Over(this)"
+  id=PPTL4 onmouseout="Out(this)">Classical Conditioning</a></font></div>
+  <div id=PPTC4 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB4 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Pavlov’s serendipitous discovery</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Associating 2 stimuli</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>The first stimulus is “neutral” – does not
+    produce any response</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>The second stimulus produces a reflex
+    (unconditioned) response</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>After the 2 stimuli become associated, both will
+    produce the unconditioned response</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP5 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0008.htm');" onmouseover="Over(this)"
+  id=PPTL5 onmouseout="Out(this)">Slide 5</a></font></div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP6 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0009.htm');" onmouseover="Over(this)"
+  id=PPTL6 onmouseout="Out(this)">Slide 6</a></font></div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP7 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0010.htm');" onmouseover="Over(this)"
+  id=PPTL7 onmouseout="Out(this)">Slide 7</a></font></div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP8 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0011.htm');" onmouseover="Over(this)"
+  id=PPTL8 onmouseout="Out(this)">Further Concepts that Apply to Classical
+  Conditioning</a></font></div>
+  <div id=PPTC8 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB8 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Generalization: CR is given to stimuli that are
+    similar to the CS</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Discrimination: CR not given to stimuli that are
+    dissimilar to the CS</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Extinction:<span style="mso-spacerun: yes"> 
+    </span>If the CS is presented repeatedly without being followed by the UCS,
+    the CR will diminish or cease</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Spontaneous Recovery: Following extinction, the
+    CR will spontaneously re-appear after a delay</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP9 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0012.htm');" onmouseover="Over(this)"
+  id=PPTL9 onmouseout="Out(this)">Classical Conditioning as Simple Associative
+  Learning</a></font></div>
+  <div id=PPTC9 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB9 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Temporal Contiguity was thought to be sufficient
+    – the CS simply needs to occur immediately prior to the UCS for
+    conditioning to take place</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Equipotentiality: any two stimuli could be
+    associated through conditioning</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP10 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0013.htm');" onmouseover="Over(this)"
+  id=PPTL10 onmouseout="Out(this)">Equipotentiality Falsified</a></font></div>
+  <div id=PPTC10 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB10 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Some stimuli are easier to associate than others</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Taste Aversion – only foods become associated
+    with illness, not other stimuli</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Garcia &amp; Koelling, 1966 – the “Sweet,
+    bright, noisy water study”</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP11 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0014.htm');" onmouseover="Over(this)"
+  id=PPTL11 onmouseout="Out(this)">Garcia &amp; Koelling, 1966</a></font></div>
+  <div id=PPTC11 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB11 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>CS = flavor, light, and click (sweet, bright,
+    noisy water)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>UCS:<span style="mso-spacerun: yes">  </span>2
+    conditions</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Group 1: UCS = illness (from X-rays)</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Group 2: UCS = shock</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>CR = avoidance (not drinking the water)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>After conditioning, tested which features of the
+    CS were associated with each UCS</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP12 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0015.htm');" onmouseover="Over(this)"
+  id=PPTL12 onmouseout="Out(this)">Garcia &amp; Koelling: Results</a></font></div>
+  <div id=PPTC12 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB12 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Both Groups:<span style="mso-spacerun: yes">  
+    </span><br>
+    CS (sweet, bright, noisy) </font><font face=Wingdings
+    size=2>à</font><font face="Times New Roman" size=2> CR (avoidance)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Group 1(UCS = shock)</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Sweet water &#9;&#9;</font><font face=Wingdings
+    size=2>à</font><font face="Times New Roman" size=2> No avoidance</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Bright noisy water &#9;</font><font
+    face=Wingdings size=2>à</font><font face="Times New Roman" size=2>
+    Avoidance</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Group 2 (UCS = illness)</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Sweet water &#9;&#9;</font><font face=Wingdings
+    size=2>à</font><font face="Times New Roman" size=2> Avoidance</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Bright noisy water &#9;</font><font
+    face=Wingdings size=2>à</font><font face="Times New Roman" size=2> No
+    avoidance</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP13 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0016.htm');" onmouseover="Over(this)"
+  id=PPTL13 onmouseout="Out(this)">Temporal Contiguity is Not Enough</a></font></div>
+  <div id=PPTC13 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB13 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Contingency:<span style="mso-spacerun: yes"> 
+    </span>The CS must reliably predict the occurrence of the UCS (Rescorla,
+    1966)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Informativeness:<span style="mso-spacerun:
+    yes">  </span>The CS must provide new information for predicting the
+    occurrence of the UCS</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP14 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0017.htm');" onmouseover="Over(this)"
+  id=PPTL14 onmouseout="Out(this)">Contingency (Rescorla, 1966)</a></font></div>
+  <div id=PPTC14 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB14 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>UCS = shock (S), UCR = fear</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>CS = tone (T)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Training: two conditions</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Random Condition:<span style="mso-spacerun:
+    yes">   </span>S<span style="mso-spacerun: yes">  </span>TS <span
+    style="mso-spacerun: yes"> </span>S<span style="mso-spacerun: yes"> 
+    </span>T<span style="mso-spacerun: yes">  </span>TS<span
+    style="mso-spacerun: yes">  </span>S<span style="mso-spacerun: yes"> 
+    </span>T<span style="mso-spacerun: yes">  </span>TS</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Contingent Condition:<span style="mso-spacerun:
+    yes">   </span>TS <span style="mso-spacerun: yes">          </span>TS<span
+    style="mso-spacerun: yes">          </span>TS</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Results: Rats learned to fear the tone only in
+    the contingent condition, when the tone predicted the shock</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP15 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0018.htm');" onmouseover="Over(this)"
+  id=PPTL15 onmouseout="Out(this)">Informativeness: Blocking</a></font></div>
+  <div id=PPTC15 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB15 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>If an organism has already learned that one CS
+    predicts the UCS, that will block the conditioning of a new CS if the new
+    CS does not provide any additional information</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Example:<span style="mso-spacerun: yes"> 
+    </span>Fear conditioning of a tone blocks conditioning of a light</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP16 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0019.htm');" onmouseover="Over(this)"
+  id=PPTL16 onmouseout="Out(this)">Blocking</a></font></div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP17 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0029.htm');" onmouseover="Over(this)"
+  id=PPTL17 onmouseout="Out(this)">Rescorla-Wagner Model (1972)</a></font></div>
+  <div id=PPTC17 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB17 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>A mathematical<span style="mso-spacerun: yes"> 
+    </span>model of the “strength of association” produced in classical
+    conditioning</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Can account for all of the classical
+    conditioning phenomena we have just seen</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Uses just one single equation!</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP18 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0030.htm');" onmouseover="Over(this)"
+  id=PPTL18 onmouseout="Out(this)">Rescorla-Wagner Model</a></font></div>
+  <div id=PPTC18 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB18 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>&#916;V<sub>n</sub> = c (V<sub>max</sub> – V<sub>n</sub>)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>V = the strength of association between a CS and
+    a US</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>&#916;V<sub>n</sub><sub> </sub>= the change in
+    the strength of association between the CS and US on a given trial</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>V<sub>max</sub><sub> </sub>= the asymptote for
+    CS-US association strength after learning</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>c = rate of conditioning (how fast the
+    association is learned)</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP19 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0034.htm');" onmouseover="Over(this)"
+  id=PPTL19 onmouseout="Out(this)">Slide 19</a></font></div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP20 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0020.htm');" onmouseover="Over(this)"
+  id=PPTL20 onmouseout="Out(this)">Cognitive Interpretation of Classical
+  Conditioning</a></font></div>
+  <div id=PPTC20 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB20 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Classical Conditioning is more than simple
+    association</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>The concept of information could explain
+    contingency and blocking</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>They are not just associating stimuli, they are
+    seeking information from one stimulus to predict the occurrence of the
+    other</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP21 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0021.htm');" onmouseover="Over(this)"
+  id=PPTL21 onmouseout="Out(this)">Operant Conditioning</a></font></div>
+  <div id=PPTC21 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB21 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>The law of effect: behaviors that are followed
+    by good things happen more often</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Association:<span style="mso-spacerun: yes"> 
+    </span>Things that occur together become associated</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP22 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0022.htm');" onmouseover="Over(this)"
+  id=PPTL22 onmouseout="Out(this)">Basics of Operant Conditioning</a></font></div>
+  <div id=PPTC22 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB22 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Operant – freely emitted behavior operating on
+    the organism’s environment; NOT a reflex response</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Reinforcement Contingencies – the consequences
+    that follow a behavior</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Reinforcement: increases the frequency of the
+    behavior</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Punishment: decreases frequency of behavior</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP23 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0023.htm');" onmouseover="Over(this)"
+  id=PPTL23 onmouseout="Out(this)">Reinforcement &amp; Punishment</a></font></div>
+  <div id=PPTC23 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB23 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Positive reinforcement</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Negative reinforcement</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Positive punishment</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Negative punishment</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP24 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0024.htm');" onmouseover="Over(this)"
+  id=PPTL24 onmouseout="Out(this)">Reinforcement Schedules</a></font></div>
+  <div id=PPTC24 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB24 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Continuous vs. Partial</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Fixed vs. Variable</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Interval vs. Ratio</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>Examples</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Fixed ratio: vending machine</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Variable ratio: slot machine</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Fixed interval:<span style="mso-spacerun: yes"> 
+    </span>checking mailbox</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Variable interval:<span style="mso-spacerun:
+    yes">  </span>checking email</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP25 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0025.htm');" onmouseover="Over(this)"
+  id=PPTL25 onmouseout="Out(this)">Explaining Complex Learning with Operant
+  Conditioning</a></font></div>
+  <div id=PPTC25 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB25 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Secondary reinforcers - association</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Shaping – simple learning in small increments</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Chaining – small increments plus secondary
+    reinforcement</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Language – association and reinforcement
+    (Skinner’s Verbal Behavior, 1957)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP26 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0026.htm');" onmouseover="Over(this)"
+  id=PPTL26 onmouseout="Out(this)">Learning that Could not be Explained by
+  Behaviorism</a></font></div>
+  <div id=PPTC26 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB26 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Latent Learning – learning without reinforcement
+    (Tolman &amp; Honzig, 1930)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Observational Learning – learning without
+    behaving or being reinforced (Bandura, 1977)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Overjustification – when rewards decrease the
+    frequency of behavior (but see Eisenberger &amp; Cameron, 1996 for an
+    opposing view)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Language Acquisition – Chomsky’s critique</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP27 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0027.htm');" onmouseover="Over(this)"
+  id=PPTL27 onmouseout="Out(this)">Slide 27</a></font></div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP28 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0004.htm');" onmouseover="Over(this)"
+  id=PPTL28 onmouseout="Out(this)">Behaviorism Falls Short: Language</a></font></div>
+  <div id=PPTC28 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB28 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Chomsky: “Action in the past” as a property of
+    stimuli is sneaking mental representations in the back door</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Association is insufficient to explain language
+    learning:<span style="mso-spacerun: yes">  </span>The evidence points to
+    learning RULES</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Evidence: Over-regularization (“goed”)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Conclusion:<span style="mso-spacerun: yes"> 
+    </span>Mere associations between words can not explain language; any
+    adequate theory of meaning must hypothesize internal representations of the
+    rules of language (grammar)</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP29 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0028.htm');" onmouseover="Over(this)"
+  id=PPTL29 onmouseout="Out(this)">So What was Behaviorism Lacking?</a></font></div>
+  <div id=PPTC29 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB29 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Symbolic Representation – we have internal
+    (mental) representations for things in the external world</font></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=1><font size=2>Structure – we learn sets of rules for combining
+    symbols (e. g., grammar), not just associations between pairs of symbols</font></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <div id=PPTP30 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0003.htm');" onmouseover="Over(this)"
+  id=PPTL30 onmouseout="Out(this)">Associative Learning Rises Again?</a></font></div>
+  <div id=PPTC30 class=CTxt style='display:none'>
+  <table style='color:white' id=PPTB30 class=CBorder>
+   <tr>
+    <td width=5 nowrap></td>
+    <td width=20 nowrap></td>
+    <td width="100%"></td>
+   </tr>
+   <tr>
+    <td colspan=1></td>
+    <td colspan=2><font size=2>LSA – Latent Semantic Analysis</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>A theory of meaning, and a method for computer
+    analysis of the meanings of texts</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>The meaning of a word = all of the words that
+    co-occur with it in a sample of written text (roughly)</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>Meaning is just a function of associations of
+    words, not structure (syntax)</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1><font size=2>How much of language meaning can LSA account
+    for?<span style="mso-spacerun: yes">  </span>A surprisingly large amount.</font></td>
+   </tr>
+   <tr>
+    <td colspan=2></td>
+    <td colspan=1></td>
+   </tr>
+  </table>
+  </div>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<div style='display:none'><a href="v3_document.htm"></a><a href=preview.wmf></a><a
+href="v3_next_active.gif"></a><a href="v3_next_disabled.gif"></a><a
+href="v3_prev_active.gif"></a><a href="v3_prev_disabled.gif"></a><a
+href="v3_outline_collapse.gif"></a><a href="v3_outline_expand.gif"></a><a
+href="v3_space.gif"></a><a href="v3_endshow.htm"></a><a
+href="v3_navigation_bar.htm"></a><a href="v3_outline_navigation_bar.htm"></a><a
+href="v3_outline_collapsed.htm"></a><a href="v3_outline_expanded.htm"></a><a
+href="v3_blank_notes.htm"></a><a href=master03.htm></a><a href=master03.xml></a><a
+href=master02.htm></a><a href=pres.xml></a><a href="v3_slide0002.htm"></a><a
+href="v3_slide0001.htm"></a><a href="v3_slide0006.htm"></a><a
+href="v3_slide0006_image001.jpg"></a><a href="v3_slide0005.htm"></a><a
+href="v3_slide0008.htm"></a><a href="v3_slide0008_background.gif"></a><a
+href="v3_slide0008_image002.gif"></a><a href="v3_slide0008_image003.gif"></a><a
+href="v3_slide0008_image004.gif"></a><a href="v3_slide0008_image005.gif"></a><a
+href="v3_slide0009.htm"></a><a href="v3_slide0009_background.gif"></a><a
+href="v3_slide0009_image006.gif"></a><a href="v3_slide0009_image007.gif"></a><a
+href="v3_slide0009_image008.gif"></a><a href="v3_slide0009_image009.gif"></a><a
+href="v3_slide0010.htm"></a><a href="v3_slide0010_background.gif"></a><a
+href="v3_slide0010_image010.gif"></a><a href="v3_slide0010_image011.gif"></a><a
+href="v3_slide0010_image012.gif"></a><a href="v3_slide0010_image013.gif"></a><a
+href="v3_slide0011.htm"></a><a href="v3_slide0012.htm"></a><a
+href="v3_slide0013.htm"></a><a href="v3_slide0014.htm"></a><a
+href="v3_slide0015.htm"></a><a href="v3_slide0016.htm"></a><a
+href="v3_slide0017.htm"></a><a href="v3_slide0018.htm"></a><a
+href="v3_slide0019.htm"></a><a href="v3_slide0019_background.gif"></a><a
+href="v3_slide0029.htm"></a><a href="v3_slide0030.htm"></a><a
+href="v3_slide0034.htm"></a><a href="v3_slide0034_image014.gif"></a><a
+href="v3_slide0020.htm"></a><a href="v3_slide0021.htm"></a><a
+href="v3_slide0022.htm"></a><a href="v3_slide0023.htm"></a><a
+href="v3_slide0024.htm"></a><a href="v3_slide0025.htm"></a><a
+href="v3_slide0026.htm"></a><a href="v3_slide0027.htm"></a><a
+href="v3_slide0027_image015.gif"></a><a href="v3_slide0004.htm"></a><a
+href="v3_slide0028.htm"></a><a href="v3_slide0003.htm"></a><a
+href=slide0002.htm></a><a href=slide0001.htm></a><a href=slide0006.htm></a><a
+href=slide0005.htm></a><a href=slide0008.htm></a><a
+href="slide0008_image017.gif"></a><a href="slide0008_image018.gif"></a><a
+href="slide0008_image019.gif"></a><a href="slide0008_image020.gif"></a><a
+href=slide0009.htm></a><a href="slide0009_image021.gif"></a><a
+href="slide0009_image022.gif"></a><a href="slide0009_image023.gif"></a><a
+href=slide0010.htm></a><a href="slide0010_image024.gif"></a><a
+href="slide0010_image025.gif"></a><a href="slide0010_image026.gif"></a><a
+href=slide0011.htm></a><a href=slide0012.htm></a><a href=slide0013.htm></a><a
+href=slide0014.htm></a><a href=slide0015.htm></a><a href=slide0016.htm></a><a
+href=slide0017.htm></a><a href=slide0018.htm></a><a href=slide0019.htm></a><a
+href="slide0019_image027.gif"></a><a href=slide0029.htm></a><a
+href=slide0030.htm></a><a href=slide0034.htm></a><a
+href="slide0034_image028.emz"></a><a href=oledata.mso></a><a
+href="slide0034_image029.gif"></a><a href=slide0020.htm></a><a
+href=slide0021.htm></a><a href=slide0022.htm></a><a href=slide0023.htm></a><a
+href=slide0024.htm></a><a href=slide0025.htm></a><a href=slide0026.htm></a><a
+href=slide0027.htm></a><a href="slide0027_image030.wmz"></a><a
+href="slide0027_image031.gif"></a><a href=slide0004.htm></a><a
+href=slide0028.htm></a><a href=slide0003.htm></a><a href=master01.htm></a><a
+href="master03_stylesheet.css"></a><a href=script.js></a><a
+href="../psy404-lec2-learning.htm"></a><a href=error.htm></a><a
+href=fullscreen.htm></a><a href=buttons.gif></a><a href=frame.htm></a><a
+href=outline.htm></a></div>
+
+</body>
+
+</html>

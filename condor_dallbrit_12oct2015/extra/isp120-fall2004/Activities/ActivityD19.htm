@@ -1,0 +1,123 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>ISP 120 Activity 19: Presidential Election 2000</title>
+</head>
+
+<body>
+<div align="center"><center>
+
+<table cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="25%"><p align="left"><strong>ISP 120</strong></td>
+    <td width="50%"><p align="center"><strong>Group Activity 19: Presidential Election 2000</strong></td>
+    <td width="25%"><p align="right"></td>
+  </tr>
+</table>
+</center></div>
+
+<p align="left">All group activities must include a signed statement from each group
+member that they participated fully in the assignment. </p>
+
+<p align="left"><strong>Activity</strong></p>
+
+<p align="left">The purpose of this activity is to analyze more election data.&nbsp; In
+particular, we will look at the election of 2000, the most recent example where one
+candidate (George W. Bush) won the electoral vote, and another candidate (Al Gore) won the
+popular vote.&nbsp; This occurred only 2 other times in history - the 1888 election of
+Benjamin Harrison and the 1876 election of Rutherford B. Hayes.&nbsp; In the process, we
+will learn about the IF command in Excel, something we haven't yet looked at in
+Quantitative Reasoning.</p>
+
+<p align="left">1.&nbsp; Open the file <a href="http://qrc.depaul.edu/Excel_Files/2000ElectionCertifiedResults.xls">2000ElectionCertifiedResults.xls</a>.&nbsp;
+It contains popular vote by state in the 2000 election, whose main presidential candidates
+were George W. Bush, the Republican candidate, and Al Gore, the Democratic
+candidate.&nbsp;
+It also contains the number of electoral votes for each state at that time.&nbsp; The
+number of electoral votes a state has is equal to the sum of the number of its
+representatives and the number of its senators, that is, 2 more than the number of
+representatives.&nbsp; The number of representatives is roughly proportional to the
+population of the state.&nbsp; There are 537 total electoral votes, so 270 are needed to
+win the election.&nbsp; If a presidential candidate wins the popular vote in a given
+state, he receives all the electoral votes of that state.&nbsp; This method raises the
+possibility that one candidate can have more votes than the other candidate, yet lose the
+election.&nbsp; This scenario occurred in 2000.&nbsp; We will explore how it came about.</p>
+
+<p align="left">Include in your Word document your answer to each question.</p>
+
+<p align="left">a.&nbsp; What was the absolute number of votes received by Al Gore
+overall?&nbsp; What was the absolute number of votes received by George W. Bush overall?
+&nbsp; In column H, calculate the total number of popular votes cast in that state.&nbsp;
+In column I, calculate the percentage of the popular vote
+received by Al Gore in each state.&nbsp; What percentage of the popular vote did Gore receive
+OVERALL?&nbsp; In column J, calculate the percentage of the popular vote received by
+George W. Bush.&nbsp; What percentange of the popular vote did Bush receive OVERALL?
+&nbsp; Who won the presidency according to the popular vote?</p>
+
+<p align="left">b.&nbsp; Now we wish to calculate the electoral votes each candidate
+received.&nbsp; The rule is simple:&nbsp; if Gore's vote in a state is higher than Bush's
+vote, then Gore gets all the electoral votes of that state.&nbsp; In order to do this
+easily in Excel (i.e. without doing each state manually), one needs a conditional
+statement, an&nbsp; IF&nbsp; statement.&nbsp; The IF statement in Excel has the following
+syntax:</p>
+
+<p align="left">&nbsp;&nbsp;&nbsp; =IF(logical condition, what happens when condition is
+true, what happens when condition is false)</p>
+
+<p align="left">For example =IF(B2&gt;0,C2*2,D2+1) will produce C2 multiplied by 2 if B2
+is greater than zero, and otherwise, if B2 is less than or equal to zero, it will produce
+D2+1.</p>
+
+<p align="left">Label column K, &quot;Gore wins electoral&quot;&nbsp; In column
+K,
+write an IF statement such that if Gore has more popular votes than Bush, the number of
+electoral votes from that state will appear in column K, if Gore doesn't have more popular
+votes than Bush, a zero will appear in the column.&nbsp; </p>
+
+<p align="left">Label column L, &quot;Bush wins electoral votes.&quot;&nbsp; In column
+L,
+write an IF statement such that if Bush has more popular votes than Gore, the number of
+electoral votes from that state will appear in column L.&nbsp; If Bush doesn't have more
+popular votes than Gore, a zero will appear.</p>
+
+<p align="left">How many electoral votes does Gore win in total?&nbsp; How many electoral
+votes does Bush win in total?&nbsp; Who won the presidency according to the
+electoral count?&nbsp; Compare this answer to your answer in part (a).</p>
+
+<p align="left">c.&nbsp; In column M, use an IF command that will put a 1 in
+column M if Bush won the state's electoral votes, and will put a 0 if Gore won
+the state's electoral votes.&nbsp; Now, using the
+<a target="_blank" href="http://qrc.depaul.edu/maptool">Thematic Mapping Tool</a>, make a map of this new column and paste it into
+your Word document.&nbsp; This map shows which states Bush won and which states Gore won.
+&nbsp; Describe the geographic patterns in a well-written paragraph.&nbsp; Note any
+outliers.&nbsp; (Remember to format the map nicely, including a legend and descriptive
+title.)</p>
+
+<p align="left">d.&nbsp; We would like to understand how this unusual situation (winning
+the popular vote but losing the election) came about.&nbsp; The key is the margin of
+victory in the states, especially the large states.&nbsp;&nbsp; In column N, subtract the
+value in column D from the value in column C, to produce a column which we can entitle
+&quot;Bush's margin of victory&quot;.&nbsp; Note it is negative if Gore won.&nbsp; Finish
+off by making a scatter plot (NOT CONNECTED) with electoral votes on the x-axis and margin
+of victory on the y-axis.&nbsp; Add this graph to your word document.&nbsp; (Be sure to
+label the axes and give it a good title.)</p>
+
+<p align="left">e.&nbsp; Notice that in the most populous states (the ones with the most
+electoral votes), Bush had a very slim margin of victory.&nbsp; Also notice that Bush had
+very few large margins of victory; the largest occurs in the very small states. In a
+well-written paragraph, explain why this fact makes it quite likely that Gore received
+many popular votes.&nbsp; There are two major outliers in this graph.&nbsp; Identify the
+state that has 32 electoral votes (i.e. larger state) where Bush had a
+significant margin of
+victory.&nbsp; Identify the state where Bush lost by a whopping 81% of the popular vote.</p>
+
+<p align="left">f.&nbsp; In a well-written paragraph, explain how it came about that Bush
+won the election, but Gore won the popular vote.</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

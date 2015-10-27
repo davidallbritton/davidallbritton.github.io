@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: RANDEXT Subfunction 1</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: RANDEXT Subfunction 1">
+<META NAME="keywords" CONTENT="Cogsys: RANDEXT Subfunction 1">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC105"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_96.html#SEC104"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_98.html#SEC106"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_94.html#SEC102"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_96.html#SEC104"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_103.html#SEC111"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 3.3.4.1 <CODE>RANDEXT</CODE> Subfunction 1: random-dot square </H4>
+<!--docid::SEC105::-->
+<P>
+
+Syntax:
+<CODE>RANDEXT</CODE> 1, <VAR>fillratio</VAR>
+</P><P>
+
+Draws a 64x64 square of black and white pixels centered on a light gray
+full picture (320x200) background. Pixels are radomly colored white or
+black with a <VAR>fillratio</VAR> chance of being white. (Note this does
+<EM>not</EM> mean that exactly <VAR>fillratio</VAR> percent of the pixels will
+be white, but of course the squares will tend toward this average).
+</P><P>
+
+<VAR>fillartio</VAR> is given as a fraction between 0 and 1.0. For example,
+the testlist below creates a single square where each pixel has a 75%
+chance of being white, and 25% of being black.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>%X[randext.cxr]
+%M2%C
+%I[1,1,.75]
+%B[1,20]#R
+</pre></td></tr></table></P><P>
+
+The following picture is created:
+</P><P>
+
+<CENTER><IMG SRC="images/randext01.jpg" ALT="images/randext01"></CENTER>
+</P><P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

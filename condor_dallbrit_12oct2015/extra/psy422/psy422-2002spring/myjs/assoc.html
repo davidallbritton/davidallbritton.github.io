@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+function compute(form) {
+   a = Math.abs(form.input1.value)
+   b = Math.abs(form.input2.value)
+   c = Math.abs(form.input3.value)
+   d = Math.abs(form.input4.value)
+ total = (a + b + c + d)
+  p = a + b
+  q = c + d
+  r = a + c
+  s = b + d
+ odds1 = (a/c) / (b/d) 
+ yuleq1 = (odds1-1) / (odds1 + 1) 
+ yuley1 = Math.sqrt(odds1-1) / Math.sqrt(odds1+1) 
+  perc =(( (a + d) /total) * 100)
+ phi1 = ((a*d) - (b*c))/ Math.sqrt(p*q*r*s)
+ kappa1 = ((a + d) - (p*r + q*s))/ (1 - (p*r + q*s))
+ tet1 = Math.cos(3.141592654*(Math.sqrt(b*c)/(Math.sqrt(a*d) +     
+      Math.sqrt(b*c))))
+    form.odds.value = odds1 
+    form.yuleq.value = yuleq1 
+    form.yuley.value = yuley1 
+    form.phi.value = phi1 
+    form.kappa.value = kappa1
+    form.tet.value = tet1
+    form.percenta.value = perc
+  }
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR=WHITE>
+<FORM>
+<H1>Measures of Association for A 2 x 2 Contigency Table:
+</H1>
+  <p>
+  Enter the values for your 2 x 2 table:
+  <p>
+  Cell A             
+
+  <input type="text"  name="input1" size=15>
+  Cell B
+  <input type="text"  name="input2" size=15>
+  <p>
+  Cell C            
+  <input type="text"  name="input3" size=15>
+   Cell D
+  <input type="text"  name="input4" size=15>
+  <p>
+  <input type="button" value="Calculate Measures of Association" onclick="compute(this.form)">
+  <br>
+ <p>
+<p>Percent Agreement   <input type="text" name="percenta" size=15>
+<p>
+Odds ratio             <input type="text" name="odds" size=15>
+<p>
+Yule's Q               <input type="text" name="yuleq" size=15>
+
+<p>
+Yule's Y               <input type="text" name="yuley" size=15>
+
+
+<p>
+Phi coefficient        <input type="text" name="phi" size=15> 
+<p>
+Kappa                  <input type="text" name="kappa" size=15>
+<p>
+Tetrachoric correlation<input type="text"
+    name ="tet" size=15>
+    <br>
+  </form>
+  </body>

@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Graphics-Mode Text Attributes</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Graphics-Mode Text Attributes">
+<META NAME="keywords" CONTENT="Cogsys: Graphics-Mode Text Attributes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC59"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_50.html#SEC58"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_52.html#SEC60"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_39.html#SEC47"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.4.9 Graphics-Mode Text Attributes (<CODE>%A</CODE>) </H4>
+<!--docid::SEC59::-->
+<P>
+
+Graphics-Mode Text Attributes sets all of the attributes--cursor, font, size, color,
+and justification--to control the display of text in the graphics modes.
+</P><P>
+
+The Graphics-Mode Text Display command is then used to display text with the
+specified attributes.
+</P><P>
+
+This command also allows the selection of a font. Currently, Cogsys only loads
+three fonts: the default VGA ROM font, and two Windows fonts: Arial 20 point and
+BrHand 24 point. This limitation will very likely be removed in future versions
+of Cogsys (<A HREF="cogref_112.html#SEC120">4.2 New Directions</A>).
+</P><P>
+
+The font table is initialized like this:
+<DL COMPACT>
+<DT><CODE>0</CODE>
+<DD><TT>`default.rom'</TT>
+<DT><CODE>1</CODE>
+<DD><TT>`font01.gem'</TT>
+<DT><CODE>2</CODE>
+<DD><TT>`font02.gem'</TT>
+<DT><CODE><VAR>n</VAR></CODE>
+<DD><TT>`font<VAR>nn</VAR>.gem'</TT>
+<DT><CODE>20</CODE>
+<DD><TT>`font20.gem'</TT>
+</DL>
+<P>
+
+The default font path is is stored in the Cogsys constant
+<CODE>DEFAULT_FONT_PATH</CODE>, and is currently set to
+<TT>`'</TT>. It can be controlled by the <CODE>%M</CODE>
+command when the video mode is set. See section <A HREF="cogref_40.html#SEC48">Mode (<CODE>%M</CODE>)</A>.
+</P><P>
+
+The default values for the attributes are given below:
+<DL COMPACT>
+<DT>cursor position
+<DD>0,0 (top left of screen)
+<DT>font
+<DD>font 0, default VGA ROM font
+<DT>scale
+<DD>1
+<DT>color
+<DD>color palette 15 (white)
+<DT>justification
+<DD>0 (left)
+</DL>
+<P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Graphics-Mode Text Attributes
+<DT>Class:
+<DD>Display Text
+<DT>Code:
+<DD><CODE>%A</CODE>
+<DT>Syntax:
+<DD><CODE>%A[</CODE> [<CODE>X<VAR>x</VAR></CODE> | <CODE>Y<VAR>y</VAR></CODE> | <CODE>J<VAR>just</VAR></CODE> | <CODE>F<VAR>font</VAR></CODE> | <CODE>S<VAR>scale</VAR></CODE> | <CODE>C<VAR>color</VAR></CODE>] [<CODE>, <small>...</small></CODE>] <CODE>]</CODE>
+<BR><VAR>x</VAR> is an integer from 0 to one less than width of the current video mode
+<BR><VAR>y</VAR> is an integer from 0 to one less than height of the current video mode
+<BR><VAR>just</VAR> represents text justification as 0 (left), 1 (right), or 2 (center)
+<BR><VAR>font</VAR> is an integer from 0 to 24 which represents which font to use from the font table
+<BR><VAR>scale</VAR> is an integer form 0 to 32, which represents how much the font should be scaled
+<BR><VAR>color</VAR> is an index to the color palette for this video mode (from 0 to one less than maximum number of colors)
+Note that the syntax definition allows the specification of as many attributes as you like in any order.
+If the same attribute is specified more than once, the last occurrence is used.
+<DT>System:
+<DD>Sets the graphics attributes specified. The cursor is moved to position
+<VAR>x</VAR>,<VAR>y</VAR>. Depending on the value of <VAR>just</VAR>, text will be
+aligned to either the right, left, or center of <VAR>x</VAR>,<VAR>y</VAR>.  The
+text will be displayed in color <VAR>color</VAR>. The text will be scaled by
+the multiple <VAR>scale</VAR>; usually scaling more than 2 or 3 will lead to
+large, blocky results. The font is selected by an index to the font
+table, as described above.
+<P>
+
+Once set, an attribute is not changed until another <CODE>%A</CODE> command. Attributes
+retain their values through mode resets.
+</P><P>
+
+<DT>Requires:
+<DD>Cogsys must be in a graphics mode.
+<P>
+
+<DT>History:
+<DD>Originally, the work of <CODE>%A</CODE> was part of <CODE>#G</CODE>. Very old teslists
+written for Cogsys 2.7 must be re-written to use <CODE>%A</CODE>.
+<P>
+
+Cogsys 2.8 to 2.9 had a <SAMP>`W'</SAMP> option to <CODE>%A</CODE> which allowed the
+specification of a width string.  The width string was an arbitrary string
+of characters whose length was taken to be the maximum width within
+which all subsequent text would be centered. This weird option has been
+replaced with the justification attribute.
+</P><P>
+
+Before Cogsys 3, a <CODE>$F</CODE> command was used to load <EM>text mode</EM> fonts.
+Text mode fonts never worked well and their support was removed from Cogsys 3.
+The other commands that used text mode fonts (<CODE>$D</CODE>, <CODE>$U</CODE> and <CODE>$E</CODE>) have 
+been removed as well.
+</P><P>
+
+In addition to text mode fonts, older versions of Cogsys used two completely 
+different graphics mode fonts: the standard set of BGI fonts for VGA modes,
+and translated GEM fonts for 256 color modes. Even though Cogsys 2.8 through 2.9
+had disabled the use of BGI fonts completely, the fonts were still distributed
+with every installation of Cogsys.
+</P><P>
+
+Cogsys 3 no longer depends on BGI, and instead uses the BGI Toolkit from
+Ryle Design and uses the GEM fonts exclusively. Any reference to BGI
+fonts ("Sans Serif", "Triplex", etc) or <TT>`*.BGI'</TT> font files is
+obsolete.
+</P><P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`GATR_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>%M2%A[X320,Y240,J2,S1,F1,C10]#G[Hi, there!]</CODE>
+<DT>cogsys
+<DD>Displays the string <SAMP>`Hi, there!'</SAMP> in Arial 20 at the center of the screen in green.
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_50.html#SEC58"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_52.html#SEC60"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_39.html#SEC47"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!-- Psy 422  Day 1 Lecture/tutorial -->
+<!-- by David Allbritton -->
+
+<html xmlns = "http://www.w3.org/1999/xhtml" >
+ <head>
+   <title>Psy 422 - Introduction to Programming and Unix</title>
+   <link rel = "stylesheet" type = "text/css"
+      href = "psy422-styles.css" />
+ </head>
+
+ <body>
+  <h1>Psy 422 Day 1 </h1>
+
+<p>An overview of some problem-solving strategies that may be useful
+   for programming and computing, followed by an introduction to Unix,
+   and an assignment to do some problem-solving using Unix tools.
+   We will also set up your account on the course server and create
+   your first web page on the server.</p>
+	 
+<hr />
+<p>
+<a href = "#logginIn">Loggin In</a>
+ | 
+<a href = "#displayConventions">Display Conventions</a>
+ | 
+<a href = "#commandLine">Command Line</a>
+ | 
+<a href = "#shell">The Shell</a>
+ | 
+<a href = "#accounts">User accounts</a>
+ | 
+<a href = "#treeMetaphor">The Tree Metaphor</a>
+ | 
+<a href = "#plumbingMetaphor">The Plumbing Metaphor</a>
+ | 
+<a href = "#gettingHelp">Getting Help</a>
+ | 
+<a href = "#commands">List of Unix Commands</a>
+ | 
+<a href = "#guidedTour">A Guided Tour</a>
+ | 
+<a href = "#assignment">Assignment</a>
+</p>
+<hr />
+	 
+  <h2>Some Strategies to Keep in Mind: </h2>
+
+  <ul>
+    <li><strong>Divide and Conquer</strong> (ie: How to eat an elephant)</li>
+    <li><strong>Have a Plan</strong> - Use pseudo-code to plan your attack</li>
+    <li><strong>Adapting is Easier than Inventing</strong> - Changing an 
+      existing script, program, or document to fit your needs is often 
+      the easiest way to learn </li>
+    <li><strong>Avoid Reinventing the Wheel</strong> 
+      <ul>
+         <li>Has someone else provided a solution for your problem? 
+            (<a href="http://www.google.com">Google</a>)
+         </li>
+         <li>Is there a UNIX utility or built-in function for that?
+         </li>
+      </ul>
+    </li>
+    <li><strong>Make it Readable</strong> - You may have to look at it 
+      again some day!
+      <ul>
+        <li>Use consistent formatting and indentation</li>
+        <li>Use meaningful variable names</li>
+        <li>Do not skimp on the comments (Documentation)</li>
+      </ul>
+    </li>
+    <li><strong>Choose a Good Tool for the Job</strong> - "Save as html"
+      for a MSWord document is an easy way to get information onto the web,
+      but the HTML tends to be ugly and browser-specific (just as an 
+      example).  Consider the costs and benefits when you make your
+      choices.
+    </li>
+    <li><strong>Test It</strong> 
+      <ul>
+        <li>Validate xhtml web pages 
+          (<a href="http://validator.w3.org">http://validator.w3.org</a>)
+        </li>
+        <li>Test web pages on multiple browsers and platforms</li>
+        <li>Test programs on simulated or real input</li>
+        <li>Test the way you code: one bite at a time</li>
+      </ul>
+    </li> 
+  </ul>
+
+  <h2>To Code or Not to Code...<br />
+    <span style = "font-size: .7em">
+      Considerations for deciding whether to code a solution to a problem into 
+      a script or program:
+    </span>
+  </h2>
+
+  <ul>
+    <li> How long will it take to code?  </li>
+    <li> How long would it take to do by hand?  </li>
+    <li> How often will you have to do it again in the future?  </li>
+    <li> How error prone is the process of doing it by hand?  </li>
+    <li> How reliable is the structure of the input?  </li>
+  </ul>
+
+  <hr />
+  <h2>Introduction to Unix</h2>
+
+    <h3>Background</h3>
+    <dl>
+      <dt>History</dt>
+        <dd>Unix was <a href="http://www.bell-labs.com/history/unix/">
+          invented at 
+          Bell Labs</a> in 1969 to fill an urgent need
+          for a dependable operating system that could support multiple
+          users at a time.  In 1991 a Finnish graduate student named 
+          Linus Torvalds created a Unix-like <em>kernel</em> (the core 
+          of an operating system) that ran on 386 PCs. He made it freely
+          available on the internet, and the eventual result was 
+          <a href="http://www.linux.org">Linux</a>, 
+          a free (open source) Unix operating system for PCs.   
+        </dd>
+      <dt>Philosophy</dt>
+        <dd>Unix applies the "divide and conquer" strategy as an operating
+            system.  Unix has lots of little programs that each do one 
+            thing well.  Unix lets you string those little bits and pieces
+            together in lots of different ways.  The result is great
+            power and flexibility.
+        </dd>
+    </dl>
+  
+    <h3><a name = "logginIn"></a>Getting Started with Unix:  A brief Tutorial</h3>
+      <h4>Logging in</h4>
+      <p>An account has been created for you on sheu-hp.psy.depaul.edu.  
+         This machine will serve as our development host and web server
+         for this course.  It is where you can carry out assignments and 
+         work on projects, and generally mess around and learn things.
+         You will also need to have an account on one of the university's
+         public unix machines, such as shrike.depaul.edu.  Most of what you
+         learn to do on our development server should work on shrike or 
+         condor as well.  For this tutorial we will be working only on 
+         our development server.  </p>
+      <p>The first thing you need to do is log in.  The steps below will
+         walk you through the process.</p>
+      <ul>
+         <li><span class = "parhead">Start the telnet client</span> 
+            to connect to the host.  If you
+            are using Windows, click on the "Start" button (lower left
+            of your screen), then select "Run" from the menu that pops up.
+            In the box that then appears, 
+            type the following:
+
+            <p class = "input">telnet sheu-hp.psy.depaul.edu</p>
+
+            Then click "OK." A window should then appear with something 
+            like the following in it:
+
+            <p class = "output">
+               Red Hat Linux release 7.1 (Seawolf)<br />
+               Kernel 2.4.2-2 on an i586<br />
+               login:  
+            </p>
+         </li>
+         <li><span class = "parhead">Enter your username and password</span>.
+            Remember that your user name and password are 
+            <em>case sensitive</em> - "Orval" and "orval" are two different
+            user names to Unix.  By convention, user names are all lower 
+            case.
+            You can find your user name in 
+            <a href="psy422-students.html">this list</a>.
+            For this example, we will assume your user name is 
+            <span class = "input">orval</span>.   
+            At the login prompt, type in your user name and press "Enter."
+            At the password prompt, type in your password and press "Enter'.  
+            (Your initial password will be given out in class.)
+         </li>
+      </ul>
+
+      <h4><a name = "displayConventions"></a>Display conventions in this document</h4>
+         <p><span class = "parhead" >A quick note about 
+            my conventions for displaying input, output, and code</span>:  
+            <em>Code</em> - the contents of a program or script - 
+            will be displayed
+            <span class = "code" >like this.</span>
+            <em> Output</em> - text that the system
+            displays to you such as the command prompt or output from a 
+            command or program - will look
+            <span class = "output" >like this.</span>
+            <em>Input</em> - 
+            text that you are to type in, such as commands you type at the
+            command prompt, or responses you type in as input when prompted
+            by a program - will look
+            <span class = "input" >like this.</span> 
+            To indicate that you should press a certain
+            key or combination of keys 
+            (like the tab key for example) this format will be used:
+            <span class = "input" ><span class = "key">tab</span></span>.
+         </p>
+
+      <h4><a name = "commandLine"></a>The command line</h4>
+      <p>If you logged in successfully, you should see something like this:</p>
+      <p class = "output">
+         [orval@sheu-hp orval]$
+      </p>
+      <p>This is what is affectionately known as the "command prompt," because
+         it is where you type Unix commands. The command prompt contains some
+         helpful information:    </p>
+         <dl>
+            <dt class = "output">orval@sheu-hp</dt>
+            <dd>This tells you who you are (orval) and what machine
+                you are logged in to (sheu-hp).</dd>
+            <dt class = "output">orval]</dt>
+            <dd>This tells you who you where you are 
+                (what the current directory is)
+            </dd>
+            <dt class = "output">$</dt>
+            <dd> This tells you what shell you are running (bash) and tells
+                 you that the system is ready for you to enter a command</dd>
+         </dl>
+  
+      <p>You can change the prompt if you like, but for now we will 
+         just use the default bash prompt and start typing in commands.  
+         Try the examples below to
+         get you started.  
+         Remember that <em>all commands are case sensitive</em> - just 
+         as usernames and passwords are.  
+         By the way, I may omit telling
+         you to "press Enter" all the time, but
+         you can generally assume that you are expected to press "Enter"
+         after typing in a command on the command line. 
+         Remember to type in any 
+         <span class = "input" >commands</span> that you see
+         next to a command prompt
+         in the examples throughout this document.</p>
+      <p>
+         The very first thing you should do 
+         when you log in for the first time is change your password.
+      </p>
+      <ul>
+         <li><span class = "output" >[orval@sheu-hp orval]$</span>
+            <span class = "input" >
+               passwd
+            </span>
+         </li>
+      </ul>
+         <p>Passwords can contain both upper and lower case letters, 
+          numbers, and punctuation, but <em>no spaces</em>.  If you
+          try to choose a password that is too easy to guess, the
+          passwd program will not allow it.  A good password is one
+          that is not based on a dictionary word, and contains numbers
+          or punctuation as well as letters.  A good password is also
+          one that you can remember.</p>
+      <p>Once you have successfully changed your password, log out and 
+          log back in again using your new password.  To log out simply
+          type 
+          <span class = "input" >
+          logout
+          </span>
+          or
+          <span class = "input" >
+          exit
+          </span>
+          at the command prompt.
+          Once you have logged back in, try out the following commands
+          to learn more about the command line:
+      </p>
+
+
+      <ul>
+        <li><span class = "output" >[orval@sheu-hp orval]$</span>
+           <span class = "input" >
+              whoami
+           </span>
+           <br />
+           <span class = "output" >
+           orval</span>
+        <p> 
+           The output of
+           <span class = "input" >whoami</span>
+           is your user name.  
+        </p></li>
+        
+        <li><span class = "output" >[orval@sheu-hp orval]$</span>
+           <span class = "input" >
+              Whoami
+           <br />
+           </span>
+           <span class = "output" >
+           bash: Whoami: command not found</span>
+        
+          <p>
+            Notice what happens if you forget that Unix is case-sensitive!  
+           </p>
+        </li>
+        <li><span class = "output" >[orval@sheu-hp orval]$</span>
+            <span class = "input" >
+               history
+            </span>
+        
+            <p>
+              This produces a list of the commands you have used
+            </p></li>
+
+        <li><span class = "output" >[orval@sheu-hp orval]$</span>
+            <span class = "input" >
+               whoa<span class = "key">tab</span>
+            </span>
+      
+          <p>
+             <span class = "parhead">Command completion</span>: The tab
+             key completes the command name if possible.  The same
+             trick works for completing file names.  
+             If what you have typed so far does not uniquely identify
+             the command or file, pressing the tab key again will 
+             display the list of possible completions.
+          </p>  </li>
+
+        <li><span class = "output" >[orval@sheu-hp orval]$</span>
+            <span class = "input" >
+               !his
+            </span>
+       
+          <p>
+             This executes the most recent command that started with "his"
+             - <span class = "input">history</span> in this case.  Variations
+             of the exclamation point trick include:
+          </p> </li>
+        <li><span class = "input">!!</span> - 
+          re-executes the previous command
+        </li>
+        <li><span class = "input">!2</span> - 
+          executes command number 2 (from the list that 
+          <span class = "input">history</span>
+          produces)
+        </li>
+        <li><span class = "input">!-2</span> - 
+          executes the command-before-last (2 commands back in 
+          the history list)
+        </li>
+
+      </ul>
+
+      <h4><a name = "shell"></a>The shell</h4>
+      <p>
+Most of these command line features are a function of the <em>shell</em>.  
+The shell is the program that the user interacts with on the command
+line.  There are several different shells available, and each works
+a little differently.  We are using <em>bash</em>.  It is the default shell
+for most machines.  It is also favored by programmers because it is good
+for writing <em>scripts</em> - files of command lines that can be run
+as a batch rather than having to be typed on the command line one at 
+a time.  Another popular shell is <em>tcsh</em>, or the C-shell.  It
+uses syntax that is similar to that of the C programming language.
+You can try out the <em>tcsh</em> shell by typing 
+<span class = "input" >tcsh</span> at the command line if you wish.  
+      </p>
+
+      <p>
+You can customize the way the shell behaves by editing the 
+bash <em>configuration files</em>, .bashrc and .bash_profile.
+Later in the session we will edit your .bash_profle file to
+change the default behavior of the 
+<span class = "input">cp</span>
+and
+<span class = "input">mv</span>
+commands.  
+      </p>
+
+      <h4><a name = "accounts"></a>User accounts and file permissions</h4>
+      <p>
+        Because Unix is designed to support multiple users at a time,
+        it has a system for managing user accounts and files.  
+        Every file belongs to a user, and the owner of a file 
+        can determine whether other users can access it.
+        The following commands demonstrate various aspects of
+        file permissions and ownership.
+      </p>
+
+      <ul>
+        <li><span class = "output" >[orval@sheu-hp orval]$</span>
+            <span class = "input" >
+               ls
+            </span>
+        
+            <p>
+            This lists the files in the current directory
+        </p></li>
+
+        <li><span class = "output" >[orval@sheu-hp orval]$</span>
+            <span class = "input" >
+               ls -l
+            </span>
+            <br />
+            <span class = "output">
+drwxr-xr-x    2 orval    orval        4096 Mar 29 13:48 cgi-bin
+            <br />
+drwxr-xr-x    2 orval    orval        4096 Mar 29 13:48 Desktop
+            <br />
+drwxr-xr-x    2 orval    orval        4096 Mar 29 13:48 public_html
+            </span>
+        
+       	  <p> 
+          This demonstrates the use of an <em>option</em> with a 
+          command to  change its behavior.  It also produces 
+          some more detailed information about each file.
+          The first field lists the file <em>permissions</em>.  More on 
+          that in a moment.
+          The third field lists the <em>owner</em> of the file.
+          The fourth lists the <em>group</em> the file is assigned to.
+          The fifth field is the <em>size</em> of the file.
+          </p>
+          <p>
+          The file permissions field has four sections.  The first letter
+          indicates whether it is a plain file or a directory.  The next
+          three letters are the <em>owner</em> permissions.  An "r" 
+          indicates that the owner of the file can <em>read</em> the
+          file.  A "w" indicates <em>write</em> permission, and "x"
+          indicates <em>execute</em> permission.   The next three letters
+          indicate the permissions for other users who are members of the
+          file's <em>group</em>, and the last three letters are the 
+          permissions for all <em>other</em> users.
+          </p></li>
+          
+      </ul>
+
+
+      <h4><a name = "treeMetaphor"></a>The Tree Metaphor: The Unix file system</h4>
+        <ul>
+           <li> The root directory</li>
+           <li> User directories in /home</li>
+           <li><span class = "output">[orval@sheu-hp orval]$</span>
+              <span class = "input">
+              pwd</span> </li>
+           <li><span class = "output">[orval@sheu-hp orval]$</span>
+              <span class = "input">
+              mkdir tempdir</span> </li>
+           <li><span class = "output">[orval@sheu-hp orval]$</span>
+              <span class = "input">
+              cd tempdir</span> </li>
+           <li><span class = "output">[orval@sheu-hp tempdir]$</span>
+              <span class = "input">
+              pwd</span> </li>
+           <li><span class = "output">[orval@sheu-hp tempdir]$</span>
+              <span class = "input">
+              cd</span> </li>
+           <li><span class = "output">[orval@sheu-hp orval]$</span>
+              <span class = "input">
+              pwd</span> </li>
+        </ul>
+      <h4><a name = "plumbingMetaphor"></a>The Plumbing Metaphor: Standard input, standard output, 
+          piping, and redirection</h4>
+        <ul>
+           <li><span class = "output">[orval@sheu-hp orval]$</span>
+              <span class = "input">
+              ls /etc | more</span> </li>
+           <li><span class = "output">[orval@sheu-hp orval]$</span>
+              <span class = "input">
+              w &gt; w-output</span> </li>
+           <li><span class = "output">[orval@sheu-hp orval]$</span>
+              <span class = "input">
+              cat w-output </span> </li>
+           <li><span class = "output">[orval@sheu-hp orval]$</span>
+              <span class = "input">
+              cat w-output | sort</span> </li>
+           <li><span class = "output">[orval@sheu-hp orval]$</span>
+              <span class = "input">
+              sort &lt; w-output</span> </li>
+           <li><span class = "output">[orval@sheu-hp orval]$</span>
+              <span class = "input">
+              cat w-output | sort | head -2</span> </li>
+        </ul>
+
+      <h4><a name = "gettingHelp"></a>Getting Help</h4>
+        <ul>
+          <li><strong>Man pages</strong> - on the command line, 
+            type <span class = "input">man command-name</span></li>
+          <li><strong>Info pages</strong> - on the command line, 
+            type <span class = "input">info command-name</span></li>
+          <li><strong>The -h switch</strong> - entering a command
+            name followed by -h or --help will often produce some helpful
+            usage notes.  Example:
+            <span class = "input">sed -h</span></li>
+          <li><strong>Google</strong> - point your web browser to 
+          <a href="http://www.google.com">http://www.google.com</a>
+          and enter a search</li>
+					<li><strong>Installing Unix/Linux</strong> - Here are some links
+					that might be helpful if you want to use Unix on your own machine
+					<ul>
+             <li><a href="http://www.cygwin.com/"><strong>Cygwin Bash Shell</strong> 
+						 for Windows</a>.  
+   This program allows you to run a bash login shell within Windows.  It
+	 is great for learning Unix commands without having to be connected to
+	 a remote server.  I highly recommend it.</li>
+	 <li><strong>Installing Linux</strong> - If you are ready to take the plunge and install
+	 your own Linux/Unix operating system, this
+	 <a href="linux-lab-paper-draft-jan-2002.pdf">draft of a paper I wrote 
+	 on using Linux in an experimental lab</a> has instructions for installing
+	 Linux, plus 
+	 references to some useful sources
+	 of information about Linux and other software for your lab.  This is only a 
+	 draft, so please do not quote or cite it.</li>
+</ul></li>
+	  <li>
+            A short <a href="unix-tutorial-for-lab.htm">Unix tutorial</a>
+            I have used in my lab on occasion
+            </li>
+          <li><strong>Regular Expressions</strong> - 
+            <ul>
+             <li>a 
+               <a href="http://py-howto.sourceforge.net/regex/regex.html">
+                tutorial </a>
+                from
+                sourceforge.net
+             </li>
+             <li>
+<a href="http://gnosis.cx/publish/programming/regular_expressions.html">
+                 A more general tutorial</a> on regular expressions.
+             </li>
+            </ul>
+				  </li>
+
+          <li><strong>Books</strong> from 
+             <a href="http://www.oreilly.com/"> O'Reilly</a>
+             are often helpful. </li>
+          <li>
+             <a href="http://service.depaul.edu/dpo/homepage.html">Help
+              pages on shrike</a>
+          </li>
+        </ul>
+    
+
+      <h4><a name = "commands"></a>Unix Commands:  A Short List</h4>
+
+<p>Some basic commands (and some fancier related commands)
+</p>
+<ul>
+  <li>ls (wc, du)</li>
+  <li>cd (pushd, popd)</li>
+  <li>pwd</li>
+  <li>man (info, apropos)</li>
+  <li>mkdir </li>
+  <li>cp (ln)</li>
+  <li>rm (rmdir, shred)</li>
+  <li>mv</li>
+  <li>telnet (ssh)</li>
+  <li>ftp (ncftp, rsync)</li>
+  <li>echo</li>
+  <li>cat (tac, dd, paste, cut, join, tee)</li> 
+  <li>more (less, head, tail, strings)</li>
+  <li>ps (kill)</li>
+  <li>df (mount, umount)</li>
+  <li>chmod (chown)</li>
+  <li>locate (find, which)</li>
+  <li>grep (awk, perl)</li>
+  <li>vi (emacs, pico)</li>
+  <li>tr (sed)</li>
+  <li>sort (uniq)</li>
+</ul>
+ 
+
+      <h4><a name = "guidedTour"></a>Unix Commands:  An abbreviated guided tour</h4>
+<p>      This little exercise will introduce some commonly used
+      Unix commands and, in the process, create a web page for
+      you on the course server.  
+</p>
+
+    <pre>
+    $ uname -a
+
+    $ id orval
+
+    $ who
+
+    $ w
+
+    $ TERM=vt100
+
+    $ export TERM
+
+    $ stty
+
+    $ mkdir tempd
+
+    $ cd tempd
+
+    $ pwd
+
+    $ mv ../w-output .
+
+    $ history | tail 
+
+    $ cd 
+
+    $ pwd
+
+    $ rmdir tempd
+
+    $ mv tempd/w-output .
+
+    $ rmdir tempd
+
+    $ pushd /etc
+
+    $ ls
+
+    $ more &lt; passwd
+
+    $ pushd
+
+    $ ps -aux > processes
+
+    $ wc *
+
+    $ ls -l
+
+    $ sleep 5; ls
+
+    $ tail processes 
+
+    $ ps >> processes
+
+    $ tail processes
+
+    $ chmod ugo-r processes 
+
+    $ tail processes 
+
+    $ chmod 744 processes 
+
+    $ head processes 
+
+    $ cat processes | grep root 
+
+    $ cat processes | grep root | tail
+
+    $ ping shrike.depaul.edu
+           (Demonstrates <span class = "key">control-c</span>)
+
+    $ cat > controld-demo
+
+    $ echo '<span class = "key">control-d</span> is the Unix end-of-file character' | sed -e 's/Unix/Linux/'
+           (Other special characters: <span class = "key">control-z</span>  ~ \ )
+
+    $ rm controld-demo
+
+    $ rm -i w-output 
+
+    $ cal
+
+    $ date
+
+    $ man date
+
+    $ info grep
+
+    $ locate hosts.allow
+
+    $ locate hosts
+
+    $ locate hosts | wc
+
+    $ locate hosts | grep '^.etc'
+
+    $ locate hosts | grep '^.etc.*y'
+
+    $ find /var/ftp/ -name '*index.html'
+
+    $ vi .bash_profile 
+          (uncomment the lines for aliases for mv and cp)
+
+    $ source .bash_profile 
+
+    $ ftp sheu-hp.psy.depaul.edu
+         log in as anonymous
+         cd pub
+         get sample-index.html
+         quit
+
+    $ ncftp sheu-hp.psy.depaul.edu
+         cd pub
+         get tidy_linux_x86.tar.gz
+         bookmark sheu-hp
+         quit
+
+    $ ls
+
+    $ gunzip tidy_linux_x86.tar.gz
+
+    $ tar -xf tidy_linux_x86.tar 
+
+    $ ls
+
+    $ mkdir bin
+
+    $ mv tidy bin
+
+    $ which tidy
+
+    $ hash -r
+
+    $ mv sample-index.html public_html/
+
+    $ cd public_html/
+
+    $ tidy -h |more
+
+    $ tidy -i sample-index.html > index.html
+
+    $ diff sample-index.html index.html 
+
+    $ vi index.html
+          (pico - an easier to use editor)
+          (emacs - a more powerful editor)
+ </pre>
+
+<p>Now point your web browser at <strong>sheu-hp.psy.depaul.edu/~orval</strong>
+(but substitute your user name for "orval").
+</p>
+
+
+<h3><a name = "assignment"></a><a href="psy422-assignment1.html">Assignment due next week</a>
+</h3>
+
+  <!--Indicates this page validated as XHTML 1.0 Strict -->
+	<p>
+    <a href="http://validator.w3.org/check/referer"><img
+        src="/valid-xhtml10.png"
+        alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+  </p>
+
+ </body>
+</html>

@@ -1,0 +1,45 @@
+/* An external style sheet */
+/* Defines styles for the psy404 web pages*/
+
+
+
+/* The following change the default style of standard xhtml tag elements */
+
+/*h1               { font-family: arial, sans-serif; 
+*/
+body             {
+                   background-color: white;
+		   font-family: sans-serif;
+                 }
+
+h1               { 
+                   text-align: center }
+
+h2               { margin-top: 2ex; margin-bottom: 1ex}
+
+h3               { margin-top: 2ex; margin-bottom: 1ex}
+
+h4		 { text-decoration: underline 
+                   margin-top: 2ex; margin-bottom: 1ex}
+
+dl		 { margin-left: 3em}
+
+p                { margin-top: 1ex; margin-bottom: 1ex}
+
+
+pre		 { font-family: monospace }
+
+ol ul		 { margin-bottom: 1ex }
+
+ul ul		 { margin-bottom: 1ex }
+
+ol   		 { margin-bottom: 1.5ex }
+
+ul   		 { margin-bottom: 1.5ex }
+
+/* The following are user-defined classes */
+
+/*sets off a heading phrase at the beginning of a paragraph */
+.parhead          { text-decoration: underline }
+
+

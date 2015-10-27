@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <!-- This document demonstrates some uses of HTML Forms to  -->
+  <!-- get responses from users                               -->
+  <!-- by David Allbritton -->
+
+  <head>
+    <meta name="generator" content=
+    "HTML Tidy for Linux/x86 (vers 1st March 2002), see www.w3.org" />
+
+    <title>Using Forms - an Introduction</title>
+  </head>
+
+  <body>
+    <h1>Introduction to XHTML Forms</h1>
+    <!-- This uses a cgi program, FormMail.pl, to process the form data and -->
+    <!-- send the information to the email address listed in the "hidden"   -->
+    <!-- "recipient" input tag.  Put your depaul email address in that      -->
+    <!-- tag in place of the one I have.  Note that only an address ending  -->
+    <!-- in "depaul.edu" is allowed.  In your browser, try submitting the   -->
+    <!-- form with the current @excite.com address and see what happens     -->
+
+    <form action="/cgi-bin/FormMail.pl" method="post">
+      <p><input type="hidden" name="recipient" value=
+      "david_allbritton@excite.com" /> <label>What is your name?
+      <input type="text" name="yourName" /></label></p>
+
+      <p><label>What is your quest? <input type="text" name=
+      "quest" /></label></p>
+
+      <p><label>What is your favorite colour? <input type="text"
+      name="FavoriteColor" size="15" maxlength="13" /></label></p>
+
+      <p><label>What is the air-speed velocity of an unladen
+      swallow? <select name="airSpeed">
+        <option selected="selected">
+          I don't know
+        </option>
+
+        <option>
+          5 mph
+        </option>
+
+        <option>
+          10 mph
+        </option>
+
+        <option>
+          15 mph
+        </option>
+
+        <option>
+          20 mph
+        </option>
+
+        <option>
+          African or European?
+        </option>
+      </select></label></p>
+
+      <p>What is the number of the counting which thou shalt
+      count?<br />
+       <label>One <input name="counting" type="checkbox" value=
+      "one" /></label> <label>Two <input name="counting" type=
+      "checkbox" value="two" /></label> <label>Three <input name=
+      "counting" type="checkbox" value="three" /></label>
+      <label>Four <input name="counting" type="checkbox" value=
+      "four" /></label> <label>Five <input name="counting" type=
+      "checkbox" value="right out" /></label></p>
+
+      <p><input type="submit" value="Submit Answers" /></p>
+    </form>
+    <!--Indicates this page validated as XHTML 1.0 Strict -->
+
+    <p><a href="http://validator.w3.org/check/referer"><img src=
+    "/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width=
+    "88" /></a></p>
+  </body>
+</html>
+

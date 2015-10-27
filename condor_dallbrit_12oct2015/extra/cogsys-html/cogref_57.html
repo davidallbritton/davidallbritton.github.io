@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Load Picture List</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Load Picture List">
+<META NAME="keywords" CONTENT="Cogsys: Load Picture List">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC65"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_56.html#SEC64"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_58.html#SEC66"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.5.2 Load Picture List (<CODE>%Q</CODE>) </H4>
+<!--docid::SEC65::-->
+<P>
+
+The Load Picture List command is given the name of a text file which contains
+a list of pictures. Load Picture List implicitly resets the picture list,
+then loads the pictures listed.
+</P><P>
+
+The file should be a plain text file with one filename per line.  If a
+filename is not absolute (that is, it doesn't start with an MS-DOS drive
+letter, like <TT>`C:\MYDIR\MYPIC.PCX'</TT>) then the Cogsys system constant
+<CODE>DEFAULT_PIC_PATH</CODE> (by default, )
+is prepended to the file before it is loaded. The Load Picture References
+command can affect the default path.
+</P><P>
+
+The file name (just as it appears in the file, before any path adjustments)
+is entered into the picture list and can be used when displaying this picture
+by name with the Display Picture command. 
+</P><P>
+
+Pictures are loaded into the picture buffer started at 1.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Load Picture List
+<DT>Class:
+<DD>Pictures
+<DT>Code:
+<DD><CODE>%Q</CODE>
+<DT>Syntax:
+<DD><CODE>%Q[<VAR>listfile</VAR>]</CODE>
+<BR><VAR>listfile</VAR> is a filename
+<DT>System:
+<DD>Resets the picture buffer and loads the pictures listed in the
+<VAR>listfile</VAR> into memory.  The filename as it appears in
+<VAR>listfile</VAR> is entered into the picture list (for use with commands
+which refer pictures by name). The pictures are numbered starting with 1
+(for use with commands which refer pictures by number).
+<DT>History:
+<DD>As noted at the beginning of this section, picture loading before
+Cogsys 3 was very inefficient and awkward.
+<P>
+
+The simplest way translate a list which uses the
+<CODE>%F</CODE>/<CODE>!<small>...</small>!</CODE> mechanism is to replace the <CODE>%F</CODE> with a
+<CODE>%Q</CODE>. Then, replace calls to <CODE>#B</CODE> with calls to the new
+<CODE>#B</CODE> which explicitly requires a picture number. Finally, remove
+the <CODE>!<small>...</small>!</CODE> contruction entirely.
+</P><P>
+
+For even more powerful methods, look at the Load Picture References
+and Create Pictures with Extension Routine commands later in this
+section.
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`LPCL_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>%M2%C2%Q[mypics.txt]#B[1,20]@C</CODE>
+<DT>cogsys
+<DD>Switches to Mode 2, and sets picture type to 2. The <CODE>%Q</CODE> command
+then loads up the PCX Version 5 picture files given in the list file
+<TT>`mypics.txt'</TT>. Now the <CODE>#B</CODE> command displays the first image
+for 20 milliseconds at the default position for a Type 2 picture,
+(160,140), the center of the screen. Finally, the screen is cleared with
+a call to <CODE>@C</CODE>.
+</DL>
+<P>
+
+</DL>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_56.html#SEC64"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_58.html#SEC66"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

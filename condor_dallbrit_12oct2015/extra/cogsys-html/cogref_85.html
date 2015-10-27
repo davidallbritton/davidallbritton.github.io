@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Making the Extension</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Making the Extension">
+<META NAME="keywords" CONTENT="Cogsys: Making the Extension">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC93"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_86.html#SEC94"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_77.html#SEC85"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.2.1 Making the Extension </H3>
+<!--docid::SEC93::-->
+<P>
+
+As described above, a Cogsys extension is just an object file that has
+been run through the Cogsys Extension Routine Generator <CODE>COGXRG</CODE>
+program. This section tells you how to turn a C source file into a CXR
+file. If you are interested only in making modifications to an existing
+extension, copy that extension's source file to a new name, make the
+modifications, and follow these instructions. To write a new extension
+from scratch, see <A HREF="cogref_86.html#SEC94">Writing a New Extension</A>.
+</P><P>
+
+It is important to note that object files, while conforming to the same
+general structure on a particular operating system, differ significantly
+for each compiler. The <CODE>COGXRG</CODE> program is currently designed to
+work <EM>only</EM> with object files created by the Borland Turbo C/C++
+3.00 Compiler. (In principle, <CODE>COGXRG</CODE> should be easily modified to
+allow objects of other C compilers, or even of other language compilers,
+like Fortran. See section <A HREF="cogref_112.html#SEC120">New Directions</A>.
+</P><P>
+
+So given the extension source, all that is needed is to compile it
+with the appropriate options, and run <CODE>COGXRG</CODE> on it. To build
+a new extension from it source, say <TT>`MYEXT.C'</TT>, you would do
+something like this:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>C:\&#62; tcc -ml -c myext.c
+
+C:\&#62; cogxrg myext.obj
+</pre></td></tr></table></P><P>
+
+The <SAMP>`-ml'</SAMP> option tells the Turbo C compiler to use its large
+memory model, which is critical to generate an object that uses
+memory the same way the main program does. The <SAMP>`-c'</SAMP> option
+tells the compiler to just generate the object file (and not
+attempt to link it). Of course, if <TT>`myext.c'</TT> needed additional
+command line arguments (most commonly, the <SAMP>`-I'</SAMP> directive
+to specify locations of header files) they would also be added to 
+the compile command.
+</P><P>
+
+The process can be made even simpler using <EM>makefiles</EM>. <CODE>make</CODE>
+is a standard programming tool (available on all Unix systems, and
+included with Borland Turbo C/C++ 3.00 for MS-DOS) to help the
+automation of compiling programs. It is a sophisticated program and a
+discussion of its features are beyond the scope of this book (Make, by
+O'Reilly and Associates, is an excellent reference). Here we simply note
+that the following lines saved in a file called <TT>`Makefile'</TT> can be
+effectively used in CXR development:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre># Makefile for Cogsys 3.0 Extensions
+
+#
+# Compiler and flags
+CC = tcc
+CFLAGS = -ml 
+
+#
+# Cogsys external routine generator
+COGXRG = cogxrg
+
+#
+# CXR Entries
+#
+
+all: myext.cxr
+
+myext.cxr: myext.obj cogxrg.exe
+        $(COGXRG) myext.obj &#62; myext.out
+
+myext.obj: myext.c
+        $(CC) $(CFLAGS) -c myext.c
+
+#
+# Clean
+#
+
+clean:
+        del *.obj
+        del *.cxr
+        del *.out
+</pre></td></tr></table></P><P>
+
+Now, simply typing <KBD>make</KBD> will rebuild the object and CXR files
+if either or both are out of date. Typing <KBD>make clean</KBD> will clear
+all generated files (but leave the source file <TT>`myext.c'</TT> untouched).
+Once the <TT>`MYEXT.CXR'</TT> file is built cleanly, it can be copied
+to the client machines and used in new testlists with the Load Extension
+Routine (<CODE>%X</CODE>) command.
+</P><P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_86.html#SEC94"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_77.html#SEC85"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

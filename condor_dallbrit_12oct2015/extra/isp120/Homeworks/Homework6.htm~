@@ -1,0 +1,106 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>ISP 120 Worksheet: Linear Functions</title>
+
+</head>
+
+<body>
+
+<p align="center"><font face="Arial"><b>Assignment 5: Linear Functions and Trendlines<br>
+ISP 120</b></font></p>
+
+<blockquote>
+	<p><font face="Arial">1.&nbsp; The function <i>T</i> depicted in the table below gives the air 
+temperature, in degrees Celsius, of air at altitude <i>a</i> (in meters above 
+sea level), assuming stable air and a temperature of 21</font><span style="font-size: 12.0pt; font-family: Arial">°</span><font face="Arial"> at 
+sea level:</font></p>
+	<div align="center">
+		<table x:str border="0" cellpadding="0" cellspacing="0" width="128" style="border-collapse:
+ collapse;width:96pt" id="table1">
+			<colgroup>
+				<col width="64" span="2" style="width:48pt">
+			</colgroup>
+			<tr height="17" style="height:12.75pt">
+				<td height="17" width="64" style="height: 12.75pt; width: 48pt; font-style: italic; font-family: Arial, sans-serif; text-align: center; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; text-decoration: none; vertical-align: bottom; border: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px" u2:num>
+				a</td>
+				<td width="64" style="width: 48pt; font-style: italic; font-family: Arial, sans-serif; text-align: center; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; text-decoration: none; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: .5pt solid black; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px" u2:num>
+				T</td>
+			</tr>
+			<tr height="17" style="height:12.75pt">
+				<td height="17" align="right" width="64" style="height: 12.75pt; width: 48pt; font-family: Arial, sans-serif; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num u1:num u2:num>
+				0</td>
+				<td align="right" width="64" style="width: 48pt; font-family: Arial, sans-serif; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num u1:num u2:num>
+				21</td>
+			</tr>
+			<tr height="17" style="height:12.75pt">
+				<td height="17" align="right" width="64" style="height: 12.75pt; width: 48pt; font-family: Arial, sans-serif; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num u1:num u2:num>
+				1500</td>
+				<td align="right" width="64" style="width: 48pt; font-family: Arial, sans-serif; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num u1:num u2:num>
+				7</td>
+			</tr>
+			<tr height="17" style="height:12.75pt">
+				<td height="17" align="right" width="64" style="height: 12.75pt; width: 48pt; font-family: Arial, sans-serif; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num u1:num u2:num>
+				3000</td>
+				<td align="right" width="64" style="width: 48pt; font-family: Arial, sans-serif; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num u1:num u2:num>
+				-7</td>
+			</tr>
+			<tr height="17" style="height:12.75pt">
+				<td height="17" align="right" width="64" style="height: 12.75pt; width: 48pt; font-family: Arial, sans-serif; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; text-align: general; vertical-align: bottom; border-left: .5pt solid black; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num u1:num u2:num>
+				4500</td>
+				<td align="right" width="64" style="width: 48pt; font-family: Arial, sans-serif; white-space: normal; color: windowtext; font-size: 10.0pt; font-weight: 400; font-style: normal; text-decoration: none; text-align: general; vertical-align: bottom; border-left: medium none; border-right: .5pt solid black; border-top: medium none; border-bottom: .5pt solid black; padding-left: 1px; padding-right: 1px; padding-top: 1px" x:num u1:num u2:num>
+				-21</td>
+			</tr>
+		</table>
+	</div>
+</blockquote>
+<blockquote>
+	<p><font face="Arial">a. Determine if the above table represents a linear 
+	relationship.&nbsp; If it is linear, express the relationship as an 
+	equation.&nbsp; <i>(When calculating the slope (average rate of change), 
+	show 5 decimal places.)</i></font></p>
+	<p><font face="Arial">b. What would you expect the air temperature to be at an altitude of&nbsp; 
+5500 meters?<br><br>
+	c. At what altitude would you expect the air temperature to be </font>
+	<span style="font-size: 12.0pt; font-family: Arial">-</span><font face="Arial"><span style="font-size: 12.0pt; "> 
+40</span></font><span style="font-size: 12.0pt; font-family: Arial">°</span><font face="Arial">?</font></p>
+	<p><font face="Arial">d.&nbsp; Commercial airplanes fly at altitude of about 30,000 feet (9,144 
+	meters) above sea level.&nbsp; Using your function, calculate the air temperature outside a commercial airliner flying at this altitude.&nbsp;
+	</font> </p>
+</blockquote>
+
+<p align="left"><font face="Arial">2. Open the file <a href="http://qrc.depaul.edu/Excel_Files/USTobacco_2004.xls">USTobacco_2004.xls</a>
+which contains data on the total amount of tobacco produced in the US.</font></p>
+
+<blockquote>
+  <p align="left"><font face="Arial">a. Make an XY scatter plot of the data. Include it in your document.</font></p>
+  <p align="left"><font face="Arial">b. Add a linear trendline to your plot, including the equation and the
+  R-squared value. Include it in your document.</font></p>
+  <p align="left"><font face="Arial">c. Use the equation in b. to predict the amount of tobacco produced in
+  2012.</font> </p>
+  <p align="left"><font face="Arial">d. How much confidence do you have in your prediction? Why?</font></p>
+</blockquote>
+<p><font face="Arial">3.&nbsp; Open the file <a href="http://qrc.depaul.edu/Excel_Files/Smoking_2002.xls">Smoking_2002.xls</a>
+  which contains data on the percent of the US adult population that smokes
+  cigarettes.</font></p>
+<blockquote>
+  <p align="left"><font face="Arial">a. Make X,Y scatter graph of the years and the total 
+  percentages (not male and female) and add a trendline.&nbsp;
+  Include the equation and R-squared value for the trendline.&nbsp; Paste the
+  resulting chart into your Word document.</font></p>
+  <p align="left"><font face="Arial">b. Using your model (trendline), predict the percentage of the 
+	total&nbsp; population
+  that smokes in 2008. How much faith do you have in your
+  prediction?</font></p>
+  <p align="left"><font face="Arial">c. Use your model to estimate what percentage of the total
+  population smoked in 1953.&nbsp; How much faith do you have in your
+  prediction?</font></p>
+  <p align="left"><font face="Arial">d. Use your model to estimate when 100% of the US population
+  smoked.&nbsp; How much faith do you have in your prediction?&nbsp; Explain.</font></p>
+</blockquote>
+
+</body>
+
+</html>

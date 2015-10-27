@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml" >
+
+  <head>
+    <meta name="generator" content=
+    "HTML Tidy for Linux/x86 (vers 1st March 2002), see www.w3.org" />
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+
+    <title>javascript3.html</title>
+		
+<script type = "text/javascript">
+<!--
+document.writeln("<h1>Selection Structures in JavaScript</h1>");
+
+// Declaring  variables:
+var answer1, answer2;
+
+// Initializing variables:
+answer1 = "dunno";
+answer2 = "zero";
+
+// assigning a value to the variable "answer1" from user input
+answer1 = window.prompt("Are you having fun?");  // line 28
+
+// using if/else to decide which markup text to include in the document body
+// notice the semi-colon after each statement
+// the test condition says "if answer1 is equal to yes, or answer1
+//  is equal to Yes".  
+if (answer1 == "yes" || answer1 == "Yes")       // line 34
+   document.writeln("<p>Glad to hear you are having fun!</p>");
+else 
+   document.writeln("<p>Why aren't you having fun?</p>");
+// that is the end of the if/else structure.
+	 
+// Notice how the + operator joins two strings 
+answer2 = window.prompt("How many weeks until your project"   // line 41
+  + " presentation is due?", "plenty");                       // line 42
+	
+answer2Value = parseInt(answer2);    // line 44
+document.writeln("<p>You said there are " + answer2 + 
+  " weeks left before your project presentation.");
+
+// This is an if structure, with a multi-line action block
+if (answer2Value > 5) {       // line 49
+   document.write("<em>");
+	 document.write("There is less time than you think!");
+	 document.writeln("</em>");
+}
+
+// This if statement uses the JavaScript global function "isNaN" to
+//   test whether the user gave a number as an answer.  See p. 341
+//   of your textbook for a list of global functions.
+if (isNaN (answer2Value)) {       // line 58
+   document.writeln("<p>You answered <em>" + answer2 +
+	    "</em>. That is not a number.</p>");
+}
+// This is the end of the if structure
+
+document.writeln ("</p><hr />");
+document.writeln ("<p>Click \"refresh\" or \"reload\" to start this page over.</p>");
+// -->
+</script>
+		
+  </head>
+
+  <body></body>
+	
+</html>
+

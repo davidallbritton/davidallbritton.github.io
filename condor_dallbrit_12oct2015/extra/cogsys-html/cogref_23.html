@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Command Categories</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Command Categories">
+<META NAME="keywords" CONTENT="Cogsys: Command Categories">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC31"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_22.html#SEC30"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_20.html#SEC28"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_16.html#SEC24"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_75.html#SEC83"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 2.3 Command Categories </H2>
+<!--docid::SEC31::-->
+<P>
+
+In older Cogsys documentation, it was common to refer to commands by
+their control codes; for example, a section would be entitled
+"<CODE>#R</CODE>", not "Key Response". As the program evolved, however,
+many commands were reassigned to different codes and referring to
+commands by their code became confusing. The alternative would be to refer
+to commands by their name. However, only the developer actually assigns
+a name for the command--users never see them--so organization by name is no better.
+</P><P>
+
+For these reasons, commands in this reference are loosely grouped into
+eight functional categories. This provides a good overview of the
+program's capabilities and easy way to look up the commands for a particular
+function. 
+</P><P>
+
+The categories are:
+</P><P>
+
+<UL>
+<LI>
+Cogsys Control
+<LI>
+Direct Keyboard
+<LI>
+Video
+<LI>
+Text Output
+<LI>
+Picture Output
+<LI>
+Scope
+<LI>
+Game Port
+<LI>
+Specialized
+</UL>
+<P>
+
+Note again that these categories are provided purely for reference and
+documentation only; the Cogsys program makes no distinction between
+command groups.
+</P><P>
+
+With in each category, each command is presented on a separate page
+with a description of the command followed by a command template.
+The template has the following fields:
+</P><P>
+
+<DL COMPACT>
+<DT>Name
+<DD>Name of the command
+<DT>Class
+<DD>Documentation category
+<DT>Code
+<DD>Two digit command code
+<DT>Syntax
+<DD>Command syntax
+<DT>System
+<DD>How the Cogsys system is affected by this command (includes Cogsys variables).
+<DT>Output
+<DD>Output this command produces
+<DT>Requires
+<DD>What state Cogsys must be in before this command is executed
+<DT>Breakout
+<DD>Can the experiment be terminated at this command
+<DT>History
+<DD>Changes from previous version of Cogsys
+<DT>Test Files
+<DD>Files which test the functionality (<TT>`*.T<VAR>xx</VAR>'</TT>), error checking
+(<TT>`*.E<VAR>xx</VAR>'</TT>), or performance (<TT>`*.B<VAR>xx</VAR>'</TT>) of this command.
+<DT>Examples
+<DD>Examples demonstrating use of this command. An example demonstrates a <EM>possible</EM>
+sequence of events, and details in order what each component of the system will do
+in those particular circumstances. Examples are presented in a table:
+<P>
+
+<DL COMPACT>
+<DT>input
+<DD>The command Cogsys reads from the testfile
+<DT>cogsys
+<DD>What Cogsys does
+<DT>subject
+<DD>What the subject does at the console
+<DT>output
+<DD>What Cogsys writes to the outfile
+</DL>
+</DL>
+<P>
+
+Not all fields of the template are present for all commands.
+When a field is not applicable to a command (for example, the Wait
+command does not produce output), the field is simply not included
+in the table.
+</P><P>
+
+In the Syntax field, note the following conventions:
+<DL COMPACT>
+<DT><VAR>text</VAR>
+<DD>a sequence of characters no longer than <CODE>TMP_STR_LEN</CODE>
+<DT><VAR>integer</VAR>
+<DD>an unsigned integer constant
+<DT><VAR>number</VAR>
+<DD>an integer constant or a reference to a cogsys variable
+<DT><VAR>time</VAR>
+<DD>a <VAR>number</VAR> that must be in the range 0 to <CODE>FAIRTIME</CODE>
+<DT><VAR>vref</VAR>
+<DD>a variable reference, that is <CODE>V<VAR>x</VAR></CODE> where <VAR>x</VAR> is in the range 0 to <CODE>NUM_VARS</CODE>
+</DL>
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_24.html#SEC32">2.3.1 Control Commands</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_35.html#SEC43">2.3.2 Direct Keyboard Input</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_39.html#SEC47">2.3.3 Video Control</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_42.html#SEC50">2.3.4 Text Output</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_55.html#SEC63">2.3.5 Picture Output</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_64.html#SEC72">2.3.6 Scope (Digital Display) Commands</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_69.html#SEC77">2.3.7 Game Port Commands</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_22.html#SEC30"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_20.html#SEC28"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_16.html#SEC24"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_75.html#SEC83"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

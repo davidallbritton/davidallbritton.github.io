@@ -1,0 +1,140 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 9">
+<link id=Main-File rel=Main-File href="../psy404-lec12-problem-solving.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>Problem Solving</title>
+<meta name=Description
+content="17-Nov-02: Problem Space and  Computational Complexity">
+<link rel=Stylesheet href="master03_stylesheet.css">
+<![if !ppt]>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:107% !important;}
+-->
+</style>
+<script src=script.js></script><script><!--
+gId="slide0008.htm"
+if( !IsNts() ) Redirect( "PPTSld", gId );
+//-->
+</script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><script for=window event=onload><!--
+if( !IsSldOrNts() ) return;
+if( MakeNotesVis() ) return;
+LoadSld( gId );
+MakeSldVis(0);
+//-->
+</script><![endif]><o:shapelayout v:ext="edit">
+ <o:idmap v:ext="edit" data="9"/>
+</o:shapelayout>
+</head>
+
+<body lang=EN-US style='margin:0px;background-color:black'
+onclick="DocumentOnClick()" onresize="_RSW()" onkeypress="_KPH()">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:534px;height:400px;font-size:16px;background-color:white;clip:rect(0%, 101%, 101%, 0%);
+visibility:hidden'><p:slide coordsize="720,540"
+ colors="#FFFFFF,#000000,#808080,#000000,#00CC99,#3333CC,#CCCCFF,#B2B2B2"
+ masterhref="master03.xml">
+ <p:shaperange href="master03.xml#_x0000_s1025"/><![if !ppt]><p:shaperange
+  href="master03.xml#_x0000_s1028"/><p:shaperange
+  href="master03.xml#_x0000_s1029"/><![endif]><p:shaperange
+  href="master03.xml#_x0000_m1026"/><v:shape id="_x0000_s9218" type="#_x0000_m1026"
+  style='position:absolute;left:54pt;top:48pt;width:612pt;height:90pt'>
+  <v:fill o:detectmouseclick="f"/>
+  <v:stroke o:forcedash="f"/>
+  <o:lock v:ext="edit" text="f"/>
+  <p:placeholder type="title"/></v:shape><p:shaperange
+  href="master03.xml#_x0000_m1027"/><v:shape id="_x0000_s9219" type="#_x0000_m1027"
+  style='position:absolute;left:54pt;top:156pt;width:612pt;height:324pt'>
+  <v:fill o:detectmouseclick="f"/>
+  <v:stroke o:forcedash="f"/>
+  <o:lock v:ext="edit" text="f"/>
+  <p:placeholder type="body" position="1"/></v:shape>
+ <div v:shape="_x0000_s9218" class=T><span style='position:absolute;top:8.0%;
+ left:8.42%;width:83.14%'>Problem Space and <br>
+ </span><span
+ style='position:absolute;top:17.75%;left:8.42%;width:83.14%'>Computational
+ Complexity</span></div>
+ <div v:shape="_x0000_s9219" class=B>
+ <div style='mso-line-spacing:"90 20 0"'><span style='position:absolute;
+ top:29.5%;left:12.17%;width:91.94%'><span style='font-size:88%'><span
+ style='mso-special-format:bullet;position:absolute;left:-4.07%'>•</span></span><span
+ style='font-size:88%'><b>Problem space</b></span><span style='font-size:88%'>
+ = all the possible states of affairs </span></span><span style='position:absolute;
+ top:35.0%;left:12.17%;width:88.57%'><span style='font-size:88%'>that could be
+ produced from transformations of </span></span><span style='position:absolute;
+ top:40.75%;left:12.17%;width:79.4%'><span style='font-size:88%'>the initial
+ problem state. &#13;</span></span></div>
+ <div style='mso-line-spacing:"90 20 0"'><span style='position:absolute;
+ top:47.5%;left:12.17%;width:94.56%'><span style='font-size:88%'><span
+ style='mso-special-format:bullet;position:absolute;left:-3.96%'>•</span></span><span
+ style='font-size:88%'>Problem solving consists of searching the problem </span></span><span
+ style='position:absolute;top:53.0%;left:12.17%;width:84.45%'><span
+ style='font-size:88%'>space for a state that matches your goal state. &#13;</span></span></div>
+ <div style='mso-line-spacing:"90 20 0"'><span style='position:absolute;
+ top:60.0%;left:12.17%;width:85.01%'><span style='font-size:88%'><span
+ style='mso-special-format:bullet;position:absolute;left:-4.4%'>•</span></span><span
+ style='font-size:88%'>Algorithms search the entire space; heuristics </span></span><span
+ style='position:absolute;top:65.5%;left:12.17%;width:79.4%'><span
+ style='font-size:88%'>search only part&#13;</span></span></div>
+ <div style='mso-line-spacing:"90 20 0"'><span style='position:absolute;
+ top:72.5%;left:12.17%;width:89.7%'><span style='font-size:88%'><span
+ style='mso-special-format:bullet;position:absolute;left:-4.17%'>•</span></span><span
+ style='font-size:88%'>If the problem space is too large, an algorithmic </span></span><span
+ style='position:absolute;top:78.0%;left:12.17%;width:79.4%'><span
+ style='font-size:88%'>approach is impossible.<span style="mso-spacerun: yes"> 
+ </span>Example:<span style="mso-spacerun: yes">  </span>Chess.</span></span></div>
+ </div>
+</p:slide></div>
+
+<![if !ppt]>
+
+<div id=NotesObj style='display:none'>
+
+<table style='color:white' border=0 width="100%">
+ <tr>
+  <td width=5 nowrap></td>
+  <td width="100%"></td>
+ </tr>
+ <tr>
+  <td colspan=1></td>
+  <td align=left colspan=1><font face="Times New Roman" size=3>•</font><font
+  face="Times New Roman" size=3>There are 20 possible board positions that
+  could result from white's first move. After white's 3rd move, the number of
+  possible positions is 7.5 million. After black's third move there are 225
+  million possible board position (Holding, 1985).</font><br>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=1></td>
+  <td align=left colspan=1><br>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<![endif]>
+</body>
+
+</html>

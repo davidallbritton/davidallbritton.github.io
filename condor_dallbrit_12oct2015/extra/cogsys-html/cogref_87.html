@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Passed Arguments</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Passed Arguments">
+<META NAME="keywords" CONTENT="Cogsys: Passed Arguments">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC95"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_86.html#SEC94"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_88.html#SEC96"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_85.html#SEC93"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_86.html#SEC94"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 3.2.2.1 Passed Arguments </H4>
+<!--docid::SEC95::-->
+<P>
+
+All interesting extensions take arguments passed from the main program
+so that they can do different things depending on how they were
+called. In the case of picture generators, these arguments are passed
+from the Create Pictures from CXR (<CODE>%I</CODE>) command.
+</P><P>
+
+Here we would like our <CODE>SHAPE</CODE> extension to take several arguments. The
+first argument will be an integer which specifies which shape to draw:
+say 1 means circle, and 2 means square. Let's say that all squares will
+be drawn of the same size, 50x50 pixels. A circle, however, will have
+another argument, a radius. If the radius is nonzero, then a
+circle with a radius of that many pixels is drawn. 
+</P><P>
+
+If the radius is zero, then the circle is drawn with the
+radius of the picture number. Remember that first argument you pass to
+<CODE>%I</CODE> is the number of pictures you want drawn. So, by specifying
+<CODE>%I[50,1,0]</CODE> we are asking Cogsys to generate 50 pictures, where the
+first picture has a circle of radius 1, the second of radius 2, and so on.
+By using the Multiframe Picture Display commands, you can show these
+50 pictures in succession and create the animated effect of a growing circle.
+</P><P>
+
+So, let's see how we would write our <CODE>shape.c</CODE> file.
+We start with the standard extension header for a picture generator:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>static void extension(unsigned char *A, unsigned char *arg) 
+</pre></td></tr></table></P><P>
+
+The header must be written exactly like this for all picture
+generators. The function is called <CODE>extension</CODE>, and it takes two
+arguments (that are filled in by Cogsys): 1) a <EM>playground</EM>, called
+<CODE>A</CODE>, and 2) an argument buffer, <CODE>arg</CODE>.  Both are pointers to
+<CODE>unsigned char</CODE>. For maximum flexibility, they are untyped data
+blocks that can be interpreted any way that's necessary.
+</P><P>
+
+The playground is the block of data that holds the picture data. Essentially,
+all our extension will do is modify the array pointed to by <CODE>A</CODE>.
+</P><P>
+
+The argument buffer <CODE>arg</CODE> is the important one. By default, the
+argument buffer is exactly 1 kilobyte (1,024 bytes). This can be changed
+by the Cogsys developer via the Cogsys constant <CODE>ARGBUF_SIZE</CODE>
+(see section <A HREF="cogref_111.html#SEC119">Setting Cogsys Constants</A>). The argument buffer comes with 4 values (totalling 10
+bytes) already filled in:
+</P><P>
+
+<TABLE>
+<TR><TD></TD>
+<CODE>0000: 00 00</CODE>
+</TD><TD>
+<CODE>DATASEG</CODE>
+</TD><TD>
+external function's data segment
+</TR>
+<TR><TD></TD>
+<CODE>0002: 00 00 00 00</CODE>
+</TD><TD>
+<CODE>SIZE</CODE>
+</TD><TD>
+size of playground
+</TR>
+<TR><TD></TD>
+<CODE>0006: 00 00</CODE>
+</TD><TD>
+<CODE>NUMPICS</CODE>
+</TD><TD>
+total number of pictures requested
+</TR>
+<TR><TD></TD>
+<CODE>0008: 00 00</CODE>
+</TD><TD>
+<CODE>NUM</CODE>
+</TD><TD>
+this picture's number
+</TR></TABLE>
+<P>
+
+The first value is discussed below under <A HREF="cogref_89.html#SEC97">Data Segments</A>. The next three values tell the extension
+important information about how it is being called. <CODE>SIZE</CODE> is a
+long integer that gives the size of the playground; it tells us how big
+<CODE>A</CODE> is. In all of the picture generating extensions included with
+Cogsys, Type 2 pictures are being displayed, which are 320x200 pixels, 1
+byte per pixel, so <CODE>SIZE</CODE> is usually 64,000. <CODE>NUMPICS</CODE> is a
+<CODE>short</CODE> integer that indicates how many pictures were
+requested. This correpsonds directly to the first argument the user gave
+to <CODE>%I</CODE>. Finally, <CODE>NUM</CODE> tell us which of those <CODE>NUMPICS</CODE>
+pictures we are currently generating.
+</P><P>
+
+Starting at the 10th byte, the contents of <CODE>arg</CODE> are the values
+that the user passed in the <CODE>%I</CODE> command. Values are always one
+of three types: 1) a four byte <CODE>long</CODE> integer, or 2) a four byte <CODE>float</CODE> (not
+<CODE>double</CODE>), or 3) a null-terminated string. Note specifically that
+user-passed arguments are <EM>never</EM> <CODE>short</CODE> integers. 
+</P><P>
+
+So in the case of our shape extension, the array has at least one more entry:
+</P><P>
+
+<TABLE>
+<TR><TD></TD>
+<CODE>0010: 00 00 00 00</CODE>
+</TD><TD>
+<CODE>SHAPETYPE</CODE>
+</TD><TD>
+circle or square subfunction selector
+</TR></TABLE>
+<P>
+
+Furthermore, if circle is selected, there is another entry for radius:
+</P><P>
+
+<TABLE>
+<TR><TD></TD>
+<CODE>0014: 00 00 00 00</CODE>
+</TD><TD>
+<CODE>RADIUS</CODE>
+</TD><TD>
+raidus
+</TR></TABLE>
+<P>
+
+These values are all embedded in the <CODE>arg</CODE> array, where they
+are hard to access. Thus the first variables we declare in the
+extension are usually <CODE>size</CODE>, <CODE>numpics</CODE>, and <CODE>num</CODE>.
+We then assign theese variables from the <CODE>arg</CODE> buffer by
+casting the <CODE>unsigned char *</CODE> to a <CODE><VAR>type</VAR> *</CODE> (where
+<VAR>type</VAR> is the type of the argument we're extracting) and then
+dereferencing:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>static void extension(unsigned char *A, unsigned char *arg)
+{
+  long  size;
+  short numpics, num;
+
+  /* Read in the standard arguments. */
+  size    = *((long *)  (arg+2));
+  numpics = *((short *) (arg+6));
+  num     = *((short *) (arg+8));
+}
+</pre></td></tr></table></P><P>
+
+(If that looks scary, don't worry about it, just copy those lines
+into the start of every extension you write and use <CODE>size</CODE>,
+<CODE>numpics</CODE>, and <CODE>num</CODE> as you would any integer.) 
+We can use similar code to access our <CODE>shapetype</CODE> argument,
+and set up the <CODE>switch</CODE> structure. Inside the <CODE>CIRCLE</CODE> 
+case, we get the <CODE>radius</CODE> argument, and if it's zero, adjust it
+to be the picture number instead:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>#define CIRCLE 1
+#define SQUARE 2
+
+static void extension(unsigned char *A, unsigned char *arg)
+{
+  /* Standard arguments */
+  long  size;
+  short numpics, num;
+
+  /* Custom arguments */
+  long shapetype, radius;
+
+  /* Read in the standard arguments. */
+  size    = *((long *)  (arg+2));
+  numpics = *((short *) (arg+6));
+  num     = *((short *) (arg+8));
+
+  shapetype = *((long *) (arg+10));
+
+  switch shapetype 
+    { 
+    case CIRCLE:
+      radius = *((long *) (arg+14));
+      if (radius == 0)
+        radius = num;
+      break;
+    case SQUARE:
+      break;
+    }
+
+}
+</pre></td></tr></table></P><P>
+
+Strings can be handled similarly: let's say the first argument wasn't
+an integer code that represented what type of shape to draw, but instead
+a null-terminated ASCII string. The user would invoke the extension
+with something like this: <CODE>%I[1,CIRCLE,5]</CODE>. In the extension, we'd 
+extract the arguments like this:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>char *shapestr;
+int  len;
+<small>...</small>
+shapestr = arg+10; /* no need for cast, arg is already ptr-to-char */
+len      = strlen(shapestr);
+radius   = *((long *) (arg+10+len));
+
+if (strcmp(shapestr,"CIRCLE"==0)) ...
+    
+</pre></td></tr></table></P><P>
+
+Of course, this technique isn't recommended for this case, because it
+takes more space and more time to process. But it is very important for
+extensions that display text, for example.
+</P><P>
+
+There is only one more important detail about argument passing that merits 
+special attention: 
+</P><P>
+
+<STRONG>The contents of the playground and the argument buffer are never
+reset by Cogsys.</STRONG>
+</P><P>
+
+This means that unless you want your image to be superimposed on the
+last thing in the playground (which could very well be garbage), you
+(that is, your extension) must explicitly reset all element of the
+<CODE>A</CODE> array to zero. It also means that you can deliberately
+<EM>not</EM> reset the array to create cool superimposition effects.
+</P><P>
+
+Similarly, the argument buffer is only updated with values most recently
+passed. For example, if a user creates a circle of radius 10 with our shape extension
+with the command <CODE>%I[1,1,10]</CODE>, and then creates a square with <CODE>%I[1,2]</CODE>,
+the value 10 is still present at location <CODE>arg+14</CODE>. This provides a neat
+means of passing values from one call of the extension to the next. A common
+technique is to save values near the high end of the buffer, where they won't
+ever get overwritten by a call to <CODE>%I</CODE> which has longer arguments. 
+</P><P>
+
+More importantly, even though error checking for extensions is not
+implemented in Cogsys 3.0.15, when it is, it will be through this
+mechanism. If the extension catches an error, it writes error
+information in the high end of the argument buffer, and exits. Create
+Pics from CXR will check the argument buffer for error status after
+every call to the extension. If it finds an error, it will raise a main
+Cogsys error, and the list will terminate cleanly.
+</P><P>
+
+Here, then is the almost-complete shape extension source file (it won't
+work until the code described in <A HREF="cogref_89.html#SEC97">Data Segments</A>, is added).
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre></pre></td></tr></table></P><P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_86.html#SEC94"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_88.html#SEC96"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_85.html#SEC93"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_86.html#SEC94"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

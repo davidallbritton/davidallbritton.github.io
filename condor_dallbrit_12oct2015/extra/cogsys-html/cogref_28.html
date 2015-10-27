@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Assign Variable from Console</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Assign Variable from Console">
+<META NAME="keywords" CONTENT="Cogsys: Assign Variable from Console">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC36"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_27.html#SEC35"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_29.html#SEC37"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_23.html#SEC31"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.1.4 Assign Variable from Console (<CODE>$G</CODE>) </H4>
+<!--docid::SEC36::-->
+<P>
+
+This command lets you assign a variable from console. It is typically
+used to let the user enter experiment parameters at run time, such as entering a variable (using the keyboard) in the middle of a running testlist. 
+</P><P>
+
+An integer value is read from the keyboard; the specified variable is
+set to the value read.  This command will skip leading whitespace, and
+will set the variable to zero if the input could not be converted to a
+valid number.
+</P><P>
+
+The C standard library function <CODE>fgets()</CODE> is used to read from
+the keyboard; in most cases, this will allow the user to use the backspace
+key to correct an error.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Assign Variable from Console
+<DT>Class:
+<DD>Control
+<DT>Code:
+<DD><CODE>$G</CODE>
+<DT>Syntax:
+<DD><CODE>$G<VAR>v1</VAR></CODE>
+<BR><VAR>v1</VAR> is a variable reference
+<DT>System:
+<DD>Cogsys reads a string from the keyboard, converts it to an integer,
+and stores the result in the Cogsys variable <VAR>v1</VAR>. 
+<DT>Requires:
+<DD>Although this command will work in any mode, for the user to see
+the characters being typed, Cogsys must be in a text mode.
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`AVKB_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>$GV12</CODE>
+<DT>subject
+<DD>enters <KBD>234</KBD> at keyboard
+<DT>cogsys
+<DD>assigns 234 to the value of <CODE>V12</CODE>
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Invoking Cogsys</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Invoking Cogsys">
+<META NAME="keywords" CONTENT="Cogsys: Invoking Cogsys">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC26"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_17.html#SEC25"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_19.html#SEC27"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_16.html#SEC24"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_17.html#SEC25"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_20.html#SEC28"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 2.1.1 Invoking Cogsys </H3>
+<!--docid::SEC26::-->
+<P>
+
+Part of this information was given in <A HREF="cogref_11.html#SEC19">1.3 Running Cogsys</A> and is reproduced
+here with more detail.
+</P><P>
+
+This is the full syntax of the Cogsys program:
+</P><P>
+
+<CODE>cogsys [-v | <VAR>testlist</VAR> [<VAR>outfile</VAR>] | -l <VAR>labelfile</VAR> ]</CODE>
+</P><P>
+
+The <SAMP>`-v'</SAMP> option simply returns the version of the program
+and quits.
+</P><P>
+
+Cogsys needs to know four important things whenever it starts up:
+<OL>
+<LI>
+Where to get its testlist (testlist name)
+<LI>
+What to call its testlist (testlist label)
+<LI>
+Where to write its outfile (outfile name)
+<LI>
+What to call its outfile (outfile label)
+</OL>
+<P>
+
+At the top of the outfile, before any data is written, Cogsys will write
+the testlist label and outfile label. These labels may be simply the
+name of the file, but they need not be. In a networked installation,
+labels are the only way to distinguish the real, data-host names of the
+file from the local client names (particularly since the local client is
+most likely running some variant of MS-DOS and limited by the 8.3 filename
+restrictions, which the data host won't be).
+</P><P>
+
+For clarity, the search path for all four items are enumerated below.
+The phrase "<VAR>filename</VAR> ok" implies that the file exists, is readable
+to Cogsys, and has a non-null contents. If Cogsys can open the file but
+can not find a valid name in it (for example, the file is empty), it
+stops with a runtime error (and does not attempt to check the next
+option on the search path). This ensures that files are not quietly
+labelled with incorrect names.
+</P><P>
+
+<OL>
+<LI>
+Testlist Name
+<P>
+
+<OL>
+<LI>
+first command line argument
+<LI>
+environment variable <CODE>COGIN</CODE>
+<LI>
+default filename <TT>`COGSYS.IN'</TT>
+</OL>
+<P>
+
+<LI>
+Outfile Name
+<P>
+
+<OL>
+<LI>
+second command line argument
+<LI>
+environment variable <CODE>COGOUT</CODE>
+<LI>
+default filename <TT>`COGSYS.OUT'</TT>
+</OL>
+<P>
+
+<LI>
+Testlist Label
+<P>
+
+<OL>
+<LI>
+if <SAMP>`-l <VAR>labelfile</VAR>'</SAMP> given, <VAR>labelfile</VAR> ok, then first line of <VAR>labelfile</VAR>
+<LI>
+environment variable <CODE>COGINLABEL</CODE>
+<LI>
+if <TT>`KEEPFILE.TMP'</TT> ok, then first line of <TT>`KEEPFILE.TMP'</TT>
+<LI>
+name of testlist
+</OL>
+<P>
+
+<LI>
+Outfile Label
+<P>
+
+<OL>
+<LI>
+if <SAMP>`-l <VAR>labelfile</VAR>'</SAMP> given, <VAR>labelfile</VAR> ok, then first line of <VAR>labelfile</VAR>
+<LI>
+environment variable <CODE>COGINLABEL</CODE>
+<LI>
+if <TT>`KEEPFILE.TMP'</TT> ok, then first line of <TT>`KEEPFILE.TMP'</TT>
+<LI>
+name of testlist
+</OL>
+</OL>
+<P>
+
+The environment variables and labelfiles allow control programs to invoke
+Cogsys without arguments but still have Cogsys label outfiles properly.
+</P><P>
+
+For example, here our Pibterm scripts create the default labelfile, <TT>`KEEPFILE.TMP'</TT>
+with the names of the data as they appear on the data host. The testlist is copied
+from the data host to the client system with the name <TT>`COGSYS.IN'</TT>. Cogsys is
+then invoked without arguments, and so writes its output to <TT>`COGSYS.OUT'</TT> and
+labels the file using the names in <TT>`KEEPFILE.TMP'</TT>. To use a label file other
+than <TT>`KEEPFILE.TMP'</TT>, you would use the <SAMP>`-l <VAR>labelfile</VAR>'</SAMP> option.
+</P><P>
+
+An alternative possibility would be to use environment names. This speeds up
+processing by removing the need for temporary files. 
+<TABLE><tr><td>&nbsp;</td><td><pre>C:\COGSYS&#62; set COGINLABEL=mytestlist
+C:\COGSYS&#62; set COGOUTLABEL=myoutfile
+C:\COGSYS&#62; cogsys
+</pre></td></tr></table></P><P>
+
+Here, Cogsys uses the default <TT>`COGSYS.IN'</TT> and <TT>`COGSYS.OUT'</TT>
+files, but labels them with the contents of the environment variables
+<CODE>COGINLABEL</CODE> and <CODE>COGOUTLABEL</CODE>.
+</P><P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_17.html#SEC25"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_19.html#SEC27"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_16.html#SEC24"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_17.html#SEC25"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_20.html#SEC28"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

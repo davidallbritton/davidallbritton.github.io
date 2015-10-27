@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Main Program Objects</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Main Program Objects">
+<META NAME="keywords" CONTENT="Cogsys: Main Program Objects">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC96"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_87.html#SEC95"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_89.html#SEC97"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_85.html#SEC93"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_86.html#SEC94"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 3.2.2.2 Main Program Objects </H4>
+<!--docid::SEC96::-->
+<P>
+
+As mentioned above, Cogsys extensions are dynamically loaded in a "two-way"
+mechanism: not only can the main program call the extension, but the extension
+can call the main program. Because the Cogsys runtime linker will fixup
+references to the main program using the <TT>`COGSYS3<VAR>x</VAR>.BIM'</TT> file, the
+extension writer can access any Cogsys data structure or function with a simple
+<CODE>external</CODE> declaration.
+</P><P>
+
+The most common data structure accessed is the <CODE>gVars[]</CODE> array,
+which stores the values of the Cogsys user variables. For example, if we
+wanted our shape extension to use the contents of Cogsys variable 90 (set by
+the user with a call to <CODE>$AV90=20</CODE>, for example) for
+the circle of the radius, as opposed to (or perhaps as an alternative
+to) the passed argument, we could write something like this before the
+delcaration of the function <CODE>extension</CODE>:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>extern long gVars[];
+</pre></td></tr></table></P><P>
+
+And then use <CODE>gVars</CODE> as we would any other variable:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>    case CIRCLE:
+      radius = gVars[90];
+      <small>...</small>
+</pre></td></tr></table></P><P>
+
+We can also use functions that are part of the main program.
+Normally, functions called are not Cogsys functions, but rather
+standard C library routines that were statically linked into the 
+Cogsys executable. It is important to remember that the extension
+is <EM>never</EM> linked by a standard C linker. The only program than can load it
+is the Cogsys runtime linker (invoked by the Load Extension
+Routine command). Just like the C linker will complain if it sees
+a reference to an object it can't resolve (say, <CODE>sin()</CODE> was called
+without including the math library), so too will Load Extension Routine
+fail if your extension calls functions that it doesn't know about. Since
+the only functions it does "know about" are those that were statically
+linked into the Cogsys executable (or more specifically, those which
+are listed in <TT>`COGSYS3<VAR>x</VAR>.BIM'</TT>, it follows that the only external
+objects an extension may access must be a part of Cogsys.
+</P><P>
+
+Fortunately, because an extension rarely needs a function that
+Cogsys didn't need, this is rarely an issue. However, several
+functions <EM>are</EM> often needed in extensions which
+aren't a part of Cogsys, most notably 
+<CODE>sin()</CODE>, <CODE>cos()</CODE> and <CODE>rand()</CODE>.
+</P><P>
+
+To work around this, Cogsys 3.0.15 currently has an internal,
+unreachable <CODE>dummy()</CODE> function which deliberately references these
+functions. When the Cogsys developer builds the <TT>`COGSYS.EXE'</TT>
+executable, <CODE>dummy()</CODE> "fools" the Borland C linker into
+including the code for these functions. They are in turn now available
+to any extension that needs them.
+</P><P>
+
+Future versions of Cogsys will most likely solve this problem more
+elegantly, either by 1) improving the <CODE>COGXRG</CODE> program to attach
+the code for objects not part of main Cogsys to the extension, or,
+more ideally by 2) moving to a platform which natively supports dynamically
+linked libraries. For now, however, the extension writer should be aware
+that if his code uses a function not part of the main Cogsys program, the
+Cogsys developer can easily add a call to that function in <CODE>dummy()</CODE>
+and the extension will load.
+</P><P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_87.html#SEC95"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_89.html#SEC97"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_85.html#SEC93"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_86.html#SEC94"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

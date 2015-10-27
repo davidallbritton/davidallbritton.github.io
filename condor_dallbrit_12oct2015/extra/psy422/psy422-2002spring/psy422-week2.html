@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <!-- Psy 422, Week 2: Intro to HTML -->
+  <!-- by David Allbritton -->
+
+  <head>
+    <meta name="generator" content=
+    "HTML Tidy for Linux/x86 (vers 1st March 2002), see www.w3.org" />
+
+    <title>Psy 422: Intro to HTML and XHTML</title>
+    <link rel="stylesheet" type="text/css" href=
+    "psy422-styles.css" />
+  </head>
+
+  <body>
+    <h1>Psy 422: Intro to HTML and XHTML</h1>
+
+    <p>HTML is the language that web pages are written in. It is
+    not a <em>programming language</em> like perl, C, BASIC, or
+    Java. Instead it is a <em>markup language</em>. A markup
+    language consists of <em>tags</em> that are added to a text
+    file to describe the file's contents. A web browser uses these
+    tags to determine how to display the contents of the HTML file.
+    Creating web pages is simply a matter of adding tags to a text
+    file and placing the file in a directory where the <em>web
+    server</em> can deliver it out over the internet.</p>
+
+    <p>In this lesson you will examine, modify, and answer
+    questions about some HTML documents. When you see text <span
+    class="question">that looks like this</span> it is a question
+    that you should answer for Assignment 2 (to be turned in by the
+    next class meeting). Follow the instructions in this document
+    and in any linked documents you are directed to along the way.
+    We will work through the examples in class, and anything you do
+    not finish in class will be homework.</p>
+    <hr />
+
+    <p>Begin by taking a look at <a href=
+    "simple-html4-file1.html">this simple HTML document</a>.</p>
+
+    <p>Now telnet (or ssh) into your account on the course server.
+    Find the web page you were just looking at on the server and
+    copy it to your public_html directory. Hints:</p>
+
+    <ul class="nopad">
+      <li>You first need to know the name of the file. If you move
+      the cursor over the link to the file on this page, the file
+      name will probably pop up in a little message box. If you
+      <em>right</em> click on the link, a menu should pop up. If
+      you select "copy shortcut" (in IE) or "copy link location"
+      (in Netscape) the name of the file will be copied to the
+      clipboard so that you can "paste" it somewhere later. Be sure
+      to delete the server name and path (everything before the
+      last /) in the file name if you paste it in the next
+      step.</li>
+
+      <li>You next need to find that file on sheu-hp. Try the <span
+      class="input">locate</span> command if you can not remember
+      where the main directory for web pages is.</li>
+
+      <li>Finally you need to copy the file to your public_html
+      directory.</li>
+    </ul>
+
+    <p>Now open a new browser window ("File - new window" in IE)
+    and load the file you copied into that window by typing in the
+    URL in the "address" box. Be sure you have opened the copy in
+    your public_html directory. You will need to switch back and
+    forth between this browser window and that one throughout this
+    session.</p>
+
+    <p class="question">1. What is the URL of the file you copied
+    to your public_html directory? (The URL from your web
+    directory, not the URL where you copied it from)</p>
+    <hr />
+
+    <h3>Editing a web page on the server</h3>
+
+    <p>Now you will edit the page on the server and observe the
+    changes in the browser window. In your telnet window, use
+    either <span class="input">vi</span> or <span class=
+    "input">pico</span> to edit the file. Make the following
+    changes:</p>
+
+    <ul>
+      <li>Change the <em>title</em> element to something else (you
+      choose what)</li>
+
+      <li>Change the text within the &lt;h1&gt; element. Change it
+      to anything you like, so long as it is different from what
+      you put in the title.</li>
+
+      <li>Put &lt;em&gt; and &lt;/em&gt; tags around the first
+      sentence in the paragraph (&lt;p&gt;) element.</li>
+
+      <li>Put &lt;strong&gt; beginning and end tags around the next
+      sentence of the paragraph. Then put another set of &lt;em&gt;
+      begin and end tags around the word "browser" in the second
+      sentence.</li>
+
+      <li>After the paragraph, add a line of text (again make up
+      anything you like) within a set of beginning and ending
+      &lt;h2&gt; tags.</li>
+    </ul>
+
+    <p>Be sure to save the changes you made to the file, then exit
+    the editor.</p>
+
+    <p>Next, look again at the browser window in which you
+    displayed that file. Look carefully at the way it is displayed,
+    then click the "reload" button on the browser window. (You may
+    have to hold down the "shift" key while you click reload to get
+    the updated page to load.) When you do, you should see the new
+    version of the file with the changes you made to it. Note the
+    changes, and answer these questions:</p>
+
+    <p class="question">2. Where is the text from the "title"
+    element displayed in the browser window?</p>
+
+    <p class="question">3. What do the &lt;h1&gt; and &lt;h2&gt;
+    tags do?</p>
+
+    <p class="question">4. How is text in within &lt;em&gt; tags
+    displayed?</p>
+
+    <p class="question">5. How is text in within &lt;strong&gt;
+    tags displayed?</p>
+
+    <p class="question">6. What happened to the word "browser" in
+    the second sentence when it was inside both the &lt;em&gt; and
+    &lt;strong&gt; tags?</p>
+    <hr />
+
+    <h3>HTML versus XHTML, and how to validate a web page</h3>
+
+    <p>Now take a look at <a href=
+    "simple-html4-file2.html">simple-html4-file2.html</a> to learn
+    about a few more HTML tags, and to learn how to
+    <em>validate</em> a web page.</p>
+
+    <p class="question">7. Was the page valid HTML according to the
+    <a href="http://validator.w3.org/">w3c validator page</a>?</p>
+
+    <p>The two files you have looked at so far have document-type
+    definition headers that define them to be HTML version 4. HTML
+    is now <em>deprecated</em> - meaning it is being phased out in
+    favor of a new standard, XHTML. The file <a href=
+    "simple-html4-file2-as-xhtml.html">simple-html4-file2-as-xhtml.html</a>
+    is identical to the one you just validated, except that its
+    document type has been changed to <em>XHTML 1.0 Strict</em>.
+    All the rest of the examples in this course will use XHTML 1.0
+    (or will try to anyway). Follow the link to the page, and click
+    the validator button.</p>
+
+    <p class="question">8. Does the page validate as XHTML?</p>
+
+    <p>The main change from HTML to XHTML is that XHTML follows the
+    rules of XML, the extensible markup language standard. That
+    makes it more compatible with other markup languages that have
+    been or may someday be developed. Most importantly, XHTML
+    forces web authors to keep the <em>format</em> of their
+    documents separate from the <em>content</em>. HTML tags in
+    XHTML are used only to define the content - whether text is
+    part of a paragraph, an ordered list, a heading, etc. The
+    <em>style</em> used to display different types of content is
+    defined separately, in <strong>style sheets</strong>, usually
+    either in the "head" section of the document, or in a separate
+    file called a <em>cascading style sheet</em>. So, in older
+    versions of HTML there were tags to indicate where elements
+    should be displayed (&lt;center&gt;) and what style of font to
+    use (&lt;b&gt; and &lt;i&gt;). In XHTML all formatting
+    instructions are handled by <em>style</em> definitions, not by
+    markup tags.</p>
+
+    <p>If you take a look at the directory where the web pages for
+    this course are stored you will see a <em>cascading style
+    sheet</em> called "psy422-styles.css" that I use for these web
+    pages. If I decide to change the way that I display the
+    questions in the assignments, for example, I only have to
+    change this one style sheet, rather than all the web pages
+    individually. Styles can also be defined in the "head" section
+    to apply to everything in just one document. You can also use
+    <em>inline styles</em> to define a style for a single element
+    in a page.</p>
+
+    <p>Take a look at the file <a href=
+    "simple-xhtml-file1.html">simple-xhtml-file1.html</a> in your
+    browser. It should look just like
+    "simple-html4-file2-as-xhtml.html" did in the browser window.
+    The only difference is that I have changed the file to make it
+    valid XHTML. Click the verify icon to confirm that it is valid
+    XHTML.</p>
+
+    <p>Now use your telnet window to compare the two files. Hint:
+    Change directories to where the two files are located, and use
+    the "diff" command.</p>
+
+    <p class="question">9. What is different between the two files?
+    What does the first difference demonstrate about the difference
+    between HTML and XHTML's requirements for end tags? (See the
+    output of the validation of "simple-html4-file2-as-xhtml.html"
+    if you need a reminder.) What does the second difference tell
+    you about how inline styles are written? How do you think you
+    might put an inline style in a paragraph tag to make the text
+    right-justified?</p>
+
+    <p>You can validate any web page by cutting and pasting its URL
+    into the form at the <a href="http://validator.w3.org/">w3c
+    validator page</a>. Just for fun, validate some random web
+    pages. Many of my web pages for other classes were generated
+    with MSWord or Powerpoint. Try one of them as an example of the
+    HTML generated by those applications. (You can find out what
+    application generated a page by looking at the <em>meta</em>
+    tags when you view the page source.)</p>
+
+    <p class="question">10. List the URL of at least 3 pages that
+    you validated, and say whether each was valid, and what
+    application was used to generate the page if you can tell. Can
+    you draw any conclusions about the way those applications
+    generate HTML or XHTML?</p>
+    <hr />
+
+    <h3>Editing a web page on your local PC</h3>
+
+    <p>Now you will learn a second way to create or edit web pages.
+    Instead of editing an html file that is already on the server
+    as you did before, you will <em>download</em> a web page to
+    your local hard drive, <em>edit</em> it using Notepad (or some
+    other text editor if you prefer), and then <em>upload</em> the
+    file to your public_html directory on the server using ftp.</p>
+
+    <p>Click on <a href=
+    "simple-xhtml-file2.html">simple-xhtml-file2.html</a> and then
+    follow the directions on that page.</p>
+
+    <p>Now <strong>ftp the file</strong> from your local computer
+    to your public_html directory on sheu-hp. You will have to use
+    your account name rather than "anonymous" to connect in the ftp
+    program, and will have to change directories to your
+    public_html directory before transferring the file. You can
+    either use a Windows-based ftp client such as WSFTP from the
+    Programs Menu, or you can type "ftp sheu-hp.psy.depaul.edu" in
+    the "Run" window as you do for telnet.</p>
+
+    <p>Open the file in your browser, and make sure that everything
+    looks the way you expected it to. Follow the links on the page
+    (including the "mailto" link) to be sure they work. Check to
+    make sure the page is still valid XHTML.</p>
+
+    <p>In your telnet window, enter the command <span class=
+    "input">chmod o-r ~/public_html/mypage1.html</span>. Then hit
+    "Reload" on your browser.</p>
+
+    <p class="question">11. What happened? What can you conclude
+    about the file permissions that are needed for your web pages
+    to be accessible to web browsers? What command did you use to
+    fix it so that the page is accessible again?</p>
+    <hr />
+
+    <h3>Other ways to edit web pages</h3>
+
+    <p>There are lots of ways to create and edit web pages. We have
+    started you out using <em>text editors</em> to edit the marked
+    up source files directly. This is the best way to learn XHTML,
+    and give you the most control over your web pages.</p>
+
+    <p>There are also WYSIWYG (what you see is what you get) HTML
+    editors that hide all the markup tags from you and make it
+    easier to generate web pages. Most web browsers (such as IE and
+    Netscape) and word processors (such as WordPerfect, StarOffice,
+    or Word) can edit HTML this way. I often use "Save as HTML" to
+    quickly get Word and Powerpoint files onto the web, for
+    example. The price I pay is that the HTML they generate is
+    unreadable to humans, and the pages do not display correctly in
+    non-Microsoft browsers.</p>
+
+    <p>In addition, there is software specifically designed for web
+    development. Microsoft's <em>Frontpage</em> is one of the
+    best-known. It allows you to edit files directly on a server
+    using a WYSIWYG editor (<em>if</em> the server has the software
+    to support Frontpage).</p>
+
+    <p>Many text editors that run on Unix will color-code elements
+    and help show you where your opening and closing tags are, and
+    do other things to make it easier to write HTML or XHTML. The
+    version of <strong>vi</strong> that comes with the Cygwin Bash
+    Shell for Windows has some nice features along these lines, as
+    does the <strong>emacs</strong> text editor.</p>
+
+    <p>Personally, I prefer systems that combine a <em>text
+    editor</em> to allow you to directly control your page's source
+    file with a <em>previewer</em> that lets you see how things
+    look as you go. Most such products also help you put in HTML
+    tags more easily and help check to see that you have put
+    closing tags in, etc. A commercial product called <a href=
+    "http://www.coffeecup.com/">CoffeCup HTML Editor</a> is one
+    that seems to be popular. (A free version is available with
+    some features disabled.) <strong>My favorite, however, is the
+    <a href="http://www.chami.com/html-kit/">HTML-Kit</a></strong>
+    from chami.com, which includes a module for the <a href=
+    "http://tidy.sourceforge.net/">Tidy</a> program to help you
+    validate and clean up your pages as you edit them. I highly
+    recommend both HTML-Kit and Tidy. You can download HTML-Kit
+    from the above link and install it on your Windows PC. (We can
+    not install any software in the public lab without first
+    getting it approved by the University, however.)</p>
+    <hr />
+
+    <h3>Forms</h3>
+
+    <p>Forms are used to collect information from people who visit
+    your web site. The can easily be used to do on-line surveys,
+    for example.</p>
+
+    <p>The file <a href="forms1.html">forms1.html</a> contains a
+    form that collects information and emails it to me
+    (dallbrit@depaul.edu). It first uses three <em>text boxes</em>
+    in which the user types in answers. Then it uses a
+    <em>drop-down menu</em> (using the &lt;select&gt; tag) for a
+    multiple-choice question. Finally, it uses <em>checkboxes</em>
+    for a second multiple choice question.</p>
+
+    <p>Place a copy of the file in your public_html directory and
+    then do the following:</p>
+
+    <ul>
+      <li>Edit the file so that the form data is emailed to you
+      instead of me.</li>
+
+      <li>Fill in the form and click "Submit"</li>
+
+      <li>Check your email to see the data that was sent to you as
+      a result.</li>
+
+      <li class="question">12. How is the data organized? How can
+      you tell which answers go with which questions, and where one
+      question stops and another starts?</li>
+
+      <li>Go back to the form in your browser and experiment if you
+      need to in order to answer the following questions.</li>
+
+      <li class="question">13. Is there any limit on the length of
+      the answer a user can enter in any of the three text
+      boxes?</li>
+
+      <li class="question">14. Is it possible to check more than
+      one of boxes in the last question? What happens if more than
+      one is checked and then the form is submitted?</li>
+
+      <li>Edit the file and replace all the occurrences of
+      "checkbox" with "radio". Save the file and reload the web
+      page in the browser.</li>
+
+      <li class="question">15. What is the difference between
+      checkboxes and radio buttons?</li>
+
+      <li>Edit the file so that the name the user enters can be no
+      more than 20 characters long. Test the page to verify that no
+      more than 20 characters can be entered.</li>
+
+      <li>Confirm that the form is still a valid XHTML document
+      after you finish editing it.</li>
+    </ul>
+
+    <p>The file <a href="forms2.html">forms2.html</a> has the same
+    form input fields as the previous file, but uses a different
+    method of submitting the user's data. The "forms1.html" file
+    used the email client on the user's computer to email the raw
+    form data to the address in the "mailto" field. The
+    "forms2.html" file uses a CGI program called "FormMail.pl"
+    instead, which uses the mail program on the server to send the
+    data by email. Edit the "forms2.html" file so that it sends
+    email to your DePaul email account, and submit the same answers
+    you did in forms1.html. Then compare the mail that the two
+    pages sent you.</p>
+
+    <p class="question">16. Describe the differences between the
+    data sent by FormMail.pl and that sent with the "mailto:"
+    tag.</p>
+
+    <p class="question">17. What do you think might be some
+    advantages and disadvantages of using "mailto" versus using
+    "FormMail"?</p>
+    <hr />
+
+    <h3>Homework</h3>
+
+    <ol>
+      <li>
+        <p><strong>Answer the questions from this
+        page.</strong></p>
+      </li>
+
+      <li>
+        <p><strong>Edit your home page on sheu-hp.</strong> Create
+        an unordered list naming and describing the web pages you
+        have edited or created today. Make a link to each file from
+        it's name in your list. Include a "mailto" link for people
+        to send you email. Submit your home page to the w3c
+        validator, and fix any problems it notes. Once it checks
+        out as "valid XHTML 1.0" add the "Valid XHTML 1.0" button
+        to the bottom of the page. You can use any method you like
+        to do the editing, and can make any other changes and
+        additions to your home page you like, so long as you end up
+        with a valid XHTML 1.0 document when you are done.</p>
+
+        <p><strong>Optional:</strong> For extra credit (whatever
+        <em>that</em> might mean in this course!) add a link to a
+        location within the file - also called a "bookmark". There
+        are links to bookmarks a the top of the "Week 1" web page
+        you can examine to help you figure out how. As an added
+        hint, look at how <a href=
+        "http://sheu-hp.psy.depaul.edu/psy422-devel/psy422-week1.html#gettingHelp">
+        this link to a particular location in last week's web
+        page</a> works.</p>
+
+        <p>Hints:</p>
+
+        <ul>
+          <li>I have created <em>template</em> files for creating
+          XHTML documents and placed them in the
+          /var/www/html/psy422 directory. Copy them to your
+          public_html directory. (All 3 have the word "template" in
+          the file name.) You can use these to make sure you have
+          all the incomprehensible header information correct in
+          your XHTML files. Use the "strict" template unless you
+          are using frames, then use the "frameset" template. The
+          "transitional" template lets you cheat and use some HTML
+          stuff that is not valid in strict XHTML.</li>
+
+          <li>You may also want to rename the
+          "my-first-bash-script" file to something like
+          "create-html-file" and place it in your <em>bin</em>
+          directory. Then you can just give the command<br />
+           <span class="input">create-html-file
+          newfile.html</span><br />
+           to use one of the templates to start a new web page.
+          (Substitute whatever file name you want for
+          "newfile.html").</li>
+
+          <li>Remember that the URL for files in your public_html
+          directory will start with
+          http://sheu-hp.psy.depaul.edu/~username, where username
+          is your account name on sheu-hp.</li>
+
+          <li>Look at the source of the XHTML files you have worked
+          on in this lesson, plus the source of the other pages I
+          have created for this course (this page, for example) to
+          find examples of things you want to include. Try pasting
+          in things that look like the structure you want, then
+          editing it with your content. (Adapting is easier than
+          inventing..)</li>
+
+          <li>For an example of "mailto" in a web page, look at my
+          home page, or look in your text book.</li>
+        </ul>
+      </li>
+    </ol>
+    <!--Indicates this page validated as XHTML 1.0 Strict -->
+
+    <p><a href="http://validator.w3.org/check/referer"><img src=
+    "/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width=
+    "88" /></a></p>
+  </body>
+</html>
+

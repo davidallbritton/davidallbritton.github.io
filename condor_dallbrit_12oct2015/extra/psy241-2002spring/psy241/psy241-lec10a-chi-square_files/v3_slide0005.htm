@@ -1,0 +1,214 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 9">
+<link id=Main-File rel=Main-File href="../psy241-lec10a-chi-square.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>Hypothesis Testing and Comparing Two Proportions</title>
+<meta name=Description content=7-Oct-01>
+<link rel=next href="v3_slide0006.htm">
+<![if !ppt]>
+<script>
+<!--
+function Update()
+{
+  if( window.name == "PPTSld" )
+    parent.SlideUpdated('v3_slide0005.htm');   
+  else
+    parent.location.href = "v3_document.htm";
+}
+
+function NoHref() {}
+//-->
+</script>
+<![endif]>
+</head>
+
+<body bgcolor=white alink="#3333cc" link="#ccccff" vlink="#b2b2b2" text=black
+topmargin=0 leftmargin=0 onload="Update()">
+
+<table border=0 valign=top width=475 height=356 cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=40 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=411 height=0 nowrap><img src="v3_space.gif" border=0></td>
+ </tr>
+ <tr>
+  <td width=475 height=18 colspan=3></td>
+ </tr>
+ <tr>
+  <td width=40 height=292></td>
+  <td width=411 height=292>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=24 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=4 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=19 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=53 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=53 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=29 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=56 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=20 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=44 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=69 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=2 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=9 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=6 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=11 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=7 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+   </tr>
+   <tr>
+    <td width=28 height=21 colspan=2><font face="Times New Roman" color=black
+    size=3>1.</font></td>
+    <td width=276 height=21 colspan=9><font face="Times New Roman" size=3>Assume
+    the Null Hypothesis is true</font><br>
+    </td>
+    <td width=107 height=21 colspan=8></td>
+   </tr>
+   <tr>
+    <td width=411 height=3 colspan=19></td>
+   </tr>
+   <tr>
+    <td width=24 height=18></td>
+    <td width=24 height=18 colspan=3><font face="Times New Roman" color=black
+    size=2>–</font></td>
+    <td width=192 height=18 colspan=5><font face="Times New Roman" size=2>The
+    coins are fair (balanced)</font><br>
+    </td>
+    <td width=171 height=18 colspan=10></td>
+   </tr>
+   <tr>
+    <td width=411 height=3 colspan=19></td>
+   </tr>
+   <tr>
+    <td width=28 height=21 colspan=2><font face="Times New Roman" color=black
+    size=3>2.</font></td>
+    <td width=383 height=21 colspan=17><font face="Times New Roman" size=3>Calculate
+    the probability (<i>p</i>) of getting the results</font><br>
+    </td>
+   </tr>
+   <tr>
+    <td width=28 height=20 colspan=2></td>
+    <td width=345 height=20 colspan=10><font face="Times New Roman" size=3>observed
+    in your data if the Null Hypothesis</font><br>
+    </td>
+    <td width=38 height=20 colspan=7></td>
+   </tr>
+   <tr>
+    <td width=28 height=20 colspan=2></td>
+    <td width=74 height=20 colspan=4><font face="Times New Roman" size=3>were
+    true</font><br>
+    </td>
+    <td width=309 height=20 colspan=13></td>
+   </tr>
+   <tr>
+    <td width=411 height=3 colspan=19></td>
+   </tr>
+   <tr>
+    <td width=24 height=18></td>
+    <td width=24 height=18 colspan=3><font face="Times New Roman" color=black
+    size=2>–</font></td>
+    <td width=360 height=18 colspan=13><font face="Times New Roman" size=2>How
+    often would you get 8/10 coins coming up heads</font><br>
+    </td>
+    <td width=3 height=18 colspan=2></td>
+   </tr>
+   <tr>
+    <td width=48 height=17 colspan=4></td>
+    <td width=353 height=17 colspan=12><font face="Times New Roman" size=2>if
+    the coins were fair? You would get 8/10 heads less</font><br>
+    </td>
+    <td width=10 height=17 colspan=3></td>
+   </tr>
+   <tr>
+    <td width=48 height=17 colspan=4></td>
+    <td width=136 height=17 colspan=4><font face="Times New Roman" size=2>than
+    5% of the time.</font><br>
+    </td>
+    <td width=227 height=17 colspan=11></td>
+   </tr>
+   <tr>
+    <td width=411 height=3 colspan=19></td>
+   </tr>
+   <tr>
+    <td width=28 height=21 colspan=2><font face="Times New Roman" color=black
+    size=3>3.</font></td>
+    <td width=362 height=21 colspan=13><font face="Times New Roman" size=3>If
+    that probability is low (&lt; .05) then reject the</font><br>
+    </td>
+    <td width=21 height=21 colspan=4></td>
+   </tr>
+   <tr>
+    <td width=28 height=20 colspan=2></td>
+    <td width=127 height=20 colspan=5><font face="Times New Roman" size=3>Null
+    Hypothesis</font><br>
+    </td>
+    <td width=256 height=20 colspan=12></td>
+   </tr>
+   <tr>
+    <td width=411 height=3 colspan=19></td>
+   </tr>
+   <tr>
+    <td width=24 height=18></td>
+    <td width=24 height=18 colspan=3><font face="Times New Roman" color=black
+    size=2>–</font></td>
+    <td width=361 height=18 colspan=14><font face="Times New Roman" size=2>That
+    is unlikely, so the Null Hypothesis must be false.</font><br>
+    </td>
+    <td width=2 height=18></td>
+   </tr>
+   <tr>
+    <td width=411 height=3 colspan=19></td>
+   </tr>
+   <tr>
+    <td width=28 height=21 colspan=2><font face="Times New Roman" color=black
+    size=3>4.</font></td>
+    <td width=347 height=21 colspan=11><font face="Times New Roman" size=3>If
+    you reject the Null Hypothesis, that leaves</font><br>
+    </td>
+    <td width=36 height=21 colspan=6></td>
+   </tr>
+   <tr>
+    <td width=28 height=20 colspan=2></td>
+    <td width=232 height=20 colspan=8><font face="Times New Roman" size=3>only
+    the Research Hypothesis</font><br>
+    </td>
+    <td width=151 height=20 colspan=9></td>
+   </tr>
+   <tr>
+    <td width=411 height=3 colspan=19></td>
+   </tr>
+   <tr>
+    <td width=24 height=18></td>
+    <td width=24 height=18 colspan=3><font face="Times New Roman" color=black
+    size=2>–</font></td>
+    <td width=336 height=18 colspan=10><font face="Times New Roman" size=2>We
+    conclude that the coins are not fair (balanced).</font><br>
+    </td>
+    <td width=27 height=18 colspan=5></td>
+   </tr>
+  </table>
+  </td>
+  <td width=24 height=292></td>
+ </tr>
+ <tr>
+  <td width=475 height=46 colspan=3></td>
+ </tr>
+</table>
+
+</body>
+
+</html>

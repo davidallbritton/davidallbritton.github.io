@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml">
+
+<!-- This document demonstrates a simple web-based experiment using   -->
+<!--  Javascript.                                                     -->
+<!-- by David Allbritton -->
+
+ <head>
+   <title>Experiment Example using JavaScript</title>
+   <script type = "text/javascript">
+<!--
+   
+function mainProg() {
+   
+   // CHANGE HERE:  Put the names of your 2 conditions inside the quotes:
+   var condition1 = "representative";
+   var condition2 = "nonrepresentative";
+   // end of changing the condition labels
+
+   // CHANGE HERE:  Put your question for each condition inside the quotes:
+   var stimulus1 = 
+     "How likely is it that Jane is a librarian who is also a volunteer firefighter?";
+    
+   var stimulus2 = 
+      "How likely is it that Jane is a volunteer firefighter?";
+   // end of changing the questions for each condition
+   
+   
+   var stimulusArray = [stimulus1, stimulus2];
+   var conditionArray = [condition1, condition2];
+
+   chooseCondition(stimulusArray, conditionArray);
+
+   // scroll down to the beginning of the experiment:
+   document.all.startExperiment.scrollIntoView();
+
+} // end of function mainProg; exectuted when consent "okay" is clicked.
+
+
+// define a function for comparing two numbers to use in a sort.
+// this function will return a random value, thus randomizing the order
+// when it is used as the basis for sorting
+function randSort (value1, value2)
+{
+   return Math.random() - Math.random();
+}             // end of function definition
+
+// define a function to randomly select between 2 conditions:
+function chooseCondition(stimulusArray, conditionArray)
+{
+    // create an array of numbers:
+   var numsArray = [0,1]; 
+
+   // sort the array randomly:
+   numsArray.sort(randSort);
+    
+   replaceParagraph ("paragraph1", stimulusArray[numsArray[0]]);
+     // The above line calls a second function to replace paragraph1
+     // with the question for the chosen condition
+       
+   var conditionFormFieldRef = document.getElementById("condition");
+   // get the reference to the form field that records the condition 
+    
+   conditionFormFieldRef.value = conditionArray[numsArray[0]];
+     
+}  // end of function choose_condition
+
+
+// Here is a function to replace a paragraph:
+// The parameters passed to it are the "id" attribute of the paragraph
+// you want to replace, and the text you want to put in the new paragraph.
+function replaceParagraph (parName, newText)
+{
+    var newPar = document.createElement("p");
+      // The above line creates a new paragraph node
+    var newText =
+        document.createTextNode(newText);
+      // The above line creates a new text node
+    newPar.appendChild(newText);
+      // The above line puts the new text node into the new paragraph node
+      // Now you have a paragraph with text in it that you can use to 
+      // replace the original paragraph.
+
+    var para = document.getElementById(parName);
+      // the above line finds the paragraph you want to replace
+    var parent = para.parentNode;
+      // the above line finds the parent node of the paragraph, so that
+      // we can reference it in the next line (that actually replaces
+      // the paragraph:
+    var replaced = parent.replaceChild(newPar,para);
+}           // end of function replaceParagraph                           
+
+// end of javascript code -->
+   </script>
+ </head>
+
+   
+
+ <body onload="mainProg">
+   
+<!-- CHANGE HERE:  Change any of the text below that you want to; 
+                   Just leave the tags (like <h1> or <p>
+                   or anything else inside angle brackets<>) intact -->
+                   
+   <h1>Experiments on the Web - A Simple Example</h1>
+      
+   <p>This page demonstrates the use of JavaScript in a web page to 
+         implement a very simple experiment.  A single textual description
+          is presented, followed by either of two questions, randomly
+          selected for each user.  The data is delivered by email.  
+          You can use a <em>text editor</em>
+          to make changes to the HTML in this page and implement your own 
+          experiment.  Simply edit the HTML source of this page, and
+          make changes where the comments say "CHANGE HERE."  Then 
+          save your changes and place the new file in your web directory.
+          </p>
+       
+   <hr />
+       
+   <h3>Informed Consent</h3>
+          
+   <p>
+      This is a web-based demonstration experiment on reasoning and 
+      probabilities.  Its primary purpose is to demonstrate a simple use
+          of the web to collect data for students in 
+          a course in Experimental Psychology, 
+          but it also demonstrates a classic 
+          finding about how people reason with probabilities.  Data is collected
+          via email, and by sending your data you will also be transmitting your
+          email address.  If 
+          this were a real experiment, this section would be a separate page telling
+          you all about your rights as a participant, and we would figure out 
+          some way to avoid recording your email address so that you could 
+          participate anonymously.  But this is just
+          a demonstration.
+          </p>
+   
+    
+   <form action="">       
+      <p>If you want to procede, click here:
+         <input type = "button" value = "Okay" onclick="mainProg()"/>
+      </p>
+   </form>
+   
+      
+      <hr />
+      
+      <a name="startExperiment"></a>
+      <h3>
+          Please read the following description and then answer the question 
+          below it.
+      </h3>
+      
+      <h4>Description</h4>
+      <p>
+         Jane is a quiet, somewhat shy person.  Jane likes to read, and is
+         very intelligent.
+      </p>
+      
+   <!-- CHANGE HERE:  change the email address after "mailto:" to your address -->
+   <form action="mailto:dallbrit@depaul.edu" method="post">   
+        
+   <h4>Question</h4>
+   <p id = "paragraph1" name = "paragraph1">
+      You must click "Okay" first (above) to see the question.
+   </p>
+            
+   <p>Please type in a number between 0 and 100 to indicate the likelihood
+      as a percent chance, then press the "Submit" button.
+   </p>   
+            
+   <p>
+      <input type = "hidden" id = "condition" name = "condition" value = "none"/>
+   </p>
+            
+   <p>
+      <input type = "text" size = "5" id = "response" />   
+      <input type = "submit" value = "Submit Answer by email"/>
+   </p>
+         
+   </form>
+      
+    
+   <hr />
+     
+        <!--Indicates this page validated as XHTML 1.0 Strict -->
+   <p>
+    <a href="http://validator.w3.org/check/referer">Validate this page</a>
+  </p>
+
+  <a name="pageBottom"></a>
+
+      
+  </body>
+</html>

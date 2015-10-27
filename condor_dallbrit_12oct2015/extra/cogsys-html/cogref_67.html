@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Scope Response</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Scope Response">
+<META NAME="keywords" CONTENT="Cogsys: Scope Response">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC75"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_66.html#SEC74"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_68.html#SEC76"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_69.html#SEC77"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.6.3 Scope Response (<CODE>#Y</CODE>) </H4>
+<!--docid::SEC75::-->
+<P>
+
+The Scope Response command displays a string of characters on the scope and waits 
+for a response. The text is written to the scope with the attributes set by
+Set Scope Attributes. It writes the key and time to output. 
+</P><P>
+
+Scope Response will terminate Cogsys execution of the experiment if the
+<KBD></KBD> (<CODE>BREAKOUT_CHAR</CODE>) key is
+entered.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Scope Response
+<DT>Class:
+<DD>Scope
+<DT>Code:
+<DD><CODE>#Y</CODE>
+<DT>Syntax:
+<DD><CODE>#Y[<VAR>text</VAR>]</CODE>
+<BR><VAR>text</VAR> can not contain the <SAMP>`]'</SAMP> character
+<DT>System:
+<DD>Displays 
+<DT>Output:
+<DD>The key pressed and time are written to output.
+<DT>Breakout:
+<DD>YES
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`SCOR_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>#Y[hi there!]</CODE>
+<DT>cogsys
+<DD>Writes the string <SAMP>`hi there!'</SAMP> on the scope with the current scope text attributes.
+<DT>subject
+<DD>Press the <KBD>z</KBD> key after 100 milliseconds.
+<DT>output
+<DD><CODE>z100</CODE>
+</DL>
+<P>
+
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

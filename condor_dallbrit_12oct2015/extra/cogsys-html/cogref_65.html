@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Set Scope Attributes</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Set Scope Attributes">
+<META NAME="keywords" CONTENT="Cogsys: Set Scope Attributes">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC73"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_66.html#SEC74"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_69.html#SEC77"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.6.1 Set Scope Attributes (<CODE>#A</CODE>) </H4>
+<!--docid::SEC73::-->
+<P>
+
+The scope can display text with different attributes. Tunable parameters include
+the position, the refresh rate, the line intensity, the line type (solid to dotted),
+the character size, and character rotation. In addition, the scope beam can be
+turned on and off.
+</P><P>
+
+The default values for these attributes are as follows:
+</P><P>
+
+<DL COMPACT>
+<DT>X position
+<DD>0 (0-2047)
+<DT>Y position
+<DD>0 (0-2047)
+<DT>Refresh
+<DD><P>
+
+<DT>Line intensity
+<DD>3:full (0:blank to 3:full)
+<DT>Line type
+<DD>0:solid (0:solid, 1:bright ends, 2:short dash, 3:long dash)
+<DT>Beam status
+<DD>1 (0:off or 1:on)
+<DT>Refresh Rate
+<DD>3 (0-6 milliseconds)
+<DT>Text size
+<DD>1 (0-3)
+<DT>Text rotation
+<DD>0 degrees (0:0, 1:90, 2:180, or 3:270 degrees)
+</DL>
+<P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Set Scope Attributes
+<DT>Class:
+<DD>Scope
+<DT>Code:
+<DD><CODE>#A</CODE>
+<DT>Syntax:
+<DD><CODE>#A[</CODE> [<CODE>X<VAR>x</VAR></CODE> | <CODE>Y<VAR>y</VAR></CODE> |  <CODE>I<VAR>intensity</VAR></CODE> | <CODE>L<VAR>linetype</VAR></CODE> | <CODE>O<VAR>beamstate</VAR></CODE> | <CODE>T<VAR>refresh</VAR></CODE> | <CODE>S<VAR>size</VAR></CODE> | <CODE>R<VAR>rotation</VAR></CODE> <CODE>]</CODE>
+<BR><VAR>x</VAR> and <VAR>y</VAR> are integers from 0 to 2047
+<BR><VAR>refresh</VAR> is an integer from 0 to 6
+<BR><VAR>intensity</VAR> is an integer from 0 to 3
+<BR><VAR>linetype</VAR> is an integer from 0 to 3
+<BR><VAR>size</VAR> is an integer from 0 to 3
+<BR><VAR>rotation</VAR> is an integer from 0 to 3
+<BR><VAR>beamstate</VAR> is either 0 or 1
+Note that the syntax definition allows the specification of as many attributes as you like in any order.
+If the same attribute is specified more than once, the last occurrence is used.
+<DT>System:
+<DD>Sends the display parameters to the scope.
+<P>
+
+<DT>Requires:
+<DD>Obviously, this command requires that scope be set up and properly interfaced to the client.
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`SCOP_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>#A[X10,Y10,I1,L3,O1,T6,S2,R2]#U[50,hi there]</CODE>
+<DT>cogsys
+<DD>Sets the scope to display the next characters at position (10,10), with
+weak intensity, long dashed lines, with beam on, refresh rate of 6 ms,
+size 2, and written at 180 degrees. Then displays <SAMP>`hi there'</SAMP> with
+the specified attributes for 50 milliseconds.
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_66.html#SEC74"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_69.html#SEC77"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

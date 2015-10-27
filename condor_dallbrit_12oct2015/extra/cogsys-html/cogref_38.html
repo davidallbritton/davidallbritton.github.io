@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Echo Keyboard to Output</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Echo Keyboard to Output">
+<META NAME="keywords" CONTENT="Cogsys: Echo Keyboard to Output">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC46"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_37.html#SEC45"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_39.html#SEC47"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_39.html#SEC47"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.2.3 Echo Keyboard to Output (<CODE>$L</CODE>) </H4>
+<!--docid::SEC46::-->
+<CODE>$L</CODE>
+<P>
+
+The Echo Keyboard to Output command provides the user with an easy way
+enter data directly into the outfile at run time. The standard C library
+<CODE>fgets()</CODE> function is used to collect a string from the console, so
+basic editing capabilities should be present. The string is written,
+with newline, into the output file.
+</P><P>
+
+This command was not designed to be used for subject response, and does
+not update the <CODE>COGVAR_KEY</CODE> or <CODE>COGVAR_TIME</CODE> Cogsys variables.
+It does not attempt to measure the time it takes to enter the string.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Echo Keyboard to Output
+<DT>Class:
+<DD>Direct Keyboard Input
+<DT>Code:
+<DD><CODE>$L</CODE>
+<DT>Syntax:
+<DD><CODE>$L</CODE>
+<DT>System:
+<DD>Collects a string from keyboard until the subject presses <KBD>ENTER</KBD>. The string
+may be no longer than <CODE>TMP_STR_LEN</CODE> characters.
+<P>
+
+<DT>Output:
+<DD>The string entered is written to output.
+<DT>Requires:
+<DD>Although this command will work in any mode, for the user to see
+the characters being typed, Cogsys must be in a text mode.
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`KOUT_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>$L</CODE>
+<DT>subject
+<DD>Enters <KBD>hi there!</KBD>
+<DT>output
+<DD><CODE>hi there!</CODE>
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

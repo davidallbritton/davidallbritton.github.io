@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Psy 422 - Week 7 (PHP)</title>
+  <link rel="stylesheet" type="text/css" href="psy422-styles.css" />
+</head>
+
+<body>
+<h1 style="text-align: center">Psy 422 Week 7 <br />
+   Saving form data in a database using PHP</h1>
+
+<p>This week we will look at an example of using PHP to conduct a simple
+   experiment on the web.  The "experiment" consists of 2 questions, presented
+   in one of two versions.  </p>
+   
+<p>The first PHP script, 
+   <a href = "php/experiment1.php">experiment1.php</a>,
+   accesses the <strong>expdata1</strong> table in the <em>orval</em> Mysql
+   database on the course server to determine the condition (1 or 2) for 
+   the current participant.  It then accesses the <strong>experiment1_stimuli
+   </strong> table to get the stimuli to present.  It presents the stimuli
+   in an XHTML form.  The "action" for the form sends the responses to a
+   second PHP script.</p>
+   
+<p>The second PHP script
+   <a href = "php/experiment1-storeData.php">experiment1-storeData.php</a>
+   then stores the data to the <strong>expdata1</strong> table in the 
+   database, and displays its contents in an XHTML table.</p>
+
+<hr />
+  
+<p>First <a href = "php/experiment1.php">run the experiment</a> 
+   a couple of times and observe the results as 
+   recorded in the table.  Be sure to reload the page before submitting
+   data a second time.</p>
+   
+<p class = "question">1.  Copy the two PHP files used to run the experient
+   to your  
+   <em>public_html</em> directory (or a subdirectory if you wish).  
+   Create a table in your database on the
+   course server to store the data in.  Also create a second table and 
+   place your experimental stimuli in it.  Then edit the PHP files to 
+   run your experiment and save the data in your database.
+   Place a link to your experiment on your home page on the course server.</p>
+
+
+
+<p>REMINDER: PHP scripts are executed by the server
+   and the results inserted into the web page
+   <em>before</em> the XHTML is sent to the browser.  As a result, you 
+   can not use "view source" in your browser to see the PHP code.  You
+   must telnet into the server and look at the ".php" files directly, rather
+   than through a browser.  </p>
+
+
+<!--Indicates this page validated as XHTML 1.0  -->
+
+<p><a href="http://validator.w3.org/check/referer"><img
+src="/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width="88"
+/></a></p>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: TXTEXT Subfunction 1</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: TXTEXT Subfunction 1">
+<META NAME="keywords" CONTENT="Cogsys: TXTEXT Subfunction 1">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC112"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_103.html#SEC111"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_105.html#SEC113"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_96.html#SEC104"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_103.html#SEC111"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_109.html#SEC117"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 3.3.5.1 <CODE>TXTEXT</CODE> Subfunction 1: draw text </H4>
+<!--docid::SEC112::-->
+<P>
+
+Syntax:
+<CODE>TXTEXT</CODE> 1, <VAR>x</VAR>, <VAR>y</VAR>, <VAR>string</VAR>
+</P><P>
+
+Draws the text string <VAR>string</VAR> centered at position <VAR>x</VAR>,<VAR>y</VAR>
+in the picture. For this extension, the origin 0,0 is defined to be the
+top left corner of the picture, not the center.
+</P><P>
+
+The string is written in the current font, size, and color for graphics
+mode text, as specified by the <CODE>%A</CODE> command (see section <A HREF="cogref_51.html#SEC59">2.3.4.9 Graphics-Mode Text Attributes (<CODE>%A</CODE>)</A>).
+</P><P>
+
+An important behind-the-scenes side effect of <CODE>TXTEXT</CODE> subfunction 1
+is that the <EM>bounds</EM> of the written text (that is, the outline of a
+box that covers the text) are saved in the argument buffer. More
+accurately, the bounds of a box <VAR>XSIZE</VAR> by <VAR>YSIZE</VAR> pixels
+centered on <VAR>x</VAR>,<VAR>y</VAR> are saved. <A NAME="DOCF1" HREF="cogref_fot.html#FOOT1">(1)</A>. <VAR>XSIZE</VAR> and <VAR>YSZIE</VAR> are each 60 pixels, by
+default, but can be set by Cogsys variables 93 and 94, respectively.
+</P><P>
+
+These bounds are recalled and used by <CODE>TXTEXT</CODE> subfunctions 2, 3 and
+4.
+</P><P>
+
+The following testlist writes the words <SAMP>`Hello world!'</SAMP> in the
+center of the picture in green lettering.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>%X[txtext.cxr]
+%M2%C2
+%A[C10,F1]
+%I[1,1,1600,100,Hello World!]
+#B[1,20]#R
+</pre></td></tr></table></P><P>
+
+Here is the picture created:
+</P><P>
+
+<CENTER><IMG SRC="images/txtext01.jpg" ALT="images/txtext01"></CENTER>
+</P><P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

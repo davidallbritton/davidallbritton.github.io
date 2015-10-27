@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml">
+
+<!-- This is a more portable (standards-compliant) version of object1.html -->
+
+  <head>
+    <title>Objects in Javascript</title>
+    <script type = "text/javascript">
+<!--
+function splitInputSentence()
+{
+  var words;
+   
+  inputRef = document.getElementById("inputSentence"); 
+  // The above statement uses the getElementById method of the document
+  // object to get the identity of the element that has the id "inputSentence".
+  // We then "assign by reference" that element to the variable "inputRef".
+  // Now we can refer to that element of the document as "inputRef".
+    
+  words = inputRef.value.split(" ");  
+                                    // creates an array object called "words"
+                                    // Note the use of the "value" attribute
+                                    // for the form input object "inputSentence"
+                                    // that we are now referring to by the label
+                                    // "inputRef".
+                                    
+  wordCount = words.length ;        // uses the "length" attribute of array objects
+  
+  wordBoxRef = document.getElementById("nWords");
+  // same method as used above
+  
+  wordBoxRef.value =  wordCount;
+         // value is an attribute of nWords
+     
+//  paragraph1.innerText = sentenceForm.inputSentence.value;  
+     // The above is Microsoft-specific.  The function below
+     // does the same thing in a more platform-independent way:
+     
+   replaceParagraph ("paragraph1", inputRef.value);
+     // The above line calls a second function to replace paragraph1
+     // with the sentence the user typed in.
+     
+}  // end of function splitInputSentence
+
+
+// Here is a function to replace a paragraph:
+// The parameters passed to it are the "id" attribute of the paragraph
+// you want to replace, and the text you want to put in the new paragraph.
+function replaceParagraph (parName, newText)
+{
+    var newPar = document.createElement("p");
+      // The above line creates a new paragraph node
+    var newText =
+        document.createTextNode(newText);
+      // The above line creates a new text node
+    newPar.appendChild(newText);
+      // The above line puts the new text node into the new paragraph node
+      // Now you have a paragraph with text in it that you can use to 
+      // replace the original paragraph.
+
+    var para = document.getElementById(parName);
+      // the above line finds the paragraph you want to replace
+    var parent = para.parentNode;
+      // the above line finds the parent node of the paragraph, so that
+      // we can reference it in the next line (that actually replaces
+      // the paragraph:
+    var replaced = parent.replaceChild(newPar,para);
+}           // end of function replaceParagraph                           
+
+// -->
+</script>
+  </head>
+
+  <body>
+	
+
+	  <h1>Objects in Javascript - a more portable version</h1>
+		
+    <p>This page demonstrates some uses of objects in Javascript.
+       First, a method of the Javascript String object is used to split the
+       user input into separate words.  Next, the <em>length</em> attribute
+       of the Array object is used to count the words in the sentence. Finally,
+       the count is reported in a form input text box, and the sentence replaces
+       Paragraph 1.
+       The document object model is used to access and change elements in the 
+       document, using methods that are supported by both Netscape and IE
+       browsers.</p>
+       
+    <hr />
+       
+       
+		<form id = "sentenceForm" action = "">
+		  
+		  <p>
+			  Type in a sentence and click "submit."<br />
+			  <input type = "text" id = "inputSentence" />
+		    
+			  <input type = "button" value = "Submit" onclick = "splitInputSentence()"/>
+        <!-- note the event "onclick" and how it is used to 
+         invoke the "splitInputSentence" function in the script. -->
+	    
+      </p>
+			
+			<p><label>This is the number of words in your sentence:
+			  <input type = "text" size = "5" id = "nWords" />
+		    </label>
+	    </p>
+			
+    </form>
+		
+    <hr />
+    <h3>Paragraph 1:</h3>
+    
+    <p id = "paragraph1" >
+       Watch what appears in this paragraph 
+       when you click "submit"
+    </p>
+    
+    <hr />
+    
+    <h3>Paragraph 2:</h3>
+    <p id = "paragraph2" name = "paragraph2">
+       Look at the source of this page, and notice that "id" is used rather
+       than "name" to label the elements of the XHTML document.  The "name"
+       attribute is deprecated in XHMTL 1.0, and will be replaced completely
+       by "id" in XHTML 1.1.  If you want to make sure your pages work  
+       both with old browsers and with new XHTML engines, include both (as was
+       done for this paragraph).</p>
+       
+ 
+		  <!--Indicates this page validated as XHTML 1.0 Strict -->
+	<p>
+    <a href="http://validator.w3.org/check/referer">Validate this page</a>
+  </p>
+
+		
+  </body>
+</html>

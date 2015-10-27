@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>
+      David Allbritton's Home Page
+    </title>
+    
+		<link rel="stylesheet" type="text/css" 
+		 href="allbritton.css" />
+
+  </head>
+  <body>
+    <h1 class="c1">
+      David Allbritton
+    </h1>
+     
+    <table border="0" cellpadding="0" width="100%">
+      <tr>
+        <td valign="top">
+          
+            <a href="http://las.depaul.edu/psy/">Department of
+            Psychology</a><br />
+             <a href="http://www.depaul.edu">DePaul
+            University</a><br />
+             2219 N. Kenmore Ave.<br />
+             Chicago, IL 60614
+          
+        </td>
+        <td valign="top">
+        
+            Office: 407 Byrne<br />
+             Phone: (773) 325-4799<br />
+						 Fax: (413) 845-7097 <br />
+             <!--  Fax: (515) 474-2539 <br />  appears to be broken 7/14/2009 -->
+             <a
+            href="mailto:dallbrit@depaul.edu">dallbrit@depaul.edu</a>
+           
+         
+        </td>
+        <td  valign="top">
+         
+             <a
+            href="http://las.depaul.edu/psy/Research/IntroPsychSubjectPool/index.asp">Psychology
+            Subject Pool</a> Manager
+            <br />
+						<a
+            href="http://las.depaul.edu/psy/Research/PsychologyLRB/index.asp">Psychology
+            LRB</a> Chair (2011-2014)
+            <br />
+						Psychology Department Web Master
+            <br />
+						Psychology Online Teaching Coordinator
+            <br />
+ <!--        
+            <a href="DavidAllbritton-pgp-public-key.asc">my PGP public key</a>
+ -->					
+ &nbsp;<br />
+        </td>
+      </tr>
+    </table>
+    		
+    <hr size="2" width="100%" class="nomargin"/>
+    
+    <table border="0" cellpadding="0" width="100%">
+        
+        <tr>
+          <td valign="top" width="36%">
+            <p class="dwa_list_head1" style="margin-top: 0ex" style="margin-bottom: 0ex">
+              Fall 2011 Schedule:
+            </p>
+          </td><td></td></tr><tr><td>
+            <b>Office Hours</b><br />
+	    By appointment
+						 </td>
+
+					<td valign="top" >
+					<b>Courses</b><br />
+             PSY 360 (Fall 2011) - online course - 
+						 <a href="extra/psy360/psy360-online-syllabus-2011-fall.pdf">
+						 Syllabus</a>
+              <br> 
+		PSY 105 (Fall 2011) - online course - 
+						 <a href="extra/psy105online/psy105-online-syllabus-2011-fall.pdf">
+						 Syllabus</a>
+              <br> 
+		
+          </td>
+        </tr>
+      </table>
+			
+			
+
+      <hr size="2" width="100%" class="c2"   style="margin-top: 0ex"/>
+
+
+<div class="c3">
+      <table border="0" cellpadding="0" cellspacing="0"  style="margin-top: 0ex"
+      width="100%">
+        <tr>
+          <td valign="top">
+            <p class="dwa_list_head">
+              David Allbritton's:
+            </p>
+            <ul class="dwa_list">
+              
+              <li>
+                <a href="previous_courses.htm">
+                Courses Taught</a>
+              </li>
+              <li>
+                <a
+                href="extra/posters/posters-papers.html">Posters
+                and Papers</a>
+              </li>
+              <li>
+                <a href="resources.html">Resources for Students</a>
+              </li>
+            </ul>
+            <p class="dwa_list_head">
+              Lab Resources and Software
+            </p>
+            <ul class="dwa_list">
+            
+              <li>
+                <a
+                href="http://www.ayni.com/perldoc/">Perl
+                documentation</a>
+              </li>
+              <li>
+                Linux resources: <a
+                href="http://linux.com/">linux com</a> and <a
+                href="http://www.linux.org/">linux.org</a>
+              </li>
+              <!--<li>
+                <a
+                href="http://sheu-hp.psy.depaul.edu/">Computing
+                for Behavioral Scientists</a> - Psy 422 course
+                server
+              </li> -->
+            </ul>
+            <p class="dwa_list_head">
+              Associations
+            </p>
+            <ul class="dwa_list">
+              <li>
+                <a href="http://www.apa.org">American
+                Psychological Association</a>
+              </li>
+              <li>
+                <a
+                href="http://www.psychologicalscience.org/">American
+                Psychological Society</a>
+              </li>
+              <li>
+                <a href="http://www.psychonomic.org">Psychonomic
+                Society</a>
+              </li>
+              <li>
+                <a href="http://www.societyfortextanddiscourse.org">
+                Society for Text and Discourse</a>
+              </li>
+              <li>
+                <a href="http://www.midwesternpsych.org/">
+                Midwestern
+                Psychological Association</a>
+              </li>
+              <li><a href="http://www.scip.ws/">Society for Computers
+                  in Psychology</a></li>
+            </ul>
+            
+            <p class="dwa_list_head">
+              Chicago
+            </p>
+            <ul class="dwa_list">
+              <li>
+								<a href="http://www.crh.noaa.gov/forecasts/ILZ014.php?warncounty=ILC031&city=Chicago">
+                Weather</a>
+              </li>
+							<li><a href="http://www.traffic.com/Chicago-Traffic/Chicago-Traffic-roads.html?AWOPARTNER=CHICAGOTRIBUNE">
+							   Traffic</a> 
+								 | <a href="http://www.dot.state.il.us/tpublic.html">IDOT</a> 
+								 | <a href="http://www.fly.faa.gov/">FAA</a>
+								 </li>
+            </ul>
+            
+          </td>
+          <td>
+            <p>
+                     
+            </p>
+          </td>
+          <td valign="top">
+            <p class="dwa_list_head">
+              DePaul Resources
+            </p>
+            <ul class="dwa_list">
+              <li><a href="http://las.depaul.edu/psy/Research/IntroPsychSubjectPool/index.asp">
+                 Subject Pool</a> - 
+                 Research Participation Info for Psy 105 and Psy 106</li>
+           
+	      <!-- delete 2009 
+              <li>
+                <a
+                href="Psy240-241-242-learning-goals.htm">Learning
+                Goals</a> for Psy 240, Psy 241, Psy 242
+              </li>
+	      -->
+
+              <li>
+                <a href="http://library.depaul.edu/">Library</a>
+              </li>
+              
+              <!-- now done withing campus connect instead <li>
+                <a
+                href="http://helpdesk.depaul.edu/">helpdesk.depaul.edu</a>
+                - use campus connect login, no password
+              </li>  -->
+              <li>
+                <a
+                href="https://campusconnect.depaul.edu/">Campus
+                Connect</a>
+              </li>
+							<li><a href="http://directory.depaul.edu">Directory.depaul.edu</a> - 
+							  Phone numbers, etc.
+							</li>
+							<li><a href="https://courses.depaul.edu/">D2L Course Sites</a></li>
+              <li><a href="http://is.depaul.edu ">DePaul Information Services Web Site</a></li>
+<!--
+							<li><a href="http://condor.depaul.edu/~honor207/">Honors 207</a> - repository
+							for materials for instructors of the  Honors Program cognitive science course.</li>
+							<li><a href="https://oll.depaul.edu/">Blackboard Course Sites</a></li>
+-->
+            </ul>
+            <p class="dwa_list_head">
+              Other Resources
+            </p>
+            <ul class="dwa_list">
+              <li>
+                <a href="http://www.google.com">Google</a> 
+                | <a href="http://www.metacrawler.com">Metacrawler</a>
+              </li>
+	      <li><a href="http://scholar.google.com/">Google Scholar</a>
+	      | <a href="http://highwire.stanford.edu/lists/freeart.dtl">Highwire Press</a>
+	      | <a href="http://citeseer.ist.psu.edu/">CiteSeer</a>
+	      <!--| <a href="http://gunther.smeal.psu.edu/">eBizSearch</a> -->
+	      </li>
+            </ul>
+          
+<!-- 					<p class="dwa_list_head">
+              Personal Links
+            </p>
+            <ul class="dwa_list">
+              <li><a href="importantThings.html">Important Things</a> in life</li>
+				    </ul> -->
+            
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

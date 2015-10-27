@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Load Picture References</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Load Picture References">
+<META NAME="keywords" CONTENT="Cogsys: Load Picture References">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC66"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_57.html#SEC65"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_59.html#SEC67"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.5.3 Load Picture References (<CODE>%B</CODE>) </H4>
+<!--docid::SEC66::-->
+<P>
+
+The Load Picture References command scans the input file for occurrences
+of the Display Picture (<CODE>#B</CODE>) command. If it finds a Display Picture command
+that identifies its target by name (instead of by number), it loads the
+picture referenced. It will not load the same picture twice, even if it
+is displayed more than once.
+</P><P>
+
+This pre-loading mechanism is used to ensure that at the time of the
+display, the system already has all the image data it needs and will
+not have to pause to access disk. In experiments that must show pictures
+rapidly in succession, this is a critical feature.
+</P><P>
+
+The Load Picture References command can optionally take arguments which
+change the current picture type and current picture path before
+scanning/loading. If a filename is not absolute (that is, it doesn't
+start with an MS-DOS drive letter, like <TT>`C:\MYDIR\MYPIC.PCX'</TT>) then
+the Cogsys system constant <CODE>DEFAULT_PIC_PATH</CODE> (by default,
+<TT>`'</TT>) is prepended to the file before it is
+loaded.
+</P><P>
+
+It continues scanning input until it gets to another Load Picture References
+command, or reaches the end of file. This command can not be run within
+a macro.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Load Picture References
+<DT>Class:
+<DD>Pictures
+<DT>Code:
+<DD><CODE>%B</CODE>
+<DT>Syntax:
+<DD><CODE>%B</CODE> [ <CODE> [<VAR>pictype</VAR></CODE>[<CODE>, <VAR>picpath</VAR></CODE>]
+<BR><VAR>pictype</VAR> is 1 or 2, representing picture type
+<BR><VAR>picpath</VAR> is a pathname
+<DT>System:
+<DD>If present, changes the current picture type <VAR>pictype</VAR> and the picture path to <TT>`<VAR>picpath</VAR>'</TT>.
+Then, it scans the input list up to the next <CODE>%B</CODE> or EOF for <CODE>#B</CODE> calls which refer
+pictures by name, and loads the referred pictures.
+<DT>Requires:
+<DD>This command can not be run within a macro.
+<DT>History:
+<DD>As noted at the beginning of this section, picture loading before
+Cogsys 3 was very inefficient and awkward.
+<P>
+
+The history notes for Load Picture List detail one way translate a list which uses the
+<CODE>%F</CODE>/<CODE>!<small>...</small>!</CODE> mechanism.
+</P><P>
+
+Alternatively, Load Picture References can be used to avoid the need for a list entirely.
+Start the block of commands which display pictures with a <CODE>%B</CODE> command. Then,
+replace calls to <CODE>#B</CODE> with ones which directly name the picture you want each to display.
+</P><P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`LPIR_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>%B[2,C:\PICTURES]#B[DAFFY,20]</CODE>
+<DT>cogsys
+<DD>The <CODE>%B</CODE> command explicitly sets the picture type to 2 and sets the default
+picture path to <TT>`C:\PICTURES'</TT>. Cogsys then scans the input for occurences of
+<CODE>#B</CODE> like the one immediately following, and loads the picture it references
+(here, <TT>`C:\PICTURES\DAFFY.PCX'</TT>. Then, the <CODE>#B</CODE> command displays the picture
+for 20 milliseconds.
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_57.html#SEC65"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_59.html#SEC67"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

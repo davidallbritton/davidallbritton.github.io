@@ -1,0 +1,38 @@
+
+practice[0],target[1],respse[1],verbtype[1:2],lag[0,2]     03-06-02     12:13:48
+
+Mean RT by Lag and Verb Type, correct only, mean of all subjects
+
+Table of RESPRT conditional on LAG, VERBTYPE
+
+Filtered variable(s):
+   PRACTICE[0]
+   VERBTYPE[1:2]
+   LAG[0,2]
+   TARGET[1]
+   RESPSE[1]
+
+Cell values are:
+   MEAN       
+   N          
+   ST. DEV.   
+
+
+VERBTYPE \ LAG
+
+    \      0          2          ALL
+
+1          3283.64    2904.36    3094.00    
+1          96.00      96.00      192.00     
+1          2472.91    1990.62    2252.75    
+
+
+2          3233.16    2752.46    2992.81    
+2          96.00      96.00      192.00     
+2          2008.43    2057.67    2047.36    
+
+
+ALL        3258.40    2828.41    3043.40    
+ALL        192.00     192.00     384.00     
+ALL        2252.82    2025.85    2153.10    
+

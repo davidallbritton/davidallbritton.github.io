@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Scope Display</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Scope Display">
+<META NAME="keywords" CONTENT="Cogsys: Scope Display">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC74"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_65.html#SEC73"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_67.html#SEC75"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_69.html#SEC77"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.6.2 Scope Display (<CODE>#U</CODE>) </H4>
+<!--docid::SEC74::-->
+<P>
+
+Scope Display displays a string of characters on the scope for the specified
+amount of time. The text is displayed with the current scope attributes, set by
+Set Scope Attributes.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Scope Display
+<DT>Class:
+<DD>Scope
+<DT>Code:
+<DD><CODE>#U</CODE>
+<DT>Syntax:
+<DD><CODE>#U[<VAR>time</VAR>,<VAR>text</VAR>]</CODE>
+<BR><VAR>time</VAR> is an integer from 0 to  (<CODE>FAIRTIME</CODE>).
+<BR><VAR>text</VAR> can not contain a <SAMP>`]'</SAMP> character.
+<DT>System:
+<DD>Displays <VAR>text</VAR> on the scope with current attributes for <VAR>time</VAR> milliseconds.
+<P>
+
+<DT>History:
+<DD>Before Cogsys 3, the <VAR>time</VAR> variable appeared before the opening bracket.
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`SCOD_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>#U[50,hi there]</CODE>
+<DT>cogsys
+<DD>Displays <SAMP>`hi there'</SAMP> with the current scope attributes on the scope for 50 milliseconds.
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

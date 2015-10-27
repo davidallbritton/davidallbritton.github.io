@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Cogsys Extensions</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Cogsys Extensions">
+<META NAME="keywords" CONTENT="Cogsys: Cogsys Extensions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC91"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_82.html#SEC90"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_80.html#SEC88"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_81.html#SEC89"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 3.1.4.2 Cogsys Extensions </H4>
+<!--docid::SEC91::-->
+<P>
+
+Cogsys extensions work in exactly the same way, with a powerful new
+feature.  Normally, the main program can access the dynamically loaded
+code, but never the other way around. A moment's reflection shows why
+this so--dynamic libraries are naturally designed to work with many
+different programs.  For instance, a paint program may call a library to
+draw a JPEG image, but a web browser may also use that same library to
+display an image. The JPEG library doesn't know what program is calling
+it, and it doesn't care--there is no reason why the JPEG library would
+need to know, for example, what font the word processor is currently
+in. If it did, what would it do when it was being called by the
+paint program? Thus, traditional dynamically linked libraries do not
+access the main program; it is a one-way street only.
+</P><P>
+
+Because DOS does not have a dynamic loading facility, and because Cogsys
+must run in DOS for real time accuracy, one had to be designed from scratch.
+And since Cogsys extensions are used <EM>only</EM> by Cogsys, it does make
+sense for the extension to have access to the main program, for example,
+an extension may want to know the value of a Cogsys user variable. So
+Cogsys extensions were designed to allow <EM>two-way</EM> communication between
+the CXR and Cogsys.
+</P><P>
+
+Of course, this means that fixups must be performed in <EM>both</EM> the
+main program <EM>and</EM> the extension. This in turn implies that the
+extension must somehow know exactly where all of the pieces of the main
+Cogsys program were actually loaded in memory; this information is
+normally not available to a running program.
+</P><P>
+
+The "last person" who actually knew where Cogsys objects were
+actually positioned was the static linker. As it happens, for debugging
+purposes, most linkers allow the creation of a <EM>map file</EM>, which
+is a table which tells where each object was positioned. By saving this table
+and keeping it with the main program, Cogsys is able to fixup the
+extension and allow two-way communication.
+</P><P>
+
+To this description must be added that purely for reasons of efficiency
+and convenience, the linker map file and the extension object files are
+translated into special formats that make them more compact and easier
+to handle by custom programs that are part of the Cogsys extensions
+developer kit.  The <CODE>MKMAP</CODE> (make map) program turns the linker map
+file into a binary map file <TT>`COGSYS3<VAR>x</VAR>.BIM'</TT>, and the
+<CODE>COGXRG</CODE> (Cogsys extension routine generator) turns the extension's
+object files into <TT>`.CXR'</TT> files.
+</P><P>
+
+The whole process can be summarized like this:
+</P><P>
+
+<UL>
+<LI>
+Cogsys Developer:
+<UL>
+<LI>
+Compiles and Links Cogsys source files, gets executable <TT>`COGSYS.EXE'</TT>
+<LI>
+Map file is saved as <TT>`COGSYS.MAP'</TT>
+Runs <CODE>MKMAP</CODE> to make <TT>`COGSYS3<VAR>x</VAR>.BIM'</TT>
+<LI>
+<TT>`COGSYS3<VAR>x</VAR>.BIM'</TT> is distributed with <TT>`COGSYS.EXE'</TT>
+</UL>
+<P>
+
+<LI>
+Extension Developer:
+<UL>
+<LI>
+Compiles a new extension, gets object <TT>`EXT.OBJ'</TT>
+<LI>
+Runs <CODE>COGXRG</CODE> on object file to get <TT>`EXT.CXR'</TT>
+</UL>
+<P>
+
+<LI>
+Cogsys User:
+<UL>
+<LI>
+Make a call to <CODE>%X[EXT.CXR]</CODE>
+<LI>
+Cogsys loads <TT>`EXT.CXR'</TT> into memory
+<LI>
+Cogsys fixes up main program references to <CODE>EXT.CXR</CODE>
+<LI>
+Cogsys opens the binary map file, <TT>`COGSYS3<VAR>x</VAR>.BIM'</TT>
+<LI>
+Cogsys fixes up extension references to main program
+<LI>
+Extension is now ready for use by commands (like <CODE>%I</CODE>) that use it
+</UL>
+</UL>
+<P>
+
+The next section describes the details of creating an extension.
+</P><P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_82.html#SEC90"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_80.html#SEC88"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_81.html#SEC89"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Psy 422 - Week 5</title>
+  <link rel="stylesheet" type="text/css" href="psy422-styles.css" />
+  <meta name="generator" content="amaya 5.3, see http://www.w3.org/Amaya/" />
+</head>
+
+<body>
+<h1 style="text-align: center">Psy 422 Week 5 - JavaScript (Part 2)</h1>
+
+<p>This week we will introduce the idea of <em>object-oriented programming</em>
+   and learn to use the XHTML document object model with JavaScript:</p>
+
+<ul>
+  <li>Object-oriented programming:  objects, attributes, and methods</li>
+  <li>The XHTML document object model</li>
+  <li>Interacting with form data using the document object model</li>
+</ul>
+
+<hr />
+
+<h2>Object-Oriented Programming</h2>
+
+<p>
+   Javascript is <em>object oriented</em>.  What is that and what is the point of
+   object-talk in programming?  Objects are the next step in making programs more
+   modular and re-usable.  In "traditional" structured programming techniques, 
+   we used <em>functions</em> to help break tasks down into parts and make the
+   solutions re-usable.  Objects take this idea further by tying functions to 
+   a particular type of data and putting the two together in an object.
+   An object has <em>attributes</em>
+   (properties, or data) and <em>methods</em> (functions) associated with it. 
+   Objects hide (<em>encapsulate</em>) the data they contain.  The result is that
+   once an object is defined, the programmer can use and re-use it without
+   having to directly interact with the nitty-gritty of the data in the object.
+   The net results are more modular programs that are easier to re-use.
+   </p>
+   
+<p>You have already encountered some Javascript objects and methods.  The 
+   <strong>document.writeln</strong> "function," for example, is actually 
+   a method (<strong>writeln</strong>) of the <strong>document</strong> object.
+   Similarly, the <strong>window</strong> object has a method called <strong>
+   prompt</strong> that you have used to get input from web page users.  You 
+   also have seen examples of methods associated with the <strong>Math</strong>
+   object, such as <strong>Math.random()</strong>.  Note how the <em>dot 
+   operator</em> is used to reference the attributes and methods of an object.   
+</p>
+
+<p class="question">1. Arrays are objects in Javascript.  
+  Complete questions 20-24 from Week 4, if you have not 
+  already done so.  </p>
+
+  <p><em>Instances</em> of an object inherit the methods and attributes of that
+  object.  For example, the <strong>String</strong> object has a method
+  <strong>split</strong> that breaks a string into separate tokens.  An instance
+  of the String object inherets this method and can invoke it - as shown in
+  the following example file:</p>
+  
+<p><a href = "object1.html"  target="_blank">object1.html</a></p>
+
+<div class = "question"><p>2.  Modify <em>object1.html</em> to do the following:</p>
+   <ul>
+       <li> Add another form element that displays the longest
+          word of the sentence.  You will need to consult your book or an on-line
+          Javascript reference to find a String method or attribute that you can
+          use to figure out which word is the longest.</li>
+       <li>Add another form element that displays the number of words in
+          Paragraph 2.</li>
+       <li>Create a table with one word per row to display the sentence the
+          user types in. Use "document.writeln" and the table will appear in a
+          new (blank) document.  For extra credit, you can consult the JavaScript
+          links about the "Document Object Model" on the resources page and 
+          figure out how to insert the table into the current document window 
+          instead.
+          </li>
+    </ul>
+</div>
+
+<p>Here are two more files that you might find useful as examples of
+  using the document object model with JavaScript: <br />
+   <a href="object2.html" target = "_blank">object2.html</a> 
+   <a href="object3.html" target = "_blank">object3.html</a> 
+</p>
+
+<hr />
+
+<h2>Events</h2>
+
+<p>Now that you have have learned a bit about objects and how to use 
+   Javascript to dynamically change the elements of an XHTML document,
+   we will look at some examples that demonstrate <em>event-driven</em>
+   programming in Javascript.  Events, such as mouse clicks, mouse movements,
+   or reloading the page, can be used to trigger actions.  Typically, you 
+   will use Javascript to define a function, and then call the function
+   from within the body of your XHTML document when some event occurs.  
+   You have already seen an example of this with the "submit" button of 
+   <em>object1.html</em>.</p>
+   
+<p>The following examples are borrowed from Ching Fan Sheu's section of this 
+   course from a while back.  They illustrate a number of uses of <em>events</em>
+   with Javascript programs.  Note that these examples use HTML rather than 
+   XHTML, and that semicolons are omitted in many of the scripts.  </p>
+
+<p>I suggest you copy the entire directory /var/www/html/psy422/myjs to your
+   public_html directory so that you can easily make changes and do the 
+   assigned exercises.</p>
+   
+
+<p>Here are the images used in these examples: <br />
+  <a href="myjs/T1.gif" target="_blank">T1.gif</a>   
+  <a href="myjs/T2.gif" target="_blank">T2.gif</a>   
+  <a href="myjs/T3.gif" target="_blank">T3.gif</a>
+  <a href="myjs/T4.gif" target="_blank">T4.gif</a>   
+  <a href="myjs/T5.gif" target="_blank">T5.gif</a>   
+  <a href="myjs/T6.gif" target="_blank">T6.gif</a>
+  <a href="myjs/T7.gif" target="_blank">T7.gif</a>   
+  <a href="myjs/T8.gif" target="_blank">T8.gif</a>   
+  <a href="myjs/T9.gif" target="_blank">T9.gif</a>
+  <a href="myjs/T10.gif">T10.gif</a>  </p>
+
+
+<p>Here are two examples we will look at together:
+  <br />
+  <a href = "myjs/x1.html" target="_blank">x1.html</a>
+  <a href = "myjs/x2.html" target="_blank">x2.html</a>
+</p>
+
+<p>Here are three examples for you to work on:
+   <br /><a href="myjs/x3.html" target="_blank">x3.html</a>   <a
+   href="myjs/x4.html" target="_blank">x4.html</a>   
+   <a href="myjs/x5.html" target="_blank">x5.html</a>  </p>
+
+<p class = "question">3. Explain what these pages do and how do they achieve those
+   effects.</p>
+
+<p class = "question">4. Modify one or more of
+   these pages so that they achieve some other effects of
+   your fancy.  Describe the modifications you made and what they do.</p>
+
+<p>
+   Here is a link to some
+   <a href = "myjs/index.html" target="_blank">other examples</a>
+   of JavaScript programming from a previous section of the course that you 
+   may find useful.
+</p>
+
+<hr />
+
+
+<div class = "question">
+ <p>  5. Use what you have learned so far about XHTML and Javascript to create
+   a web page that does the following: (As always,
+   link the page from your class home page.)
+ </p>
+   <ul>
+     <li>Randomly select one of five words to present to the user.  You
+        specify the five words in advance rather than having them entered
+        through the web page.</li>
+     <li>Present the word for 2.5 seconds.</li>
+     <li>Have the user make some response to the word</li>
+     <li>Give feedback based on the response.  There should be at
+       least 2 possible feedback messages that could be given, 
+       depending on what the user's response was.</li>
+   </ul>
+</div>
+
+<!--Indicates this page validated as XHTML 1.0  -->
+
+<p><a href="http://validator.w3.org/check/referer"><img
+src="/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width="88"
+/></a></p>
+</body>
+</html>

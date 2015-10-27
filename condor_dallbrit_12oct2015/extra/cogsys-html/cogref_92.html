@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: SQUAREXT</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: SQUAREXT">
+<META NAME="keywords" CONTENT="Cogsys: SQUAREXT">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC100"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_91.html#SEC99"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_93.html#SEC101"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_94.html#SEC102"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.2 <CODE>SQUAREXT</CODE> </H3>
+<!--docid::SEC100::-->
+<P>
+
+Syntax:
+<CODE>SQUAREXT</CODE> <VAR>sidelength</VAR> [ <VAR>xoffset</VAR> <VAR>yoffset</VAR> ]
+</P><P>
+
+The square extension, <CODE>SQUAREXT</CODE>, is the simplest extension.  It
+simply draws a white square outline on a black background.
+<CODE>SQUAREXT</CODE> requires a single positive integer, <VAR>sidelength</VAR>,
+which specifies the size of the square to draw.  It can also take the
+integer position arguments, <VAR>xoffset</VAR> and <VAR>yoffset</VAR> to move the
+square from the origin (center of the picture).
+</P><P>
+
+In the complete testlist below, each <CODE>%I</CODE> command creates one
+picture, which consists of a square outline drawn in white on a black
+background with a side length of 30 pixels, in varying positions around
+the origin.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>%X[SQUAREXT.CXR]
+%M2%C2
+%I[1,30,-50,-50]
+%I[1,30,50,-50]
+%I[1,30,50,50]
+%I[1,30,-50,50]
+#B[1,20]#R
+#B[2,20]#R
+#B[3,20]#R
+#B[4,20]#R
+</pre></td></tr></table></P><P>
+
+This example creates pictures like these:
+</P><P>
+
+<TABLE>
+<TR><TD><CENTER><IMG SRC="images/squar1.jpg" ALT="images/squar1"></CENTER></TD>
+</TD><TD>  <CENTER><IMG SRC="images/squar2.jpg" ALT="images/squar2"></CENTER>
+</TR>
+<TR><TD><CENTER><IMG SRC="images/squar3.jpg" ALT="images/squar3"></CENTER></TD>
+</TD><TD>  <CENTER><IMG SRC="images/squar4.jpg" ALT="images/squar4"></CENTER>
+</TR></TABLE>
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_93.html#SEC101"><CODE>SQUAREXT</CODE> Implementation</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

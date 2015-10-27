@@ -1,0 +1,14 @@
+2. The British Physician Study randomly chose two thirds of the participating doctors to take a daily dose of aspirin.  The other one third were not given a placebo, but instead were instructed "to avoid aspirin and production containing aspirin unless some specific indication for aspirin was thought to have developed."  Below is a table summarizing the results of the aspirin on fatal heart attacks:
+
+ 
+Fatal heart attack
+No fatal heart attack
+Daily Aspirin
+89
+3340
+Avoid Aspirin
+47
+1663
+a.  What is the risk of fatal heart attack for the two groups, the daily aspirin group and the avoid aspirin group?
+b.  What is the relative risk of fatal heart attack for these two groups?  Express your answer in a well-crafted sentence. You must express your answer clearly in a sentence for credit.
+c. What is the increased risk of fatal heart attack for the group that avoided aspirin? Express your answer in a well-crafted sentence. You must express your answer clearly in a sentence for credit.

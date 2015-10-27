@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Display Picture</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Display Picture">
+<META NAME="keywords" CONTENT="Cogsys: Display Picture">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC67"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_58.html#SEC66"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_60.html#SEC68"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.5.4 Display Picture (<CODE>#B</CODE>) </H4>
+<!--docid::SEC67::-->
+<P>
+
+The Display Picture command displays a picture. The picture may be
+referenced either by name or number. It is also given a timelimit within
+which picture must be displayed; Display Picture shows the image and
+waits until the specified number of milliseconds have elapsed since it
+started.
+</P><P>
+
+In addition, the position of the picture may be specified. If it is
+omitted, the default position for the current picture type is used.
+</P><P>
+
+<EM>Note:</EM> Do not use filenames for pictures that start with numbers. Display
+Picture will interpret an argument that starts with a digit as a picture
+number, not a filename that starts with a digit.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Display Picture
+<DT>Class:
+<DD>Picture
+<DT>Code:
+<DD><CODE>#B</CODE>
+<DT>Syntax:
+<DD><CODE>#B[<VAR>picname</VAR> | <VAR>picnum</VAR>,<VAR>time</VAR></CODE>[<CODE>,<VAR>x</VAR>,<VAR>y</VAR></CODE>]<CODE>]</CODE>
+<BR><VAR>picname</VAR> is a filename
+<BR><VAR>picnum</VAR> is an integer u
+<BR><VAR>time</VAR> is a timelimit from 0 to <CODE>FAIRTIME</CODE> (by default, )
+<BR><VAR>x</VAR> is an integer from 0 to (width of current mode - width of current picture)
+<BR><VAR>y</VAR> is an integer from 0 to (height of current mode - height of current picture)
+<DT>System:
+<DD>Displays the picture identified by <VAR>picname</VAR> or <VAR>picnum</VAR>.  Picture is positioned at
+(<VAR>x</VAR>,<VAR>y</VAR>), or at current picture type's default display location. Display Picture
+ensures that it takes exactly <VAR>time</VAR> milliseconds to complete.
+<DT>Requires:
+<DD>Cogsys must be in a graphics mode. The referenced picture must already be loaded by either
+the Load Picture List, Load Referenced Pictures, or Create Pictures by CXR commands.
+<P>
+
+<DT>History:
+<DD>Before Cogsys 3, the <CODE>#B</CODE> command meant display <EM>next</EM> picture; which meant
+that the order of pictures had to be enumerated with the <CODE>!<small>...</small>!</CODE> construction beforehand.
+<P>
+
+Now, each <CODE>#B</CODE> requires an argument specifying which picture to display. This couples
+the picture identifier with command that displays it, which is far more easier to work with.
+</P><P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`PICT_T01.IN'</TT>
+<DD>tests basic operation
+<DT><TT>`PICT_B01.IN'</TT>
+<DD>performs benchmarks for picture display
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>#B[26,20</CODE>
+<DT>cogsys
+<DD>Display picture 26 and waits until 20 ms have elapsed since start of command.
+</DL>
+<P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>#B[DAFFY,30,10,10</CODE>
+<DT>cogsys
+<DD>Displays the picture stored in file <TT>`<VAR>default-path</VAR>/DAFFY.PCX'</TT>
+at position (10,10) and waits until 30 milliseconds have
+elapsed. <VAR>default-path</VAR> is either the default picture path,
+, or is the value explicitly set by the
+most recent <CODE>%B</CODE>.
+</DL>
+<P>
+
+</DL>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_58.html#SEC66"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_60.html#SEC68"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

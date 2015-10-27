@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml">
+                                    
+<!-- by David Allbritton -->
+
+  <head>
+    <title>Sperling Demo:  Full Report Procedure</title>
+    <script type = "text/javascript">
+<!--
+
+function clearScreen()
+{
+  document.writeln("<body></body>");
+}
+
+function showLetters()
+{
+  document.writeln("<body><h1>       A</h1></body>");
+}
+
+function replacePar2()
+{
+  elementId = document.getElementById("paragraph2");
+  newContent = "ZZZZZZZ";
+  elementId.innerText = newContent;
+}
+
+function mainProg()
+{
+setTimeout('clearScreen()',0);
+setTimeout('showLetters()',1500);
+setTimeout('replacePar0()',2000);
+setTimeout('replacePar2()',2500);
+}
+
+
+// -->
+</script>
+  </head>
+  <body onclick = "mainProg()">
+    <p id = "paragraph2" name = "paragraph2" >
+    Click to begin 
+    </p>
+    
+  </body>
+</html>

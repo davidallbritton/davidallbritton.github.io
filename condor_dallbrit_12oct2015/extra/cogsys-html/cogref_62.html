@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Multiframe Cycling Picture Response</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Multiframe Cycling Picture Response">
+<META NAME="keywords" CONTENT="Cogsys: Multiframe Cycling Picture Response">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC70"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_61.html#SEC69"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_63.html#SEC71"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.5.7 Multiframe Cycling Picture Response (<CODE>%K</CODE>) </H4>
+<!--docid::SEC70::-->
+<P>
+
+The Multiframe Cycling Picture Response command allows the user to show a series
+of loaded pictures in an endless loop. The pictures can come from any of
+the Cogsys picture loading/creating commands: Load Picture List, Load
+Referenced Pictures, or Create Pictures by CXR. The loop continues
+until the subject presses a key, which is then written to output.
+</P><P>
+
+Multiframe Cycling Picture Response takes a single triplet to specify
+the start picture, end picture and frames per picture that each image
+is to be displayed for.
+</P><P>
+
+Multiframe Cycling Picture Response will terminate Cogsys execution of
+the experiment if the <KBD></KBD>
+(<CODE>BREAKOUT_CHAR</CODE>) key is entered.
+</P><P>
+
+Multiframe displays are synchronized to the monitor's raster beam, which
+ensures that an image is displayed for exactly the number of frames
+that the user specifies.
+</P><P>
+
+If a testlist uses any of the multiframe picture command (Multiframe
+Picture Display <CODE>%J</CODE>, Multiframe Cycling Picture Response
+<CODE>%K</CODE>, or Multiframe Picture Response <CODE>%L</CODE>), Cogsys
+empirically measures the frame rate before the experiment begins and
+appends lines to the output explicitly stating the refresh rate and
+frame speed for this experiment.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Multiframe Cycling Picture Response
+<DT>Class:
+<DD>Pictures
+<DT>Code:
+<DD><CODE>%K</CODE>
+<DT>Syntax:
+<DD><CODE>%K[<VAR>start</VAR>,<VAR>end</VAR>,<VAR>frames</VAR>]</CODE>
+<BR><VAR>start</VAR> and <VAR>end</VAR> are integers from 1 to one less than  (<CODE>MAX_UNIQUE_PICS</CODE>)
+<BR><VAR>frames</VAR> is an integer from 1 to  (<CODE>MAX_FRAMES</CODE>)
+<P>
+
+<DT>System:
+<DD>Displays the pictures from <VAR>start</VAR> to <VAR>end</VAR> for <VAR>frame</VAR> pictures each. 
+<P>
+
+<DT>Output:
+<DD>The key pressed and time are written to output.
+<P>
+
+<DT>Requires:
+<DD>Cogsys must be in a graphics mode, and the referenced pictures must be loaded.
+<P>
+
+<DT>Breakout:
+<DD>YES
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`MCPR_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>%K[1,10,1]</CODE>
+<DT>cogsys
+<DD>Continuously displays pictures 1 through 10 for one frame each in an endless loop, starting
+again with picture 1 after displaying picture 10.
+<DT>subject
+<DD>Presses <KBD>z</KBD> 1000 milliseconds after command starts.
+<DT>output
+<DD><CODE>z1000</CODE>
+</DL>
+<P>
+
+</DL>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_61.html#SEC69"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_63.html#SEC71"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

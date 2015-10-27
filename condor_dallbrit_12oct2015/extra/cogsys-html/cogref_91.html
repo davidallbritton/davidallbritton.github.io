@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Extension Use</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Extension Use">
+<META NAME="keywords" CONTENT="Cogsys: Extension Use">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC99"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_92.html#SEC100"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_109.html#SEC117"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.1 Extension Use </H3>
+<!--docid::SEC99::-->
+<P>
+
+As described in the beginning of this chapter, an extension is a Cogsys
+"plugin" that provides some extra functionality. In Cogsys 3.x, all of
+the included extensions draw pictures. They are loaded into Cogsys lists
+are truntime by the <SAMP>`%X'</SAMP> command (see section <A HREF="cogref_34.html#SEC42">Load External Routine</A>).  They are used in Cogsys
+teslists by calling the <SAMP>`%I'</SAMP> command (see section <A HREF="cogref_60.html#SEC68">Create Pictures from CXR</A>).
+</P><P>
+
+It is important to note that the <SAMP>`%I'</SAMP> command takes one required
+argument (the number of pictures to create) and has one optional
+requirement, the preimage specification. <EM>After</EM> those arguments
+are parsed, the rest of the information in a <SAMP>`%I'</SAMP> command is passed
+directly to the extension. <EM>The extension does not (and can not)
+know about the <SAMP>`%I'</SAMP> arguments, because it is independent of the
+call mechanism.</EM> In the documentation that follows, arguments are
+numbered naturally, from 1; but it is important to understand that the
+<CODE><VAR>n</VAR></CODE>th extension argument might be the <CODE>(<VAR>n</VAR>+1)</CODE>th or <CODE>(<VAR>n</VAR>+2)</CODE>th
+argument in a <SAMP>`%I'</SAMP> call.
+</P><P>
+
+Syntax synposes are given like this:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>EXTENSION <VAR>arg1</VAR> <VAR>arg2</VAR> ...
+</pre></td></tr></table></P><P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

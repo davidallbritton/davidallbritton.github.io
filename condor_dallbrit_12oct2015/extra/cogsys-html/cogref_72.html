@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Button Response</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Button Response">
+<META NAME="keywords" CONTENT="Cogsys: Button Response">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC80"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_71.html#SEC79"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_73.html#SEC81"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_69.html#SEC77"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_75.html#SEC83"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.7.3 Button Response (<CODE>#V</CODE>) </H4>
+<!--docid::SEC80::-->
+<P>
+
+The Button Response command waits until a game port button is
+pressed. It then writes <SAMP>`'</SAMP> and the
+elapsed time to output. Note specifically that regardless of which
+button was pressed, <SAMP>`'</SAMP> is written.
+</P><P>
+
+Button Response will terminate Cogsys execution of the experiment if the
+<KBD></KBD> (<CODE>BREAKOUT_CHAR</CODE>) key is entered.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Button Response
+<DT>Class:
+<DD>Game Port
+<DT>Code:
+<DD><CODE>#V</CODE>
+<DT>Syntax:
+<DD><CODE>#V</CODE>
+<DT>System:
+<DD>Waits until any game port button is pressed. Writes
+<SAMP>`'</SAMP> to output.  Cogsys variable
+ (<CODE>COGVAR_KEY</CODE>) is updated with
+<SAMP>`'</SAMP>.  Cogsys variable
+ (<CODE>COGVAR_TIME</CODE>) is updated with the reaction
+time.
+<P>
+
+<DT>Output:
+<DD><SAMP>`'</SAMP> and the time are written to output.
+<DT>Breakout:
+<DD>YES
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`BUTR_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>#V</CODE>
+<DT>subject
+<DD>Press a button after 100 milliseconds.
+<DT>output
+<DD><CODE>100</CODE>
+</DL>
+<P>
+
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

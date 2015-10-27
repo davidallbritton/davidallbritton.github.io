@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="AUTHOR" CONTENT="David Allbritton">
+	<META NAME="CREATED" CONTENT="20070107;1421872">
+	<META NAME="CHANGEDBY" CONTENT="David Allbritton">
+	<META NAME="CHANGED" CONTENT="20070107;3170684">
+	<STYLE>
+	<!--
+		@page { size: 8.5in 11in; margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		H3 { margin-bottom: 0.08in }
+		H3.western { font-family: "Arial", sans-serif }
+		H1 { margin-bottom: 0.08in }
+		H1.western { font-family: "Arial", sans-serif; font-size: 16pt }
+		H1.cjk { font-family: "Lucida Sans Unicode"; font-size: 16pt }
+		H1.ctl { font-family: "Tahoma"; font-size: 16pt }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P ALIGN=RIGHT STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>Honors
+207: Introduction to Cognitive Science</FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<H1 CLASS="western" ALIGN=CENTER>Lab 2:  
+</H1>
+<H1 CLASS="western" ALIGN=CENTER>A Rule-based Model for the Past
+Tense of Verbs</H1>
+
+<P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>You may
+work with a partner for this lab assignment, but each of you must
+turn in your own set of answers to the lab and discussion questions.</FONT></FONT></P>
+
+<P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>In this
+lab, you will create a rule-based formal model of English speakers'
+knowledge of the past tenses of verbs.  (Later, we will contrast
+rule-based approaches to connectionist approaches for modeling
+linguistic phenomena.  This lab and the associated readings focus
+primarily on rule-based approaches.)   More precisely, you will
+modify an existing model by adding new rules.  Your goal is to create
+a model that can correctly produce the past tense form of as many
+verbs as possible.  After you have created your model, you will then
+compare its performance to that of the models created by the rest of
+the class and we will see who's model emerges victorious.</FONT></FONT></P>
+
+<P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>To
+build your model, go to the <A HREF="http://alarm.cti.depaul.edu/verbs">Verb
+Inflection Engine</A> web page, where you will find a list of rules
+implementing an as-yet-rather-inadequate model of how <BR>English
+speakers transform present tense verbs to create various inflected
+verb forms.  It uses a fairly straightforward syntax that you should
+be able to figure out by example.  A few hints: &quot;*A&quot;
+matches any combination of any number of letters; &quot;$V&quot;
+matches a single vowel; &quot;$C&quot; matches a single consonant. 
+Each run of the model (each time you give it a verb in the input box
+to inflect) begins at the top of the list of rules and finishes with
+the first rule containing a pattern that matches the verb in the
+input box.  </FONT></FONT>
+</P>
+
+<P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>This
+assignment has several steps:</FONT></FONT></P>
+<H3 CLASS="western">Step 1:  Due Wednesday</H3>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>Start
+	by creating a list of 10 verbs, both regular and irregular.</FONT></FONT></P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>Try
+	to add rules until the past tense can be correctly produced for all
+	10. (We will only try to model the simple past tense, not any other
+	tenses).</FONT></FONT></P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>Post
+	your set of rules and your 10 verbs on the Blackboard Discussion
+	Board (no later than Wed. night).  </FONT></FONT>
+	</P>
+</UL>
+
+<H3 CLASS="western">Step 2:  Due Friday</H3>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>Create
+	a single list that contains all the verbs that everyone used - all
+	the words from all the sets of 10 verbs, including yours.  Be sure
+	to eliminate duplicate words so that each word appears in the list
+	only once; hint: use the sort function of a word processor to find
+	duplicates, or in unix you can use &quot;sort | uniq&quot; to
+	eliminate duplicates.  </FONT></FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>What
+	was the total number of words in the resulting list? (To make sure
+	we are all using the same list of verbs)</FONT></FONT></P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>For
+	what proportion of them did your rules produce the right output?  </FONT></FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>Post
+	on Blackboard the total number of words tested, the proportion that
+	your rules got right, and the number of rules you had in your model.
+	  Finally, paste in your rules again at the bottom of the message.</FONT></FONT></P>
+</UL>
+
+<H3 CLASS="western">Step 3:  Due Next Class Meeting</H3>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>Turn in
+a discussion of your model and how well it did, addressing the
+following questions:</FONT></FONT></P>
+
+<OL TYPE=A>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>Describe
+	the general strategy of your model - how did you choose your 10
+	words, and how did you design your rules?  Were your rules just
+	designed to fit your 10 words, or did you have a more global
+	strategy in mind?</FONT></FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>How
+	well did your model do on the full set of words, compared to on your
+	10 words?  Can you identify any particular types of words your model
+	had problems with?  </FONT></FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>How
+	well did your model do compared to everyone else's?  Where did your
+	model rank in terms of proportion correct? (1st place, 2nd, 3rd,
+	etc.; and mention how many models there were, such as &quot;ranked
+	third of the fifteen models&quot;).  Look at the winning model and
+	compare it to yours.  What differences can you identify that made
+	the winning model outperform your model?</FONT></FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>How
+	parsimonious was your model?  Where did your model rank in terms of
+	the number of rules (remember that fewer rules is better, so the
+	number one model in this category is the one that had the fewest
+	rules).  Plot a trend line (regression line) for the correlation
+	between &quot;proportion correct&quot; and &quot;number of rules&quot;
+	for all the models created by the class.  (You can do this easily in
+	a spreadsheet such as Excel, by putting the data into 2 columns,
+	then creating an X-Y graph [scatterplot] and adding a linear trend
+	line.)  Include the graph in your document, with your group's data
+	point clearly identified.  What can you conclude from this
+	scatterplot and trend line about the general relationship between
+	parsimony and explanatory adequacy?  Were there any models that were
+	outliers (were far from the trend line)?  Based on this, which model
+	would you say was the most powerful?  Was it the same one that got
+	the highest proportion of words correct?</FONT></FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>What
+	would you say are the strengths and weaknesses of using explicit
+	rules to model English speakers' knowledge of how to form the past
+	tenses of verbs, based on your experience of trying to create such a
+	model?</FONT></FONT></P>
+</OL>
+
+<P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>Also
+answer the following <U>Discussion Questions</U> based on the
+readings and lecture:</FONT></FONT></P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>Pinker
+	and Ullman's &quot;Words and Rules&quot; theory is in some ways a
+	more sophisticated version of the rule-based model you created in
+	Lab 2.  Describe how the Lexicon and the Grammar in the Words and
+	Rules theory handle the inflections of irregular verbs and of
+	regular verbs.  How is this similar to the way your model handled
+	irregular and regular verbs?</FONT></FONT></P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>If
+	we treat Pinker and Ullman's model as a process model (a model of
+	what mental processes actually take place, and in what order they
+	happen), would it make any prediction as to which would happen
+	faster: inflecting an irregular verb or inflecting a regular verb? 
+	If so, what is the logic for making that prediction.  </FONT></FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>If
+	we treated your model from Lab 2 as a process model of verb
+	inflection, which type of verb (regular or irregular) does it
+	predict would be inflected faster?  Why?</FONT></FONT></P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Times"><FONT SIZE=3>Describe
+	one piece of evidence (from Pinker's &quot;Language Acquisition&quot;
+	chapter) that children are learning <U>rules</U><SPAN STYLE="text-decoration: none">
+	when they acquire language.</SPAN></FONT></FONT></P>
+	<LI><P STYLE="margin-bottom: 0in; text-decoration: none"><FONT FACE="Times"><FONT SIZE=3>According
+	to Kintsch's <I>Construction-Integration Model</I><SPAN STYLE="font-style: normal">,
+	what are the &quot;bottom-up&quot; processes in language
+	comprehension and what are &quot;top-down&quot;?</SPAN></FONT></FONT></P>
+	<LI><P STYLE="margin-bottom: 0in; font-style: normal; text-decoration: none">
+	<FONT FACE="Times"><FONT SIZE=3>What does Lenat's article (&quot;Hal's
+	Legacy&quot;) have to do with language comprehension?  Which one of
+	the five levels of language structure outlined in lecture does it
+	relate to most directly, and how?</FONT></FONT></P>
+</OL>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+</BODY>
+</HTML>

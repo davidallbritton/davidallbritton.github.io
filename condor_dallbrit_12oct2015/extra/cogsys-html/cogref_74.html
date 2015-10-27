@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Timed Response Any Button</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Timed Response Any Button">
+<META NAME="keywords" CONTENT="Cogsys: Timed Response Any Button">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC82"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_73.html#SEC81"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_75.html#SEC83"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_69.html#SEC77"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_75.html#SEC83"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.7.5 Timed Response Any Button (<CODE>#Q</CODE>) </H4>
+<!--docid::SEC82::-->
+<P>
+
+The Timed Response Any Button command pauses Cogsys execution until any of the
+gameport buttons are pressed or the specified timelimit expires. Each button
+is given a letter:
+</P><P>
+
+<DL COMPACT>
+<DT><SAMP>`A'</SAMP>
+<DD>Joystick 1, Button 1
+<DT><SAMP>`B'</SAMP>
+<DD>Joystick 1, Button 2
+<DT><SAMP>`C'</SAMP>
+<DD>Joystick 2, Button 1
+<DT><SAMP>`D'</SAMP>
+<DD>Joystick 2, Button 2
+</DL>
+<P>
+
+The corresponding letter is written to output with response time. If no
+key pressed within the time limit, <CODE></CODE> is
+written to output. 
+</P><P>
+
+<EM>Warning:</EM> If more than one button is pressed, the binary code
+representing the button combination is written as key pressed. Note that
+this may confuse programs expecting pure ASCII text.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Timed Response Any Button
+<DT>Class:
+<DD>Gameport
+<DT>Code:
+<DD><CODE>#Q</CODE>
+<DT>Syntax:
+<DD><CODE>#Q<VAR>timelimit</VAR></CODE>
+<DT>System:
+<DD>Waits up to <VAR>timelimit</VAR> milliseconds for a gameport button to be
+pressed.  Cogsys variable  (<CODE>COGVAR_KEY</CODE>) is
+updated with the letter code.  Cogsys variable 
+(<CODE>COGVAR_TIME</CODE>) is updated with the reaction time.
+<DT>Output:
+<DD>Writes the letter corresponding to the button pressed. If no button is pressed,
+writes <SAMP>`'</SAMP> <CODE>TIMEUP_RESP_CHAR</CODE>. If multiple buttons
+are pressed, writes a binary composite code.
+<P>
+
+<DT>Breakout:
+<DD>NO
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`TBTR_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>#Q100</CODE>
+<DT>subject
+<DD>Presses Joystick 2, Button 1 after 74 milliseconds.
+<DT>output
+<DD><CODE>C74</CODE>
+</DL>
+<P>
+
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

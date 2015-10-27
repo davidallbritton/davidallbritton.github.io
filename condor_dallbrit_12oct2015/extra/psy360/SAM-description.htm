@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://condor.depaul.edu/~dallbrit/extra/360/360-lec6-memory3-ltm.htm -->
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./SAM-description_files/filelist.xml">
+<title>SAM - a simplified introduction to the model</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>David Allbritton</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>David Allbritton</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>19</o:TotalTime>
+  <o:Created>2001-04-09T18:27:00Z</o:Created>
+  <o:LastSaved>2002-10-06T19:33:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>235</o:Words>
+  <o:Characters>1344</o:Characters>
+  <o:Lines>11</o:Lines>
+  <o:Paragraphs>2</o:Paragraphs>
+  <o:CharactersWithSpaces>1650</o:CharactersWithSpaces>
+  <o:Version>9.4402</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>75</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;
+	font-weight:bold;}
+h4
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{mso-style-update:auto;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:768738473;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-583507574 1557445166 344460098 1031993306 428404824 -320035946 509352984 760113076 -962702058 -1047897266;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:1742175307;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1440894354 1879588166 -201929030 769142240 1492003110 -525457410 -1725028124 826575586 -1566689116 1473406636;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=lightskyblue lang=EN-US link=blue vlink=blue style='tab-interval:
+.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span
+style="mso-spacerun: yes">&nbsp;</span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.25in'><b><u>SAM</u></b> -- a mathematical model of episodic memory
+</p>
+
+<ul type=disc>
+ <ul type=circle>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l1 level2 lfo2;tab-stops:list 1.0in'>Raaijmakers &amp;
+      Shiffrin, 1981; Gillund &amp; Shiffrin 1984 </li>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l1 level2 lfo2;tab-stops:list 1.0in'>Features: </li>
+  <ul type=square>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level3 lfo2;tab-stops:list 1.5in'><u>STM</u> = a
+       limited capacity buffer </li>
+   <ul type=square>
+    <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+        auto;mso-list:l1 level4 lfo2;tab-stops:list 2.0in'>accesses knowledge
+        from LTM </li>
+    <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+        auto;mso-list:l1 level4 lfo2;tab-stops:list 2.0in'>affects what is
+        stored in LTM </li>
+   </ul>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level3 lfo2;tab-stops:list 1.5in'><u>LTM</u> = a large
+       set of interconnected concepts </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level3 lfo2;tab-stops:list 1.5in'><u>retrieval</u>:
+       &nbsp;cue-dependent </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level3 lfo2;tab-stops:list 1.5in'><u>forgetting</u>:
+       &nbsp;due entirely to retrieval failure -- there is no decay in LTM </li>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level3 lfo2;tab-stops:list 1.5in'><u>context</u>
+       &nbsp;is a crucial determinant of memory performance </li>
+  </ul>
+  <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l1 level2 lfo2;tab-stops:list 1.0in'>The model: </li>
+  <ul type=square>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level3 lfo2;tab-stops:list 1.5in'>LTM consists of
+       images -- feature sets for things and events that include information
+       about </li>
+   <ul type=square>
+    <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+        auto;mso-list:l1 level4 lfo2;tab-stops:list 2.0in'>the <u>context</u>
+        of encoding of the item </li>
+    <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+        auto;mso-list:l1 level4 lfo2;tab-stops:list 2.0in'><u>item-specific</u>
+        information, such as the item's name, meaning, etc. </li>
+    <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+        auto;mso-list:l1 level4 lfo2;tab-stops:list 2.0in'><u>inter-item </u>information,
+        such as the fact that two items occurred at the same time in STM<br>
+        -- the connections between the item and context, and between the item
+        and other items depends on how long the item was in STM. &nbsp;An item
+        that is in STM a long time will form stronger connections to the
+        encoding context. &nbsp; </li>
+   </ul>
+   <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+       auto;mso-list:l1 level3 lfo2;tab-stops:list 1.5in'>retrieval </li>
+   <ul type=square>
+    <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+        auto;mso-list:l1 level4 lfo2;tab-stops:list 2.0in'>Retrieval is in
+        response to a probe. &nbsp;For recall, the probe consists of only the
+        encoding context&nbsp;(eg: probe = &quot;what words did you see in the
+        list you just read?&quot;). &nbsp;For recognition, the probe consists
+        of the encoding context and the test item (eg: probe = &quot;was the
+        word 'dog' in the list you just read?&quot;). </li>
+    <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+        auto;mso-list:l1 level4 lfo2;tab-stops:list 2.0in'>The probe activates
+        images as a function of </li>
+    <ol start=1 type=1>
+     <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+         auto;mso-list:l1 level5 lfo2;tab-stops:list 2.5in'>the similarity of
+         an image to the probe </li>
+     <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+         auto;mso-list:l1 level5 lfo2;tab-stops:list 2.5in'>the strength of the
+         connections between the image and the retrieval context, and the
+         strength of the connections between the image and other images in
+         memory. </li>
+    </ol>
+    <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+        auto;mso-list:l1 level4 lfo2;tab-stops:list 2.0in'><a
+        href="http://condor.depaul.edu/~dallbrit/extra/360/360-lec6-memory-sam-example.htm">A
+        simplified illustration of retrieval in SAM</a> (by David Allbritton)</li>
+    <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+        auto;mso-list:l1 level4 lfo2;tab-stops:list 2.0in'>A <a
+        href="http://rumpole.psych.purdue.edu/models/Sam.html">working demo</a>
+        of the model (by Ian Neath) </li>
+   </ul>
+  </ul>
+ </ul>
+</ul>
+
+</div>
+
+</body>
+
+</html>

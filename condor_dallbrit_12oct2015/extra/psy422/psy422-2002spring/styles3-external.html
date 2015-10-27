@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  <head>
+    <meta name="generator" content="HTML Tidy, see www.w3.org" />
+		
+    <title>
+      External Cascading Style Sheets in XHTML
+    </title>
+		
+    <!-- The following declares the external Cascading Style Sheet -->
+    <!-- that is to be applied to this document                    -->
+		
+    <link rel="stylesheet" type="text/css" href="styles1.css" />
+		
+    <!-- The following is an embedded style sheet                        -->
+    <!-- There are three rules defined: one for all paragraphs,          -->
+    <!-- one for paragraphs that have the class attribute "special"      -->
+    <!-- and one for all elements of any type that have the class        -->
+    <!-- attribute of "veryspecial"                                      -->
+		
+<style type="text/css">
+     p            {color: blue}
+     p.special    {color: purple}
+     .veryspecial {color: orange; font-style: bold}
+</style>
+  </head>
+	
+  <body>
+    <h1>
+      External Cascading Style Sheets
+    </h1>
+    <hr />
+    <p class="plain">
+      This page (styles3-external.html) contains the same inline
+      and embedded stylesheet styles as the previous page
+      (styles2-embedded.html). It also uses styles from an
+      external style sheet, <em>styles1.css</em>. The external
+      style sheet says to make paragraphs red; the embedded style
+      sheet says to make them blue. Look at the source of this
+      page and the file <em>styles1.css</em> to answer the
+      questions below.
+    </p>
+    <hr />
+    <p>
+      This paragraph has no inline style definition, nor does it
+      have any class attribute defined.
+    </p>
+    <p style="color: #007F00; font-style: italic">
+      This paragraph has an inline style declaration in its
+      opening &lt;p&gt; tag that causes the paragraph to be
+      printed in green and in italics.
+    </p>
+    <p class="plain">
+      This paragraph has no inline style delclaration in its
+      opening &lt;p&gt; tag, but it has the class attribute of
+      "plain."
+    </p>
+    <p style=
+    "font-family: arial, sans-serif; background-color: yellow">
+      7. Are there any differences between the way that rules are
+      declared in external style sheets versus in embedded style
+      sheets?
+    </p>
+    <p style=
+    "font-family: arial, sans-serif; background-color: yellow">
+      8. What happens when an external style sheet and an
+      embedded style sheet conflict? How did you arrive at your
+      answer?
+    </p>
+  </body>
+</html>
+

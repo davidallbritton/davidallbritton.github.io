@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml" >
+
+<!-- A simple example of a web page using frames             -->
+<!-- by David Allbritton -->
+
+  <head>
+    <title>frames1.html</title>
+  </head>
+
+<!-- The example here has 2 frames above and below each other.       -->
+<!-- Use "cols" in place of "rows" for horizontally aligned frames   -->
+
+  <frameset rows  = "300,*">
+	
+<!-- The size of the first frame is set to 300, and the size of the   -->
+<!-- second is allowed to vary to fill the rest of the browser window -->
+
+      <frame name = "topframe" src = "frames1-top.html" />
+			
+<!-- The above line gives the first frame a name (topframe) and       -->
+<!-- gives the URL (frames1-top.html) of the file to display in       -->
+<!-- that frame. The next line does the same for the lower frame.     -->
+
+      <frame name = "bottomframe" src = "frames1-bottom.html" />    
+
+<!-- The "noframes" element gets displayed if the user's browser does -->
+<!-- not support frames.                                              -->
+
+      <noframes>
+         <p>This page uses frames, but your browser does not support them.</p>
+      </noframes>
+			
+  </frameset>
+	
+<!-- Notice that there is not a "body" element - the "frameset"        -->
+<!-- element takes its place in a frameset XHTML document              -->
+	
+</html>

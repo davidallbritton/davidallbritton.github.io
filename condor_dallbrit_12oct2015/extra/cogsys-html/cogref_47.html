@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Clear Screen Cursor Stays</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Clear Screen Cursor Stays">
+<META NAME="keywords" CONTENT="Cogsys: Clear Screen Cursor Stays">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC55"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_46.html#SEC54"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_48.html#SEC56"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_39.html#SEC47"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.4.5 Clear Screen, Cursor Stays (<CODE>@R</CODE>) </H4>
+<!--docid::SEC55::-->
+<P>
+
+The Clear Screen, Cursor Stays command works in any video mode. It is
+exactly like the Clear Screen, Home Cursor command, except that the
+position of the cursor is not changed.
+</P><P>
+
+In text mode (Cogsys mode 0), the screen is cleared by writing spaces to
+all positions. In Mode 1, zero (black) is written to all pixels. In Mode
+2, however, the screen is set to the color specified by the contents of
+the Cogsys variable <CODE>COGVAR_CLEARCOLOR</CODE>, which is variable number
+, by default. All Cogsys variables are
+set to zero initially; so the default Mode 2 behavior is to create a
+black screen.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Clear Screen, Cursor Stays
+<DT>Class:
+<DD>Display Text
+<DT>Code:
+<DD><CODE>@R</CODE>
+<DT>Syntax:
+<DD><CODE>@R</CODE>
+<DT>System:
+<DD>Clears the screen to black. If in Cogsys Mode 2, clears the screen
+to the color specified by the value of Cogsys variable <CODE>COGVAR_CLEARCOLOR</CODE>.
+The position of the cursor is not changed.
+<DT>Requires:
+<DD>Clear Screen, Cursor Stays will work in any video mode.
+<DT>History:
+<DD>Before Cogsys 3, <CODE>@R</CODE> only worked in text mode, and the now now-obsolete
+<CODE>#H</CODE> command was used to clear the video modes. Cursor positioning with <CODE>#H</CODE> 
+was mode dependent--in 256-color modes (what is now called Mode 2, then Mode 101), the
+cursor was homed. In other modes, it was not.
+<P>
+
+Thus, references to the <CODE>#H</CODE> in 256 color modes should be replaced with
+<CODE>@C</CODE>. References to <CODE>#H</CODE> in other graphics modes should be
+replaced with <CODE>@R</CODE>.
+</P><P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`CSCS_T01.IN'</TT>
+<DD>tests basic operation in all three video modes
+<DT><TT>`CSCS_B01.IN'</TT>
+<DD>benchmarks the time to execute <CODE>@R</CODE> 1000 times in text mode
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>press return to erase this text,<BR>but#R@R continue writing at same position.</CODE>
+<DT>cogsys
+<DD>Writes the first part of the sentence, then waits for a keypress, erases the whole screen,
+and continues writing the sentence just after <SAMP>`but'</SAMP> was displayed.
+</DL>
+<P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>%M2$AV=10@R</CODE>
+<DT>cogsys
+<DD>Switches to video mode 2, sets the Cogsys <CODE>COGVAR_CLEARCOLOR</CODE> variable to 10,
+which is the standard palette index (<A HREF="cogref_113.html#SEC121">A. Standard Palette</A>) to green. The <CODE>@R</CODE> clears the screen
+to green, and the cursor does not move. 
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_46.html#SEC54"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_48.html#SEC56"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_39.html#SEC47"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

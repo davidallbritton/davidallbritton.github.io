@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Get Timed Key Response</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Get Timed Key Response">
+<META NAME="keywords" CONTENT="Cogsys: Get Timed Key Response">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC45"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_36.html#SEC44"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_38.html#SEC46"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_39.html#SEC47"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.2.2 Get Timed Key Response (<CODE>#C</CODE>) </H4>
+<!--docid::SEC45::-->
+<P>
+
+The Get Timed Key Response pauses Cogsys until the subject presses a key. If
+no character is pressed within a given timelimit, <CODE>TIMEUP_RESP_CHAR</CODE> is 
+written as the key pressed. Either way, the Cogsys response key and response time
+variable are updated. 
+</P><P>
+
+If the <CODE>BREAKOUT_CHAR</CODE> key is pressed, the experiment is terminated.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Get Timed Key Response
+<DT>Class:
+<DD>Direct Keyboard Input
+<DT>Code:
+<DD><CODE>#C</CODE>
+<DT>Syntax:
+<DD><CODE>#C<VAR>limit</VAR></CODE>
+<P>
+
+<VAR>limit</VAR> is a timelimit
+<DT>System:
+<DD>Cogsys variable <CODE>COGVAR_KEY</CODE> is updated with the key pressed.
+Cogsys variable <CODE>COGVAR_TIME</CODE> is updated with the reaction time.
+<P>
+
+<DT>Output:
+<DD>The key pressed and time are written to output.
+If the timelimit <VAR>limit</VAR> is reached before a key is pressed, <CODE>TIMEUP_RESP_CHAR</CODE> is written
+as the key pressed, and <VAR>limit</VAR> as the time.
+<DT>Breakout:
+<DD>YES
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`TKYR_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>Press a key within 5 seconds: #C5000</CODE>
+<DT>cogsys
+<DD>Displays the text and waits up to 5 seconds.
+<DT>subject
+<DD>Press the <KBD>z</KBD> key after 200 milliseconds.
+<DT>output
+<DD><CODE>z200</CODE>
+</DL>
+<DL COMPACT>
+<DT>input
+<DD><CODE>Press a key within 5 seconds: #C5000</CODE>
+<DT>cogsys
+<DD>Displays the text and waits up to 5 seconds.
+<DT>subject
+<DD>Does nothing.
+<DT>output
+<DD><CODE>&#38;5000</CODE>
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

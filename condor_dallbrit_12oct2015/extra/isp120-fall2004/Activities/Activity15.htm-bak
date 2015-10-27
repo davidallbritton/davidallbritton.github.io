@@ -1,0 +1,98 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>ISP 120 Activity 15: Introduction to Correlation</title>
+</head>
+
+<body>
+<div align="center"><center>
+
+&nbsp;</center></div>
+
+<div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1">
+  <tr>
+    <td width="15%"><p align="left"><strong>ISP 120</strong></td>
+    <td width="61%"><p align="center"><b>Activity 15</b></td>
+    <td width="24%"><p align="right">&nbsp;</td>
+  </tr>
+</table>
+</center></div>
+
+<p>1.&nbsp; Open the file <a href="../../../Excel_Files/StateSATs.xls">StateSATs.xls</a>
+which contains data on average SAT scores and the percent taking the SAT in each state in
+the US.</p>
+
+<blockquote>
+  <p>a.&nbsp; Sort the data to find which states have the highest average SAT scores and
+  which have the lowest.</p>
+  <p>b.&nbsp; Make a scatterplot of the average score and the percentage of students taking
+  the test. Add a linear trendline, find the correlation coefficient (use 
+	=CORREL(dataseries1, dataseries2) ) and determine the critical value for the 
+	correlation from the
+	<a href="http://qrc.depaul.edu/Excel_Files/CriticalValuesForR.xls">table</a>.&nbsp; Paste 
+	the graph into your Word document, record the correlation coefficient 
+	information.</p>
+  <p>c.&nbsp; Write a short paragraph describing the relationship between average SAT score
+  and percentage student taking the test.&nbsp; Include a reasonable explanation for the
+  type of correlation that is apparent.</p>
+  <p>d.&nbsp; How does Illinois compare in average SAT score?&nbsp; In percent taking the
+  SAT?&nbsp; Make a conjecture why so few Illinois students take the SAT.&nbsp; How would go
+  about testing your conjecture?</p>
+</blockquote>
+
+<p>2.&nbsp; Open the file <a href="../../../Excel_Files/TVLifeExpectancy.xls">TVLifeExpectancy.xls</a>,
+which contains data on life expectancy and the number of&nbsp; TV's&nbsp; per person in
+selected countries.</p>
+
+<p>a.&nbsp; Make a scatterplot of the data; adjust the scale so that 40 is the minimum on
+the y-axis.&nbsp; Add a linear trendline, find the correlation coefficient, and 
+determine the critical value of the correlation coefficient.&nbsp; Paste this
+graph into your Word document and record the correlation coefficient 
+information.</p>
+
+<p>b.&nbsp; Is there a correlation between life expectancy and number of TV's per person?</p>
+
+<p>c.&nbsp; Can we infer from the data that TV's promote (or cause) longevity?&nbsp; Can
+you name some common underlying causes for both longevity and higher rates of televisions
+per capita?</p>
+
+<p>3. Open the file <a href="../../../Excel_Files/Nielsen.xls">Nielsen.xls</a>,
+a file derived from data in the 1994 <em>World Almanac and Book of Facts</em> on 
+the Nielsen TV ratings for the favorite syndicated programs for 1992-93.&nbsp; 
+Determine the correlation coefficient&nbsp; for each of the following pairs, and 
+determine if there is a statistically significant correlation in each case by 
+comparing the correlation coefficient to the critical value in the
+	<a href="http://qrc.depaul.edu/Excel_Files/CriticalValuesForR.xls">table</a>. You 
+don't have to graph each one. When one is investigating a large number of 
+relationships, one sometimes simply calculates the correlation coefficient.<ol type="a">
+  <li>Women and Men</li>
+  <li>Women and Teenagers</li>
+  <li>Women and Children</li>
+  <li>Men and Teenagers</li>
+  <li>Men and Children</li>
+  <li>Teenagers and Children</li>
+</ol>
+
+<p>In a short well-written paragraph, explain what can be concluded from these
+correlations and absences of correlation.</p>
+
+<p>4. Open the file <a href="../../../Excel_Files/CityCrimeRates.xls">CityCrimeRates.xls</a>,
+which contains data on the crime rates (total and violent) and population.&nbsp; Determine
+the correlation coefficient value for the following pairs of variables, and 
+compare it to the critical value for a statistically significant correlation.<ol type="a">
+  <li>Crime Rate and Population</li>
+  <li>Violent Crime Rate and Population</li>
+  <li>Crime Rate and Population Density (Number of people per square mile)</li>
+</ol>
+
+<p>In a short well-written paragraph, explain what can be concluded from these
+correlations and absences of correlation.</p>
+
+</body>
+</html>

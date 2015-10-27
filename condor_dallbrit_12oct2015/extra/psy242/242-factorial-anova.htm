@@ -1,0 +1,552 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./242-factorial-anova_files/filelist.xml">
+<link rel=Edit-Time-Data href="./242-factorial-anova_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>ANOVA for factorial designs</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>David Allbritton</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>David Allbritton</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>419</o:TotalTime>
+  <o:Created>2001-04-26T03:29:00Z</o:Created>
+  <o:LastSaved>2003-03-30T06:28:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>1668</o:Words>
+  <o:Characters>9512</o:Characters>
+  <o:Lines>79</o:Lines>
+  <o:Paragraphs>19</o:Paragraphs>
+  <o:CharactersWithSpaces>11681</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;}
+h2
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:401829199;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1647561206 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:695426917;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1146720698 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:1027605349;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1393396210 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h1><span style='font-size:16.0pt;mso-bidi-font-size:12.0pt'>Analysis of
+Variance for Factorial Designs<o:p></o:p></span></h1>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>This handout will describe the steps for analyzing a 2 x 2
+factorial design in SPSS and interpreting the results.<span
+style="mso-spacerun: yes">  </span>Before beginning this section, you should already
+understand what “main effects” and “interactions” are, and be able to identify
+them from graphs and tables of means.<span style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The following line graph shows the means of the four
+conditions in the dataset that will be used to demonstrate the analysis of factorial
+designs.<span style="mso-spacerun: yes">  </span>The design is based on that of
+a published study of eating behavior of chronic dieters, but the data used in
+this demonstration is entirely fictitious.<span style="mso-spacerun: yes"> 
+</span>You should be able to identify the two independent variables and the
+dependent variable from the graph.<span style="mso-spacerun: yes">  </span>You
+should also be able to look at the graph and tell whether there appears to be a
+main effect of each independent variable, and whether there appears to be an
+interaction of the two variables.<span style="mso-spacerun: yes">  </span>Then
+you can follow the instructions below and use SPSS to determine whether the
+interaction or main effects are statistically significant.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><b>Line Graph of Hypothetical Data<o:p></o:p></b></p>
+
+<p class=MsoNormal><b><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></p>
+
+<p class=MsoNormal>IV1 = availability of snacks (participants told “don’t
+touch” vs. told “help yourself”)</p>
+
+<p class=MsoNormal>IV2 = temptation level (high = snacks near by; low = snacks
+across the room)</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:350.25pt;
+ height:280.5pt'>
+ <v:imagedata src="./242-factorial-anova_files/image001.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=467 height=374
+src="./242-factorial-anova_files/image002.gif" v:shapes="_x0000_i1025"><![endif]></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>Analysis of
+Variance for a Between-Subjects 2 x 2 Factorial Design<o:p></o:p></span></h2>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The data file that is used for this demonstration is <a
+href="242-factorial-anova-dieting.sav">242-factorial-anova-dieting</a>.<span
+style="mso-spacerun: yes">  </span>You may follow the link to download this
+file and analyze it yourself in SPSS.<span style="mso-spacerun: yes"> 
+</span>Look at the data file and identify the independent and dependent
+variables.<span style="mso-spacerun: yes">  </span>Also notice how the levels
+of each IV are coded in the data file.<span style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2>Exploratory Data Analysis</h2>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>You should begin by doing “exploratory data analysis” –
+getting descriptive statistics and graphs that will help you to identify
+possible problems in your data, such as invalid data points or outlying data
+points (“outliers”).<span style="mso-spacerun: yes">  </span>You should already
+be familiar with these concepts and procedures from your Psy 241 course; if
+not, you should review the <a
+href="http://condor.depaul.edu/~dallbrit/extra/psy241/lab4-instructions.html">notes</a>
+on this topic from my Psy 241 course (available from my home page).<span
+style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Although you could do exploratory data analysis on the
+dataset as a whole, it is usually better to examine each condition separately
+for outliers and invalid data.<span style="mso-spacerun: yes">  </span>Notice
+that an extra variable, “condition”, has been included in the data file to make
+it easier to do exploratory data analysis by condition.<span
+style="mso-spacerun: yes">  </span>“Condition” simply has values from 1 to 4,
+corresponding to the four conditions defined by the two independent variables.<span
+style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>To perform exploratory analysis on this data file, follow
+these steps in SPSS:</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Analyze
+     -&gt; Descriptive Statistics -&gt; Explore</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Select
+     the dependent variable (“grams eaten”) and move it into the “Dependent
+     List” box using the arrow button</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Select
+     the variable “condition” and move it into the “Factor list” box</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Click “OK”</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The resulting SPSS output should begin with a table labeled
+“<u>Case Processing Summary</u>.”<span style="mso-spacerun: yes">  </span>You
+should check this table to make sure that the number of observations in each
+condition is correct (in this case, 20).<span style="mso-spacerun: yes"> 
+</span>If you happened to enter some data incorrectly, this table might bring
+that to your attention.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Next you should see a long table labeled “<u>Descriptives</u>”
+containing many descriptive statistics for each condition.<span
+style="mso-spacerun: yes">  </span>You should pay special attention to the
+“minimum” and “maximum” values listed.<span style="mso-spacerun: yes"> 
+</span>If you accidentally misplaced a decimal point when entering data, you
+might notice an impossible value this way and catch your mistake.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Next you should see a series of <u>stem and leaf plots</u>,
+one for each condition.<span style="mso-spacerun: yes">  </span>You can think
+of these as sideways histograms – they show you the distribution of the data
+points in each condition.<span style="mso-spacerun: yes">  </span>SPSS also
+identifies any “Extremes” in each condition.<span style="mso-spacerun: yes"> 
+</span>These are outliers – data points that are so far from the mean of that
+condition that they probably resulted from the participant not paying attention
+or not following instructions.<span style="mso-spacerun: yes">  </span>You
+should jot down the values of any outliers that SPSS identifies.<span
+style="mso-spacerun: yes">  </span>You will probably want to go back to your
+data file and exclude those values before analyzing the data further.<span
+style="mso-spacerun: yes">  </span>In this data set, there are 4 outliers in
+condition 4:<span style="mso-spacerun: yes">  </span>two with values &lt;= 98
+and two &gt;= 269.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Finally, you should see a <u>box plot</u> – a figure that
+displays one box for each condition.<span style="mso-spacerun: yes"> 
+</span>The box plot visually displays the distribution of the data in each
+condition, and identifies outliers as points above or below the “whiskers” that
+extend from each box.<span style="mso-spacerun: yes">  </span>You should see
+the four outliers in condition 4 shown in the box plot.<span
+style="mso-spacerun: yes">  </span>This is another way of displaying the same
+information that was given in the stem and leaf plots. </p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Before going on to analyze the data further, delete the four
+outlying data points from the data file.<span style="mso-spacerun: yes"> 
+</span>To delete a data point, click on the cell containing that data point,
+then select “cut” from the Edit menu.<span style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal style='tab-stops:551.0pt'><span style='mso-tab-count:1'>                                                                                                                                                                                        </span></p>
+
+<h2>Analysis of Variance</h2>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Follow these steps to perform the analysis:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo6;tab-stops:list .5in'>Analyze
+     -&gt; General Linear Models -&gt; Univariate</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo6;tab-stops:list .5in'>Move
+     the dependent variable (“grams eaten”) into the “Dependent Variable” box</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo6;tab-stops:list .5in'>Move
+     each of the independent variables (“availability” and “temptation”) into
+     the “Fixed Factors” box</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo6;tab-stops:list .5in'>Click
+     “Options”</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo6;tab-stops:list .5in'>From
+     the box labeled “Factors and Factor Interactions” select all the main
+     effects and interactions for which you would like means to be calculated
+     and displayed.<span style="mso-spacerun: yes">  </span>You will usually
+     want to select each IV and all the interactions that involve that IV.<span
+     style="mso-spacerun: yes">  </span>Move these into the box labeled
+     “Display Means for.”</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo6;tab-stops:list .5in'>Click
+     “Continue”</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo6;tab-stops:list .5in'>Click
+     “OK”</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>You should then see “Univariate Analysis of Variance” in the
+SPSS output window.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The first table, labeled<span style="mso-spacerun: yes"> 
+</span>“<u>Between-subjects Factors</u>,” displays the number of observations
+in each condition.<span style="mso-spacerun: yes">  </span>You should check to
+make sure that there are the right number of subjects in each condition.<span
+style="mso-spacerun: yes">  </span>(Remember that you deleted four outliers
+from one of the conditions.)</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>In the next table, “<u>Tests of Between-Subjects Effects</u>,”
+you will find the results of the ANOVA.<span style="mso-spacerun: yes"> 
+</span>Look in the column labeled “Source” to find the main effect or
+interaction you are interested in.<span style="mso-spacerun: yes">  </span>Then
+look at the <u>F</u> value and the <u>p</u> value (labeled “sig”) to see
+whether the effect was statistically significant.<span style="mso-spacerun:
+yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Next you should see a series of tables under the heading “<u>Estimated
+Marginal Means</u>.”<span style="mso-spacerun: yes">  </span>These will give
+you the mean and standard error for each level of each of your IVs, and for each
+of the four conditions defined by the interaction of the two IVs.<span
+style="mso-spacerun: yes">  </span>(Remember that the standard error is a
+measure of variability, like the standard deviation.)<span style="mso-spacerun:
+yes">  </span>You can use these means to report in your results section or to
+create tables or figures.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Here is an example of how the results of this ANOVA might be
+reported:</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'>The main effect of availability was
+significant, <u>F</u> (1, 72) = 5.94, <u>p</u> &lt; .05.<span
+style="mso-spacerun: yes">  </span>Participants ate more grams of ice cream
+when they had been told “Don’t touch,” mean = 220, <u>SE</u> = 7.66, than when
+they had been told “Help yourself,” mean = 193, <u>SE</u> = 8.12.<span
+style="mso-spacerun: yes">   </span>The main effect of temptation was not
+statistically significant, <u>F</u> (1, 72) = 0.66, n.s., <u>MS</u>e =
+2345.<span style="mso-spacerun: yes">  </span>The interaction of availability
+and temptation was significant, <u>F</u> (1, 72) = 9.32, <u>p</u> &lt; .01.<span
+style="mso-spacerun: yes">  </span>This interaction indicated that ice cream
+consumption was greater with high temptation (mean = 242 grams, <u>SE</u> =
+10.83) than with low temptation (mean = 198, <u>SE</u> = 10.83) when
+participants had been told “Don’t touch,” but when participants had been told
+“Help yourself” high temptation led to lower consumption (mean = 180, <u>SE</u>
+= 12.12 for high temptation; mean = 205, <u>SE</u> = 10.83 for low temptation).</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Notice that two different measures of variability were
+reported: the standard error of the mean (<u>SE</u>) and the mean square error
+(<u>MS</u>e).<span style="mso-spacerun: yes">  </span>For each comparison that
+you perform you should report a measure of variability.<span
+style="mso-spacerun: yes">  </span>This could be the mean square error from the
+ANOVA, or it could be standard deviations or standard errors reported along
+with the means.<span style="mso-spacerun: yes">  </span>It is not necessary to
+do both, and usually you will use one or the other consistently throughout the
+results section.<span style="mso-spacerun: yes">  </span>A good rule of thumb
+is to get in the habit of reporting a standard deviation or standard error with
+each mean you report.<span style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>Analysis
+of Variance for a Within-Subjects 2 x 2 Factorial Design<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Now use the data file <a
+href="242-factorial-anova-dieting-repeated.sav">242-factorial-anova-dieting-repeated</a>
+to work through a demonstration of how to analyze a within-subjects version of
+the same experiment.<span style="mso-spacerun: yes">  </span>Notice that each
+“variable” in the SPSS file corresponds to one condition of the
+experiment.<span style="mso-spacerun: yes">  </span>Also notice that there are
+four data points on each row, because each subject contributed data for all
+four conditions.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Again begin by doing <u>exploratory data analysis</u> and
+removing outliers.<span style="mso-spacerun: yes">  </span>Follow the
+instructions above, but include all four “variables” (all four conditions) in
+the dependent list.<span style="mso-spacerun: yes">  </span>Delete the four
+outliers that you identify.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Now follow these steps to perform an ANOVA on this data:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Analyze
+     -&gt; General Linear Models -&gt; Repeated Measures</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>In the
+     “Repeated Measures Define Factors” window that appears, type in the name
+     you wish to use for your first IV in the “Within-subjects Factor Name”
+     box.<span style="mso-spacerun: yes">  </span>(We will use “avail” for
+     availability)</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Enter
+     the number of levels (2 in this case)</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Click
+     “Add”</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Type
+     in the name you wish to use for your second IV in the “Within-subjects
+     Factor Name” box.<span style="mso-spacerun: yes">  </span>(We will use
+     “tempt” for temptation.)</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Enter
+     the number of levels (2 in this case)</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Click
+     “Add”</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Click
+     “Define”</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Highlight
+     the four conditions (cond1, cond2, cond3, cond4) and then click the arrow
+     button to move them into the “Within-Subjects Variables” box.<span
+     style="mso-spacerun: yes">  </span>Check to make sure they are mapped to
+     the correct levels of the two IV’s you have defined.<span
+     style="mso-spacerun: yes">  </span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Click
+     “Options”</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Move all
+     the main effects and interactions you would like to see means for into the
+     “Display Means For” box</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Click
+     “Continue”</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Click
+     “OK”</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>In the results, skip down to the table labeled “Tests of
+Within-Subjects Effects.”<span style="mso-spacerun: yes">  </span>For each main
+effect and interaction, look at the line labeled “Sphericity Assumed” to find
+the <u>F</u> value, degrees of freedom, and <u>p</u> value.<span
+style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Then look at the tables under the heading “Estimated
+Marginal Means” to find the descriptive statistics you need for reporting the
+data.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Here is an example of how the results of this ANOVA might be
+reported:</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'>The main effect of availability was
+significant, <u>F</u> (1, 15) = 7.96, <u>p</u> &lt; .05.<span
+style="mso-spacerun: yes">  </span>Participants ate more grams of ice cream
+when they had been told “Don’t touch,” mean = 222, <u>SE</u> = 11.69, than when
+they had been told “Help yourself,” mean = 193, <u>SE</u> = 3.28.<span
+style="mso-spacerun: yes">   </span>The main effect of temptation was not
+statistically significant, <u>F</u> (1, 15) = 0.003, n.s., <u>MS</u>e =
+2396.<span style="mso-spacerun: yes">  </span>The interaction of availability
+and temptation was significant, <u>F</u> (1, 15) = 6.37, <u>p</u> &lt;
+.05.<span style="mso-spacerun: yes">  </span>This interaction indicated that
+ice cream consumption was greater with high temptation (mean = 234 grams, <u>SE</u>
+= 9.00) than with low temptation (mean = 210, <u>SE</u> = 19.80) when
+participants had been told “Don’t touch,” but when participants had been told
+“Help yourself” high temptation led to lower consumption (mean = 180, <u>SE</u>
+= 5.48 for high temptation; mean = 206, <u>SE</u> = 6.08 for low temptation).</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Notice that some of the means are different from those in
+the between-subjects version of the experiment, even though we used exactly the
+same data in both examples.<span style="mso-spacerun: yes">  </span>This is
+because of the way that SPSS handles the missing data points (the four outliers
+that we eliminated) in within vs. between-subjects designs.</p>
+
+</div>
+
+</body>
+
+</html>

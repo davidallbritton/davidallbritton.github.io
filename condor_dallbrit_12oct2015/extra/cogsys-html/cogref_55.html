@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Picture Output</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Picture Output">
+<META NAME="keywords" CONTENT="Cogsys: Picture Output">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC63"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_54.html#SEC62"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_56.html#SEC64"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_23.html#SEC31"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 2.3.5 Picture Output </H3>
+<!--docid::SEC63::-->
+<P>
+
+The Picture Output category includes all of the command which are involved
+with loading, creating, and displaying pictures. 
+</P><P>
+
+The mechanics of loading pictures has been completely re-written and is
+vastly improved in Cogsys 3. Before Cogsys 3, pictures were loaded using
+a very awkward and restrictive construction which involved first
+declaring a picture list with the now-obsolete <CODE>%F</CODE> command, and
+then using the <CODE>!  <small>...</small> !</CODE> in which the user declare before hand
+which picture numbers he would use and in which order; pictures were
+displayed with the "Display Next Picture" <CODE>#B</CODE> command, which
+took no arguments identifying which picture to display, and relied
+instead on the ordering given by <CODE>!<small>...</small>!</CODE>. Not only did this
+force the user to use numbers instead of names, it separated the
+location where pictures were identified from where they were used.  It
+also precluded the use of pictures in If statements. Finally, it was
+very inefficient, since multiple references to the same picture were
+loaded multiple times.
+</P><P>
+
+Cogsys 3 has completely changed the picture loading mechanism by
+allowing three different means for loading pictures. First, pictures may
+still be batch loaded, and then referenced by either name or number by
+the display command. The Load Picture List command handles this. Second,
+pictures may be referenced by name only, without a list, and loaded
+explicitly before display by the new Load Picture References (<A HREF="cogref_58.html#SEC66">2.3.5.3 Load Picture References (<CODE>%B</CODE>)</A>) command. Finally, Extensions provide a means for
+creating picture dynamically. The newly created pictures are referred to
+by number.
+</P><P>
+
+<STRONG>Important Note:</STRONG> One common source of confusion is the
+difference between <EM>video modes</EM> and <EM>picture types</EM>. Each
+picture type is specific to a mode, but a mode may or may not have
+picture type(s) associated with it. The two picture types are described
+below in <A HREF="cogref_56.html#SEC64">Reset Picture List/Type (<CODE>%C</CODE>)</A>. The various modes are discussed in <A HREF="cogref_40.html#SEC48">Mode (<CODE>#M</CODE>)</A>.
+</P><P>
+
+The picture commands are:
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_56.html#SEC64">2.3.5.1 Reset Picture List/Type (<CODE>%C</CODE>)</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_57.html#SEC65">2.3.5.2 Load Picture List (<CODE>%Q</CODE>)</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_58.html#SEC66">2.3.5.3 Load Picture References (<CODE>%B</CODE>)</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_59.html#SEC67">2.3.5.4 Display Picture (<CODE>#B</CODE>)</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_60.html#SEC68">2.3.5.5 Create Pictures from CXR (<CODE>%I</CODE>)</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_61.html#SEC69">2.3.5.6 Multiframe Picture Display (<CODE>%J</CODE>)</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_62.html#SEC70">2.3.5.7 Multiframe Cycling Picture Response (<CODE>%K</CODE>)</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_63.html#SEC71">2.3.5.8 Multiframe Picture Response (<CODE>%L</CODE>)</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_54.html#SEC62"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_56.html#SEC64"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_23.html#SEC31"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

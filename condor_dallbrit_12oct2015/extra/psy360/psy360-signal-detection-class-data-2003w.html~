@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Psychology 360 - Signal Detection Data</title>
+  <link href="psy404-styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <h1>Signal Detection Class Data</h1>
+
+
+<h2>
+Signal Detection Analysis for POSITIVE (liberal) BIAS group:
+</h2>
+
+<pre>
+              signal     noise
+       yes       116       126       242
+        no        94        84       178
+                 210       210       420
+
+                  hr       far    dprime      beta criterion
+               0.552     0.600    -0.122     1.024    -0.253
+</pre>
+
+<h2>
+Signal Detection Analysis for NEGATIVE (conservative) BIAS group:
+</h2>
+
+<pre>
+              signal     noise
+       yes       118       108       226
+        no        62        72       134
+                 180       180       360
+
+                  hr       far    dprime      beta criterion
+               0.656     0.600     0.147     0.953    -0.253
+</pre>
+
+<p>
+Note about beta:  neutral = 1;   liberal < 1;   conservative > 1
+</p>
+</body>
+</html>

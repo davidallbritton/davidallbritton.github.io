@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Create Pictures from CXR</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Create Pictures from CXR">
+<META NAME="keywords" CONTENT="Cogsys: Create Pictures from CXR">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC68"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_59.html#SEC67"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_61.html#SEC69"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.5.5 Create Pictures from CXR (<CODE>%I</CODE>) </H4>
+<!--docid::SEC68::-->
+<P>
+
+The Create Pictures from CXR command is the interface to the new picture
+generator extensions.  Extensions are discussed in detail in
+<A HREF="cogref_76.html#SEC84">3. Extensions</A>. Briefly, a Cogsys extension routine (CXR) is a file
+that adds capabilities to Cogsys which is only loaded when needed. As of
+Cogsys 3.0.15, the only extensions which exist are for
+generating pictures. The extensions are loaded using the Load External Routine
+command (<A HREF="cogref_34.html#SEC42">2.3.1.10 Load External Routine (<CODE>%X</CODE>)</A>), and are invoked with this command.
+</P><P>
+
+The details of the arguments and options which can be passed to a particular extension
+are described in the Extension User's Reference. Here we only describe that
+part of the syntax which is universal.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Create Pictures from CXR
+<DT>Class:
+<DD>Pictures
+<DT>Code:
+<DD><CODE>%I</CODE>
+<DT>Syntax:
+<DD><CODE>%I[<VAR>numpics</VAR>,</CODE> [ <CODE>P<VAR>preimage</VAR>,</CODE> ] <CODE><VAR>args</VAR>]</CODE>
+<BR><VAR>numpics</VAR> and <VAR>preimage</VAR> are integers from 1 to
+<CODE>MAX_UNIQUE_PICS</CODE>, by default .
+<DT>System:
+<DD>Calls the currently loaded Extension <VAR>numpics</VAR> times with
+argument(s) <VAR>args</VAR> to create pictures.  Created pictures are
+unnamed, and are loaded with numbers starting after the last currently
+loaded/created picture. <VAR>preimage</VAR>, if present, specifies the number
+of an <EM>existing</EM> picture to use as a background before the creator
+is invoked.
+<P>
+
+<DT>Requires:
+<DD>Create Pictures from CXR requires that the extension be loaded (and that the preimage,
+if used, exist).
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`PCXR_T01.IN'</TT>
+<DD>tests basic operation
+<DT><TT>`PCXR_B01.IN'</TT>
+<DD>benchmarks the create pictures process for some standard configurations
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>%X[randext.cxr]%M2%C2%I[1,2,10]#B[1,20]</CODE>
+<DT>cogsys
+<DD>Loads the extensions routine <TT>`randext.cxr'</TT>, switches into Mode 2
+and resets the picture list.  Now <CODE>%I</CODE> calls the picture generator
+once (as specified by the <CODE>1</CODE>) with arguments <SAMP>`2,10'</SAMP>, which
+create a solid screen of green. Finally, the <CODE>#B</CODE> command displays
+the created picture.
+</DL>
+<P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>%I[50,P1,3,8.9,MY FRIEND SALLY]#J[2,51,1]</CODE>
+<DT>cogsys
+<DD>(This example does not use a real extension, included just for
+illustration). Here, <CODE>%I</CODE> calls the currently loaded extension
+fifty times with arguments <SAMP>`3,8.9,MY FRIEND SALLY'</SAMP>, using as a
+preimage picture number 1 (presumably loaded or created earlier). Then,
+the <CODE>%J</CODE> command displays the created pictures (numbered 2 though
+51, since one was already loaded) at a rate of one frame each.
+</DL>
+<P>
+
+</DL>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_59.html#SEC67"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_61.html#SEC69"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Example to illustrate SAM</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252"><!-- Created by AOLpress/1.2 -->
+<META content="MSHTML 5.50.4134.600" name=GENERATOR></HEAD>
+<BODY bgColor=#87cefa>
+<H3>A simplified Example of recognition in SAM:&nbsp; </H3>
+<P>Recognition judgments for <I>Item 1</I> (dog) and for an <I>unstudied 
+item</I> (pig) 
+<P>
+<HR>
+
+<H4>Study list = dog, rock, house, cat, horse </H4>
+<H4>Recognition test = dog, pig, .... &nbsp;("dog" = item 1, "pig" = unstudied 
+item) </H4>
+<H4>
+<HR>
+<BR>Overview of the process: </H4>
+<UL>
+  <LI><B>Encoding</B>: &nbsp;strengths are built up for: 
+  <OL>
+    <LI>Item 1's <U>self-strength</U>: &nbsp;the self-strength parameter 
+    <I>c</I> * the length of time, <I>t(1)</I>&nbsp;that item 1 is in the STM 
+    buffer. 
+    <LI>Item 1's <U>context-strength</U>: &nbsp;the context parameter <I>a</I> * 
+    the length of time <I>t(1)</I> that item 1 is in the buffer. 
+    <LI>Item 1's <U>inter-item strength</U> with other items in the buffer. 
+    &nbsp;Item 1's inter-item strength with item 2, for example, is&nbsp;the 
+    inter-item strength parameter <I>b</I> * the length of time that item 1 and 
+    item 2 were in the buffer together, <I>t(1,2)</I>. &nbsp;For any item that 
+    is never in the buffer at the same time as item 1, such as item 5, the 
+    inter-item strength is zero (in the model, a <U>residual strength</U> value 
+    of <I>r</I> is used instead of zero). </LI></OL>
+  <LI><B>Recognition</B> -- for each test item: 
+  <OL>
+    <LI><B>Form a set of <U>cues</U> in STM</B> (a memory probe) consisting of: 
+    <UL>
+      <LI>the test item 
+      <LI>the context 
+      <LI>(these are left out in order to simplify this example) the item 
+      category, other test items that still in STM during the recognition test. 
+      </LI></UL>
+    <LI><B>Match the probe to all items in memory</B> to determine its 
+    <U><B>familiarity</B></U> 
+    <UL>
+      <LI>Familiarity = (Sum of strengths for context) * (Sum of strengths for 
+      the item) </LI></UL>
+    <LI><B>Compare the <U>familiarity</U> to a decision <U>criterion</U> (a 
+    cutoff)</B>. 
+    <UL>
+      <LI>&nbsp;If familiarity is above the criterion, say "yes, I recognize 
+      this item." &nbsp;If familiarity is below the cutoff, say "no, I do not 
+      recognize this item." &nbsp; 
+      <LI>(Does this remind you of anything? &nbsp;Think about sensory 
+      thresholds). </LI></UL></LI></OL></LI></UL>
+<P>
+<HR>
+
+<H3>Doing the Calculations: &nbsp; </H3>
+<H4>Assumptions: </H4>
+<UL>
+  <LI>Study time = 2 seconds per item. 
+  <LI>Assume all 3 parameters (a, b, c) are set to 1 for this example. 
+  <LI><I>r</I> = 1 
+  <DL>
+    <DT>r = residual strength between items that were not in STM together. 
+    &nbsp;Typically this is set to some low value, but we will use 1 here for 
+    ease of calculation. </DT></DL>
+  <LI>Criterion = 500 
+  <DL>
+    <DT>This is the familiarity criterion for the recognition decision. 
+    &nbsp;Any test item with a familiarity above this value gets a "yes" 
+    respone; below this value it gets a "no" response. 
+    <DD></DD></DL></LI></UL>
+<TABLE cellPadding=2 border=1>
+  <CAPTION><BIG>Table of strengths built up at encoding:</BIG>&nbsp; &nbsp; 
+  &nbsp; </CAPTION>
+  <TBODY>
+  <TR>
+    <TD></TD>
+    <TD><BIG>item 1 </BIG></TD>
+    <TD>item 2 </TD>
+    <TD>item 3 </TD>
+    <TD>item 4 </TD>
+    <TD>item 5 </TD>
+    <TD><BIG>unstudied<BR>item</BIG> </TD></TR>
+  <TR>
+    <TD>context </TD>
+    <TD><BIG>a * t</BIG><SMALL>(1)</SMALL> </TD>
+    <TD>a * t<SMALL>(2)</SMALL> </TD>
+    <TD>a * t<SMALL>(3)</SMALL> </TD>
+    <TD>a * t<SMALL>(4)</SMALL> </TD>
+    <TD>a * t<SMALL>(5)</SMALL> </TD>
+    <TD><BIG>r</BIG> </TD></TR>
+  <TR>
+    <TD>item 1 </TD>
+    <TD><BIG>c * t</BIG><SMALL>(1)</SMALL> </TD>
+    <TD>b * t<SMALL>(2,1)</SMALL> </TD>
+    <TD>b * t<SMALL>(3,1)</SMALL> </TD>
+    <TD>b * t<SMALL>(4,1)</SMALL> </TD>
+    <TD>b * t<SMALL>(5,1)</SMALL> </TD>
+    <TD><BIG>r</BIG> </TD></TR>
+  <TR>
+    <TD>item 2 </TD>
+    <TD><BIG>b * t</BIG><SMALL>(1,2)</SMALL> </TD>
+    <TD>c * t<SMALL>(2)</SMALL> </TD>
+    <TD>b * t<SMALL>(3,2)</SMALL> </TD>
+    <TD>b * t<SMALL>(4,2)</SMALL> </TD>
+    <TD>b * t<SMALL>(5,2)</SMALL> </TD>
+    <TD><BIG>r</BIG> </TD></TR>
+  <TR>
+    <TD>item 3 </TD>
+    <TD><BIG>b * t</BIG><SMALL>(1,3)</SMALL> </TD>
+    <TD>b * t<SMALL>(2,3)</SMALL> </TD>
+    <TD>c * t<SMALL>(3)</SMALL> </TD>
+    <TD>b * t<SMALL>(4,3)</SMALL> </TD>
+    <TD>b * t<SMALL>(5,3)</SMALL> </TD>
+    <TD><BIG>r</BIG> </TD></TR>
+  <TR>
+    <TD>item 4 </TD>
+    <TD><BIG>b * t</BIG><SMALL>(1,4)</SMALL> </TD>
+    <TD>b * t<SMALL>(2,4)</SMALL> </TD>
+    <TD>b * t<SMALL>(3,4)</SMALL> </TD>
+    <TD>c * t<SMALL>(4)</SMALL> </TD>
+    <TD>b * t<SMALL>(5,4)</SMALL> </TD>
+    <TD><BIG>r</BIG> </TD></TR>
+  <TR>
+    <TD>item 5 </TD>
+    <TD><BIG>b * t</BIG><small>(1,5)</small> </TD>
+    <TD>b * t<SMALL>(2,5)</SMALL> </TD>
+    <TD>b * t<SMALL>(3,5)</SMALL> </TD>
+    <TD>b * t<SMALL>'(4,5)</SMALL> </TD>
+    <TD>c* t<SMALL>(5)</SMALL> </TD>
+    <TD><BIG>r</BIG> </TD></TR></TBODY></TABLE>
+<P><B>Test item 1 ("dog"):</B> 
+<UL>
+  <LI>Probe = "<I>dog</I>" &amp; <I>context</I> 
+  <LI>Familiarity ("dog") = (Sum of strengths for "<I>dog</I>") * (Sum of 
+  strengths for <I>context</I>) = 800 
+  <UL>
+    <LI>Amount of time in STM buffer: 
+    <UL>
+      <LI>t(1) = 8 seconds -- assuming 4 items at a time can be in the STM 
+      buffer, item 1 would remain in the buffer for a total of 8 seconds before 
+      it was displaced. 
+      <LI>t(2,1) = 6 seconds -- the time that both "dog" and "rock" (items 1 and 
+      2) are in the buffer together 
+      <LI>t(3,1) = 4 seconds -- "dog" and "house" (items 1 and 3), and so on.. 
+      </LI></UL>
+    <LI>Sum of strengths for "<I>dog</I>" = c*t(1) + b*t(2,1) + b*t(3,1) + 
+    b*t(4,1) + b*t(5,1) = 8 + 6 + 4 + 2 + 0 = 20 
+    <LI>Sum of strengths for <I>context</I> = a*t(1) + a*t(2) + a*t(3) + a*t(4) 
+    + a*t(5) = 8 + 8 + 8 + 8 + 8 = 40 
+    <LI>Familiarity ("dog") = 20 * 40 = 800 </LI></UL>
+  <LI>The familiarity of "dog" is greater than the criterion (800 &gt; 500), so 
+  answer "yes" </LI></UL>
+<H4>Unstudied test item ("pig"): </H4>
+<UL>
+  <LI>Probe = "<I>pig</I>" &amp; <I>context</I> 
+  <LI>Familiarity ("pig") = (Sum of strengths for "<I>pig</I>") * (Sum of 
+  strengths for <I>context</I>) = 200 
+  <UL>
+    <LI>Sum of strengths for "<I>pig</I>" = 5*r = 5 
+    <LI>Sum of strengths for <I>context</I> = a*t(1) + a*t(2) + a*t(3) + a*t(4) 
+    + a*t(5) = 8 + 8 + 8 + 8 + 8 = 40 
+    <LI>Familiarity ("pig") = 5 + 40 = 200 </LI></UL>
+  <LI>The familiarity of "pig" is less than the criterion (200 &lt; 500), so 
+  answer "no" </LI></UL>
+<P></P></BODY></HTML>

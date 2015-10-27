@@ -1,0 +1,229 @@
+<html>
+
+<head>
+<title>ISP 120 Activity 12: Finance and Doubling Time</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+</head>
+
+<body>
+<div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="15%"><p align="left"><strong>ISP 120</strong></td>
+    <td width="70%"><p align="center"><strong>Group Activity 12: Finance and Doubling Time</strong></td>
+    <td width="15%"><p align="right"></td>
+  </tr>
+</table>
+</center></div>
+
+<p>All group activities must include a statement signed by all members of your group that
+each group member fully participated in the activity. To start you should open a new Word
+document entitled something like &quot;Group Activity 12&quot; and put the names of your
+group members at the top. Save it to the desktop and save frequently during the hour.</p>
+
+<p>One of the places all of us encounter exponential growth is in banking and finance:
+&nbsp; almost every one has a savings account in a bank, and almost everyone needs a loan
+to make a large purchase at some time. When you put money in a bank, the bank does not
+stash it away in a safe (not for very long in any case). The bank usually lends it
+out.&nbsp; In exchange for letting the bank use your money, the bank pays you interest, a
+percentage of what you deposited paid at regular intervals.&nbsp; If you do not withdraw
+the money, you will earn interest on your interest, a process called <strong>compounding</strong>.
+Compounding is exponential.&nbsp; To see why, suppose you have A dollars in your account,
+and suppose you will receive r% interest at the next compounding period.&nbsp; Your
+balance after the interest payment is A+r*A or A*(1+r).&nbsp; Thus receiving r% interest
+is equivalent to increasing by a factor of 1+r (i.e., multiplying by 1+r).&nbsp; This
+activity explores the phenomenon of exponential growth in this context.</p>
+
+<p>a.&nbsp; Suppose you invest $10,000.&nbsp; Make a table like the one below showing the
+value of this investment at 1%, 2%, 3%, ... interest assuming you do not withdraw anything
+for 25 years.&nbsp; Include the table in your Word document.</p>
+<div align="center"><center>
+
+<table CELLSPACING="0" BORDER="1" CELLPADDING="2">
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="LEFT">Year</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">1%</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">2%</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">3%</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">4%</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">5%</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">6%</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">7%</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">8%</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">9%</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">10%</font></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">0</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,000</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,000</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,000</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,000</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,000</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,000</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,000</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,000</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,000</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,000</font></td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">1</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,100</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,200</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,300</font></td>
+    <td><p ALIGN="RIGHT"><font FACE="Arial" SIZE="2" COLOR="#000000">$10,400</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="LEFT">&#133;</font></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">2</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="LEFT">=B4+.01*B4</font></td>
+    <td><small><font face="Arial">=C4+.02*C4</font></small></td>
+    <td>...</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p align="right">3</font></td>
+    <td>...</td>
+    <td>...</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</center></div>
+
+<p>b. Study the table carefully with your group and look for patterns and striking
+features. In your Word document include two observations you made about the table.</p>
+
+<p>c. After 25 years, how many more times is the 10% investment worth than at the
+start?&nbsp; How many more times is the the 1% investment worth after 25 years?</p>
+
+<p>d. Make a column chart with B1 to K1 as the x-axis labels and the value of the
+investment after 25 years for the column heights (i.e., B28 to K28). (If you go ahead and
+select cells B1 to K1 and B28 to K28 and then use the chart wizard it won't work the way
+you want.&nbsp; Here is one way to make it work from the start.&nbsp; Select <strong>only</strong>
+the range B28 to K28. Then click on the chart wizard as usual.&nbsp; At step 2, click on
+the series tab.&nbsp; Put your cursor in the x-axis categoty labels box toward the bottom;
+then with the mouse select the range B1 to K1.&nbsp; Everything goes smoothly from that
+point on.) Include it in your Word document along with a description of the graph.&nbsp;
+Your graph will look something like:</p>
+
+<p align="center"><img src="http://qrc.depaul.edu/djabon/images/interestgraph.jpg"
+alt="wpe3.jpg (21052 bytes)" WIDTH="476" HEIGHT="290"></p>
+
+<p>e. When making investments or taking out loans, should you be concerned about
+differences in interest rates? Why or why not?</p>
+
+<p>f. Study the last column (10%) carefully.&nbsp; Approximately how long does it take for
+the investment to double (reach $20,000)? After it reaches, $20,000 how long does it take
+for the investment to double again (reach $40,000)?&nbsp; How long does it take to double
+again?</p>
+
+<p>g. The previous question might cause you to surmise that an investment always takes the
+same amount of time to double <strong>no matter how large the investment is</strong>. In
+fact, anything that grows exponentially has a constant doubling time.&nbsp; The doubling
+time varies according to the rate of increase.&nbsp; Complete the following table and
+paste it in your Word document. You may need to extend some columns in your first table to
+complete this one.</p>
+<div align="center"><center>
+
+<table CELLSPACING="0" BORDER="1" CELLPADDING="2">
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="LEFT">Annual Percentage Rate of
+    Increase</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="LEFT">Approximate Doubling Time
+    (years)</font></td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">1</font></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">2</font></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">3</font></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">4</font></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">5</font></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">6</font></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">7</font></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">8</font></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">9</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">8</font></td>
+  </tr>
+  <tr>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">10</font></td>
+    <td><font FACE="Arial" SIZE="2" COLOR="#000000"><p ALIGN="RIGHT">7</font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>h.&nbsp; The table you made is well known to bankers and investors alike.&nbsp; It is
+called the &quot;Rule of Seventy.&quot; To see it, fill the column next to the approximate
+doubling time column with the product of the increase column and the approximate doubling
+time (if the table starts in column A, then it would be =A2*B2 in column C2).&nbsp; With
+the help of your group, clearly state this famous rule in your Word document.</p>
+
+<p>i. The rule of seventy applies to any form of exponential growth and is useful for
+making estimations.&nbsp; For example, in its early years, the US grew nearly
+exponentially at approximately 2.8% per year.&nbsp; The population of the US according to
+the first census in 1790 was 3.9 million. What was the approximate doubling time for the
+population of the US during this time?&nbsp; Using the rule of seventy, estimate the
+population of the US in 1865.&nbsp; After you get your estimate, find out the official
+census figures for 1860 and 1870 by clicking <a
+href="javascript: alert(&quot;The population of the US according to the 1860 census was 31.4 million. In 1870, it was 39.8. million.&quot;);">here</a>.
+&nbsp; Judging from the actual figures, did the US grow faster than 2.8% or slower than
+2.8% from 1790 to 1865?</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

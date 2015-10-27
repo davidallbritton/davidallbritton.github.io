@@ -1,0 +1,68 @@
+
+practice[0],respac[1]     02-20-02     11:56:53
+
+Mean RT by Animal Pair Type and Question Type, mean of All Subjects
+
+Table of RESPRT conditional on CONDITIO, LARGERSM
+
+Filtered variable(s):
+   PRACTICE[0]
+   RESPAC[1]
+
+Cell values are:
+   MEAN       
+   N          
+   ST. DEV.   
+
+
+LARGERSM \ CONDITIO
+
+    \      1          2          3          ALL
+
+0          1049.16    1106.52    920.32     988.08     
+0          273.00     294.00     760.00     1327.00    
+0          425.29     441.70     324.61     383.78     
+
+
+1          1174.47    935.72     895.05     960.20     
+1          259.00     279.00     747.00     1285.00    
+1          436.16     422.65     290.37     371.48     
+
+
+ALL        1110.17    1023.36    907.79     974.37     
+ALL        532.00     573.00     1507.00    2612.00    
+ALL        435.14     440.88     308.37     378.04     
+
+
+practice[0],respac[1]     02-20-02     11:57:13
+
+Mean RT by Ordinal Distance
+
+Table of RESPRT conditional on DISTANCE
+
+Filtered variable(s):
+   PRACTICE[0]
+   RESPAC[1]
+
+Cell values are:
+   MEAN       
+   N          
+   ST. DEV.   
+
+
+DISTANCE     PART 1
+
+1          2          3          4          5          6          
+
+1207.29    1077.47    997.73     938.75     900.47     916.28     
+374.00     364.00     353.00     328.00     299.00     251.00     
+531.04     422.41     335.96     292.31     278.15     316.90     
+
+DISTANCE     PART 2
+
+7          8          9          10         11         ALL
+
+864.40     886.55     820.64     803.79     704.45     974.37     
+213.00     172.00     129.00     87.00      42.00      2612.00    
+250.24     275.16     264.42     346.89     155.64     378.03     
+

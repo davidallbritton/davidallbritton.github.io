@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml">
+
+<!-- This document demonstrates some aspects of using objects  -->
+<!-- with Javascript.                                          -->
+<!-- by David Allbritton -->
+
+  <head>
+    <title>Objects in Javascript</title>
+    <script type = "text/javascript">
+<!--
+function splitInputSentence()
+{
+  var words;
+     
+  words = sentenceForm.inputSentence.value.split(" ");  
+                                    // creates an array object called "words"
+                                    // Note the use of the "value" attribute
+                                    // for the form input object "inputSentence".
+                                    
+  wordCount = words.length ;        // uses the "length" attribute of array objects
+  
+  sentenceForm.nWords.value =  wordCount;
+         // value is an attribute of nWords
+         // This method of accessing the "nWords" form field seems to be
+         // Microsoft-specific.  Take a look at "object2.html" for a more
+         // standards-compliant method of doing this that will work with 
+         // non-microsoft browsers.
+   
+    
+  paragraph1.innerText = sentenceForm.inputSentence.value;  
+         // This changes the text in paragraph1
+         // note the property (attribute) "innerText".
+         // This is an attribute of the paragraph (<p>) object identified
+         // as "paragraph1".
+         // This attribute is Microsoft-specific; it will not work 
+         // with Netscape.  For a more standards-compliant method
+         // of doing this (that will work in all browsers) take a look
+         // at object2.html, and also object3.html
+
+}
+// -->
+</script>
+  </head>
+
+  <body>
+	
+	  <h1>Objects in Javascript</h1>
+		
+    <p>This page demonstrates some uses of objects in Javascript.
+       First, a method of the Javascript String object is used to split the
+       user input into separate words.  Next, the <em>length</em> attribute
+       of the Array object is used to count the words in the sentence. Finally,
+       the count is reported in a form input text box, and the sentence replaces
+       Paragraph 1.
+       The document object model is used to access and change elements in the 
+       document, using non-standard 
+       methods that are only supported by Internet Explorer.</p>
+       
+    <hr />
+       
+       
+		<form id = "sentenceForm" action = "">
+		  
+		  <p>
+			  Type in a sentence and click "submit."<br />
+			  <input type = "text" id = "inputSentence" />
+		    
+			  <input type = "button" value = "Submit" onclick = "splitInputSentence()"/>
+        <!-- note the event "onclick" and how it is used to 
+         invoke the "splitInputSentence" function in the script. -->
+	    
+      </p>
+			
+			<p><label>This is the number of words in your sentence:
+			  <input type = "text" size = "5" id = "nWords" />
+		    </label>
+	    </p>
+			
+    </form>
+		
+    <hr />
+    <h3>Paragraph 1:</h3>
+    
+    <p id = "paragraph1" >
+       Watch what appears in this paragraph 
+       when you click "submit"
+    </p>
+    
+    <hr />
+    
+    <h3>Paragraph 2:</h3>
+    <p id = "paragraph2" name = "paragraph2">
+       Look at the source of this page, and notice that "id" is used rather
+       than "name" to label the elements of the XHTML document.  The "name"
+       attribute is deprecated in XHMTL 1.0, and will be replaced completely
+       by "id" in XHTML 1.1.  If you want to make sure your pages work  
+       both with old browsers and with new XHTML engines, include both (as was
+       done for this paragraph).</p>
+       
+ 
+		  
+	<p>
+    <a href="http://validator.w3.org/check/referer">Click here to validate
+    this document's XHTML</a>
+  </p>
+
+		
+  </body>
+</html>

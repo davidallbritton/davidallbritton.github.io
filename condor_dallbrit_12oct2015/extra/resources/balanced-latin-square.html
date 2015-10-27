@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+
+   <script type = "text/javascript">
+<!--
+function createSquare(nConditions) {
+   ;
+}
+
+-->
+   </script> 
+
+
+<title>Untitled</title>
+</head>
+<body>
+<h1>Balanced Latin Squares</h1>
+<p>Create an applet for generating balanced latin squares of a given size.  Tasks:</p>
+<p>randomly order the N conditions;</p>
+<p>generate the square: 1, 2, N, 3, N-1, 4, N-2, etc for first row, then 
+add one to rotate through conditions for each subsequent row.</p>
+<p>If N is odd, reverse each row to create a second square to complete 
+the counterbalancing</p>
+<p>print out the squares</p>
+<p>Could also block randomize the order of the rows for however many subjects
+are planned - some multiple of N (or of N*2 for an odd number of conditions).</p>
+
+
+<form id="numConditions" action="createSquare(nConditions)">
+   <p>How many conditions are there in your design?
+      <input type="text" size="3" id="nConditions"/>
+   </p>
+   <input type="submit" value="Submit" />
+   
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Programs and Linking</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Programs and Linking">
+<META NAME="keywords" CONTENT="Cogsys: Programs and Linking">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC90"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_81.html#SEC89"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_83.html#SEC91"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_80.html#SEC88"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_81.html#SEC89"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 3.1.4.1 Programs and Linking </H4>
+<!--docid::SEC90::-->
+<P>
+
+To understand what happens when an extension is loaded, it necessary to
+first have an idea of how programs are built. Briefly, a programmer
+writes commands in a high-level programming language (like C, C++,
+Fortran, Java, etc--Cogsys is written in C) and saves these commands in
+a plain text file called the <EM>source file</EM> (or <EM>source
+code</EM>). Most programs are spread over many source files. Then, special
+tools are used to translate the source files into an actual executable
+program (like <TT>`COGSYS.EXE'</TT>).
+</P><P>
+
+This translation happens in a two-step process. First, a <EM>compiler</EM>
+is used to translate each individual source file into a processor-specific
+<EM>object file</EM>.  Object files can be collected together in
+<EM>libraries</EM> so different programs can easily share them. Then, a
+<EM>linker</EM> joins all the object files together with standard libraries
+(which are just collections of commonly used objects that are used
+by every program) to create the executable.
+</P><P>
+
+But the linker does more than just join the files. It also performs the
+important function of <EM>fixup</EM>. In any given source file
+<TT>`foo.c'</TT>, the programmer can access things (like procedures or data)
+that he has defined in another source file (say, <TT>`bar.c'</TT>). Of
+course, at the time that <TT>`foo.c'</TT> is compiled, the compiler knows
+nothing about <TT>`bar.c'</TT> yet, specifically, it can't say exactly where
+the code of <TT>`bar.c'</TT> will be in the final file--only the linker
+will know that. So any reference in <TT>`foo.c'</TT> that refers to
+something outside of itself (say in <TT>`bar.c'</TT>, or any other source
+file) must be left blank by the compiler. Fixup is the process of
+"filling in the blanks" that the linker does right after it has joined
+all the pieces.
+</P><P>
+
+The process described above is called <EM>static linking</EM>, which simply
+means that all of the pieces of a program are put together before it is
+used. <EM>Dynamic linking</EM> means that some of the object files are
+loaded and fixed up <EM>after</EM> the program has started. These
+dynamically loaded objects are usually collected into libraries, just
+like static libraries described above. On Unix, these are
+<TT>`lib<VAR>name</VAR>.so'</TT> (shared object) files; on Windows, they are the
+<CODE><VAR>name</VAR>.DLL</CODE> (dynamically linked library) files.
+</P><P>
+
+Dynamic linking follows the same sequence of events as static
+linking. First, the dynamic code is loaded into memory alongside the
+main program. Then, once the dynamic loader knows where it has
+positioned the newly loaded code, it must fixup references in the main
+code. Now the main code can call the dynamically loaded code.
+</P><P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_81.html#SEC89"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_83.html#SEC91"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_80.html#SEC88"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_81.html#SEC89"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

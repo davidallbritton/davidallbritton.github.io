@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: If Control</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: If Control">
+<META NAME="keywords" CONTENT="Cogsys: If Control">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC38"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_29.html#SEC37"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_31.html#SEC39"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_23.html#SEC31"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.1.6 If Control (<CODE>#I</CODE>) </H4>
+<!--docid::SEC38::-->
+<P>
+
+The If command allows Cogsys to conditionally skip parts of the testlist.
+The first part of an If command specifies an expression to be evaluated.
+Constants allowed in the expression include
+<UL>
+<LI><VAR>vref</VAR>
+any variable reference
+<LI><SAMP>`K'</SAMP>
+refers to the last response key
+<LI><SAMP>`R'</SAMP>
+refers to the last response time
+<LI><VAR>integer</VAR>
+any constant integer
+<LI><SAMP>`&#38;<VAR>char</VAR>'</SAMP>
+the character constant <VAR>char</VAR>
+</UL>
+<P>
+
+These may then be grouped into terms with standard relational operators.
+Terms may then be concatenated by logical operators into expressions.
+The complete grammar is enumerated below.
+</P><P>
+
+If statements may be nested up to <CODE>IF_NESTLEVEL</CODE> levels deep.
+</P><P>
+
+<STRONG>Important:</STRONG> To ensure fast execution, the If statement skips the <VAR>true-clause</VAR>
+by looking for a matching brace in input. It <EM>does not</EM> start running a new
+interpreter on the subclause. For this reason, Cogsys does not understand the
+context of the brace characters it encounters as it skips over a clause. Thus, any brace
+characters in a clause that do not delimit nested clauses will cause unexpected results,
+even if they are escaped or part of another command.
+</P><P>
+
+For example, the following code will not behave as expected:
+<TABLE><tr><td>&nbsp;</td><td><pre>#I(5&#62;2){#G[these braces{} in true clause confuse #I]}{false clause}
+</pre></td></tr></table>To be safe, avoid braces for text display as much as possible, and never use
+them inside If clauses.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>If
+<DT>Class:
+<DD>Control
+<DT>Code:
+<DD><CODE>#I</CODE>
+<DT>Syntax:
+<DD><CODE>#I<VAR>expr</VAR>{<VAR>true-clause</VAR>}{<VAR>false-clause</VAR>}</CODE>
+<UL>
+<LI>
+<VAR>true-clause</VAR> and <VAR>false-clause</VAR> are any valid Cogsys code
+<LI>
+<VAR>expr</VAR> is an expression grammar:
+<UL>
+<LI>
+<VAR>expr</VAR> ==> <VAR>term</VAR>
+<LI>
+<VAR>expr</VAR> ==> <SAMP>`('</SAMP> <VAR>expr</VAR> [ (<SAMP>`AND'</SAMP>|<SAMP>`OR'</SAMP>|<SAMP>`A'</SAMP>|<SAMP>`O'</SAMP>) <VAR>expr</VAR> ] <SAMP>`)'</SAMP>
+<LI>
+<VAR>term</VAR> ==> <VAR>const</VAR> <SAMP>`='</SAMP>|<SAMP>`&#62;'</SAMP>|<SAMP>`&#62;='</SAMP>|<SAMP>`&#60;='</SAMP>|<SAMP>`&#60;='</SAMP>|<SAMP>`&#60;'</SAMP>|<SAMP>`&#60;&#62;'</SAMP> <VAR>const</VAR>
+<LI>
+<VAR>const</VAR> ==> <VAR>vref</VAR> | <SAMP>`K'</SAMP> | <SAMP>`R'</SAMP> | <SAMP>`&#38;<VAR>char</VAR>'</SAMP> | <VAR>integer</VAR>
+</UL>
+</UL>
+<P>
+
+White space is ignored between all tokens.
+</P><P>
+
+<DT>System:
+<DD>The system evaluates the expression. If it is true, only the <VAR>true-clause</VAR> is executed;
+otherwise only the <VAR>false-clause</VAR> is executed.
+<P>
+
+<DT>History:
+<DD>The If command has completely changed from the Cogsys 2.x and earlier.
+Previous versions had no explicit grammar and could behave very
+erratically depending on placement of parentheses, operators, and even
+whitespace. Also, nesting was not supported at all. Nevertheless,
+simpler <CODE>#I</CODE> constructs from old code will likely still work in
+Cogsys 3.x.
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`IFFF_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>#I(2&#62;3 OR 4&#62;1){This clause is true.}{This clause is false}</CODE>
+<DT>cogsys
+<DD>Writes <SAMP>`This clause is true'</SAMP> to the output.
+</DL>
+<P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE><BR>
+Press the letter 'A': #R<BR>
+#I(K=&#38;a O K=&#38;A){You pressed a#I(K=&#38;a)<BR>
+{ lowercase}{n uppercase} 'A'.}{No, I said press an 'A'!}</CODE>
+<DT>subject
+<DD>Presses <KBD>A</KBD>.
+<DT>cogsys
+<DD>Responds with <SAMP>`You pressed an uppercase 'A'.'</SAMP> .
+</DL>
+<P>
+
+</DL>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_29.html#SEC37"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_31.html#SEC39"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_23.html#SEC31"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

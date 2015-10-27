@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>
+      Creating a Web Page
+    </title>
+  </head>
+  <body>
+    <p>
+      Note: Page under construction; errors likely; proceed at
+      your own risk
+    </p>
+    <hr />
+    <h1>
+      Instructions for Creating a Web Page
+    </h1>
+    <p>
+      This page contains some simple instructions for creating a
+      web page and placing it on your condor (faculty) or
+      shrike/students (students) account. It assumes no prior
+      knowledge of HTML or FTP. All you need is a word processor
+      or web editor to create a page, an FTP client to upload the
+      page to your server, and perhaps a telnet or ssh client to
+      log into your host and fix the file permissions if
+      necessary.
+    </p>
+    <p>
+      There are much better ways to create web pages than those
+      outlined here (Html-kit or Amaya, for example), but the
+      instructions given here should work with the software you
+      already have on your campus windows PC.
+    </p>
+    <p>
+      Here are the steps to follow:
+    </p>
+    <h2>
+      1. Create a web page
+    </h2>
+    <p>
+      The easiest way is to simply create a page with your
+      favorite word processor (like MSWord), just as you would
+      any document. When finished, save the file as a web page
+      (<em>File - Save as Web Page</em> in MSWord for example).
+      Name the file <strong>index.html</strong> when you save it,
+      and save it to the desktop or somewhere else that you can
+      easily find it. The best idea would be to have a separate
+      folder where you keep all your web pages.
+    </p>
+    <p>
+      You could also use a web editor to create your home page
+      and other web pages, such as Html-kit, Amaya, or Netscape
+      to create your page.
+    </p>
+    <h2>
+      2. FTP the page to your account on condor.depaul.edu or
+      students.depaul.edu.
+    </h2>
+    <p>
+      Place it in the folder "public_html" - create a new folder
+      by that name if it does not already exist.
+    </p>
+    <h3>
+      How do I ftp something?
+    </h3>
+    <p>
+      Look for one of the following programs on your Start Menu,
+      and use one of them to upload your web page:
+    </p>
+    <ul>
+      <li>
+        <strong>File Transfer Protocol</strong>
+      </li>
+      <li>
+        <strong>WSFtp</strong>, or
+      </li>
+      <li>
+        <strong>Secure Shell Secure File Transfer</strong>. This
+        is the preferred way to do it, because it is more secure
+        than using regular ftp. Here are the steps to upload your
+        web page: 
+        <ul>
+          <li>
+            Find the SFTP program on the Start Menu:<br />
+             <em>Start - Internet Applications - Secure Shell -
+            Secure Shell Secure File Transfer</em>
+          </li>
+          <li>
+            Press "Enter"
+          </li>
+          <li>
+            Type <em>condor.depaul.edu</em> as the host name (or
+            <em>students.depaul.edu</em> if you are a student).
+          </li>
+          <li>
+            Enter your username and password as prompted
+          </li>
+          <li>
+            Click on <em>public_html</em> in the left-most pane.
+            If it does not exist, create a folder named
+            <em>public_html</em> in your home directory.
+          </li>
+          <li>
+            In the menu at the top, click on<em>??What was
+            that??</em> and select <em>upload file</em>
+          </li>
+          <li>
+            Select the file to upload (index.html). It may ask if
+            you want to overwrite an existing file if you already
+            have a home page. Say yes to upload your new web
+            page.
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h2>
+      3. Open a web browser and type in the URL of your home page
+    </h2>
+    <p>
+      Point your web browser (such as Internet Explorer) at
+      <em>http://condor.depaul.edu/~username</em> (or
+      <em>http://students.depaul.edu/~username</em> depending on
+      which machine your acount is on) by typing that URL in the
+      "address" window of the browser. (Substitute your own user
+      name for <em>username</em>, but keep the tilde <em>~</em>)
+    </p>
+    <p>
+      If your web page displays correctly, you're done! If not,
+      you may need to go on to the next step
+    </p>
+    <h2>
+      4. If the browser says "permission denied" then you must
+      change the file permissions so that it will be readable.
+      Here are the steps:
+    </h2>
+    <ul>
+      <li>
+        Log into your account using telnet or ssh. SSH is
+        preferred, because it is more secure. You can download a
+        free SSH client called "putty" for your PC if it does not
+        already have SSH. Just type "putty" into the search
+        window at http://www.google.com to find a copy to
+        download.
+      </li>
+      <li>
+        Double-click <em>putty</em> on the desktop and then type
+        in the host name (condor.depaul.edu or
+        students.depaul.edu), your user name, and password when
+        prompted to. Or on a campus machine select <em>Start -
+        Internet Applications - Secure Shell - SSH login</em>
+        from the Start menu.
+      </li>
+      <li>
+        Enter your account name and password when prompted.
+      </li>
+      <li>
+        Once you have logged into your account on condor, you
+        should see a command prompt in a terminal window.
+      </li>
+      <li>
+        Check the existing file permissions. Type the following
+        command and hit Enter: 
+        <p>
+          <em>ls</em>
+        </p>
+        <p>
+          This should list the files and folders you have. You
+          should see one called "public_html". Type the following
+          command to check the file permissions on this folder
+          and its contents:
+        </p>
+        <p>
+          <em>ls -la public_html</em>
+        </p>
+        <p>
+          On the left of each line this command produces as
+          output, you should see a string of some combination of
+          the letters r, w, x, and dashes (plus maybe the letter
+          d on the far left). These are the file permissions. For
+          your web page to be visible to browsers, the rightmost
+          3 permission codes must include an "r" for the
+          public_html directory and for every file in it. The
+          directory itself must have an "r" and an "x" in the
+          last 3 permission fields. If you do not see r and x
+          where they need to be, you must change the file
+          permissions.
+        </p>
+      </li>
+      <li>
+        Change the permissions. The following two commands should
+        do the trick: 
+        <p>
+          <em>chmod -R ugo+r public_html</em>
+        </p>
+        <p>
+          <em>chmod ugo+x public_html</em>
+        </p>
+      </li>
+      <li>
+        Then try reloading the page in your web browser. It
+        should work now.
+      </li>
+    </ul>
+    <hr />
+    <h2>
+      Other things you might want to do:
+    </h2>
+    <p>
+      Add links to other web pages on your home page. In MSWord,
+      highlight a word or phrase, then click <em>Insert</em> on
+      the menu bar at the top of the page and select
+      <em>hyperlink</em>.
+    </p>
+    <p>
+      Add additional web pages on your site. Simply create
+      another HTML file, place it in your web directory, and
+      create a hyperlink on your home page to the new file.
+    </p>
+  </body>
+</html>

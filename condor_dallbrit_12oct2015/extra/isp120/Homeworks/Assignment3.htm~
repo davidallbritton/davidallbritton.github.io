@@ -1,0 +1,95 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>http</title>
+</head>
+
+<body>
+
+<p align="center"><font face="Times New Roman" size="4"><strong>ISP 120  Homework 3</strong></font></p>
+<p>1. Read the article <a href="http://qrc.depaul.edu/djabon/Articles/ChicagoCrime20030101.htm">&quot;Chicago 
+falls out of 1st in murders&quot; by David Heinzman</a> from the <i>Chicago Tribune,</i> 
+Jan. 1, 2003.&nbsp; Then answer the following questions in your Word document (or Writer
+document if you are using OpenOffice).</p>
+<p>&nbsp;&nbsp;&nbsp; a.&nbsp; Does the<b> headline</b> &quot;Chicago falls our of 1st in murders&quot; refer to an absolute quantity or a relative 
+quantity?&nbsp; In other words, did Chicago fall out of first in absolute terms 
+or in relative terms?&nbsp; Briefly explain.</p>
+<p>&nbsp;&nbsp;&nbsp; b. In the second paragraph, the author states that &quot;Chicago was way ahead of 
+the pack in the murder rate...&quot;&nbsp;&nbsp; According to the article, what is the &quot;pack&quot; that Chicago is 
+ahead of?</p>
+<p>&nbsp;&nbsp;&nbsp; c. Let us look more carefully at the complete 2001 data. (This is the data 
+for the year before the article)&nbsp; Open the file 
+<a href="http://qrc.depaul.edu/Excel_Files/HomicidesForCities2001.xls">HomicidesForCities2001.xls</a>.&nbsp; Sort the data by the absolute number of 
+murders.&nbsp; Which three cities had the highest number of murders in 2001?</p>
+<p>&nbsp;&nbsp;&nbsp; d. In Column D, calculate the homicide rate (homicides per person).&nbsp; Paste into your Word/Writer document the top 
+<b>five</b> rows of the resulting table. </p>
+<p>&nbsp;&nbsp;&nbsp; e.&nbsp; Now sort the data by column D.&nbsp; Which three cities had the 
+highest murder rates in 2001?</p>
+<p>&nbsp;&nbsp;&nbsp; f.&nbsp; How many times greater was the murder rate for 
+the Fairfield, Alabama than the rate for Chicago? </p>
+<p>&nbsp;&nbsp;&nbsp; g.&nbsp; There were exactly four cities with population greater than 500,000 
+with a rate higher than Chicago's.&nbsp; Which were they?</p>
+<p>&nbsp;&nbsp;&nbsp;h.&nbsp; Now sort by column B (population) in descending order to look at the largest 
+cities in the US.&nbsp; Copy the top 10 rows of the table and paste them into a 
+different part of your Excel (or Calc) spreadsheet.&nbsp; You should now have the just the 
+cities with population greater than 1 million.&nbsp; Sort this table by rate and 
+paste the resulting table into your Word/Writer document.&nbsp; Who is &quot;ahead of the 
+pack&quot; here when we consider cities of population 1 million or greater?</p>
+<p>&nbsp;&nbsp;&nbsp; i. What was the overall impression of the article and the 
+accompanying graph?&nbsp;&nbsp; Given the
+additional data in the Excel file, do you think the article is misleading in certain ways? If so, how?&nbsp;
+Critique the use of quantitative information in the New Year's 
+Day article.</p>
+
+<p>2. Women in the United States continue to be paid less than men overall.&nbsp;&nbsp; 
+Nationally, in 2003, the median weekly earnings of female full-time wage and 
+salary workers totaled $552, while it was $695 for males. (Data is from the 
+Bureau of Labor Statistics report&nbsp;
+<a href="http://www.bls.gov/cps/cpswom2003.pdf">
+http://www.bls.gov/cps/cpswom2003.pdf</a> )</p>
+<p>a. Fill in the blank using the data:&nbsp; In 2003, male full-time wage and 
+salary workers earned _________ % more than female full-time wage and salary 
+workers.</p>
+<p>b. What percent of male full-time wage and salary worker median weekly 
+earnings does the female median weekly earnings represent?&nbsp; (This 
+percentage is often called the <i>women-to-men's earning ratio</i>.)</p>
+<p>c. Using the data above ($552 for females and $695 for males), make a bar 
+chart that purposely exaggerates the difference between men and women.&nbsp; 
+Paste it into your Word/Writer document.</p>
+<p>d. Using the data above ($552 for females and $695 for males), make a bar 
+chart that purposely makes the difference between men and women seem small.&nbsp; 
+Paste it into your Word document. </p>
+<p>e. In the spirit of the story of Goldilocks, make a graph of the data that 
+you feel gives the most accurate, non-biased view of the difference between male 
+an female wages.</p>
+<p>f. In the Bureau of Labor Standard's report
+<a href="http://www.bls.gov/cps/cpswom2003.pdf">
+http://www.bls.gov/cps/cpswom2003.pdf</a>, the authors include the following 
+complex chart. 
+<img border="0" src="http://qrc.depaul.edu/instructor/images/HW3.ht1.gif" width="796" height="509"></p>
+<p>In a well written paragraph, describe what this graph tells you about men's 
+earnings over time, women's earnings over time, women's earnings as a percent of 
+men's over time, and the relationship between men and women's earnings over 
+time.</p>
+<p>g. In the graph above, the line depicting women's earnings as a percent of 
+men's intersects the men's earning line around 1994.&nbsp; Briefly explain what 
+this occurrence on this graph tells you about women's and men's earnings around 
+1994.</p>
+<p>h. Another graph found in the report is shown below:</p>
+<p>
+<img border="0" src="http://qrc.depaul.edu/instructor/images/HW3.ht2.gif" width="790" height="520"></p>
+<p>What type of graph is this graph?&nbsp; </p>
+<p>i. True or False: The graph shows that women with bachelor's degree or higher 
+earn more than men with bachelor's degrees or higher.</p>
+<p>j. In a paragraph, carefully describe what this graph tells about changes in 
+women's and men's earnings from 1979 to 2003.&nbsp; Describe changes across the 
+categories as well as within the categories.</p>
+<p>3. Critique the following graph:</p>
+<p>
+<img border="0" src="http://qrc.depaul.edu/instructor/images/WorldPop_USA_Today.gif" width="626" height="507"></p>
+
+</body>
+
+</html>

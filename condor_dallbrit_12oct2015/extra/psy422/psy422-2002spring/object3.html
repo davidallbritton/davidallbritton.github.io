@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml">
+
+<!-- This document demonstrates some aspects of using objects  -->
+<!-- with Javascript.                                          -->
+<!-- by David Allbritton -->
+
+  <head>
+    <title>Objects in Javascript, example 3</title>
+    <script type = "text/javascript">
+<!--
+function splitInputSentence(formname)
+// notice this is different than object1.html:
+// I passed the reference to the form as a parameter.
+// Referencing it by the "id" without referencing its parent (document)
+// object seems to be an IE specific ability.  
+// Look for "this.form" in the document body to see the rest of the story.
+
+{
+  var words;
+     
+  words = formname.inputSentence.value.split(" ");  
+                                    // creates an array object called "words"
+                                    // Note the use of the "value" attribute
+                                    // for the form input object "inputSentence"
+                                    // Notice how extra spaces are treated.
+                                    
+  wordCount = words.length ;        // uses the "length" attribute of array objects
+  
+   formname.nWords.value =  wordCount;
+         // value is an attribute of nWords
+
+   //  The section above placed the number of words in the form text box.
+   //  The section below changes the content of Paragraph 1
+
+   var parref = document.getElementById("paragraph1");
+   //  The above line assigns the node with id="paragraph1" to parref.
+   //  We can now use "parref" to refer to this element in the document.
+   //    The following line would do the same thing, but it only 
+   //    works with IE, not with Netscape:
+   //var parref = document.all["paragraph1"];
+
+   // The following line creates a text node for us to add to the paragraph
+   var newText = document.createTextNode (words);
+
+   // The following line adds the text node to the paragraph
+   parref.appendChild(newText);
+   
+ 
+
+}
+// -->
+</script>
+  </head>
+
+  <body>
+	
+	  <h1>Objects in Javascript, example 3</h1>
+		
+    <p>This file is similar to object1.html, but uses a different
+       function to manipulate the text in Paragraph 1.  Look at the
+       comments in the document source for details.
+      </p>
+       
+    <hr />
+       
+       
+		<form name = "sentenceForm" id = "sentenceForm" action = "">
+		  
+		  <p>
+			  Type in a sentence and click "submit."<br />
+			  <input type = "text" name = "inputSentence" 
+                           id = "inputSentence" />
+		    
+			  <input type = "button" value = "Submit" 
+                           onclick = "splitInputSentence(this.form)"/>
+        <!-- note the event "onclick" and how it is used to 
+         invoke the "splitInputSentence" function in the script. 
+         Also notice the argument "this.form" that is passed as
+         the "formname" parameter to the splitInputSentence function.
+         "this" refers to the current object, and the "form"
+         attribute refers to the form object that is the parent
+         of the current object.-->
+	    
+      </p>
+			
+			<p><label>This is the number of words in your sentence:
+			  <input type = "text" size = "5" name = "nWords" id = "nWords" />
+		    </label>
+	    </p>
+			
+    </form>
+		
+    <hr />
+    <h3>Paragraph 1:</h3>
+    
+    <p id = "paragraph1" >
+       Watch what appears in this paragraph 
+       when you click "submit"
+    </p>
+    
+    <hr />
+    
+    <h3>Paragraph 2:</h3>
+    <p id = "paragraph2" name = "paragraph2">
+       Look at the source of this page, and notice that "id" is used rather
+       than "name" to label the elements of the XHTML document.  The "name"
+       attribute is deprecated in XHMTL 1.0, and will be replaced completely
+       by "id" in XHTML 1.1.  If you want to make sure your pages work  
+       both with old browsers and with new XHTML engines, include both (as was
+       done for this paragraph).</p>
+       
+ 
+		  <!--link to validator -->
+	<p>
+    <a href="http://validator.w3.org/check/referer">Click
+    here to validate this page's XHTML</a>
+  </p>
+
+		
+  </body>
+</html>

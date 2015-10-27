@@ -1,0 +1,29 @@
+ /* style sheet for david allbritton's web pages*/
+ 
+ /* The following are used in my home page */
+ 
+ div.c3 {text-align: left}
+ hr.c2 {text-align: center}
+ h1.c1 {text-align: center; margin-bottom: 0ex}
+ span.dwa_list_head {font-weight: bold;  margin-bottom: 2ex}
+ p.dwa_list_head1 {font-weight: bold;  
+                  margin-bottom: 1ex; font-size: 120%;
+                  }
+ p.dwa_list_head {font-weight: bold;  
+                  margin-bottom: 0ex;
+                  margin-top: 1ex; 
+                  font-size: 110%;
+                  }               
+ ul.dwa_list {margin-top: 0ex; 
+              margin-bottom: 0ex;
+              list-style-type: square
+             }   
+
+ body {
+       background-image: url(http://condor.depaul.edu/~dallbrit/015.jpg);
+      }
+ 
+ /* end of home page styles */
+ 
+           
+         

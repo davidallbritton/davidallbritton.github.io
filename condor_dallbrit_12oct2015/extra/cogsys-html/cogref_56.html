@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Reset Picture List/Type</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Reset Picture List/Type">
+<META NAME="keywords" CONTENT="Cogsys: Reset Picture List/Type">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC64"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_57.html#SEC65"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.5.1 Reset Picture List/Type (<CODE>%C</CODE>) </H4>
+<!--docid::SEC64::-->
+<P>
+
+The Reset Picture List/Type command is used before any other picture commands.
+This command resets the picture buffer (flushes all pictures from memory)
+and clears the picture list.
+</P><P>
+
+With an argument, it changes the picture type. A picture type is
+specific to a Cogsys mode. Currently, there are two picture types,
+one for each mode:
+</P><P>
+
+<DL COMPACT>
+<DT><CODE>1</CODE>
+<DD>640x480 pixels, 2 color, for use in Mode 1.
+By default displayed at location 0,0.
+If loaded from file, must be a PCX Version 5 file.
+<DT><CODE>2</CODE>
+<DD>320x200 pixels, 256 color, for use in Mode 2.
+By default displayed at location 160, 140.
+If loaded from file, must be a PCX Version 5 file.
+</DL>
+<P>
+
+<EM>There is no default picture type.</EM> Therefore, Reset Picture List/Type
+must be called before any picture commands are used. By explicitly declaring
+picture type up front, the chance for confusion (by both user and Cogsys) 
+is reduced.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Reset Picture List/Type.
+<DT>Class:
+<DD>Pictures
+<DT>Code:
+<DD><CODE>%C</CODE>
+<DT>Syntax:
+<DD><CODE>%C</CODE>[<CODE><VAR>pictype</VAR></CODE>]
+<BR><VAR>pictype</VAR> is 1 or 2, representing picture type
+<DT>System:
+<DD>Resets the picture buffer and clears the picture list.
+<DT>Requires:
+<DD>Although pictures will only be displayed in a graphics mode, this command
+will work in <EM>any</EM> mode.
+<DT>History:
+<DD><CODE>%C</CODE> made its first appearance in Cogsys 2.9. Earlier versions had
+no explicit means of reseting the picture list.
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`RPIC_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Examples:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>%M2%C2%Q[mypics.txt]#B[1,20]@C</CODE>
+<DT>cogsys
+<DD>Switches to Mode 2, and sets picture type to 2. The <CODE>%Q</CODE> command
+then loads up the PCX Version 5 picture files given in the list file
+<TT>`mypics.txt'</TT>. Now the <CODE>#B</CODE> command displays the first image
+for 20 milliseconds at the default position for a Type 2 picture,
+(160,140), the center of the screen. Finally, the screen is cleared with
+a call to <CODE>@C</CODE>.
+</DL>
+<P>
+
+</DL>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_57.html#SEC65"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_42.html#SEC50"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_55.html#SEC63"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_64.html#SEC72"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: RANDEXT Subfunction 2</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: RANDEXT Subfunction 2">
+<META NAME="keywords" CONTENT="Cogsys: RANDEXT Subfunction 2">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC106"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_97.html#SEC105"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_99.html#SEC107"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_94.html#SEC102"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_96.html#SEC104"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_103.html#SEC111"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 3.3.4.2 <CODE>RANDEXT</CODE> Subfunction 2: random-dot square series </H4>
+<!--docid::SEC106::-->
+<P>
+
+Syntax:
+<CODE>RANDEXT</CODE> 2, <VAR>lowratio</VAR>, <VAR>hiratio</VAR>
+</P><P>
+
+Like subfunction 1 (see section <A HREF="cogref_97.html#SEC105"><CODE>RANDEXT</CODE> Subfunction 1: random-dot square</A>), draws a
+64x64 square of black and white pixels centered on a light gray full
+picture (320x200) background. The chance of a pixel being white varies
+between <VAR>lowratio</VAR> and <VAR>hiratio</VAR>.
+</P><P>
+
+It is important to understand that each call of the <CODE>RANDEXT</CODE>
+extension (or any extension) draws exactly <EM>one</EM> picture. It is the
+<CODE>%I</CODE> command (see section <A HREF="cogref_60.html#SEC68">Create Pictures from CXR</A>) which has the <VAR>numpics</VAR> argument
+and which repeatedly invokes the extension with the same arguments. 
+</P><P>
+
+In many cases, like the <CODE>SQUAREXT</CODE> or <CODE>CIRCEXT</CODE> extension, 
+a <VAR>numpics</VAR> specification over 1 will simply generate the same
+picture over again.
+</P><P>
+
+Here, however, the <VAR>numpics</VAR> argument is used to help set up the
+random distribution that determines the fillratio for each square.  The
+first call to <CODE>RANDEXT</CODE> experiment 2 creates the distribution
+values that are used for subsequent calls by the same <CODE>%I</CODE> command.
+</P><P>
+
+For example, this testlist
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>%X[randext.cxr]
+%M2%C
+%I[50,2,.2,.6]
+%J[1,50,5]
+</pre></td></tr></table></P><P>
+
+creates 50 pictures which a fillratio that varies between
+(approximately) 20% and 60% white pixels.
+</P><P>
+
+Examples of the pictures created:
+</P><P>
+
+<TABLE>
+<TR><TD><CENTER><IMG SRC="images/randext02.jpg" ALT="images/randext02"></CENTER></TD>
+</TD><TD>  <CENTER><IMG SRC="images/randext03.jpg" ALT="images/randext03"></CENTER>
+</TR>
+<TR><TD><CENTER><IMG SRC="images/randext04.jpg" ALT="images/randext04"></CENTER></TD>
+</TD><TD>  <CENTER><IMG SRC="images/randext05.jpg" ALT="images/randext05"></CENTER>
+</TR></TABLE>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

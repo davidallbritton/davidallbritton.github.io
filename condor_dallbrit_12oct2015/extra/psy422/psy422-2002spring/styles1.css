@@ -1,0 +1,10 @@
+/* An external style sheet */
+/* for use in Week 3       */
+
+/* Note how comments like this are indicated in .css files */
+
+h1               { font-family: arial, sans-serif; 
+                   text-align: center }
+p                {color: red}
+									 
+p.plain          {color: black}

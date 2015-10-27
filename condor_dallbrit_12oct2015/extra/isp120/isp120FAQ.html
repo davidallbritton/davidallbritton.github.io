@@ -1,0 +1,107 @@
+<html >
+
+<head>
+
+<title>ISP 120 Frequently Asked Questions</title>
+</head>
+
+<body >
+
+<h2 align=center style='text-align:center'>ISP 120 Frequently Asked Questions
+<br />David Allbritton</h2>
+
+<h4>I'm having problems with sorting in Excel.  The numbers sorted, but the country 
+names did not stay with their numbers.</h4>
+<p>
+If I understand you right, you are doing #2 in homework 1, and you are trying to calculate the percent infected in each country and then (this sounds like the part you are having trouble with) sort the countries from lowest to highest infection rate.  Right?  And it sounds like your problem is that you got the numbers (the percentages) to sort from most to least, but the country names did not stay with their numbers, right?
+</p><p>
+This is a common mistake.  You probably highlighted all the numbers in column D (the % infected that you had calculated for all the countries) and then clicked the sort button or did "data-sort" in the menu.  And only the numbers moved; the rest of the rows stayed the same, right?  That is because Excel only sorts the cells you tell it to - the ones you highlighted.  You need to select (highlight) the whole rows, not just column D.  Then it will keep the country names together with the numbers when you sort.
+</p><p>
+I showed you a shortcut for sorting where you just click the A->Z button, if you remember.  To use that shortcut, you must click in *just one cell* in column D before clicking the A->Z button.  If you highlighted all of the cells in column D first, that is what caused the problem.  
+</p><p>
+If you still have the excel file open that you were working on, you can click the Undo button (a left-facing curved arrow on the top menu bar) to undo the problem, and then try sorting the right way.  If you already saved the file after the numbers got scrambled, however, you may have to open the original data file and start over.
+</p>
+
+<h4>On Homework 1, I'm confused about which are absolute and which are relative amounts.
+Would this be an absolute amount, since it is just one number: "10% of adults in Halbisa were infected with H.I.V"?
+ 
+And would this be a relative amount, since it has 2 numbers related to each other: 
+"Out of 44 Million 4.7 are infected with H.I.V"
+ </h4>
+ <p>
+ The 10% is a relative amount, because it tells you how many infections there are *relative to* the total population: 10% means "10 infections per 100 people in the population" - so that is a relative amount.
+</p><p>
+The population being 44 million is an absolute amount - a quantity not expressed as a proportion or percentage of some other quantity, but by itself.  4.7 million is also an absolute quantity.
+</p><p>
+If you took the 44 million and the 4.7 million you *could* calculate the relative quantity of the proportion (or percent) of the population that is infected:  4.7/44, which is around 11%.  11% would be a relative quantity.  So probably you were thinking that having both numbers gave you all the information you needed to get a meaningful, relative amount. 
+ </p>
+
+ 
+ <h4>On homework 7,
+    I am confused by the formula you suggested in the assignment, and 
+ don't know what the letters signify. Also, how can we make a 
+ mathematical model with only 2 given data points?</h4>
+ 
+ <p>
+ the formula in the homework is:
+</p><p>
+y = P(1+r)^x
+</p><p>
+The formula we have used for exponential functions is:
+</p><p>
+y = ba^x
+</p><p>
+So "P" in the homework is the same as "b" (what you start with, or what you have if x is zero, or the y intercept - all the same thing).  The form
+of the exponential equation in the homework is one that will be useful when we 
+apply it to financial matters next week: "P" is the principal, or amount of money 
+you start with at time zero; "r" is the interest rate, which when added to one 
+gives you your growth rate per compounding period, and "x" is the
+number of compounding periods.
+</p><p>
+(1+r) is "a", the "growth factor" that you multiply y by each time x increases by one.
+</p><p>
+So, "P" is the number of Elvi (plural of Elvis?) when you started (in 1977), when x (the number of years since Elvis's death) was zero.  In 1996 (19 years later) there were 7328, so what did you multiply P by 19 times in order to end up with 7328?  If you can figure that out, you'll know what "a" (or "1+r") is, and you'll have your formula (since you already know what "P" or "b" is, the number of Elvi in 1977).
+</p><p>
+Since you don't know how to solve an exponential equation yet, you can try different numbers in Excel and by trial and error approximate the value of "a".
+</p><p>
+You are right to be suspicious of any mathematical model based on just 2 data points (that is one of the points of the question!).  To make the model (the exponential equation) you have to assume that the growth rate was the same from 1977 to 1996, and that it will stay the same afterwards.
+ </p>
+ 
+ 
+ 
+ <h4>
+I am having problems with converting from log to exponent form. On
+question 2 in Activity 15, the formula is L=10logx.  The first step I take is divide both
+sides by 10, leaving us with L/10=log x.  Where do I go from here? We
+ didn't go over any examples that were quite like this in class, so I am a
+ little confused. On number 3 I am a little confused as well. We didn't
+ cover negative logs in class either. the formula is pH= -log H+.  Can you
+ please explain how I would go about converting this equation. 
+</h4>
+
+<p>
+ You were on exactly the right track:  get the "log x" by itself, then apply the definition of a logarithm to convert it.  In class we said that a logarithm (#1) can be expressed in an exponent form as #2:
+</p><p>
+(#1) y = log x
+</p><p>
+(#2) 10^y = x
+</p><p>
+You got as far as this:
+</p><p>
+(#3) L/10 = log x
+</p><p>
+Do you see how your equation #3 is in the same format as #1 above?  All you need to do to convert #3 to an exponent form is to do the same thing to #3 that we did to #1 above when we converted it to exponent form in #2.
+</p><p>
+Another hint if you need it:  Notice that (L/10) in equation #3 is substituted for (y) in equation #1?  Where
+is (y) in equation #2?  (Remember, equation #2 is the exponent form of equation #1.)
+ Where will (L/10) be in your exponent form of equation #3?
+</p><p>
+Question number 3 is the same principle: get the "log x" by itself (without the minus sign) and then you can convert it to exponent form using the rule we applied to equation #1 above.
+</p><p>
+
+ 
+ 
+ 
+</body>
+
+</html>

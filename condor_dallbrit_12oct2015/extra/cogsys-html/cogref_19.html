@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Global Settings</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Global Settings">
+<META NAME="keywords" CONTENT="Cogsys: Global Settings">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC27"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_18.html#SEC26"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_20.html#SEC28"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_16.html#SEC24"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_17.html#SEC25"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_20.html#SEC28"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 2.1.2 Global Settings </H3>
+<!--docid::SEC27::-->
+<P>
+
+The following table lists global constants which are defined at compile
+time and can not be modified by the user. Where the user would want to 
+use different values, some other well-defined mechanism usually exists
+(for instance, use command line options or environment variable to specify
+new values for the <CODE>INPUT_FILE</CODE> variable). 
+</P><P>
+
+These values are used most often in error checking, and are referred
+to both in <A HREF="cogref_75.html#SEC83">2.4 Error Messages</A> and in the descriptions of individual
+commands.
+</P><P>
+
+@set{ccInBufSize} 250000
+@set{ccOutBufSize} 70000
+@set{ccInputFile} COGSYS.IN
+@set{ccOutputFile} COGSYS.OUT
+@set{ccLabelFile} KEEPFILE.TMP
+@set{ccNumVars} 100
+@set{ccTmpStrLen} 256
+@set{ccMaxIfNest} 16
+@set{ccCommentMarker} ;
+@set{ccMaxUniquePics} 1000
+@set{ccFairTime} 500000
+@set{ccTimeUpRespChar} &#38;
+@set{ccBreakoutChar} @
+@set{ccDefaultFontPath} C:\DATA\FONTS
+@set{ccDefaultPicPath}  C:\DATA\PICS\PCX\SHAPES
+@set{ccDefaultPicType} 2 (320x200x256)
+@set{ccMaxPicSets} 5
+@set{ccMaxFrames} 500
+@set{ccCogVarClearColor} 4
+@set{ccCogVarTime} 5
+@set{ccCogVarKey} 7
+</P><P>
+
+<TABLE>
+<TR><TD>Name </TD><TD> Value </TD><TD> Description</TD>
+</TR>
+<TR><TD><CODE>INBUF_SIZE</CODE></TD>
+</TD><TD> 
+</TD><TD> Maximum size (in bytes) of testlist file.
+</TR>
+<TR><TD><CODE>OUTBUF_SIZE</CODE></TD>
+</TD><TD> 
+</TD><TD> Maximum size (in bytes) of outfile.
+</TR>
+<TR><TD><CODE>INPUT_FILE</CODE></TD>
+</TD><TD> <TT>`'</TT>
+</TD><TD> Default testlist file name.
+</TR>
+<TR><TD><CODE>OUTPUT_FILE</CODE></TD>
+</TD><TD> <TT>`'</TT>
+</TD><TD> Default outfile file name.
+</TR>
+<TR><TD><CODE>LABEL_FILE</CODE></TD>
+</TD><TD> <TT>`'</TT>
+</TD><TD> Default labels file name.
+</TR>
+<TR><TD><CODE>NUM_VARS</CODE></TD>
+</TD><TD> 
+</TD><TD> Number of Cogsys variables
+</TR>
+<TR><TD>Int Range</TD>
+</TD><TD> +/- 2,147,483,647
+</TD><TD> Valid range of any Cogsys variable (and most other numerical parameters).
+</TR>
+<TR><TD><CODE>TMP_STR_LEN</CODE></TD>
+</TD><TD> 
+</TD><TD> Max length (in characters) of any Cogsys string.
+</TR>
+<TR><TD><CODE>MAX_IF_NEST</CODE></TD>
+</TD><TD> 
+</TD><TD> Maximum number of levels If statments may be nested.
+</TR>
+<TR><TD><CODE>COMMENT_MARKER</CODE></TD>
+</TD><TD> <SAMP>`'</SAMP>
+</TD><TD> Character to mark start of comment.
+</TR>
+<TR><TD><CODE>MAX_UNIQUE_PICS</CODE></TD>
+</TD><TD> 
+</TD><TD> Maximum number of unique pictures that can be loaded into memory.
+</TR>
+<TR><TD><CODE>FAIRTIME</CODE></TD>
+</TD><TD> 
+</TD><TD> Maximum time (in milliseconds) that can be specified in commands that have <VAR>time</VAR> arguments.
+</TR>
+<TR><TD><CODE>TIMEUP_RESP_CHAR</CODE></TD>
+</TD><TD> <SAMP>`'</SAMP>
+</TD><TD> Character to use as response key in timed response commands that time out.
+</TR>
+<TR><TD><CODE>BREAKOUT_CHAR</CODE></TD>
+</TD><TD> <KBD></KBD>
+</TD><TD> Key to press to break out of teslist (on commands that support it).
+</TR>
+<TR><TD><CODE>DEFAULT_PIC_PATH</CODE></TD>
+</TD><TD> <TT>`'</TT>
+</TD><TD> Default directory to look for pictures.
+</TR>
+<TR><TD><CODE>DEFUALT_PIC_TYPE</CODE></TD>
+</TD><TD> 
+</TD><TD> Default Picture Type
+</TR>
+<TR><TD><CODE>MAX_PICSETS</CODE></TD>
+</TD><TD> 
+</TD><TD> Maximum number of picture sets in commands that take <CODE>start,end,frames</CODE> triplets.
+</TR>
+<TR><TD><CODE>MAX_FRAMES</CODE></TD>
+</TD><TD> 
+</TD><TD> Maximum frames value allowed in a picture set triplet.
+</TR>
+<TR><TD><CODE>COGVAR_CLEARCOLOR</CODE></TD>
+</TD><TD> 
+</TD><TD> Cogsys variable that specifies what color the graphics mode clear screen uses.
+</TR>
+<TR><TD><CODE>COGVAR_TIME</CODE></TD>
+</TD><TD> 
+</TD><TD> Cogsys variable that holds the latest reaction time.
+</TR>
+<TR><TD><CODE>COGVAR_KEY</CODE></TD>
+</TD><TD> 
+</TD><TD> Cogsys variable that holds the latest reaction key.
+</TR></TABLE>
+<P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_18.html#SEC26"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_20.html#SEC28"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_16.html#SEC24"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_17.html#SEC25"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_20.html#SEC28"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

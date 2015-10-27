@@ -1,0 +1,13 @@
+Time			Account	Session	Message
+04/22/02 11:18:28	dallbrit		Logged on
+04/22/02 11:18:29	dallbrit		Instantiated package DataEditorPkg
+04/22/02 11:18:29	dallbrit		Instantiated package DACManagerPkg
+04/22/02 11:18:30	dallbrit		Instantiated package SpsswPackage
+04/22/02 11:18:35	dallbrit		Instantiated package SaveFileDACPkg
+04/22/02 11:48:28	dallbrit		Checking for zombie process in c:\windows\TEMP.
+04/22/02 12:18:28	dallbrit		Checking for zombie process in c:\windows\TEMP.
+04/22/02 12:48:28	dallbrit		Checking for zombie process in c:\windows\TEMP.
+04/22/02 13:18:28	dallbrit		Checking for zombie process in c:\windows\TEMP.
+04/22/02 13:48:28	dallbrit		Checking for zombie process in c:\windows\TEMP.
+04/22/02 14:18:28	dallbrit		Checking for zombie process in c:\windows\TEMP.
+04/22/02 14:29:37	dallbrit		Session terminated.

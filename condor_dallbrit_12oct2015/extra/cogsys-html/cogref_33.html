@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Exec and Return to Cogsys</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Exec and Return to Cogsys">
+<META NAME="keywords" CONTENT="Cogsys: Exec and Return to Cogsys">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC41"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_32.html#SEC40"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_34.html#SEC42"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_23.html#SEC31"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.1.9 Exec and Return to Cogsys (<CODE>%E</CODE>) </H4>
+<!--docid::SEC41::-->
+<P>
+
+This command suspends Cogsys execution completely and runs an entirely
+different program. 
+</P><P>
+
+The most common program to run is <TT>`command.com'</TT>, which is the
+MS-DOS command interpreter. This lets the user access all DOS commands
+and then return to Cogsys and continue the experiment.  If the
+command interpreter is invoked, Cogsys will display a message
+reminding the user that the shell was spawned by Cogsys and that the
+<CODE>exit</CODE> command can be used to return.
+</P><P>
+
+It is important to note that all extended memory is released before the
+new program is started; this means <EM>all</EM> pictures are unloaded.
+Cogsys will return to the same video mode it left in.
+</P><P>
+
+<STRONG>Tech note:</STRONG> Technically, <EM>exec</EM> means the
+current process is <EM>replaced</EM> with a new one, and the calling
+process never completes. The correct term for this command is <EM>wait</EM>,
+but since that already has an important meaning for Cogsys, "Exec and
+Return" is used instead.
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Exec and Return
+<DT>Class:
+<DD>Control
+<DT>Code:
+<DD><CODE>%E</CODE>
+<DT>Syntax:
+<DD><CODE>%E[<VAR>program</VAR>,<VAR>args</VAR>]</CODE>
+<BR><VAR>program</VAR> is the name of the program to execute
+<BR><VAR>args</VAR> are any argument that the program requires
+<DT>System:
+<DD>Completely suspends Cogsys, and runs <VAR>program</VAR> with arguments <VAR>args</VAR>.
+<DT>Requires:
+<DD>No "useful" (ie, undisplayed) picture should be loaded; they will need to
+be reloaded to be displayed after the <CODE>%E</CODE> command returns.
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`EXEC_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Example:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><CODE>%E[c:\dos\command.com]</CODE>
+<DT>cogsys
+<DD>Flushes pictures and displays a DOS prompt.
+<DT>subject
+<DD>Can enter any MS-DOS command (like <CODE>copy</CODE>, <CODE>dir</CODE>, etc.).
+Types <KBD>exit</KBD> to return to Cogsys.
+</DL>
+<P>
+
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

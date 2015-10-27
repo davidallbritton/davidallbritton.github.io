@@ -1,0 +1,168 @@
+<?xml version = "1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!-- Psy 422  Assignment 1-->
+<!-- by David Allbritton -->
+
+<html xmlns = "http://www.w3.org/1999/xhtml" >
+ <head>
+   <title>Psy 422 - Introduction to Programming and Unix</title>
+   <link rel = "stylesheet" type = "text/css"
+      href = "psy422-styles.css" />
+ </head>
+
+ <body>
+    <h1>Psy 422 - Assignment 1</h1>
+
+
+    <h2>Activate your account on shrike.depaul.edu</h2>
+    <p> If you are currently a student, you have a shrike account already.
+        If you do not know how to log into your shrike account (if you do
+        not know your password) you must go to an ID Services office to 
+        change your password and activate your account.  Next week you will
+        be creating a web page on your shrike account, so you must activate
+        your account before next week.
+    </p>
+
+    <h2>Use Unix utilities to answer the following questions.</h2>
+    <p>First telnet (or ssh) into your account on sheu-hp.psy.depaul.edu.  
+       For each question, give (a) the answer and (b) the commands you 
+       used to get the answer.  (Hint:  You can cut and paste the command
+       and its output into a file to print out and turn in.  Hint#2: 
+       remember that you can use the history list to see what commands
+       you have run, or to repeat them.)
+    </p>
+
+    <ol>
+
+      <li>What is the largest file in your home directory?
+          <p>Hint:  <span class = "input">man sort</span></p>
+
+      </li>
+
+      <li>Extensive documentation for various packages can be found in
+          /usr/share/doc.  There is a separate directory there for 
+          each package.  Which of these subdirectories contains
+          the largest pile of documentation (takes up the most disk 
+          space)?
+          <p>Hints:</p>
+          <ul>
+              <li><span class = "input">man du</span></li>
+              <li><span class = "input">sort</span> numerically</li>
+              <li>There are over 100 directories - think about how
+                  to list just a few that you are interested in</li>
+          </ul>
+
+      </li>
+
+
+
+
+      <li>Does the word "FUBAR" occur in all lower-case letters
+          anywhere in the source file of this web page?  (The 
+          web page that you are reading right now).  If so, 
+          how many lines contain at least one lower-case FUBAR?
+          <p>Hints:</p>
+          <ul>
+             <li>Of course you <em>could</em> do this by using "view
+                 source" in your browser window and then using "edit - 
+                 search."  But I asked you to use Unix utilities, so
+                 you'll have to figure out an additional method.</li>
+             <li>Where is this file that you are reading located in
+                 the Unix file system on the server?</li>
+             <li><span class = "input">man grep</span></li>
+          </ul>
+					<!-- this line contains fubar not once but twice.  fubar. -->
+					<!-- this line contains fubar also. -->
+					<!-- this line contains Afubar inside another word -->
+
+      </li>
+
+
+
+      <li>Create a bash shell script called "fix-terminal-type" that
+          will change your terminal type to vt100 and export the
+          terminal type as an environment variable so that your
+          login window will display properly.  It will only need
+          to be a few lines.  You can use "my-first-bash-script"
+          as a model to help you figure out what to do.
+         
+          <p>Hint: <span class = "input">pico</span> might be easier to use than 
+					<span class = "input">vi</span></p>
+          
+
+
+
+      </li>
+
+
+      <li>How many words are there in the file /etc/hosts?  (Count any  
+          string of non-space characters as one word, and do not ignore case.  
+          <em>dog</em>,
+          <em>Dog</em>, and
+          <em>"dog</em> 
+          should all get counted as different words.)
+          <p>Hints: </p>
+          <ul>
+              <li><span class = "input">tr -s '[:space:]'</span> </li>
+              <li><span class = "input">man wc</span></li>
+          </ul>
+ 
+         </li>
+	 
+      <li>Which non-hyphenated English word occurs with the 
+          greatest frequency in the
+          file /etc/httpd/conf/httpd.conf, and how many times does it occur?
+
+          <p>Hints:</p>
+          <ul>
+             <li>A non-hyphenated English word will contain only upper-
+                 and lower-case letters</li>
+             <li>You need to get each non-hyphenated English word
+                 on a line by itself to make them easier to count</li>
+             <li><span class = "input">man tr</span></li>
+             <li><span class = "input">man uniq</span></li>
+             <li><span class = "input">sort</span> twice</li>
+             <li>Really stuck?  This link will take you to 
+                 <a href="assignment1-morehints.html">more hints</a>.
+                 Try it yourself first, then follow the link if you
+                 are stuck.
+             </li>
+          </ul>
+     
+
+      </li>
+
+
+    
+      <li>How many times does that word occur if you ignore case - 
+          in other words 
+          if you count uppercase and lowercase together?
+
+          <p>Hint:</p>
+          <ul>
+            <li>Compare your pseudo-code for this problem to what you did
+                in the previous problem.  What step(s) do you need to add?
+            </li>
+            <li>Check out the options for <span class = "input">sort</span> 
+						and <span class = "input">uniq</span></li>
+          </ul>
+
+
+      </li>
+
+
+
+    </ol>             
+
+    <h2>Readings for Next Week</h2>
+    <ul>
+      <li> Chaper 1 (Intro to Computers and the Internet) 
+      </li>
+      <li> Chapter 4 (Intro to XHTML) 
+      </li>
+    </ul>
+
+  </body>
+</html>

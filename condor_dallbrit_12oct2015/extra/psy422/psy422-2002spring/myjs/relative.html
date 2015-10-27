@@ -1,0 +1,115 @@
+<html>
+<head>
+<script language="JavaScript">
+function compute(form) {
+   a = Math.abs(form.input1.value)
+   b = Math.abs(form.input2.value)
+   c = Math.abs(form.input3.value)
+   d = Math.abs(form.input4.value)
+ totala = (a + b + c + d)
+  p = a + b
+  q = c + d
+  r = a + c
+  s = b + d
+  n = c + d
+ r1a = a/p
+ r2a = c/n 
+ rra = r1a/r2a
+    form.r1.value = r1a
+    form.r2.value = r2a 
+    form.rr.value = rra 
+    form.total.value = totala
+
+  }
+  </script>
+  
+   </head>
+  <body>
+  <form>
+  <h1>Relative Risk (RR)</h1>
+  <p>
+  
+  Consider a population followed prospectively as shown in Table 1.
+  The risk of developing disease among those with a risk factor is
+  A/(A + B). Similarly, the risk of developing disease among those
+  without the risk factor is C/(C + D). The risk for those with
+  the risk factor relative to those without the risk factor is the
+  ratio of the two risks:
+  <p>
+  <pre>
+                          A/(A + B)
+                   RR =   _________
+                          C/(C + D)
+   </pre>
+   <p>
+   Although (RR) could be calculated for a prospective study, often it
+   is not.
+  <p> 
+   <pre>
+            <b>Disease Incedence</b>
+   </pre>            
+   <table border>
+    <tr>
+     <th>Risk Factor</th>
+     <th>Present</th>
+     <th>Absent</th>
+     <th>Total</th>
+     </tr>
+    <tr align=center>
+      <td>Present</td>
+      <td>Cell A</td>
+      <td>Cell B</td>
+      <td>Cell A + B</td>
+      </tr>
+     <tr align=center>
+       <td>Absent</td>
+       <td>Cell C</td>
+       <td>Cell D</td>
+       <td>Cell C + d</td>
+       </tr>
+     <tr align=center>
+        <td>Total</td>
+        <td>Cell A + C</td>
+        <td>Cell B + D</td>
+        <td>T</td> 
+    </tr>     
+    </table>     
+  <p>
+  Enter the values for your 2 x 2 table:
+  <p>
+  Cell A             
+
+  <input type="text"  name="input1" size=15>
+  Cell B
+  <input type="text"  name="input2" size=15>
+  <p>
+  Cell C            
+  <input type="text"  name="input3" size=15>
+   Cell D
+  <input type="text"  name="input4" size=15>
+  <p>
+  <input type="button" value="Calculate Relative Risk" onclick="compute(this.form)">
+  <br>
+ <p>
+<p>Risk of developing disease with risk factor<input type="text" name="r1" size=15>
+<p>
+Risk of developing disease without risk factor<input type="text" name="r2" size=15>
+<p>
+Relative Risk Ratio<input type="text" name="rr" size=15>
+
+<p>
+Lower Confidence Limit of RR<input type="text" name="yuley" size=15>
+
+
+<p>
+Upper Confidence Limit of RR<input type="text" name="phi" size=15> 
+<p>
+Total Sample Size<input type="text" name="total" size=15>
+<p>
+
+
+    <br>
+  </form>
+  <p>
+  <a href="epi.html">RETURN TO MAIN MENU</a>
+  </body>

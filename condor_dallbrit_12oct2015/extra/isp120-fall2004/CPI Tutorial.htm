@@ -1,0 +1,960 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0045)http://qrc.depaul.edu/djabon/cpitutorial2.htm -->
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="CPI%20Tutorial_files/filelist.xml">
+<link rel=Edit-Time-Data href="CPI%20Tutorial_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>CPI Tutorial</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="Street"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="address"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>DePaul University</o:Author>
+  <o:LastAuthor>DePaul University</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>2</o:TotalTime>
+  <o:Created>2004-09-22T16:35:00Z</o:Created>
+  <o:LastSaved>2004-09-22T16:38:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1127</o:Words>
+  <o:Characters>6424</o:Characters>
+  <o:Company>DePaul University</o:Company>
+  <o:Lines>53</o:Lines>
+  <o:Paragraphs>15</o:Paragraphs>
+  <o:CharactersWithSpaces>7536</o:CharactersWithSpaces>
+  <o:Version>10.4219</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>75</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p align=center style='text-align:center'><b><span style='font-size:18.0pt'>The
+Consumer Price Index:</span></b></p>
+
+<p align=center style='text-align:center'><st1:Street><st1:address><b><span
+  style='font-size:18.0pt'>A Way</span></b></st1:address></st1:Street><b><span
+style='font-size:18.0pt'> to Compare Prices in Different Years</span></b></p>
+
+<p>Inflation is a decline in the value of money in relation to the goods that
+it can buy and is a pervasive economic phenomenon. It is so pervasive that it
+is very difficult to compare this <span class=SpellE>year’s</span> prices to
+last <span class=SpellE>year’s</span>, much less compare prices over decades.
+Here is a graph of the buying power of $1.00 since 1938:&nbsp;</p>
+
+<p align=center style='text-align:center'><img width=306 height=181
+id="_x0000_i1025" src="CPI%20Tutorial_files/BuyingPower.jpg"></p>
+
+<p>&nbsp;</p>
+
+<p>How is the &quot;buying power&quot; of $1.00 measured? How can we compare
+prices of item in different years? The answer is the use of price indices such
+as the consumer price index or CPI. Below is a simplified explanation of how
+the indices are created and how we can use them.</p>
+
+<p>Economists choose a base year and determine the prices of a
+&quot;bundle&quot; of goods: food, clothing, housing costs, transportation
+costs, services, entertainment in varying proportions. The proportions for the
+index we are using (<span class=GramE>CPI(</span>U)) are</p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=1 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr style='mso-yfti-irow:0'>
+  <td width="100%" colspan=2 style='width:100.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p align=center style='text-align:center'>Components of the CPI(U) </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Housing</p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>41.4%</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Transportation</p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>17.8%</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Food</p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>16.2%</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Energy</p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>8.2%</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Medical Care</p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>6.4%</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Apparel and Upkeep</p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>6.1%</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7;mso-yfti-lastrow:yes'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Other</p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>3.9%</p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p>The cost of this bundle in the base year is assigned an index number of 100.
+The cost of the same bundle is then determined in a different year. For
+example, say that 1982 was the base year and the cost of the bundle of goods in
+1982 was $1103.46. In 1983 that same bundle cost $1138.91. This means in terms
+of the bundle chosen,</p>
+
+<p align=center style='text-align:center'>1103.46 (1982 $<span class=GramE>)=</span>
+1138.91 (1983 $)</p>
+
+<p>Proportionally, this means</p>
+
+<p align=center style='text-align:center'>1 (1982 $<span class=GramE>)=</span><img
+width=57 height=41 id="_x0000_i1026" src="CPI%20Tutorial_files/CPIEqn1.gif"
+align=middle> (1983 $)</p>
+
+<p align=center style='text-align:center'>= 1.032 (1983 $) </p>
+
+<p>Since we assigned the index 100 to 1982, we assign the index 103.2 to 1983.
+Repeating this process for a number of <span class=GramE>years</span> results
+in a table of indices such as the one below.</p>
+
+<p>&nbsp;</p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=1 cellspacing=1 cellpadding=0 width=120
+ style='width:1.25in;mso-cellspacing:.7pt'>
+ <tr style='mso-yfti-irow:0;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><b><span style='font-size:10.0pt;
+  font-family:Arial'>Year</span></b></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><b><span style='font-size:10.0pt;
+  font-family:Arial'>CPI</span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1980</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;background:silver;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>85.4</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;height:12.75pt'>
+  <td width="50%" valign=top style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:10.0pt;font-family:Arial'>1981</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>94.2</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1982</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;background:yellow;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>100.0</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1983</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>103.2</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1984</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>107.7</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1985</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>111.5</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1986</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>113.6</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1987</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>117.7</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1988</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>122.6</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1989</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>128.5</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:11;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1990</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;background:silver;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>135.4</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:12;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1991</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>141.1</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:13;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1992</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>145.4</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:14;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1993</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>149.7</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:15;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1994</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>153.6</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:16;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1995</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>157.9</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:17;mso-yfti-lastrow:yes;height:12.75pt'>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>1996</span></p>
+  </td>
+  <td width="50%" style='width:50.0%;padding:.75pt .75pt .75pt .75pt;
+  height:12.75pt'>
+  <p align=center style='text-align:center'><span style='font-size:10.0pt;
+  font-family:Arial'>162.6</span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p>The beauty of this table is that we can easily compare <i>any</i> two years prices,
+not just a given year and 1982. For example, from the table we can see that</p>
+
+<p align=center style='text-align:center'><span class=GramE>in</span> 1980, it
+would cost $85.40 for goods and services costing $100 in 1982.</p>
+
+<p>But also from the table we can see that</p>
+
+<p align=center style='text-align:center'><span class=GramE>in</span> 1990, it
+would cost $135.40 for goods and services costing $100 in 1982.</p>
+
+<p>Therefore,</p>
+
+<p align=center style='text-align:center'><span class=GramE>in</span> 1980,
+$85.40&nbsp; would buy the same goods and services (on average) as $135.40
+would in 1990.</p>
+
+<p>We say that $85.40 in 1980 is equivalent to $135.40 in 1990, or 85.40 (1980
+$) is<span class=GramE>&nbsp; equivalent</span> to 135.40 (1990 $).</p>
+
+<p><a name=4><strong>Using the CPI</strong></a></p>
+
+<p>The Table below shows the official CPI since 1982. We will explore how it is
+used.</p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='mso-cellspacing:0in;mso-padding-alt:1.5pt 1.5pt 1.5pt 1.5pt'>
+ <tr style='mso-yfti-irow:0;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p><span style='font-size:10.0pt;font-family:Arial;color:black'>Year</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p><span style='font-size:10.0pt;font-family:Arial;color:black'>CPI<br>
+  (1982-1984=100)</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1982</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>96.5</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1983</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>99.6</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1984</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>103.9</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1985</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>107.6</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1986</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>109.6</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1987</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>113.6</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1988</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>118.3</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1989</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>124.0</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1990</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>130.7</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1991</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>136.2</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:11;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1992</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>140.3</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:12;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1993</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>144.5</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:13;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1994</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>148.2</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:14;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1995</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>152.4</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:15;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1996</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>156.9</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:16;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1997</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>160.5</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:17;mso-yfti-lastrow:yes;height:12.0pt'>
+  <td width="39%" style='width:39.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1998</span></p>
+  </td>
+  <td width="61%" style='width:61.0%;padding:1.5pt 1.5pt 1.5pt 1.5pt;
+  height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>163.0</span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p>The interpretation of the CPI in the last paragraph allows us to compare prices
+in two different years. For example the price of gasoline in 1990 was $1.16 per
+gallon on average. In 1997, it averaged $1.23. Was gasoline more expensive or
+less expensive in 1997? On the face of it, it seems that gas is more expensive
+in 1997. Economists refer to prices from a given year as <strong>nominal</strong>
+or <strong>current </strong>prices. Nominally, gas was more expensive in 1997.
+To compare the prices taking into account the changing value of money, we
+convert one of the prices to the same year as the other. Usually, we convert
+forward to the more recent year, but one could also convert back to the earlier
+year. In our example, we want to convert $1.16 1990 dollars to its equivalent
+in 1997 dollars. Now the CPI table tells us that </p>
+
+<p align=center style='text-align:center'>130.70 1990 dollars is equivalent to
+160.50 1997 dollars.</p>
+
+<p>We wish to know</p>
+
+<p align=center style='text-align:center'>1.16 1990 dollars is equivalent <span
+class=GramE>to ?</span> <span class=GramE>1997 dollars.</span></p>
+
+<p>Perhaps the easiest way to solve this is to set up the proportionality</p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0'>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><u>160.50 (1997 dollars)</u></p>
+  </td>
+  <td rowspan=2 style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; =&nbsp;&nbsp; </p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><em><u>&nbsp;&nbsp;&nbsp; x</u></em><u>&nbsp;&nbsp; (1997
+  dollars) </u></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>130.70 (1990 dollars)</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p align=center style='text-align:center'>1.16 (1990 dollars)</p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p>Solving this proportion (for example by multiplying both sides by 1.16), we
+find that $1.16 in 1990 was equivalent to $1.42 in 1997. In other words, when
+Americans paid $1.16 per gallon for gasoline in 1990, it was equivalent to someone
+paying $1.42 in 1997, which is considerably more that what they were actually
+paying in 1997. So gasoline was significantly cheaper in 1997 than it was in
+1990. Economists say that the equivalent price in a different year is <strong>in
+real or constant dollars</strong>. In our example, economists will say that the
+price of gasoline in 1990 was $1.42 in constant 1997 dollars. The process of
+converting is often called converting to constant dollars.</p>
+
+<p>(Another way to conceptualize the conversion to constant dollars is to focus
+on the meaning of the ratio of the CPI's, in the case of the example, </p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr style='mso-yfti-irow:0'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><u>160.50</u></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>130.70 </p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p><strong>This ratio represents how many times as much one 1990 dollar was
+worth in 1997</strong>. Multiplying the 1990 price $1.16 by this ratio yields
+how much $1.16 in 1990 was worth in 1997.)</p>
+
+<p>Another use of the CPI is to convert an entire series of prices to constant
+dollars. For example, consider the price of electricity from 1990 to 1998:</p>
+
+<p>&nbsp;</p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=172
+ style='width:129.0pt;mso-cellspacing:0in;mso-padding-alt:1.5pt 1.5pt 1.5pt 1.5pt'>
+ <tr style='mso-yfti-irow:0'>
+  <td width=40 style='width:30.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <p class=MsoNormal>Year</p>
+  </td>
+  <td width=124 style='width:93.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt'>
+  <p class=MsoNormal>Average Cost of<br>
+  Electricity per kWh</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;height:12.0pt'>
+  <td width=40 style='width:30.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1990</span></p>
+  </td>
+  <td width=124 style='width:93.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:
+  12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>$0.084</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;height:12.0pt'>
+  <td width=40 style='width:30.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1991</span></p>
+  </td>
+  <td width=124 style='width:93.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:
+  12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>$0.087</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;height:12.0pt'>
+  <td width=40 style='width:30.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1992</span></p>
+  </td>
+  <td width=124 style='width:93.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:
+  12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>$0.088</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;height:12.0pt'>
+  <td width=40 style='width:30.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1993</span></p>
+  </td>
+  <td width=124 style='width:93.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:
+  12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>$0.092</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;height:12.0pt'>
+  <td width=40 style='width:30.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1994</span></p>
+  </td>
+  <td width=124 style='width:93.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:
+  12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>$0.092</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;height:12.0pt'>
+  <td width=40 style='width:30.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1995</span></p>
+  </td>
+  <td width=124 style='width:93.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:
+  12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>$0.094</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7;height:12.0pt'>
+  <td width=40 style='width:30.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1996</span></p>
+  </td>
+  <td width=124 style='width:93.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:
+  12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>$0.094</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8;height:12.0pt'>
+  <td width=40 style='width:30.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1997</span></p>
+  </td>
+  <td width=124 style='width:93.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:
+  12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>$0.094</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9;mso-yfti-lastrow:yes;height:12.0pt'>
+  <td width=40 style='width:30.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>1998</span></p>
+  </td>
+  <td width=124 style='width:93.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt;height:
+  12.0pt'>
+  <p align=right style='text-align:right'><span style='font-size:10.0pt;
+  font-family:Arial;color:black'>$0.087</span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p>In graphical form, the data looks like:</p>
+
+<p align=center style='text-align:center'><img width=363 height=243
+id="_x0000_i1027" src="CPI%20Tutorial_files/ElectricityCosts.gif"></p>
+
+<p>The <span class=GramE>graphs shows</span> the price of electricity rising
+from a minimum of 8.4¢ per kilowatt-hour in 1990 to its maximum in 1997 of 9.7¢.
+The price drops significantly in 1998 to 8.7¢ per kilowatt-hour. Since the
+value of the dollar decreased each year,<strong> this graph is not a realistic
+depiction of electricity costs over this period</strong>. To get a more
+accurate understanding, we convert the entire data series to constant 1998
+dollars. The spreadsheet image below depicts the calculation. First one would
+paste in the CPI values (for convenience). Next one would fill a column with
+the nominal cost multiplied by the ratio of the CPI's involved. </p>
+
+<p align=center style='text-align:center'><img width=400 height=210
+id="_x0000_i1028" src="CPI%20Tutorial_files/CPIcalc.gif"></p>
+
+<p>You might wonder why one doesn't use the formula =B2*C10/C2. This formula
+will not fill correctly, since C10 needs to be used again in each cell (not
+C11, <span class=GramE>C12, ...)</span>. Another correct formula for this cell
+is =B2*$C$10/C2, using an absolute cell reference for C10.</p>
+
+<p>Here is the graph of electricity costs in constant 1998 dollars:</p>
+
+<p align=center style='text-align:center'><img width=363 height=243
+id="_x0000_i1029" src="CPI%20Tutorial_files/ElectricityCostsConstantDollars.gif"></p>
+
+<p>In fact, electricity costs went down every year except one from 1990 to
+1998. In constant 1998 dollars, electricity costs were at their highest in
+1990, when they were nearly 10.5¢ per kilowatt-hour. The cost dropped every
+year except 1993. The minimum was in 1998, at 8.7¢ per kilowatt-hour. The graph
+in constant dollars tells a very different (and more realistic) story of
+electricity costs. In general, most time series in involving money should be
+converted to constant dollars.</p>
+
+<p>Finally, the<strong> inflation rate</strong> is defined as the percentage
+change in the annual CPI. For example, the inflation rate in 1996 was</p>
+
+<p align=center style='text-align:center'><span style='font-size:10.0pt'><img
+width=293 height=41 id="_x0000_i1030" src="CPI%20Tutorial_files/CPIeq6.gif"></span></p>
+
+</div>
+
+</body>
+
+</html>

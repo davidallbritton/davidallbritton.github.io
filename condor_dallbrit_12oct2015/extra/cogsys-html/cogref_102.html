@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: RANDEXT Implementation</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: RANDEXT Implementation">
+<META NAME="keywords" CONTENT="Cogsys: RANDEXT Implementation">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC110"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_101.html#SEC109"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_103.html#SEC111"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_94.html#SEC102"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_96.html#SEC104"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_103.html#SEC111"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> <CODE>RANDEXT</CODE> Implementation </H4>
+<!--docid::SEC110::-->
+<P>
+
+The <CODE>RANDEXT</CODE> performs that same housekeeping tasks (determining
+size, saving data segment, clearing playground) that all other
+extensions do.
+</P><P>
+
+The first two subfunctions in <CODE>RANDEXT</CODE> make extensive use of the C
+standard library <CODE>rand()</CODE> function to get random numbers (the
+random number generator is seeded with the current time when Cogsys
+starts up). Like the trigonmetric functions detailed in the
+<CODE>CIRCEXT</CODE> implementation (see section <A HREF="cogref_95.html#SEC103"><CODE>CIRCEXT</CODE> Implementation</A>), the <CODE>rand()</CODE> function needs access to the
+original data segment. The following macro makes it easy to 
+get a random number <SAMP>`r'</SAMP> at any time in the code:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>#define getrandom() asm mov ds, oldseg; r= rand(); asm mov ds, myseg
+</pre></td></tr></table></P><P>
+
+To draw the 64x64 square, a simple <CODE>for</CODE> loop is used. For 
+each pixel, a random number is selectd; if the selcted number is
+below the cutoff (<CODE>RAND_MAX</CODE>*<VAR>fillratio</VAR>), the pixel is
+white, else black.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>q = (int) ( (float) RAND_MAX * fillratio);
+for (j=0; j&#60;64; j++)
+  {
+    for (i=0; i&#60;64; i++)
+      {
+        getrandom();
+        A[(j+68)*320 + 128 + i] = WHITE * (r &#60; q);
+      }
+  }
+</pre></td></tr></table></P><P>
+
+Subfunction 2 differs only the way it handles the distribution.
+Subfunction 2 exploits the fact that the argument buffer is <EM>not</EM>
+cleared betwen subsequent extension calls from a single <CODE>%I</CODE> run,
+and uses the argument buffer to store an array of fillratios that is
+calculated on the first run. (see section <A HREF="cogref_87.html#SEC95">Passed Arguments</A>) Remember that each call of the extension is
+told how many pictures were requested total, and which one is currently
+being drawn. When subfunction 2 notices that the first picture is being
+drawn, it sets up the fillratio distribution.
+</P><P>
+
+The actual details of the distribution creation are involved but
+not unrelated to extension and picture drawing. The algorithm is commented
+in the extension source file, <TT>`randext.c'</TT>.
+</P><P>
+
+Subfunctions 3, 4, and 5 use a similar loop for drawing pixels
+of specified colors in the picture.
+</P><P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_101.html#SEC109"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_103.html#SEC111"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_94.html#SEC102"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_96.html#SEC104"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_103.html#SEC111"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

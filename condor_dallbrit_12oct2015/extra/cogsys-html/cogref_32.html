@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Run Macro</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Run Macro">
+<META NAME="keywords" CONTENT="Cogsys: Run Macro">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC40"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_31.html#SEC39"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_33.html#SEC41"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_23.html#SEC31"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.1.8 Run Macro (<CODE>$x</CODE>) </H4>
+<!--docid::SEC40::-->
+<P>
+
+To invoke a macro defined by the Define Macro command, you simply use
+<CODE>$<VAR>macro-id</VAR></CODE>.  Cogsys saves the current input position
+on the macro stack. The <VAR>macro-body</VAR> for the macro is executed
+until an <CODE>END_OF_MACRO</CODE> character is read, then processing is resumed
+from the saved location.
+</P><P>
+
+Starting with Cogsys 3.0.9, macros can take arguments. See <A HREF="cogref_31.html#SEC39">Define Macro</A>, for details on defining macros and
+arguments. To call a macro with arguments, simply enclose the arguments
+in square brackets immediately after the call.
+</P><P>
+
+The <CODE>END_OF_MACRO</CODE> character is appended automatically by the Macro
+Definition command and users should not normally be concerned about
+it. However, if your testlist is giving an unexpected
+<SAMP>`MACSTACK_UNDERFLOW'</SAMP> errors, look for accidental insertions of the
+<CODE>END_OF_MACRO</CODE> character.
+</P><P>
+
+Beause the default macro definition is simply the <CODE>END_OF_MACRO</CODE>
+character, calling a macro before it is defined does nothing. 
+</P><P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Run Macro
+<DT>Class:
+<DD>Control
+<DT>Code:
+<DD><CODE>$<VAR>x</VAR></CODE>
+<DT>Syntax:
+<DD><CODE>$<VAR>macro-id</VAR></CODE>
+<BR><CODE>$<VAR>macro-id</VAR>[<VAR>arg1</VAR><small>...</small>]</CODE>
+<DT>System:
+<DD>Cogsys runs the <VAR>macro-body</VAR> defined for this <VAR>macro-id</VAR>
+<DT>Requires:
+<DD>To be useful, the macro should be defined with the Define Macro command first.
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`MCRN_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Example:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><TABLE><tr><td>&nbsp;</td><td><pre>$$aPress &#60;return&#62; to continue: #R$$
+...
+$a
+</pre></td></tr></table><P>
+
+<DT>cogsys
+<DD>Defines the macro <CODE>a</CODE>. At the <CODE>$a</CODE> macro call, Cogsys prints
+<SAMP>`Press &#60;return&#62; to continue:'</SAMP> and waits for keypress.
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

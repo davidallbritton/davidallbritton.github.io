@@ -1,0 +1,320 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./242-lab-ttest_files/filelist.xml">
+<title>Psy 242</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>David Allbritton</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>David Allbritton</o:LastAuthor>
+  <o:Revision>20</o:Revision>
+  <o:TotalTime>260</o:TotalTime>
+  <o:LastPrinted>2003-04-16T15:27:00Z</o:LastPrinted>
+  <o:Created>2002-01-23T12:52:00Z</o:Created>
+  <o:LastSaved>2003-04-17T15:19:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>624</o:Words>
+  <o:Characters>3562</o:Characters>
+  <o:Lines>29</o:Lines>
+  <o:Paragraphs>7</o:Paragraphs>
+  <o:CharactersWithSpaces>4374</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>75</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;}
+h2
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .6in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:343285899;
+	mso-list-type:hybrid;
+	mso-list-template-ids:901809250 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><b>Psy 242<o:p></o:p></b></p>
+
+<h2>Lab exercise</h2>
+
+<p class=MsoNormal><b>Hypothesis Testing:<span style="mso-spacerun: yes"> 
+</span>Comparing 2 means with t-tests in SPSS<o:p></o:p></b></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>In this lab session, you will practice the steps for
+comparing two means in SPSS using t-tests.<span style="mso-spacerun: yes"> 
+</span>You will also learn how to import a text file for use as data in SPSS,
+and how to check for outliers in the data before testing your hypothesis.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The data file you will use for this lab is <a
+href="242-lab-data-ttest.sav">242-lab-data-ttest.sav</a>.<span
+style="mso-spacerun: yes">  </span>This file contains data from an experiment
+on Spatial Cuing from Coglab.<span style="mso-spacerun: yes">  </span>The hypothesis
+you will test is that reaction times to detect a light are faster when a valid
+cue is given for the location where the light will appear than when an invalid
+(misleading) cue is given for the location.<span style="mso-spacerun: yes"> 
+</span>(For more information on the experiment, see <a
+href="http://coglab.wadsworth.com/experiments/SpatialCueing/index.html">http://coglab.wadsworth.com/experiments/SpatialCueing/index.html</a>.)<span
+style="mso-spacerun: yes">  </span>Begin by right-clicking on the link to the
+data file in the preceding sentence, and saving the file on your hard
+drive.<span style="mso-spacerun: yes">  </span>Then double-click the file you
+saved to start SPSS and open the file.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><b>1.<span style="mso-spacerun: yes">  </span>Look for
+outliers<o:p></o:p></b></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Before doing hypothesis testing, you should always do some <i>exploratory
+data analysis</i> to check for errors and outliers.<span style="mso-spacerun:
+yes">  </span>Because the mean is sensitive to outliers, one absurdly slow
+reaction time could completely change the results of an experiment like this
+one.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>To check for outliers in SPSS, make the following selections
+on the menus:</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><b>Analyze
+-&gt; Descriptive Statistics -&gt; Explore<o:p></o:p></b></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Move<span style="mso-spacerun: yes">  </span>the labels for
+both columns that contain the dependent variable data (the columns <i>valid</i>
+and <i>invalid</i> in this case) into the box labeled <i>Dependent List.</i><span
+style="mso-spacerun: yes">  </span>Then click OK.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Look at the stem-and-leaf plots and the box plots to see if
+SPSS identified any outliers.<span style="mso-spacerun: yes">  </span>If so,
+remove them before doing further analyses.<span style="mso-spacerun: yes"> 
+</span>One way to remove outliers is to just delete the individual data points
+that are outliers by hand.<span style="mso-spacerun: yes">  </span>Another is
+to use a filter in SPSS to exclude them.<span style="mso-spacerun: yes"> 
+</span>Here is how:</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Look
+     at the exploratory data analysis and determine a value for each condition
+     that will exclude the outliers but not exclude any non-outlying data
+     points.</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Bring
+     the SPSS data window back to the foreground (click on its icon on the
+     taskbar)</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>In the
+     menu select<span style="mso-spacerun: yes">   </span><b><span
+     style="mso-spacerun: yes">  </span>Data -&gt; Select Cases</b></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Click
+     on a condition that has outliers you wish to exclude</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>In the
+     <i>Select</i> box, click the <i>If Condition is Satisfied</i> button</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Click
+     the <i>If</i> box just below that button</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Type
+     the rule that will exclude the outliers into the box in the upper right of
+     the screen.<span style="mso-spacerun: yes">  </span>For example, if you
+     are excluding times greater than 600 milliseconds from the variable <i>Valid</i>
+     you should type in:<span style="mso-spacerun: yes">   </span><b>valid
+     &lt;= 600</b></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Click <i>Continue</i>,
+     then click <i>OK</i></li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><b>2.<span style="mso-spacerun: yes">  </span>Follow steps
+in the previous hypothesis testing handout or lecture notes for doing a t-test.<o:p></o:p></b></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<b><span style='font-size:12.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
+</span></b>
+
+<p class=MsoNormal><b>Name ______________________<span style="mso-spacerun:
+yes">     </span>Date _________________<span style='mso-tab-count:2'>              </span><span
+style='mso-tab-count:1'>            </span>Psy 242 Lab 1<o:p></o:p></b></p>
+
+<p class=MsoNormal><b><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></p>
+
+<p class=MsoNormal><b>3.<span style="mso-spacerun: yes">  </span>In complete
+sentences, report the results below. </b><span style="mso-spacerun:
+yes"> </span>Be sure to identify the data that you will analyze, state how many
+data points were excluded as outliers and what criteria you used to exclude
+them, restate the hypothesis that you were testing, state whether the results
+confirmed the hypothesis or not, state the means and standard deviations of
+each condition, and correctly state the results of the t-test.<span
+style="mso-spacerun: yes">  </span>Turn in this page to receive credit for this
+lab.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'>Here is an example of how a t-test
+could be reported (for a different experiment):</p>
+
+<p class=MsoNormal style='margin-left:.5in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'>Mean exam scores were analyzed in
+an independent samples <i>t</i>-test in which <i>testing condition</i> was the
+independent variable.<span style="mso-spacerun: yes">  </span>Three outliers
+(defined as scores of less than 20%, identified as outliers by an SPSS stem and
+leaf plot) were excluded from analysis.<span style="mso-spacerun: yes"> 
+</span>I had predicted higher scores in the <i>caffeine </i>testing condition
+than in the <i>no caffeine</i> condition.<span style="mso-spacerun: yes"> 
+</span>This prediction was not confirmed.<span style="mso-spacerun: yes"> 
+</span>The mean exam score with caffeine was 87% (<i>SD</i> = 2.3%), which was
+not significantly greater than the mean exam score of 80% (<i>SD = 3.4%) </i><span
+style="mso-spacerun: yes"> </span>without caffeine, <i>t</i> (67) = 1.34, n. s.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><b>4.<span style="mso-spacerun: yes">  </span>Re-do the
+analysis without excluding outliers.<span style="mso-spacerun: yes">  </span></b>Remove
+the filter (<b>Data -&gt; Select Cases</b>;<span style="mso-spacerun: yes"> 
+</span>select <i>All Cases</i>).<span style="mso-spacerun: yes">  </span>Now
+re-do the <i>t</i>-test without excluding any outliers.<span
+style="mso-spacerun: yes">  </span>Report the results of this analysis as you
+did for #3.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><b>5.<span style="mso-spacerun: yes">  </span>From this
+exercise, what would you conclude about the effects of outliers?<o:p></o:p></b></p>
+
+</div>
+
+</body>
+
+</html>

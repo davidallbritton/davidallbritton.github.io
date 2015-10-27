@@ -1,0 +1,51 @@
+/* An external style sheet */
+/* Defines styles for the psy422 web pages*/
+
+
+
+/* The following change the default style of standard xhtml tag elements */
+
+h1               { font-family: arial, sans-serif; 
+                   text-align: center }
+
+h4		 { text-decoration: underline }
+
+dl		 { margin-left: 3em}
+
+pre		 { font-family: monospace }
+
+ol ul		 { margin-bottom: 2ex }
+
+
+/* The following are user-defined classes */
+
+/*sets off a heading phrase at the beginning of a paragraph */
+.parhead          {font-weight: bold}
+
+/* The following 3 classes are styles for use within documentation */
+/* and programming instructions for users */
+
+/* class = "code" within a tag to display commands and code in different font */
+.code             {font-family: courier, monospace;
+                  background-color: pink}
+
+/* class = "output" for displaying the output of a command or program */
+.output           {font-family: courier, monospace;
+                  color: blue}
+
+/* input is the style for displaying what the user should type in */
+.input           {font-family: courier, fixedsys, monospace;
+                  color: red}
+
+/* "key" is the style for naming keys, such as the tab, enter, control-c key */
+.key             {font-style: italic}
+
+/* This one is not really defined yet; just a placeholder for future use */
+/* "answer" is for answers to exercises and questions */
+.answer             {font-stretch: narrower}
+
+/* This is to identify questions that must be answered for the week's */
+/* homework assignment.  Generally used within the class activity web page */
+.question           {font-family: arial, sans-serif; 
+                     background-color: yellow}
+

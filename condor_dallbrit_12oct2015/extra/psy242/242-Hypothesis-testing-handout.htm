@@ -1,0 +1,445 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=FrontPage.Editor.Document>
+<meta name=Generator content="Microsoft FrontPage 4.0">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./242-Hypothesis-testing-handout_files/filelist.xml">
+<title>Hypothesis testing</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>David Allbritton</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>David Allbritton</o:LastAuthor>
+  <o:Revision>4</o:Revision>
+  <o:TotalTime>22</o:TotalTime>
+  <o:LastPrinted>2001-04-17T22:38:00Z</o:LastPrinted>
+  <o:Created>2001-04-22T18:41:00Z</o:Created>
+  <o:LastSaved>2002-01-24T19:16:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>908</o:Words>
+  <o:Characters>5178</o:Characters>
+  <o:Lines>43</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>6358</o:CharactersWithSpaces>
+  <o:Version>9.4402</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>75</w:Zoom>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Times;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-alt:"Times New Roman";
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.htmladdress, li.htmladdress, div.htmladdress
+	{mso-style-name:html_address;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:.1in;
+	margin-left:0in;
+	mso-pagination:none;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:Times;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	font-style:italic;}
+p.htmlbulletlist, li.htmlbulletlist, div.htmlbulletlist
+	{mso-style-name:html_bullet_list;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-indent:-23.4pt;
+	mso-pagination:none;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:Times;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:324087825;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1583408202 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:981927018;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1693039976 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2
+	{mso-list-id:1414546854;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1719324166 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l3
+	{mso-list-id:1687171954;
+	mso-list-type:hybrid;
+	mso-list-template-ids:948754652 67698703 808602280 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l3:level2
+	{mso-level-number-format:alpha-upper;
+	mso-level-text:"%2\)";
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal>Psychology 242</p>
+
+<p class=MsoNormal>Hypothesis testing, and t-tests in SPSS</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Consider the following experimental hypothesis:<span
+style="mso-spacerun: yes">  </span>Taking caffeine before an exam improves exam
+scores.<span style="mso-spacerun: yes">  </span>In a completely randomized
+design (a between-subjects design, in other words) 10 students in the control
+group take an exam without drinking coffee.<span style="mso-spacerun: yes"> 
+</span>In the experimental condition, 10 different students take the same exam
+after drinking coffee.<span style="mso-spacerun: yes">  </span>The researcher
+wants to find out whether caffeine improves test scores.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>There are two population distributions:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Population
+     A:<span style="mso-spacerun: yes">  </span>normal distribution with mean =
+     80 (the control condition)</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Population
+     B:<span style="mso-spacerun: yes">  </span>normal distribution with mean =
+     90</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Take 2 samples (see <a
+href="psy242-hypothesis-testing-demo.xls">Excel file</a> for demonstrations)</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo6;tab-stops:list .5in'>Sample
+     A comes from distribution A (the control condition)</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo6;tab-stops:list .5in'>The
+     second sample is either from A or B – we don’t know which.<span
+     style="mso-spacerun: yes">  </span>This represents the experimental
+     condition.<span style="mso-spacerun: yes">  </span>The question is, did the
+     experimental manipulation make any difference?<span style="mso-spacerun:
+     yes">  </span></li>
+ <ul style='margin-top:0in' type=circle>
+  <li class=MsoNormal style='mso-list:l2 level2 lfo6;tab-stops:list 1.0in'>If
+      not, then the experimental-condition sample comes from the same
+      population distribution as the control-condition sample – in other words
+      the populations have the same mean.<span style="mso-spacerun: yes"> 
+      </span>This would mean that caffeine does not change the test
+      scores.<span style="mso-spacerun: yes">  </span></li>
+  <li class=MsoNormal style='mso-list:l2 level2 lfo6;tab-stops:list 1.0in'>If
+      the experimental manipulation did make a difference, then the
+      distribution (population) of scores with caffeine is different from (has
+      a higher mean than) the distribution (population) of scores without
+      caffeine.<span style="mso-spacerun: yes">  </span>Then the two samples
+      (control and experimental groups) would be from two different
+      populations.</li>
+ </ul>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo6;tab-stops:list .5in'>So,
+     when we ask whether caffeine increased the test scores in our experiment,
+     we are really asking whether the samples of scores in the two conditions
+     came from one population (caffeine has no effect) or two different
+     populations (caffeine produces higher scores).<span style="mso-spacerun:
+     yes">  </span></li>
+</ul>
+
+<p class=MsoNormal style='tab-stops:160.3pt'><span style='mso-tab-count:1'>                                        </span></p>
+
+<p class=MsoNormal>Do these two samples come from the same population, or from
+two different populations?</p>
+
+<p class=MsoNormal style='tab-stops:123.45pt'>How can we tell?<span
+style='mso-tab-count:1'>          </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>We can not know for sure.<span style="mso-spacerun: yes"> 
+</span>But we can use what we know about normal distributions to find out how
+unlikely it is that these two samples could have come from the same
+distribution.<span style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>But first, we must introduce the concept of a <b>sampling
+distribution</b> – specifically, we need to know about the <b>sampling
+distribution of the mean.<o:p></o:p></b></p>
+
+<p class=MsoNormal><b><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></p>
+
+<p class=MsoNormal>Just as there is a distribution of how frequently each
+individual score occurs, there is also a distribution of how frequently a
+sample mean occurs for a given sample size.<span style="mso-spacerun: yes"> 
+</span>We can demonstrate this by taking several samples from population A.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>If we did this many many times we could plot a histogram of
+the resulting sample means.&nbsp; If we took an infinite number of samples, we would wind up
+with a normal distribution of these sample means.&nbsp; This is called the sampling distribution of the mean – it is
+a distribution of sample means for a given sample size.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Any</b> statistic can have a sampling distribution - a
+distribution of values produced by different samples.&nbsp; The difference
+between two means, for example, has a sampling distribution that tends to be
+normal.&nbsp; If the null hypothesis is true (if the difference between the
+population means is really zero), then the sampling distribution of the
+difference between two means will have a mean of zero.&nbsp; If we know shape of
+a distribution (in this case it is a normal distribution) and we know its mean
+(zero if the null hypothesis is true in this case), then we can figure out the
+probability of a particular value occurring by looking at where it falls in this
+distribution.&nbsp; Thus, for any two sample means, we can figure out the
+probability (<i>p) </i>of finding a difference between them as large as the one
+we found if the null hypothesis were true.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Now, how can we use this information to decide whether we
+think our two sample means came from the same population or not?</p>
+
+<hr>
+
+<p class=MsoNormal><b>Hypothesis Testing:<o:p></o:p></b></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Assume
+     that they come from the same population (Assume the null hypothesis).</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>Calculate
+     the probability of getting this large a difference between sample means
+     when both samples are from a single population (Calculate <u>p</u>).</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'>If
+     that probability is small enough, reject the null hypothesis (If <u>p</u>
+     &lt; .05, conclude that the two groups are from different populations;
+     “The difference is statistically significant”).</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in;
+     border:none;mso-border-bottom-alt:solid windowtext .75pt;padding:0in;
+     mso-padding-alt:0in 0in 13.0pt 0in'>If <u>p</u> is not small enough (<u>p</u>
+     &gt; .05) then do not reject the null hypothesis.<span
+     style="mso-spacerun: yes">  </span>(In this case, you can not make any
+     strong conclusion.<span style="mso-spacerun: yes">  </span>Just because
+     you failed to reject the null hypothesis does not mean you have proven
+     that the two samples <b>do</b> come from the same population.)</li>
+</ol>
+<hr>
+
+<p class=MsoNormal>So how do we use a t-test for this in SPSS?<span
+style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Sampling distribution of <u>t</u>: The statistic <u>t</u>
+depends on the difference between two means and the standard deviation of the
+samples.<span style="mso-spacerun: yes">  </span><u>t</u> gets larger when the
+difference between the means is larger.<span style="mso-spacerun: yes"> 
+</span>It also has a sampling distribution:<span style="mso-spacerun: yes"> 
+</span>If we repeatedly took pairs of samples from a single population and ran
+a t-test on them, the values of <u>t</u> would be distributed normally with a
+mean of zero and a standard deviation of around 1 (for large sample
+sizes).<span style="mso-spacerun: yes">  </span>We can ask the same question of
+the <u>t</u> for a sample that we did of the mean for a sample: how often would
+we get a <u>t</u> this big if the null hypothesis were true?</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Hypothesis Testing with <u>t</u>:</p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo12;tab-stops:list .5in'>Assume
+     that the samples come from the same population (Assume the null
+     hypothesis).</li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo12;tab-stops:list .5in'>Calculate
+     the probability of getting a <u>t</u> this large when both samples are
+     from a single population (Calculate <u>p</u>).</li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo12;tab-stops:list .5in'>If
+     that probability is small enough, reject the null hypothesis (If <u>p</u>
+     &lt; .05, conclude that the two groups are from different populations;
+     “The difference is statistically significant”).</li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo12;tab-stops:list .5in'>If <u>p</u>
+     is not small enough (<u>p</u> &gt; .05) then do not reject the null
+     hypothesis.<span style="mso-spacerun: yes">  </span>(In this case, you can
+     not make any strong conclusion.<span style="mso-spacerun: yes"> 
+     </span>Just because you failed to reject the null hypothesis does not mean
+     you have proven that the two samples <b>do</b> come from the same
+     population.)</li>
+</ol>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+<hr>
+<p class=MsoNormal>Steps for doing a t-test in SPSS:</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12;
+tab-stops:list 1.0in'><![if !supportLists]>A)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span><![endif]>For a between-subjects design with 2 conditions (2 groups)</p>
+
+<p class=htmladdress style='margin-left:1.0in;mso-pagination:widow-orphan'><span
+style='font-family:Symbol'>·</span><span style='mso-tab-count:1'>        </span><span
+style='font-style:normal'>Analyze -&gt; Compare Means -&gt; Independent-Samples
+T Test</span></p>
+
+<p class=htmladdress style='margin-left:1.0in;mso-pagination:widow-orphan'><span
+style='font-family:Symbol;font-style:normal'>·</span><span style='font-style:
+normal'><span style='mso-tab-count:1'>        </span></span>Move the dependent
+variable<span style="mso-spacerun: yes">  </span><span style='font-style:normal'>into
+the</span> <span style='font-style:normal'>Test Variable(s)</span> box.</p>
+
+<p class=htmladdress style='margin-left:1.0in;mso-pagination:widow-orphan'><span
+style='font-family:Symbol'>·</span><span style='mso-tab-count:1'>        </span>Move
+the indepent variable into the <span style='font-style:normal'>Grouping
+Variable</span> box.</p>
+
+<p class=htmladdress style='margin-left:1.0in;mso-pagination:widow-orphan'><span
+style='font-family:Symbol'>·</span><span style='mso-tab-count:1'>        </span>Click
+<span style='font-style:normal'>Define Groups</span></p>
+
+<p class=htmladdress style='margin-left:1.0in;mso-pagination:widow-orphan'><span
+style='font-family:Symbol;font-style:normal'>·</span><span style='font-style:
+normal'><span style='mso-tab-count:1'>        </span></span>Enter the values
+your independent variable has in the 2 groups.<span style="mso-spacerun: yes"> 
+</span>Click <span style='font-style:normal'>Continue.</span></p>
+
+<p class=htmladdress style='margin-left:1.0in;mso-pagination:widow-orphan'><span
+style='font-family:Symbol'>·</span><span style='mso-tab-count:1'>        </span>Click
+<span style='font-style:normal'>OK.</span></p>
+
+<p class=htmladdress style='margin-left:1.0in;mso-pagination:widow-orphan'><span
+style='font-family:Symbol'>·</span><span style='mso-tab-count:1'>        </span>In
+the output window, you should see the title &quot;T-Test&quot; followed by two
+tables.<span style="mso-spacerun: yes">  </span>The first table gives the means
+for each condition (among other things).<span style="mso-spacerun: yes"> 
+</span>The second table gives the results of the t-test.<span
+style="mso-spacerun: yes">  </span>The fourth column (labeled &quot;t&quot;)
+gives the value of <u>t</u>, the fifth column gives the degrees of freedom
+(labeled &quot;df&quot;), and the sixth column gives the <u>p</u> value
+(labeled &quot;Sig. (2-tailed)&quot;).<span style="mso-spacerun: yes">  </span></p>
+
+<p class=htmladdress style='margin-left:1.0in;mso-pagination:widow-orphan'><span
+style='font-family:Symbol'>·</span><span style='mso-tab-count:1'>        </span>The
+results of a significant t-test are reported like this:<span
+style="mso-spacerun: yes">  </span>t (df) = x.xx, <u>p</u> &lt; .05.<span
+style="mso-spacerun: yes">  </span><span style='font-style:normal'>(note that
+df is the number representing the degrees of freedom, and x.xx is the t score
+to the hundredths place.)</span></p>
+
+<p class=htmladdress style='margin-left:1.0in;mso-pagination:widow-orphan'><span
+style='font-family:Symbol'>·</span><span style='mso-tab-count:1'>        </span>The
+results of a non-significant t-test (when p &gt; .05) are reported like
+this:<span style="mso-spacerun: yes">  </span>t (df) = x.xx, n. s.<span
+style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12;
+tab-stops:list 1.0in'><![if !supportLists]>B)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span><![endif]>For a within-subjects design with 2 conditions</p>
+
+<p class=htmlbulletlist style='margin-left:95.4pt;mso-pagination:widow-orphan'><span
+style='font-family:Symbol'>·</span><span style='mso-tab-count:1'>     </span><i>Analyze
+-&gt; Compare Means -&gt; Paired-Samples T Test</i></p>
+
+<p class=htmlbulletlist style='margin-left:95.4pt;mso-pagination:widow-orphan'><span
+style='font-family:Symbol'>·</span><span style='mso-tab-count:1'>     </span>Move
+the variable names that correspond to your two conditions into the <i>Paired
+Variables</i> box</p>
+
+<p class=htmlbulletlist style='margin-left:95.4pt;mso-pagination:widow-orphan'><span
+style='font-family:Symbol'>·</span><span style='mso-tab-count:1'>     </span>Click
+<i>OK.</i></p>
+
+<p class=MsoNormal style='margin-left:99.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./lab5-assignment_files/filelist.xml">
+<title>Lab 5 - reading and inferences</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>David Allbritton</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>David Allbritton</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>17</o:TotalTime>
+  <o:Created>2001-02-28T21:31:00Z</o:Created>
+  <o:LastSaved>2001-02-28T21:31:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>243</o:Words>
+  <o:Characters>1387</o:Characters>
+  <o:Lines>11</o:Lines>
+  <o:Paragraphs>2</o:Paragraphs>
+  <o:CharactersWithSpaces>1703</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-alt:"\FF2D\FF33 \660E\671D";
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:"\@MS Mincho";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 65.95pt 1.0in 65.95pt;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>Lab 5 -
+reading and inferences<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>Instructions
+for lab report<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>The lab
+report should be a complete method section and results section for the
+experiment you did in the lab.<span style="mso-spacerun: yes">  </span>Include
+the table and figure from the MEL workbook as Table 1 and Figure 1 (etc.) in your
+lab report.<span style="mso-spacerun: yes">  </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>The DV for
+this assignment should be reading time for the target sentences (rt).<span
+style="mso-spacerun: yes">  </span>Begin by stating what the predictions were
+(based on previous research on these types of inferences).<span
+style="mso-spacerun: yes">  </span>For each prediction, state whether it was
+confirmed, and present the statistics that support that statement.<span
+style="mso-spacerun: yes">  </span>Also report all other main effects and
+interactions and whether they were significant.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>Also report
+the results using accuracy on the contradiction detection task (ac) as the
+DV.<span style="mso-spacerun: yes">  </span>The purpose for analyzing the
+accuracy data is just to make sure that there are no speed-accuracy trade-offs
+that would undermine your explanation of the reading time data.<span
+style="mso-spacerun: yes">  </span>You do not have to specify what the
+predictions were for the accuracy analysis; just note whether there were any
+main effects and interactions, and if there are, note whether they indicate a
+speed-accuracy trade-off.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>The
+following files are available on the web for you to use in the assignment.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>---------------------------------------------------------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>The files
+for analysis are on the web pages (www.depaul.edu/~dallbrit)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>There are
+two data files.<span style="mso-spacerun: yes">  </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>One file
+(lab5-data2.sav) has one line per data point, and the values<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>of the
+variables are as follows:<span style="mso-spacerun: yes">  </span>verbtype:
+1=direct 2=indirect<span style="mso-spacerun: yes">  </span>lag: 1=0 sentences
+between the target sentence and the preceding sentence the inference referred
+to, 2=2 sentences between.<span style="mso-spacerun: yes">  </span>Blrspac is
+whether the response to the question at the end of the passage was correct (1)
+or incorrect (0).<span style="mso-spacerun: yes">  </span>Resprt is the reading
+time for the target sentence.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>The other
+file (lab5-data1.sav) has the same data, arranged on one line per subject.<span
+style="mso-spacerun: yes">  </span>Rt1-rt4 are the reading times, arranged in
+the same order as in the first file, and ac1-ac4 are the mean accuracy rates
+(blrspac) again in the same order as in the first file (V1L1, V1L2, V2L1, V2L2)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>There is
+also a file with the group means:<span style="mso-spacerun: yes"> 
+</span>reading-tables.txt<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>You should
+use the data in this table to complete the graphs and tables in the MEL Lab
+workbook.<span style="mso-spacerun: yes">  </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>I will also
+post a file called “reading-anova.txt” to the web page.<span
+style="mso-spacerun: yes">  </span>This is the output of an analysis of the lab
+data using a different program (not SPSS).<span style="mso-spacerun: yes"> 
+</span>You can compare its output to what you get from SPSS to see if you are
+in the right ballpark.<span style="mso-spacerun: yes">  </span>The results
+probably will not be <b>exactly</b> the same because of rounding error, etc.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'>Data files
+will be in the folder “spss-files”, tables of means will be in “tables”, and
+analysis output files will be in “other” – all under “materials for
+assignments” on my homepage.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman";mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes"> </span><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

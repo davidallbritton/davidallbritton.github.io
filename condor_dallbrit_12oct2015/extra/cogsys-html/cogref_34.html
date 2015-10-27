@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Load External Routine</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Load External Routine">
+<META NAME="keywords" CONTENT="Cogsys: Load External Routine">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC42"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_33.html#SEC41"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_23.html#SEC31"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_24.html#SEC32"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_35.html#SEC43"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 2.3.1.10 Load External Routine (<CODE>%X</CODE>) </H4>
+<!--docid::SEC42::-->
+<P>
+
+One of the newest and most interesting aspects of Cogsys 3.x is its
+external routine capabilities. Discussion of the creation and use of
+external routines is complicated enough to merit its own chapter (<A HREF="cogref_76.html#SEC84">3. Extensions</A>).
+However, <EM>loading</EM> an external routine is a relatively simple
+end-user command. A single argument is needed: the name of the file
+that contains the Cogsys Extension Routine. By convention, these files
+are named with the <TT>`*.CXR'</TT> extension.
+</P><P>
+
+Only one extension may be loaded at a time. Successive calls to Load
+External Routine implicitly unload the previously loaded
+code. Currently, the only extensions available are those for creating
+pictures. Expect options to this command to become more sophisticated
+when these limitations are gone.
+</P><P>
+
+These are the extensions are included with Cogsys 3.x:
+<DL COMPACT>
+<DT><TT>`RANDEXT.CXR'</TT>
+<DD>create pictures that contain random dot patterns
+<DT><TT>`CIRCEXT.CXR'</TT>
+<DD>create pictures that contain circles
+<DT><TT>`SQUAREXT.CXR'</TT>
+<DD>create pictures that contain squares
+<DT><TT>`ATTNEXT.CXR'</TT>
+<DD>create pictures for attention experiments
+<DT><TT>`TXTEXT.CXR'</TT>
+<DD>create pictures that contain text
+</DL>
+<P>
+
+<DL COMPACT>
+<DT>Name:
+<DD>Load External Routine
+<DT>Class:
+<DD>Control
+<DT>Code:
+<DD><CODE>%X</CODE>
+<DT>Syntax:
+<DD><CODE>%X[<VAR>filename</VAR>]</CODE>
+<DT>System:
+<DD>Loads the external routine <VAR>filename</VAR> into memory.
+<P>
+
+<DT>History:
+<DD>The entire external loading functionality is brand new!
+<P>
+
+<DT>Test Files:
+<DD><DL COMPACT>
+<DT><TT>`LCXR_T01.IN'</TT>
+<DD>tests basic operation
+</DL>
+<P>
+
+<DT>Example:
+<DD><P>
+
+<DL COMPACT>
+<DT>input
+<DD><TABLE><tr><td>&nbsp;</td><td><pre>%X[randext.cxr]
+%I[1,2,10]
+#B[1,20]
+</pre></td></tr></table><DT>cogsys
+<DD>Loads the Cogsys random dot extension routine, <TT>`randext.cxr'</TT>. The
+<CODE>%I</CODE> invokes the Create Pictures from CXR command (<A HREF="cogref_60.html#SEC68">2.3.5.5 Create Pictures from CXR (<CODE>%I</CODE>)</A>), which uses
+the CXR to create a picture. The <CODE>#B</CODE> command then displays that
+picture.
+</DL>
+</DL>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

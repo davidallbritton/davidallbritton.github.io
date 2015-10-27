@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE> Flashing Backgrounds </TITLE>
+</HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+ var bkgndColor = new Array("yellow", "red", "black", "blue", "white")
+ var currentBGC = 0
+ var colorCount=5
+
+ function changeBG() {
+
+  if (document.images) {
+
+     currentBGC++
+
+     if (currentBGC == colorCount) {
+
+        currentBGC = 0
+
+     }
+
+    document.bgColor=bkgndColor[currentBGC]
+
+    setTimeout("changeBG()", 6*100)
+
+  }
+ }
+
+</SCRIPT>
+<BODY BGCOLOR="red"  onload="changeBG()">
+</BODY>
+</HTML>

@@ -1,0 +1,10 @@
+AuthType        Basic
+AuthName        psy105
+AuthUserFile    /extra/dallbrit/hon207/readings/.validusers
+AuthGroupFile   /dev/null
+
+<Limit GET POST>
+  require valid-user
+</Limit>
+
+

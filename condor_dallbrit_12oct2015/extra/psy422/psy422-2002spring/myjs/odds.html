@@ -1,0 +1,126 @@
+<html>
+<head>
+<script language="JavaScript">
+function compute(form) {
+   a = Math.abs(form.input1.value)
+   b = Math.abs(form.input2.value)
+   c = Math.abs(form.input3.value)
+   d = Math.abs(form.input4.value)
+ totala = (a + b + c + d)
+  p = a + b
+  q = c + d
+  r = a + c
+  s = b + d
+  n = c + d
+ odd1a = (a/b)/(c/d)
+ lodda = Math.log(odd1a) 
+ tt = ((1/a) + (1/b) + (1/c) + (1/d))
+ sea = Math.sqrt(tt)
+ cia = 1.96*sea
+ lla = lodda-cia
+ ula = lodda+cia
+ la = Math.exp(lla)
+ ua = Math.exp(ula)
+    form.odds.value = odd1a
+    form.lodds.value = lodda 
+    form.se.value = sea 
+    form.lc.value = lla
+    form.uc.value = ula
+    form.llc.value = la
+    form.ulc.value = ua
+
+  }
+  </script>
+  </head>
+  <body bgcolor=white>
+  <form>
+  <h1>Odds Ratio and log Odds Ratio</h1>
+  <p>
+ The Odds ratio relating the odds of being a case to not being a 
+ case for those with the risk factor (A/B) to these same odds for
+ those without the risk factor (C/D) is:
+ 
+ <pre>
+   
+                          A/B
+           ODDS Ratio =   ___
+                          C/D
+                          
+</pre>
+
+This has been shown to be a good approximation to the Relative Risk
+for uncommon diseases. 
+  
+   <p> 
+   <pre>
+            <b>Disease Incedence</b>
+   </pre>            
+   <table border>
+    <tr>
+     <th>Risk Factor</th>
+     <th>Present</th>
+     <th>Absent</th>
+     <th>Total</th>
+     </tr>
+    <tr align=center>
+      <td>Present</td>
+      <td>Cell A</td>
+      <td>Cell B</td>
+      <td>Cell A + B</td>
+      </tr>
+     <tr align=center>
+       <td>Absent</td>
+       <td>Cell C</td>
+       <td>Cell D</td>
+       <td>Cell C + d</td>
+       </tr>
+     <tr align=center>
+        <td>Total</td>
+        <td>Cell A + C</td>
+        <td>Cell B + D</td>
+        <td>T</td> 
+    </tr>     
+    </table>     
+  <p>
+  Enter the values for your 2 x 2 table:
+  <p>
+  Cell A             
+
+  <input type="text"  name="input1" size=15>
+  Cell B
+  <input type="text"  name="input2" size=15>
+  <p>
+  Cell C            
+  <input type="text"  name="input3" size=15>
+   Cell D
+  <input type="text"  name="input4" size=15>
+  <p>
+  <input type="button" value="Calculate Odds Ratio" onclick="compute(this.form)">
+  <br>
+ <p>
+<p>Estimated Odds Ratio<input type="text" name="odds" size=15>
+<p>
+Estimated log Odds Ratio<input type="text" name="lodds" size=15>
+<p>
+Estimated Standard Error of the log Odds Ratio<input type="text" name="se" size=15>
+<p>
+
+Lower Confidence Limit of log Odds Ratio (95%)<input type="text" name="lc" size=15>
+<p>
+
+
+Upper Confidence Limit of log Odds Ratio (95%)<input type="text" name="uc" size=15> 
+<p>
+Lower Confidence Limit of Odds Ratio (95%)<input type="text" name="llc" size=15>
+<p>
+Upper Confidence Limit of Odds Ratio (95%)<input type="text" name="ulc" size=15> 
+
+<p>
+  <br>
+  </form>
+  <p>
+  <h4 align="center">
+  <a href="index.html" >Return to main menu</a>
+  </h4>
+  </body>
+</html>

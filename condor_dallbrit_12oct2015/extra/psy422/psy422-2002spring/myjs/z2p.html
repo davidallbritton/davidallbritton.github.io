@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<TITLE>Normal Table Look-up</TITLE>
+
+<script language="JavaScript">
+
+function invnorm(form)
+{
+p = form.prob.value
+t = (p > .5) ? (1 - p) : p
+s = Math.sqrt(-2.0 * Math.log(t))
+a = 2.515517 + (0.802853 * s) + (0.010328 * s * s)
+b = 1 + (1.432788 * s) + (0.189269 * s * s) + (0.001308 * s * s * s)
+u = s - (a / b)
+form.zval.value = (p < .5) ? (- u) : u
+}
+
+function normcdf(form)
+{
+z = form.zval.value
+t = (z > 0) ? z : (- z)
+p = 1 - Math.pow((1 + (t * (0.0498673470 + t * (0.0211410061 + t * (0.0032776263 + t * (0.0000380036 + t * (0.0000488906 + t * 0.0000053830))))))), -16) / 2
+form.prob.value = (z > 0) ? p : (1 - p)
+}
+
+</script>
+
+</HEAD>
+<BODY BGCOLOR=WHITE>
+
+<H3>The tail area under the Normal curve below a z-value</H3>
+
+<FORM NAME="form0">
+<TABLE>
+<TR>
+<TH>Enter a z-value:
+<TD><INPUT TYPE="TEXT" NAME="zval" SIZE=30><BR>
+<TR>
+<TH>The p-value is:
+<TD>
+<INPUT TYPE="TEXT" NAME="prob" SIZE=30>
+</TABLE>
+<BR><BR>
+Push to <INPUT TYPE="BUTTON" VALUE="Calculate" ONCLICK="normcdf(this.form)">
+</FORM>
+
+<H3>The corresponding z-value of a lower tail area under the normal curve</H3>
+
+<FORM NAME="form1">
+<TABLE>
+<TR>
+<TH>Enter a p-value:
+<TD><INPUT TYPE="TEXT" NAME="prob" SIZE=30><BR>
+<TR>
+<TH>The z-value is:
+<TD>
+<INPUT TYPE="TEXT" NAME="zval" SIZE=30>
+</TABLE>
+<BR><BR>
+Push to <INPUT TYPE="BUTTON" VALUE="Calculate" ONCLICK="invnorm(this.form)">
+</FORM>
+</BODY>
+</HTML>

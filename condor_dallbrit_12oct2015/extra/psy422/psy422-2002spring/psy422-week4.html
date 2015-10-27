@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="generator" content=
+    "HTML Tidy for Linux/x86 (vers 1st March 2002), see www.w3.org" />
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+
+    <title>Psy 422 - Week 4</title>
+    <link rel="stylesheet" type="text/css" href=
+    "psy422-styles.css" />
+    <meta name="generator" content=
+    "amaya 5.3, see http://www.w3.org/Amaya/" />
+  </head>
+
+  <body>
+    <h1 style="text-align: center">Psy 422 Week 4 - JavaScript</h1>
+
+    <p>This week we will begin to use JavaScript to do some
+    <em>client-side</em> scripting, and in the process learn some
+    basic concepts of structured programming techniques.
+    Client-side scripts are executed on the user's local machine.
+    Later we will learn to use Perl (and perhaps PHP) for
+    <em>server-side</em> scripting.</p>
+
+    <p>JavaScript programs are written in the &lt;head&gt; section
+    of an XHTML document. We will begin with some basics, using
+    JavaScript to write XHTML markup and text to the &lt;body&gt;
+    element of the document. Then we will learn some principles of
+    <em>structured programming</em>, including the use of control
+    structures such as the "if/else" decision structure and the
+    "while" repetition structure. Finally, we will introduce the
+    the concept of <em>object-oriented programming</em>, and learn
+    to use the document object model to interact with form data in
+    JavaScript.</p>
+    <hr />
+
+    <h2>Getting Started with JavaScript</h2>
+
+    <p>Take a look at these XHTML pages that use JavaScript, and
+    then answer the following questions. Be sure to look at the
+    source of the pages to see how the scripts work. Note that the
+    scripts are enclosed within XHTML comments (between &lt;!-- and
+    --&gt;). Also note that JavaScript comments begin with // and
+    go to the end of a line. Each JavaScript command should be
+    terminated with a semicolon;</p>
+
+    <ul>
+      <li><a href="javascript1.html" target=
+      "_blank">javascript1.html</a> (hello world)</li>
+
+      <li><a href="javascript2.html" target=
+      "_blank">javascript2.html</a> (getting user input from prompt
+      dialogs)</li>
+    </ul>
+
+    <p class="question">1. What is the difference between "write"
+    and "writeln"?</p>
+
+    <p class="question">2. Where in the &lt;body&gt; element does
+    the output of the "document.writeln" command appear?</p>
+
+    <p class="question">3. How did I get "document.writeln" to put
+    the quotation marks around "nothing"? Why do the quotation
+    marks need special treatment in this context?</p>
+
+    <p class="question">4. The "flow of control" refers to the
+    order in which parts of a program are executed. Describe the
+    order in which things appeared in the browser page when you
+    loaded "javascript2.html". What can you conclude about the flow
+    of control in the script and the order in which the parts of
+    the XHTML page were rendered?</p>
+    <hr />
+
+    <h2>Control Structures</h2>
+
+    <p>The default order in which actions in a program are executed
+    is sequential - statements are executed in the order they
+    appear in the program. Another way of saying this is that after
+    a statement is executed, control is passed to the next
+    statement sequentially. To get a program to do anything really
+    interesting, however, you need to be able to pass control to
+    earlier statements in the program (repetition) or skip
+    statements under certain conditions (selection).</p>
+
+    <h3>Selection Structures</h3>
+
+    <p>Selection structures allow the script to take different
+    actions depending on whether some condition is met. The three
+    selection structures available in JavaScript are:</p>
+
+    <ul>
+      <li>if</li>
+
+      <li>if/else</li>
+
+      <li>switch</li>
+    </ul>
+
+    <p>Look at these example web pages and their source, then
+    answer the following questions.</p>
+
+    <h4><a href="javascript3.html" target=
+    "_blank">javascript3.html</a> (<em>if</em> and
+    <em>if/else</em>)</h4>
+
+    <p>The if construction consists of a <em>test condition</em>
+    and an <em>action</em>. If the test condition evaluates as
+    true, the action will be executed. If not, control passes to
+    the next statement after the if block. The action is either a
+    single statement or a block of code enclosed in curly braces
+    {}. Note that individual statements are terminated with
+    semicolons, but no semicolon follows a curly brace.</p>
+
+    <p class="question">5. The first instance of "window.prompt"
+    has one argument (line 28) and the second (lines 41-42) has two
+    arguments. What does the first argument do? What does the
+    second do? What happens if only one argument is given?</p>
+
+    <p class="question">6. Why does the first window prompt have
+    "undefined" as the initial value of the input string? Does the
+    variable "answer1" have any value defined for it prior to its
+    appearance in line 28? What does that tell you about how the
+    initial value of the input string in a window.prompt box is
+    determined?</p>
+
+    <p class="question">7. The <em>if</em> statement in line 34 has
+    a compound condition that uses the <em>or</em> operator. (See
+    pages 296-301 of your text for more information on JavaScript
+    logical operators.) Try giving <em>yes</em> as a response in
+    the prompt window, then reload the page and try <em>Yes</em>,
+    then try <em>YES.</em> What happens?</p>
+
+    <p class="question">8. Edit the page, changing || to &amp;&amp;
+    on line 34. Then try <em>yes</em> and <em>Yes</em> as responses
+    again. What happens? Why would using &amp;&amp; in this way be
+    considered a logic error in a program?</p>
+
+    <p>All window.prompt input gets stored as a <em>string</em>. To
+    use the input as a number, you must first convert the string to
+    a number using one of the <em>global functions</em> from p. 341
+    of your text. Line 44 uses the <em>parseInt</em> function to
+    convert the user's input to an integer, and <em>assign</em> the
+    resulting value to a new variable "answer2Value". (Note: Do not
+    confuse the <em>assignment</em> operator <strong>=</strong> and
+    the <em>equality</em> operator <strong>==</strong>. See p. 301
+    for a list of JavaScript operators.)</p>
+
+    <p class="question">9. Look at the output of the
+    document.writeln statement on lines 45-46, What is the value
+    returned by <em>parseInt</em> if the user input was not a valid
+    number? What happens in the if statement on line 49 when
+    <em>answer2Value</em> is not a valid integer? Try different
+    operators (&lt;, &gt;, &lt;=, &gt;=, !=) and see what the
+    results are to help you figure out the answer.</p>
+
+    <h4><a href="javascript4.html" target=
+    "_blank">javascript4.html</a> (nesting)</h4>
+
+    <p class="question">10. You can <em>nest</em> one if/else
+    structure inside another one, as shown in javascript4.html.
+    Change the values of <em>firstNumber</em> and
+    <em>secondNumber</em> in lines 25 and 26 and rerun the script
+    until you find values that get each of the three statements
+    (Statement 1, 2, 3) to print. List the pairs of values you
+    tried, and which statement printed for each of them.</p>
+
+    <p class="question">11. The <em>if</em> statement on line 49 of
+    <strong>javascript3.html</strong> does not check for invalid
+    input. As you discovered in Question 9, odd things happen when
+    you expect a variable to be a valid number and it is not. Edit
+    javascript3.html so that it first checks to see whether the
+    input can be interpreted as an integer, and only does the
+    comparison in line 49 when it has an integer to work with. If
+    the input can not be interpreted as an integer, print out an
+    error message in the body of the web page instead. Use a nested
+    <em>if</em> or <em>if/else</em> structure to accomplish
+    this.</p>
+
+    <h4><a href="javascript5.html" target=
+    "_blank">javascript5.html</a> (switch)</h4>
+
+    <p>The switch structure selects one <em>action block</em> to
+    execute from among several possible <em>cases</em>, depending
+    on the value of a test expression or variable. It can also
+    include a <em>default</em> action block that will be executed
+    if none of the cases are matched.</p>
+
+    <p class="question">12. Notice that the document.writeln
+    statement in line 57 is <em>commented out</em> so that it is
+    not executed. The line above it demonstrates the
+    <em>escape</em> function. Uncomment line 57 and comment out
+    line 56 to see what the <em>unescape</em> function does. Think
+    back (or look back if necessary) to the way data from XHTML
+    forms was emailed to you using the "mailto" option. How does
+    this relate to the <em>escape</em> and <em>unescape</em>
+    functions?</p>
+
+    <p class="question">13. Now focus on the switch structure in
+    javascript5.html. What happens if the same value is used in two
+    different case statements? Try changing the value for one of
+    the case statements in javascript5.html and see. What do you
+    conclude about how the flow of control is passed through the
+    switch structure?</p>
+
+    <p class="question">14. Now comment out all of the "break"
+    statements in the switch structure and repeat your experiments
+    from Question 13. What happens? What do you conclude about the
+    flow of control in the switch structure, and the function of
+    the "break" statement?</p>
+
+    <p class="question">15. Could you use only <em>if</em>
+    structures to do what this <em>switch</em> structure does (as
+    it was originally written before you modified it)? Why or why
+    not?</p>
+
+    <h3>Repitition Structures</h3>
+
+    <p>Repitition structures loop through a set of statements for a
+    set number of iterations or until a test condition causes the
+    loop to stop. The four repitition structures available in
+    JavaScript are:</p>
+
+    <ul>
+      <li>while</li>
+
+      <li>do/while</li>
+
+      <li>for</li>
+
+      <li>for/in</li>
+    </ul>
+
+    <p>All you <em>really</em> need is <em>while</em>, which tests
+    a condition, then repeatedly executes a block of code as long
+    as the condition evaluates as true. (The <em>test
+    condition</em> is only evaluated at the beginning of each loop,
+    right before the block of code is executed. If the condition is
+    "true" at that point, the whole block of code will be executed
+    before checking the test condition again).</p>
+
+    <p>The <em>do/while</em> structure is exactly like
+    <em>while</em>, except that the block of code gets executed at
+    least once no matter what the value of the test condition
+    is.</p>
+
+    <p>The <em>for</em> structure iterates over a fixed number of
+    repititions, defined by an <em>index variable</em> that gets
+    <em>incremented</em> after each pass through the loop until a
+    <em>test condition</em> is met and you exit from the loop.</p>
+
+    <p>The <em>for/in</em> structure does basically the same thing
+    as <em>for</em>, but it iterates over a fixed set of possible
+    values for the index variable. (Technically, it iterates over
+    all the <em>properties</em> of an <em>object</em> - but more
+    about those terms later.) For/in loops are handy for working
+    with <em>arrays</em>.</p>
+
+    <h4><a href="javascript6.html" target=
+    "_blank">javascript6.html</a> (repitition structures)</h4>
+
+    <p>The file javascript6.html prints the numbers 1-10 in reverse
+    order. This loop is implemented in each of the four JavaScript
+    repitition structures.</p>
+
+    <p class="question">16. Which structure seems the most natural
+    one to use for this task? Why?</p>
+
+    <h4><a href="javascript7.html" target=
+    "_blank">javascript7.html</a> (while loops to check for valid
+    user input)</h4>
+
+    <p>The file javascript7.html demonstrates the use of a
+    <em>while</em> loop to validate user input, and also
+    demonstrates some alternative ways of incrementing and
+    decrementing index variables in three of the loops from
+    javascript6.html.</p>
+
+    <p class="question">17. Enter the number 10 and observe the
+    output of the script. Then reload and enter the number 3 and
+    observe the output. Which of the three loops has a logic error
+    in it? Make a copy of the file and fix this logic error. Do so
+    before going on to the next question.</p>
+
+    <p class="question">18. Try entering different values and
+    strings in the window prompt to see whether it successfully
+    keeps you from entering invalid data. Did you find anything to
+    enter that would "crash" the program somehow? If so, what was
+    it and why did the error checking in the while loop fail to
+    catch it? Fix the script so that no invalid data gets
+    through.</p>
+
+    <p class="question">19. Edit <strong>javascript5.html</strong>
+    so that the script tests for invalid input from the user and
+    makes the user keep re-entering their responses until both the
+    subject number and condition are valid responses. Think about
+    whether you would rather validate and re-prompt for subject
+    number and condition one at a time, or only after both have
+    been entered.</p>
+
+    <h2>Arrays</h2>
+
+    <p>An array is an object that holds a collection of numbers,
+    strings, or other data items. Each element of an array has a
+    <em>subscript</em> that can be used to refer to it.
+    Confusingly, the subscripts start at zero for the first element
+    (rather than one). An array is generally created using the
+    <em>new</em> operator, although there are other ways to create
+    arrays also. Arrays in JavaScript are <em>dynamic</em>, meaning
+    that you can add more elements to them after you have created
+    them, allowing them to grow as needed. Take a look at the
+    following file for some examples of using arrays:</p>
+
+    <h4><a href="javascript8.html" target=
+    "_blank">javascript8.html</a> (arrays)</h4>
+
+    <p>Edit the file and answer the following questions. Look for
+    the phrase <em>HOMEWORK QUESTIONS</em> in the comments in
+    javascript8.html to find where you should make your
+    changes.</p>
+
+    <p class="question">20. Add an array element to <em>array3</em>
+    as instructed in the comments in the document source. There are
+    two elements you are told to add; refresh the page in the
+    browser after adding each one. Describe what happens to the
+    table.</p>
+
+    <p class="question">21. After adding the two array elements as
+    instructed, change the <em>for/in</em> loop to a <em>for</em>
+    loop and look at the table again. What value do array elements
+    have when you have not yet initialized them?</p>
+
+    <h4><a href="javascript9.html" target=
+    "_blank">javascript9.html</a> (sorting arrays)</h4>
+
+    <p>The file javascript9.html demonstrates a method for sorting
+    arrays numerically. It also demonstrates the difference between
+    <em>passing by reference</em> and <em>passing by value</em>.
+    Arrays in JavaScript are passed by reference, but array
+    elements are passed by value. Look at the source of the script
+    and the output in the web page.</p>
+
+    <p class="question">22. What unexpected result occurred in the
+    script due to arrays being passed by reference? How did it
+    happen?</p>
+
+    <h4><a href="javascript10.html" target=
+    "_blank">javascript10.html</a> (randomizing)</h4>
+
+    <p>The following statement will assign a random number between
+    0 and 1 to the variable randnum:</p>
+
+    <ul>
+      <li>randnum = Math.random();</li>
+    </ul>
+
+    <p>The file javascript10.html uses the Math.random function to
+    randomize the order of the elements of an array. Every time you
+    reload the file in your browser, you should get a different
+    random ordering of the array. You can use this file to help you
+    create the following web pages:</p>
+
+    <p class="question">23. Randomly choose two words from a list
+    of 10 and display them in the browser window. A new random
+    selection should be made each time the page is reloaded.</p>
+
+    <p class="question">24. Prompt the user asking how many random
+    numbers they want, then display the integers from 1 to that
+    number in random order.</p>
+    <!--Indicates this page validated as XHTML 1.0  -->
+
+    <p><a href="http://validator.w3.org/check/referer"><img src=
+    "/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width=
+    "88" /></a></p>
+  </body>
+</html>
+

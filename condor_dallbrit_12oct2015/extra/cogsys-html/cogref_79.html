@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: Why CXR</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: Why CXR">
+<META NAME="keywords" CONTENT="Cogsys: Why CXR">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC87"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_78.html#SEC86"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_80.html#SEC88"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_76.html#SEC84"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_77.html#SEC85"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.1.2 Why would you need a CXR? </H3>
+<!--docid::SEC87::-->
+<P>
+
+This question is best answered with a story.
+</P><P>
+
+Cogsys is a system for displaying stimuli and recording responses.  It
+is easy to design general routines which can load and display pictures or
+text. The user is responsible for creating all the pictures he needs
+beforehand, and Cogsys displays those pictures.  So far, so good--this
+static picture system was (and still is) used successfully for years.
+</P><P>
+
+One day, however, a particular experiment called for a series of
+random dot pictures. Each time the experiment was run, different
+pictures needed to be used. With the static picture system, this meant
+thousands of pictures needed to be generated before each set of
+experiments. Worse, each of these images was only shown once, for a
+split second, and then never used again. Clearly, this is a very
+wasteful and tedious setup.
+</P><P>
+
+The obvious answer was to add new commands to Cogsys that tell it to
+generate the images in memory just before it actually showed them, and
+then erase them from memory after they were displayed. There was nothing
+wrong with this approach, and in fact in the past whenever new
+functionality was needed, it was always added as a new command.
+</P><P>
+
+However, three issues stood in the way of the "just add another command"
+solution. One, Cogsys was getting very big and bulky. Over time, the
+number of "just added" commands had ballooned into a big mess. Because
+Cogsys must run in DOS real mode, it has to keep itself under the
+infamous 640 kilobyte conventional memory limit: there just wasn't room for more
+code in the main program. Second, these commands were only going to be
+used for a small set of experiments. Adding so much code to the main
+program for such limited use would have been very wasteful. Finally, and
+most importantly, the random dot commands needed lots of variations. If
+the random dot commands were part of the main Cogsys, every time a small
+change was made in the picture generating routine, a whole new Cogsys would have to
+be built and deployed.
+</P><P>
+
+Extension routines neatly solve all these problems. By separating 
+the development of the random dot routine from the main program,
+the picture generator could be tinkered with as much as necessary without
+touching Cogsys at all. Only the extensions would have to be updated
+on the client systems.
+</P><P>
+
+This approach was used successfully in the final versions of Cogsys 2.9.
+Cogsys 3.0 cleaned up the syntax and made loading and using CXRs an
+integral part of the system.
+</P><P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_78.html#SEC86"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_80.html#SEC88"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_76.html#SEC84"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_77.html#SEC85"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_84.html#SEC92"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml" >
+
+  <head>
+    <meta name="generator" content=
+    "HTML Tidy for Linux/x86 (vers 1st March 2002), see www.w3.org" />
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+
+    <title>Psy 422 - Week 3</title>
+    <link rel="stylesheet" type="text/css" href=
+    "psy422-styles.css" />
+    <meta name="generator" content=
+    "amaya 5.3, see http://www.w3.org/Amaya/" />
+  </head>
+
+  <body>
+    <h1 style="text-align: center">Psy 422 Week 3 - XHTML
+    (cont.)</h1>
+
+    <p style="text-align: center">Style Sheets, Frames, Image Maps,
+    and Tables</p>
+
+    <h2>Cascading Style Sheets</h2>
+
+    <p>Because XHTML (unlike HTML) enforces the distinction between
+    content (tags) and format (styles), XHTML documents must use
+    <em>style sheets</em> rather than formatting tags (&lt;i&gt;,
+    &lt;center&gt; etc) to determine how page elements are
+    displayed. There are three ways to add a style to an XHTML
+    element. You can find examples of all 3 in the web pages I have
+    created for this course. Follow the links in the list below to
+    see an example of each. I suggest you right click on each and
+    open it in a new browser window, so that you can easily switch
+    back to this window after following the instructions in each
+    file.</p>
+
+    <ol>
+      <li><a href="styles1-inline.html">Inline Styles</a></li>
+
+      <li><a href="styles2-embedded.html">Embedded Style Sheets</a>
+      declared in the &lt;head&gt; element</li>
+
+      <li><a href="styles3-external.html">External Cascading Style
+      Sheets</a> declared in a separate document (a .css file)</li>
+    </ol>
+
+    <h2>Frames</h2>
+
+    <p>Frames are used to divide the browser window into 2 or more
+    parts (frames) and display a different html file in each frame.
+    A web page that uses frames must have one html file for each of
+    the frames, plus a special html file called the
+    <em>frameset</em> that defines the frames. There is a special
+    document type definition (DTD) heading that must be used for
+    frameset files (see <a href=
+    "xhtml1-template-frameset.html">xhtml1-template-frameset.html</a>
+    for a template). Only the frameset file gets this DTD; the html
+    files for each of the individual frames should be <a href=
+    "xhtml1-template-strict.html">strict</a> or <a href=
+    "xhtml1-template-transitional.html">transitional</a> XHTML
+    documents.</p>
+
+    <p>The following examples will get you started with frames.
+    Each will open in a new browser window.</p>
+
+    <ul>
+      <li><a href="frames1.html" target="_blank">frames1.html</a> -
+      A very simple example of using frames</li>
+
+      <li>
+        The individual files that make it work: 
+
+        <ul>
+          <li><a href="frames1.html" target=
+          "_blank">frames1.html</a> is the frameset - view the
+          source.</li>
+
+          <li><a href="frames1-top.html" target=
+          "_blank">frames1-top.html</a> is the top frame - view its
+          source.</li>
+
+          <li><a href="frames1-bottom.html" target=
+          "_blank">frames1-bottom.html</a> is the bottom frame -
+          view its source.</li>
+        </ul>
+      </li>
+
+      <li><a href="frames2.html" target="_blank">frames2.html</a> -
+      a frameset within a frameset. Answer the questions you find
+      in the top frame. You may need to view the source of the
+      individual frames to do so.</li>
+
+      <li><a href="http://sheu-hp.psy.depaul.edu/index.html"
+      target="_blank">http://sheu-hp.psy.depaul.edu/index.html</a>
+      now uses frames. View the source and play around with it in
+      your browser if you want to get more ideas about how to use
+      frames.</li>
+
+      <li class="question">11. Create your own page using frames.
+      Call it "myframes.html" and include a link to that page on
+      your home page on the course server. (Note: Your home page is
+      http://sheu-hp.psy.depaul.edu/~username/index.html, where
+      <em>username</em> is your own user name). You may make it as
+      simple or fancy as you like, and you may use my web pages as
+      templates. (Or you can use the templates linked in the first
+      paragraph of this section to get started.)</li>
+    </ul>
+
+    <h2>Images and Image Maps</h2>
+
+    <p>Images can be included in a document with the &lt;img&gt;
+    tag. Take a look at the source for the file <a href=
+    "fritzi.html">fritzi.html</a> to see a simple example.</p>
+
+    <p>A more complicated use for images in a web page is an
+    <em>image map</em>. Follow the link to the file <a href=
+    "image-map1.html" target="_blank">image-map1.html</a> and
+    explore both the rendered page in the browser and the document
+    source to help you answer the following questions.</p>
+
+    <p class="question">12. What happens when you position the
+    cursor over a "hotspot" in an image map in the browser window?
+    What in the document source determines what is displayed when
+    you position the cursor over a hotspot?</p>
+
+    <p class="question">13. Which dog has a circular hotspot?
+    Rectangular? trapezoidal? Which of these hotspots have a
+    hyperlink to another XHTML file?</p>
+
+    <h2>Tables</h2>
+
+    <p>Tables format information in rows and columns. Although they
+    are easier to create in graphical editors than by hand, knowing
+    how to code a table in XHTML is important when using scripts to
+    create dynamic web content. Tables are often used to display
+    information retrieved from a database, for example. To generate
+    a table dynamically, you'll need to know the tags for tables to
+    include in your scripts.</p>
+
+    <p>Now that you are properly motivated, take a look at the page
+    <a href="tables1.html">tables1.html</a> which contains an
+    example of a table, and answer the questions in that file.</p>
+
+
+    <hr />
+
+    <p class="question">16. PROJECT:  Briefly describe your project 
+      you propose to do for the course.  Be sure to make it clear
+      what you want to accomplish (what it should do).  Then 
+      create an outline showing the sub-goals you will need to
+      accomplish to do the project.  Then identify the tools you will
+      need for each subgoal (web page, forms, accessing a database, etc)
+      as best you can.  If you are not sure what tool you need, state
+      what you need it to do and ask for suggestions.  Put an asterisk
+      next to any tools you already know how to use/develop.  Then 
+      sketch a timeline for completing the subgoals.
+    </p>
+
+
+    <!--Indicates this page validated as XHTML 1.0  -->
+
+    <p><a href="http://validator.w3.org/check/referer"><img src=
+    "/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width=
+    "88" /></a></p>
+  </body>
+</html>
+

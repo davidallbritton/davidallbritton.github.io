@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml">
+
+<!-- This document demonstrates some uses of HTML Forms to  -->
+<!-- get responses from users.                               -->
+<!-- It uses a perl cgi program to save the data to a comma separated
+     value (.csv) file on the server. -->
+<!-- by David Allbritton -->
+
+  <head>
+    <title>Using Forms - an Introduction</title>
+  </head>
+
+  <body>
+        
+    <h1>Introduction to XHTML Forms</h1>
+                
+<!-- change the following line to use your own script -->
+    <form action = "/cgi-bin/save-form-data-as-csv.cgi" method = "post">
+<!--  be sure to change "orval" to your user name:
+    <form action = "/cgi-bin/~orval/save-form-data-as-csv.cgi" method = "post">
+-->
+                  
+      <p>
+         <input type="hidden" name="author" value="David Allbritton" />
+         <label>What is your name?
+             <input type = "text" name = "yourName" />
+         </label>
+      </p>
+                        
+      <p><label>What is your quest?
+            <input type = "text" name = "quest" />
+         </label>
+      </p>
+                        
+      <p><label>What is your favorite colour?
+         <input type = "text" name = "FavoriteColor" 
+           size = "15" maxlength = "13"/>
+         </label>
+      </p>
+                        
+      <p>
+         <label>What is the air-speed velocity of an unladen swallow?
+            <select name = "airSpeed">
+               <option selected = "selected">I don't know</option>
+               <option>5 mph</option>
+               <option>10 mph</option>
+               <option>15 mph</option>
+               <option>20 mph</option>
+               <option>African or European?</option>
+            </select>
+         </label>
+      </p>
+                        
+      <p>What is the number of the counting which thou shalt count?<br />
+                       
+         <label>One
+            <input name = "counting1" type = "checkbox" value = "one" />
+         </label>                
+                                
+         <label>Two
+            <input name = "counting2" type = "checkbox" value = "two" />
+         </label>                
+                                
+         <label>Three
+            <input name = "counting3" type = "checkbox" value = "three" />
+         </label>                
+                                
+         <label>Four
+            <input name = "counting4" type = "checkbox" value = "four" />
+         </label>
+                                
+         <label>Five
+            <input name = "counting5" type = "checkbox" value = "right out" />
+         </label>
+      </p>
+                        
+      <p>
+         <input type = "submit" value = "Submit Answers" />
+      </p>
+                        
+    </form>
+                
+<!--Indicates this page validated as XHTML 1.0 Strict -->
+    <p>
+       <a href="http://validator.w3.org/check/referer"><img
+          src="/valid-xhtml10.png"
+          alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+    </p>
+
+                
+  </body>
+</html>

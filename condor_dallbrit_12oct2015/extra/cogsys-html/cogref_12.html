@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: The cogsys program</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: The cogsys program">
+<META NAME="keywords" CONTENT="Cogsys: The cogsys program">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC20"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_11.html#SEC19"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_13.html#SEC21"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_3.html#SEC11"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_11.html#SEC19"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_16.html#SEC24"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 1.3.1 The <CODE>cogsys</CODE> program </H3>
+<!--docid::SEC20::-->
+<P>
+
+This is a simplified syntax of the Cogsys program:
+</P><P>
+
+<CODE>cogsys [ testlist [outfile]]</CODE>
+</P><P>
+
+Cogsys needs to know four important things whenever it starts up:
+<OL>
+<LI>
+Where to read its testlist (testlist name)
+<LI>
+What to call its testlist (testlist label)
+<LI>
+Where to write its outfile (outfile name)
+<LI>
+What to call its outfile (outfile label)
+</OL>
+<P>
+
+At the top of the outfile, before any data is written, Cogsys will write
+the testlist label and outfile label. These labels may be simply the
+name of the file, but they need not be. In a networked installation,
+labels are important to distinguish the real, data-host names of the
+file from the local client names.
+</P><P>
+
+Without any arguments at all, Cogsys will use <TT>`COGSYS.IN'</TT> for the
+input file and <TT>`COGSYS.OUT'</TT> for the output file. Normally, these
+same names will be used for the testlist label and outfile label,
+respectively.  See <A HREF="cogref_18.html#SEC26">Invoking Cogsys</A>, for exceptions.
+</P><P>
+
+A single argument specifies a testlist other than <TT>`COGSYS.IN'</TT> In
+this case, the outfile is written to <TT>`COGSYS.OUT'</TT>.  It is written
+to the current directory, that is, the directory from which Cogsys was
+run, <EM>not</EM> the directory where the testlist is located.  This was
+how the sample testlist was run above.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>C:\COGSYS&#62; cogsys sample\hello.in
+</pre></td></tr></table></P><P>
+
+Two arguments specify both a testlist and an outfile.  Here, the outfile
+is written to wherever the user specifies.  If Cogsys cannot open the
+file, it will give a runtime error.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>C:\COGSYS&#62; cogsys sample\hello.in data\hello.out
+</pre></td></tr></table></P><P>
+
+In all of these cases, the labels used in the outfile are simply
+the actual names of the testlist and outfile used.
+</P><P>
+
+For more details on how to specify labels and an explanation of other
+command line options, see <A HREF="cogref_18.html#SEC26">Invoking Cogsys</A>.
+</P><P>
+
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_11.html#SEC19"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_13.html#SEC21"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_3.html#SEC11"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_11.html#SEC19"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_16.html#SEC24"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>

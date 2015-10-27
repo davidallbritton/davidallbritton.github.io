@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Psy 422 - Week 6</title>
+  <link rel="stylesheet" type="text/css" href="psy422-styles.css" />
+  <meta name="generator" content="amaya 5.3, see http://www.w3.org/Amaya/" />
+</head>
+
+<body>
+<h1 style="text-align: center">Psy 422 Week 6 - Databases and CGI</h1>
+
+<p>This week and next we introduce some tools that you may need for your project.
+   Our introduction to each of these topics will necessarily be brief and
+   incomplete.  If you need to make more extensive use of any of these 
+   methods for your project, you will need to consult other sources for 
+   more complete information.  Start with the links on the "Resources" page
+   on the course server.</p>
+
+<p>
+  When you collect information via web pages, you will need to store that
+  information somehow.  The FormMail program gave you one option for collecting
+  data (although not a very good one) by <em>emailing</em> it to yourself.
+    Another option is to use a CGI program
+  to store the data in a <em>text file</em> on the server.  Finally, we could
+  store the data
+  in a <em>database</em> on the server, using either a CGI program or an embedded 
+  scripting tool like PHP to access the database.  </p>
+  
+<p>Here is the plan for this week:</p>
+
+<ul>
+
+   <li>Password-protecting web pages</li>
+   <li>Using Perl to save data to a file</li>
+   <li>Using a Mysql database</li>
+   <li>Using PHP to retrieve information from a Mysql database via a web page</li>
+
+</ul>
+
+<p>Next week we will try to fill in some of the puzzle further by looking at:</p>
+
+<ul>
+   <li>Saving form data in a database using PHP</li>
+   <li>Saving form data in a database using Perl</li>
+</ul>
+
+<hr />
+
+<h3>Password-protecting web pages</h3>
+
+<p>Read this 
+   <a href = "\psy422\password-protecting-web-pages.html" target="_blank">
+   brief guide to using passwords for web pages</a>.<br />
+   <span class="question">1. Then create a web page that requires the username 
+   <em>guest</em> and the password <em>welcome</em> to access.  Link
+   the password-protected page from your home page so that I can take 
+   a look at it.</span></p>
+
+<h3>Using Perl to save data to a file</h3>
+
+<p>Perl is a powerful programming/scripting language for text manipulation,
+   and therefore is frequently used for server-side scripting, such as 
+   processing data from XHTML forms.  We will delve more deeply into Perl 
+   later, but for now we will look at one example of using a Perl CGI script
+   to save form data.</p>
+   
+<p>CGI stands for <em>Common Gateway Interface</em>, and it is a way for 
+   programs (such as Perl scripts) to interact with web pages.  When a Perl
+   script (for example) is used through the CGI, 
+   the data posted from a web form is directed to the <em>standard input</em>
+   of the script, and the script's <em>standard output</em> is directed to 
+   the web browser.  </p>
+   
+<p>The XHTML page 
+   <a href = "http://sheu-hp.psy.depaul.edu/psy422/perl-cgi-forms1.html" target="_blank">
+   http://sheu-hp.psy.depaul.edu/psy422/perl-cgi-forms1.html</a>
+   uses the perl program
+   <a href = "http://sheu-hp.psy.depaul.edu/cgi-bin/save-form-data-as-csv.cgi"
+    target="_blank">
+   http://sheu-hp.psy.depaul.edu/cgi-bin/save-form-data-as-csv.cgi</a>
+   to write the form data to a text file as  <em>comma-separated values</em>
+   that can be imported by Excel.  The file where the data are written is
+   <em>/tmp/surveydata.csv</em>.  </p>
+   
+<p class = "question">2.  Copy the above XHTML and CGI files to your own 
+   <em>public_html</em>
+   and <em>cgi-bin</em> directories.  Then edit them to save form data 
+   in a file in your
+   <em>cgi-files</em> directory.  Tell me the name of the file so that
+   I can take a look at it, and describe it.</p>
+
+<h3>Using a Mysql database</h3>
+
+<p>A <strong>database</strong> is a system for storing information in a way 
+   that makes it possible to retrieve, search, and manipulate the data easily.
+   A database is composed of <em>tables</em>, each of which contains one
+   <em>record</em> on each row, and a variable number of <em>fields</em>
+   within each record.  Each field can contain a different type of data, 
+   such as a date, a number, a string, a text, or even soundfiles or images.
+   </p>
+
+<p><strong>SQL</strong> (Structured Query Language) is the standard language
+   for most databases, including Microsoft Access, Oracale, and the open-source
+   database system we will be using, Mysql.  This means that once you learn to
+   use one of these databases, you can probably learn to use all the others
+   much more easily.  We will practice using SQL commands to create, 
+   access, and modify tables in a database.</p>
+
+<p>Mysql has its own system of user accounts and passwords for accessing
+   its databases.  Only the <em>root</em> account can create new databases
+   or new user accounts.  I have created a database for each student in the
+   class (identified by your user name) for you to create tables in.  There
+   is also a database called <em>test</em> that anyone can read and write
+   to.  It is a good place to try things out when you are first getting 
+   started.  I have created a few tables in the "test" database as examples
+   to get us started.</p>
+   
+<p>Work through the commands listed in
+   <a href = "/mysql-notes.html" target="_blank">mysql-notes.html</a>
+   to practice using Mysql from the command line (in a telnet window).<br />
+   <span class = "question">
+      3.  Then create a table in your own database and place some data in it.
+      Tell me the name of your table so that I can take a look at it, 
+      and describe it.
+   </span>
+</p>
+   
+<h3>Using PHP to retrieve information from a Mysql database via a web page</h3>
+<p>Many web pages dynamically provide content in response to user requests
+   by using databases.  A typical scheme would be to use an XHTML form to 
+   take the user's request for data, then construct a SQL query to get 
+   information from a database and display that information in a web page.
+   One option for doing this is a Perl CGI script.  Another is PHP - a scripting
+   language that is embedded within an XHTML document rather than using
+   separate CGI programs.</p>
+
+<p>The first step in using PHP for such purposes is to be able to 
+   use PHP within a web page to make SQL queries of a Mysql database.
+   Take a look at this
+   <a href = "/psy422/php/database-access.php" target="_blank">Example</a> 
+   of using PHP to access a Mysql database on the course server
+   (including looking at the source code on the server).  Note that
+   the file name of the web page ends in <em>.php</em> rather than 
+   <em>.html</em>.  This is how the server knows to use the PHP engine
+   to execute the embedded PHP scripts.  </p>
+   
+<p>PHP scripts are executed by the server
+   and the results inserted into the web page
+   <em>before</em> the XHTML is sent to the browser.  As a result, you 
+   can not use "view source" in your browser to see the PHP code.  You
+   must telnet into the server and look at the ".php" file directly, rather
+   than through a browser.  </p>
+   
+<p class = "question">4.  Copy the above .php file to your public_html 
+   directory, and edit is so that it displays data from the table you 
+   created in your Mysql database.  Link it from your home page so
+   that I can take a look at it, and describe what it does.</p>
+
+
+<!--Indicates this page validated as XHTML 1.0  -->
+
+<p><a href="http://validator.w3.org/check/referer"><img
+src="/valid-xhtml10.png" alt="Valid XHTML 1.0!" height="31" width="88"
+/></a></p>
+</body>
+</html>

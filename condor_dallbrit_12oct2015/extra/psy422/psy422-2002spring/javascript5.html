@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml" >
+
+  <head>
+    <meta name="generator" content=
+    "HTML Tidy for Linux/x86 (vers 1st March 2002), see www.w3.org" />
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+
+    <title>javascript5.html</title>
+		
+<script type = "text/javascript">
+<!--
+document.writeln("<h1>The <em>switch</em> Structure in JavaScript</h1>");
+
+// Declaring  variables:
+var sn, subjectNumber, condition;
+
+// assigning a value to the variable "subjectNumber" from user input
+// first record the response in the variable "sn":
+sn = window.prompt("Subject Number (1-99)", "");  
+// then convert the input to an integer and store in the variable "subjectNumber"
+subjectNumber = parseInt (sn);  
+
+document.writeln ("<p>The subject number is " + subjectNumber + ". </p>");
+
+// assigning a value to the variable "condition" from user input
+// Notice how taking the response and converting to an integer are
+//   both accomplished in a single statement this time:
+condition = parseInt(window.prompt("Condition (1-4)", ""));  
+
+// This is a switch structure.
+// It selects one from among several actions based on the value of
+//   the variable "condition".
+switch (condition) {       
+   case 1:    // executes the following action block if condition == 1
+      document.writeln ("<p>Presenting stimuli for condition 1...</p>");
+      break;  // signals the end of the action block for case 1
+   case 2:
+      document.writeln ("<p>Presenting stimuli for condition 2...</p>");
+      break;
+   case 3:
+      document.writeln ("<p>Presenting stimuli for condition 3...</p>");
+      break;
+   case 4:
+      document.writeln ("<p>Presenting stimuli for condition 4...</p>");
+      break;
+   case 5:  case 6:  // one action for either of these 2 values:
+      document.writeln ("<p>Condition numbers only go up to 4.  Try again.</p>");
+      break;
+   default:  {  // executed without testing the value of condition
+      document.write ("<p><strong>");
+      document.write (escape("That is not a valid condition number!!"));
+//      document.write (unescape( escape ("That is not a valid condition number!!")));
+      document.writeln ("</strong></p>");
+   }  // end of "default" block
+}     // end of switch structure
+
+
+document.writeln ("</p><hr />");
+document.writeln ("<p>Click \"refresh\" or \"reload\" to start this page over.</p>");
+// -->
+</script>
+		
+  </head>
+
+  <body></body>
+	
+</html>
+

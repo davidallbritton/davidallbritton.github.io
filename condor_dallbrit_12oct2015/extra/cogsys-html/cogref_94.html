@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on June, 28  2000 by texi2html 1.62 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HTML>
+<HEAD>
+<TITLE>Cogsys: CIRCEXT</TITLE>
+
+<META NAME="description" CONTENT="Cogsys: CIRCEXT">
+<META NAME="keywords" CONTENT="Cogsys: CIRCEXT">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.62">
+
+</HEAD>
+
+<BODY LANG="EN" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC102"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_93.html#SEC101"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_95.html#SEC103"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_92.html#SEC100"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_90.html#SEC98"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_96.html#SEC104"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_114.html#SEC122">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="cogref_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.3 <CODE>CIRCEXT</CODE> </H3>
+<!--docid::SEC102::-->
+<P>
+
+Syntax:
+<CODE>CIRCEXT</CODE> <VAR>radius</VAR>
+</P><P>
+
+The circle extension, <CODE>CIRCEXT</CODE> is even simpler to use than
+<CODE>SQUAREXT</CODE>, since it takes only one argument, the radius, and has
+no position parameters (what makes it more complicated than
+<CODE>SQUAREXT</CODE> is it's implementation, see section <A HREF="cogref_95.html#SEC103">CIRCEXT Implementation</A>). <CODE>CIRCEXT</CODE> simply draws a white circle centered on
+a black background.
+</P><P>
+
+In the complete testlist below, each <CODE>%I</CODE> command creates a
+circle with a different radius.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td><pre>%X[circext.cxr]
+%M2%C2
+%I[1,10]
+%I[1,20]
+%I[1,30]
+%I[1,50]
+#B[1,20]#R
+#B[2,20]#R
+#B[3,20]#R
+#B[4,20]#R
+</pre></td></tr></table></P><P>
+
+The following pictures are created:
+</P><P>
+
+<TABLE>
+<TR><TD><CENTER><IMG SRC="images/circ00.jpg" ALT="images/circ00"></CENTER></TD>
+</TD><TD> <CENTER><IMG SRC="images/circ01.jpg" ALT="images/circ01"></CENTER>
+</TR>
+<TR><TD><CENTER><IMG SRC="images/circ02.jpg" ALT="images/circ02"></CENTER></TD>
+</TD><TD> <CENTER><IMG SRC="images/circ03.jpg" ALT="images/circ03"></CENTER>
+</TR></TABLE>
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="cogref_95.html#SEC103"><CODE>CIRCEXT</CODE> Implementation</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<HR SIZE=1>
+<BR>  
+<FONT SIZE="-1">
+This document was generated
+by <I>Usman Muzaffar</I> on <I>June, 28  2000</I>
+using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
+"><I>texi2html</I></A>
+
+</BODY>
+</HTML>
